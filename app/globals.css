@@ -7835,6 +7835,15 @@ body::before {
   font-size: 1.05rem;
 }
 
+.enterprise-hero-note {
+  max-width: 30rem;
+  margin: 0.35rem 0 0;
+  color: #d6e3ef;
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
 .enterprise-actions {
   display: flex;
   flex-wrap: wrap;
@@ -7895,16 +7904,16 @@ body::before {
 
 .hero-portrait-focus {
   position: absolute;
-  top: 10.8rem;
-  right: 10.6rem;
-  width: 12rem;
-  height: 17.6rem;
+  top: 9.6rem;
+  right: 9.6rem;
+  width: 14rem;
+  height: 19rem;
   border-radius: 28px;
   background:
-    radial-gradient(circle at center, rgba(59, 130, 246, 0.22), rgba(59, 130, 246, 0)),
-    radial-gradient(circle at center, rgba(34, 197, 94, 0.14), rgba(34, 197, 94, 0));
-  filter: blur(10px);
-  opacity: 0.88;
+    radial-gradient(circle at center, rgba(59, 130, 246, 0.28), rgba(59, 130, 246, 0)),
+    radial-gradient(circle at center, rgba(34, 197, 94, 0.2), rgba(34, 197, 94, 0));
+  filter: blur(12px);
+  opacity: 0.96;
 }
 
 .hero-portrait-marquee {
@@ -7916,14 +7925,14 @@ body::before {
 }
 
 .hero-portrait-marquee-back {
-  top: 6.2rem;
-  width: 30rem;
-  opacity: 0.72;
+  top: 5.9rem;
+  width: 31rem;
+  opacity: 0.78;
 }
 
 .hero-portrait-marquee-front {
-  top: 18rem;
-  width: 32rem;
+  top: 16.1rem;
+  width: 34rem;
   z-index: 2;
 }
 
@@ -7938,13 +7947,13 @@ body::before {
 }
 
 .hero-portrait-marquee-front .hero-portrait-track {
-  animation: marqueeLeft 14s linear infinite;
+  animation: marqueeLeft 15s linear infinite;
 }
 
 .hero-portrait-card {
   position: relative;
-  width: 10rem;
-  height: 12rem;
+  width: 11.2rem;
+  height: 13.8rem;
   flex: 0 0 auto;
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 22px;
@@ -7985,23 +7994,23 @@ body::before {
   bottom: 0.85rem;
   z-index: 1;
   color: #ffffff;
-  font-size: 0.82rem;
+  font-size: 0.86rem;
   font-weight: 700;
   letter-spacing: 0.04em;
   text-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
 }
 
 .hero-portrait-card-prominent {
-  transform: scale(1.05);
+  transform: scale(1.08);
   opacity: 1;
   box-shadow:
-    0 28px 60px rgba(0, 0, 0, 0.28),
-    0 0 0 1px rgba(59, 130, 246, 0.18);
+    0 34px 72px rgba(0, 0, 0, 0.32),
+    0 0 0 1px rgba(59, 130, 246, 0.24);
 }
 
 .hero-portrait-card-compact {
-  width: 8.6rem;
-  height: 10.8rem;
+  width: 9.2rem;
+  height: 11.4rem;
   opacity: 0.62;
 }
 
@@ -8010,7 +8019,7 @@ body::before {
   font-size: 18px;
   font-weight: 700;
   letter-spacing: 0.04em;
-  opacity: 0.88;
+  opacity: 0.94;
 }
 
 .hero-data-layer {
@@ -8028,15 +8037,15 @@ body::before {
 }
 
 .hero-data-marquee-back {
-  top: 4.8rem;
-  right: 2rem;
-  width: 24rem;
+  top: 4.3rem;
+  right: 0.8rem;
+  width: 26rem;
 }
 
 .hero-data-marquee-front {
-  right: 1.4rem;
-  bottom: 4rem;
-  width: 22rem;
+  right: 1rem;
+  bottom: 2.8rem;
+  width: 25rem;
 }
 
 .hero-data-track {
@@ -8046,15 +8055,15 @@ body::before {
 }
 
 .hero-data-marquee-back .hero-data-track {
-  animation: marqueeLeft 22s linear infinite;
+  animation: marqueeLeft 24s linear infinite;
 }
 
 .hero-data-marquee-front .hero-data-track {
-  animation: marqueeLeft 28s linear infinite;
+  animation: marqueeLeft 26s linear infinite;
 }
 
 .hero-data-card {
-  min-width: 11rem;
+  min-width: 12.2rem;
   padding: 1rem 1rem 1.05rem;
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 22px;
@@ -8338,8 +8347,8 @@ body::before {
 
 .hub-ethiopia {
   fill: #22c55e;
-  filter: drop-shadow(0 0 16px rgba(245, 158, 11, 0.45));
-  animation: ethiopiaPulse 3.6s ease-in-out infinite;
+  filter: drop-shadow(0 0 22px rgba(245, 158, 11, 0.56));
+  animation: ethiopiaPulse 3.2s ease-in-out infinite;
 }
 
 .signal-line {
@@ -8549,7 +8558,7 @@ body::before {
 }
 
 .enterprise-people-card-lead .enterprise-people-image {
-  min-height: 31rem;
+  min-height: 33rem;
 }
 
 .enterprise-people-card-compact {
@@ -8571,6 +8580,10 @@ body::before {
   display: grid;
   gap: 0.55rem;
   padding: 1.6rem 1.7rem 1.8rem;
+}
+
+.enterprise-people-copy p {
+  max-width: 32ch;
 }
 
 .enterprise-card-id,

@@ -226,24 +226,24 @@ function HeroMotionVisual() {
           <div className="hero-data-marquee hero-data-marquee-front">
             <div className="hero-data-track">
               <article className="hero-data-card">
-                <small>Workflow security</small>
-                <strong>Secure processing</strong>
-                <span>Controls, audit, approvals</span>
+                <small>Workflow system</small>
+                <strong>Secure workflows</strong>
+                <span>Controls, approvals, automation</span>
               </article>
               <article className="hero-data-card">
-                <small>Platform architecture</small>
-                <strong>Modular systems</strong>
-                <span>Built for phased rollout</span>
+                <small>Analytics dashboard</small>
+                <strong>Live operations</strong>
+                <span>Monitoring across teams and systems</span>
               </article>
               <article className="hero-data-card">
-                <small>Workflow security</small>
-                <strong>Secure processing</strong>
-                <span>Controls, audit, approvals</span>
+                <small>Workflow system</small>
+                <strong>Secure workflows</strong>
+                <span>Controls, approvals, automation</span>
               </article>
               <article className="hero-data-card">
-                <small>Platform architecture</small>
-                <strong>Modular systems</strong>
-                <span>Built for phased rollout</span>
+                <small>Analytics dashboard</small>
+                <strong>Live operations</strong>
+                <span>Monitoring across teams and systems</span>
               </article>
             </div>
           </div>
@@ -361,6 +361,7 @@ export default function Home() {
               Explore Solutions
             </Link>
           </div>
+          <p className="enterprise-hero-note">Designed and built by teams operating across Africa.</p>
         </div>
         <HeroMotionVisual />
       </RevealSection>
