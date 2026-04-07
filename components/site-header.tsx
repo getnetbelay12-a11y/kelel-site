@@ -17,8 +17,16 @@ const primaryLinks = [
 export function SiteHeader() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+  const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
   const isHome = pathname === "/";
+
+  useEffect(() => {
+    const onScroll = () => setIsScrolled(window.scrollY > 16);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   useEffect(() => {
     if (!isHome) {
@@ -64,11 +72,11 @@ export function SiteHeader() {
   );
 
   return (
-    <header className={`site-header${isOpen ? " open" : ""}`}>
+    <header className={`site-header${isOpen ? " open" : ""}${isScrolled ? " scrolled" : ""}`}>
       <Link href="/#home" className="brand-mark" onClick={() => setIsOpen(false)}>
         <LogoMark compact />
         <span className="brand-copy">
-          <span className="brand-kicker">Enterprise Infrastructure</span>
+          <span className="brand-kicker">Enterprise technology</span>
           <strong>{site.name}</strong>
         </span>
       </Link>
@@ -99,17 +107,9 @@ export function SiteHeader() {
       </nav>
 
       <div className="header-actions">
-        <Link
-          href="/contact"
-          className="header-quick-link"
-          onClick={() => setIsOpen(false)}
-        >
-          Get Started
+        <Link href="/#contact" className="header-quick-link" onClick={() => setIsOpen(false)}>
+          Start a Project
         </Link>
-        <div className="header-contact">
-          <a href={`mailto:${site.email}`}>{site.email}</a>
-          <span>{site.phone}</span>
-        </div>
       </div>
     </header>
   );

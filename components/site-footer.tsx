@@ -3,31 +3,36 @@ import Link from "next/link";
 import { site } from "@/lib/site-content";
 
 const footerLinks = [
-  { href: "/", label: "Home" },
-  { href: "/services", label: "Solutions" },
-  { href: "/platforms", label: "Platform" },
-  { href: "/about", label: "Company" },
-  { href: "/contact", label: "Contact" },
+  { href: "/#home", label: "Home" },
+  { href: "/#solutions", label: "Solutions" },
+  { href: "/#platform", label: "Platform" },
+  { href: "/#company", label: "Company" },
+  { href: "/#contact", label: "Contact" },
 ];
 
 export function SiteFooter() {
+  const year = new Date().getFullYear();
+
   return (
     <footer className="site-footer">
       <div className="footer-primary">
         <div className="footer-brand">
-          <LogoMark />
+          <LogoMark compact />
           <div>
             <span className="eyebrow">Kelel IT Solution</span>
-            <strong className="footer-title">{site.tagline}</strong>
+            <strong className="footer-title">Enterprise technology, platforms, and IT services</strong>
             <p className="footer-copy">{site.intro}</p>
           </div>
         </div>
         <div className="footer-actions">
           <Link href="/contact" className="primary-link">
-            Get Started
+            Contact Kelel
           </Link>
-          <Link href="/request-proposal?focus=dashboard&source=footer-architecture-proposal" className="secondary-link">
-            Architecture Proposal
+          <Link
+            href="/request-proposal?focus=business-systems&source=footer-enterprise-proposal"
+            className="secondary-link"
+          >
+            Request Proposal
           </Link>
         </div>
       </div>
@@ -46,7 +51,11 @@ export function SiteFooter() {
         <a href={`mailto:${site.email}`}>{site.email}</a>
         <a href={`tel:${site.phone}`}>{site.phone}</a>
         <span>{site.location}</span>
-        <span>{site.hours}</span>
+      </div>
+      <div className="footer-legal">
+        <span>{year} Kelel IT Solution</span>
+        <span>Kelel IT Solution builds production-grade systems for financial and enterprise operations.</span>
+        <span>Built for advisory, platforms, infrastructure, and digital business growth.</span>
       </div>
     </footer>
   );

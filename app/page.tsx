@@ -1,158 +1,198 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { ContactForm } from "@/components/contact-form";
 import { RevealSection } from "@/components/reveal-section";
-import { site } from "@/lib/site-content";
 
 const solutions = [
   {
-    title: "Banking Systems",
-    description:
-      "Core transaction, reporting, and customer operations infrastructure for financial institutions.",
+    id: "01",
+    title: "Starter System",
+    description: "Internal dashboard or workflow system.",
+    detail: "Entry level: $$$",
   },
   {
-    title: "Insurance Platforms",
-    description:
-      "Policy, claims, and workflow systems built for operational visibility and controlled scale.",
+    id: "02",
+    title: "Business Platform",
+    description: "Full operational platform with API, database, and UI.",
+    detail: "API + database + UI",
   },
   {
-    title: "Logistics & Operations",
-    description:
-      "Tracking, coordination, and internal process infrastructure for distributed enterprise teams.",
+    id: "03",
+    title: "Enterprise System",
+    description: "Full scalable architecture for banking and insurance-grade operations.",
+    detail: "Banking / insurance grade",
   },
 ];
 
-const workflowSteps = [
-  "Assess business needs",
-  "Design system architecture",
-  "Build scalable platform",
-  "Deploy and optimize",
-];
-
-const differentiators = [
-  "Built for Africa",
-  "Production-ready systems",
-  "Secure and scalable",
-  "Fast deployment",
-];
-
-const capabilities = [
+const platformPoints = [
   "API-first architecture",
-  "MongoDB-based backend",
-  "Modular systems",
+  "Scalable backend systems",
   "Secure workflows",
+  "Modular deployment",
+];
+
+const africaFocusPoints = [
+  "Designed for local infrastructure realities",
+  "Adapted to regulatory and operating environments",
+  "Built for regional scale across African operations",
+];
+
+const organizationTypes = [
+  {
+    title: "Banks and financial institutions",
+    description: "Secure systems for reporting, controls, and digital operations.",
+  },
+  {
+    title: "Insurance providers",
+    description: "Platforms for policy flows, claims visibility, and oversight.",
+  },
+  {
+    title: "Logistics and operations companies",
+    description: "Workflow tools that improve coordination and live visibility.",
+  },
+  {
+    title: "Growing enterprises",
+    description: "Modern systems that replace manual work with structured processes.",
+  },
+];
+
+const useCases = [
+  "Digital banking platforms",
+  "Insurance policy systems",
+  "Internal operations dashboards",
+  "Workflow automation systems",
+];
+
+const deliverySteps = [
+  {
+    id: "01",
+    title: "Understand your business requirements",
+    description: "Map priorities, workflows, and operating needs.",
+  },
+  {
+    id: "02",
+    title: "Design system architecture",
+    description: "Define the right platform model and technical structure.",
+  },
+  {
+    id: "03",
+    title: "Build and test platform",
+    description: "Implement, validate, and prepare for production use.",
+  },
+  {
+    id: "04",
+    title: "Deploy and support",
+    description: "Launch with monitoring, support, and continued improvement.",
+  },
 ];
 
 const trustMetrics = [
-  { label: "Uptime target", value: "99.9%" },
-  { label: "Architecture", value: "Scalable" },
-  { label: "Deployments", value: "Secure" },
+  { value: "99.9%", label: "uptime-ready architecture" },
+  { value: "Modular", label: "deployment structure" },
+  { value: "Secure", label: "workflow controls" },
+  { value: "Realtime", label: "reporting visibility" },
 ];
 
-const realWorldSystems = [
-  "Secure architecture",
-  "Scalable backend",
-  "Production-ready deployment",
-  "Enterprise-grade design",
-];
+const africanSystemFocus = ["Banking", "Insurance", "Logistics"];
 
-const platformExamples = [
-  "Dashboard systems",
-  "Workflow automation",
-  "Reporting engines",
-  "Internal business platforms",
+const credibilityLines = [
+  "Production-ready systems",
+  "Built for scale",
+  "Secure by design",
+  "Designed for real-world operations",
 ];
 
 export const metadata: Metadata = {
   title: "Kelel IT Solution | Digital Infrastructure for Financial Systems",
   description:
-    "Kelel IT Solution builds secure digital infrastructure for financial systems, insurance operations, and enterprise platforms.",
+    "We design and deploy production-ready digital systems for banks, insurance, and enterprise operations across Africa.",
 };
 
-function DashboardMock() {
+function InfrastructureVisual() {
   return (
-    <div className="saas-dashboard" aria-hidden="true">
-      <div className="saas-dashboard-window">
-        <div className="saas-dashboard-topbar">
+    <div className="infra-visual" aria-hidden="true">
+      <div className="infra-shell">
+        <div className="infra-africa-map">
+          <svg viewBox="0 0 360 420" role="presentation">
+            <path d="M172 24l42 26 18 40 26 18 8 34-20 24 8 34-20 28-10 56-34 30-16 42-30 12-20-24-24-12-18-40-32-20-10-40 16-34-16-30 22-42 28-18 22-52 60-32z" />
+            <path d="M196 250l22 18 6 28-26 18" />
+            <path d="M174 292l-20 22 14 24" />
+          </svg>
+          <span className="node node-a" />
+          <span className="node node-b" />
+          <span className="node node-c" />
+          <span className="node node-d" />
+          <span className="beam beam-a" />
+          <span className="beam beam-b" />
+          <span className="beam beam-c" />
+        </div>
+        <div className="infra-topbar">
           <span />
           <span />
           <span />
         </div>
-        <div className="saas-dashboard-layout">
-          <aside className="saas-dashboard-sidebar">
-            <div className="saas-dashboard-brand">Kelel Core</div>
-            <div className="saas-dashboard-nav">
-              <span className="active">Infrastructure</span>
-              <span>Payments</span>
-              <span>Claims</span>
-              <span>Reporting</span>
-            </div>
-          </aside>
-          <div className="saas-dashboard-main">
-            <div className="saas-dashboard-summary">
+        <div className="infra-body">
+          <div className="infra-sidebar">
+            <strong>Kelel Core</strong>
+            <span className="active">Infrastructure</span>
+            <span>Operations</span>
+            <span>Controls</span>
+            <span>Reporting</span>
+          </div>
+          <div className="infra-main">
+            <div className="infra-stat-row">
               <article>
-                <span>Processing volume</span>
-                <strong>1.2M</strong>
-              </article>
-              <article>
-                <span>System health</span>
+                <small>System health</small>
                 <strong>99.9%</strong>
               </article>
               <article>
-                <span>Active workflows</span>
+                <small>Active flows</small>
                 <strong>248</strong>
               </article>
+              <article>
+                <small>Regions</small>
+                <strong>03</strong>
+              </article>
             </div>
-            <div className="saas-dashboard-grid">
-              <section className="saas-dashboard-panel large">
-                <div className="saas-panel-header">
-                  <span>Infrastructure throughput</span>
+            <div className="infra-grid">
+              <article className="infra-card infra-card-wide">
+                <div className="infra-card-head">
+                  <small>Platform throughput</small>
                   <strong>Realtime</strong>
                 </div>
-                <div className="saas-chart">
-                  <div className="saas-chart-bars">
-                    <span style={{ height: "34%" }} />
-                    <span style={{ height: "58%" }} />
-                    <span style={{ height: "49%" }} />
-                    <span style={{ height: "72%" }} />
-                    <span style={{ height: "61%" }} />
-                    <span style={{ height: "84%" }} />
-                    <span style={{ height: "68%" }} />
-                    <span style={{ height: "92%" }} />
-                  </div>
+                <div className="infra-chart">
+                  <span style={{ height: "34%" }} />
+                  <span style={{ height: "44%" }} />
+                  <span style={{ height: "39%" }} />
+                  <span style={{ height: "61%" }} />
+                  <span style={{ height: "56%" }} />
+                  <span style={{ height: "72%" }} />
+                  <span style={{ height: "66%" }} />
+                  <span style={{ height: "86%" }} />
                 </div>
-              </section>
-              <section className="saas-dashboard-panel">
-                <div className="saas-panel-header">
-                  <span>Risk controls</span>
-                  <strong>Secure</strong>
+              </article>
+              <article className="infra-card">
+                <div className="infra-card-head">
+                  <small>Workflow security</small>
+                  <strong>Enforced</strong>
                 </div>
-                <div className="saas-stack-list">
-                  <div>
-                    <small>Access policy</small>
-                    <strong>Enforced</strong>
-                  </div>
-                  <div>
-                    <small>Audit trail</small>
-                    <strong>Live</strong>
-                  </div>
-                  <div>
-                    <small>Workflow states</small>
-                    <strong>12 active</strong>
-                  </div>
+                <div className="infra-stack">
+                  <span>Access policy live</span>
+                  <span>Audit trail active</span>
                 </div>
-              </section>
-              <section className="saas-dashboard-panel">
-                <div className="saas-panel-header">
-                  <span>Architecture map</span>
+              </article>
+              <article className="infra-card">
+                <div className="infra-card-head">
+                  <small>Architecture model</small>
                   <strong>Modular</strong>
                 </div>
-                <div className="saas-node-grid">
+                <div className="infra-node-grid">
                   <span>API</span>
                   <span>Core</span>
                   <span>Data</span>
                   <span>Ops</span>
                 </div>
-              </section>
+              </article>
             </div>
           </div>
         </div>
@@ -161,53 +201,61 @@ function DashboardMock() {
   );
 }
 
+function ArchitectureVisual() {
+  return (
+    <div className="architecture-visual" aria-hidden="true">
+      <div className="architecture-shell">
+        <div className="architecture-column">
+          <small>Architecture view</small>
+          <strong>Production stack</strong>
+        </div>
+        <div className="architecture-flow">
+          <span>Gateway / API layer</span>
+          <span>Business logic services</span>
+          <span>Workflow controls</span>
+          <span>Data / audit / reporting</span>
+          <span>Monitoring / deployment</span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function Home() {
   return (
-    <main className="fintech-home" id="home">
-      <RevealSection as="section" className="fintech-hero">
-        <div className="fintech-copy">
-          <span className="fintech-eyebrow">Enterprise Platform Infrastructure</span>
+    <main className="infra-homepage">
+      <RevealSection as="section" id="home" className="infra-hero">
+        <div className="infra-hero-copy">
+          <span className="infra-eyebrow">Built for African markets. Designed for global standards.</span>
           <h1>Digital Infrastructure for Financial Systems</h1>
-          <p>
-            We build secure, scalable platforms for banking, insurance, and enterprise
-            operations.
-          </p>
-          <div className="hero-actions fintech-actions">
+          <p>We design and deploy production-ready digital systems for banks, insurance, and enterprise operations across Africa.</p>
+          <div className="infra-actions">
             <Link href="/contact" className="primary-link">
               Start a Project
             </Link>
-            <Link href="/services" className="secondary-link">
+            <Link href="/#solutions" className="secondary-link">
               View Solutions
             </Link>
           </div>
-          <div className="fintech-hero-meta">
-            <div>
-              <span>Based in</span>
-              <strong>Addis Ababa</strong>
-            </div>
-            <div>
-              <span>Focus</span>
-              <strong>Financial + enterprise infrastructure</strong>
-            </div>
-            <div>
-              <span>Contact</span>
-              <strong>{site.email}</strong>
-            </div>
+          <div className="infra-micro-lines" aria-label="Credibility">
+            {credibilityLines.map((line) => (
+              <span key={line}>{line}</span>
+            ))}
           </div>
+          <p className="infra-positioning-line">We don&apos;t build apps. We build systems that run your business.</p>
         </div>
-        <DashboardMock />
+        <InfrastructureVisual />
       </RevealSection>
 
-      <RevealSection as="section" id="solutions" className="fintech-section">
-        <div className="fintech-section-head">
-          <span className="fintech-eyebrow">Solutions</span>
-          <h2>Core infrastructure areas</h2>
-          <p>Three focused platform tracks for production environments.</p>
+      <RevealSection as="section" className="infra-section">
+        <div className="infra-section-heading">
+          <span className="infra-eyebrow">Who we work with</span>
+          <h2>Built for organizations that need real systems</h2>
+          <p>Structured for technical buyers, operating teams, and growing businesses across Africa.</p>
         </div>
-        <div className="fintech-solution-grid">
-          {solutions.map((item) => (
-            <article key={item.title} className="fintech-solution-card">
-              <span className="fintech-card-kicker">Platform track</span>
+        <div className="infra-grid-two">
+          {organizationTypes.map((item) => (
+            <article key={item.title} className="infra-feature-card">
               <h3>{item.title}</h3>
               <p>{item.description}</p>
             </article>
@@ -215,144 +263,133 @@ export default function Home() {
         </div>
       </RevealSection>
 
-      <RevealSection as="section" className="fintech-section fintech-section-alt">
-        <div className="fintech-section-head">
-          <span className="fintech-eyebrow">How It Works</span>
-          <h2>Delivery built for execution</h2>
-          <p>A clean delivery path from architecture to live deployment.</p>
+      <RevealSection as="section" id="solutions" className="infra-section infra-section-centered">
+        <div className="infra-section-heading infra-section-heading-centered">
+          <span className="infra-eyebrow">System packages</span>
+          <h2>Clear packages for real business systems</h2>
+          <p>We sell systems, not generic development.</p>
         </div>
-        <div className="fintech-step-grid">
-          {workflowSteps.map((step, index) => (
-            <article key={step} className="fintech-step-card">
-              <span className="fintech-step-index">0{index + 1}</span>
-              <strong>{step}</strong>
+        <div className="infra-grid-three">
+          {solutions.map((solution) => (
+            <article key={solution.title} className="infra-feature-card">
+              <div className="infra-card-top">
+                <span>{solution.id}</span>
+                <h3>{solution.title}</h3>
+              </div>
+              <p>{solution.description}</p>
+              <strong className="infra-card-detail">{solution.detail}</strong>
             </article>
           ))}
         </div>
       </RevealSection>
 
-      <RevealSection as="section" id="company" className="fintech-section">
-        <div className="fintech-split">
-          <div className="fintech-section-head">
-            <span className="fintech-eyebrow">Why Kelel</span>
-            <h2>Infrastructure designed for real operating environments</h2>
-            <p>Technical clarity, deployment discipline, and systems built for production.</p>
-          </div>
-          <div className="fintech-mini-grid">
-            {differentiators.map((item) => (
-              <article key={item} className="fintech-mini-card">
-                <div className="fintech-mini-icon" aria-hidden="true">
-                  <span />
-                </div>
-                <strong>{item}</strong>
-              </article>
-            ))}
-          </div>
-        </div>
-      </RevealSection>
-
-      <RevealSection as="section" id="platform" className="fintech-section fintech-section-alt">
-        <div className="fintech-platform-layout">
-          <div className="fintech-section-head">
-            <span className="fintech-eyebrow">Platform Capabilities</span>
-            <h2>Built for production environments</h2>
-            <p>Composable architecture and operational readiness for enterprise platforms.</p>
-            <ul className="fintech-capability-list">
-              {capabilities.map((item) => (
-                <li key={item}>{item}</li>
+      <RevealSection as="section" id="platform" className="infra-section">
+        <div className="infra-split">
+          <div className="infra-section-heading">
+            <span className="infra-eyebrow">Modern architecture</span>
+            <h2>Architecture that supports live systems</h2>
+            <p>Clear foundations for secure, scalable, and production-ready deployment across African markets.</p>
+            <ul className="infra-list">
+              {platformPoints.map((point) => (
+                <li key={point}>{point}</li>
               ))}
             </ul>
-          </div>
-          <div className="fintech-code-card">
-            <div className="fintech-code-header">
-              <span>Platform architecture</span>
-              <strong>Production stack</strong>
-            </div>
-            <div className="fintech-code-lines">
-              <span>Gateway / API Layer</span>
-              <span>Secure Workflow Engine</span>
-              <span>Operational Services</span>
-              <span>MongoDB / Audit / Reporting</span>
-              <span>Deployment / Monitoring</span>
+            <div className="infra-africa-callout">
+              <strong>Built for Africa</strong>
+              <ul className="infra-list">
+                {africaFocusPoints.map((point) => (
+                  <li key={point}>{point}</li>
+                ))}
+              </ul>
             </div>
           </div>
+          <ArchitectureVisual />
         </div>
       </RevealSection>
 
-      <RevealSection as="section" className="fintech-section">
-        <div className="fintech-split">
-          <div className="fintech-section-head">
-            <span className="fintech-eyebrow">Built for real-world systems</span>
-            <h2>Architecture prepared for enterprise delivery</h2>
-            <p>Operational resilience, secure deployment, and controlled scale built into the platform approach.</p>
-          </div>
-          <div className="fintech-mini-grid">
-            {realWorldSystems.map((item) => (
-              <article key={item} className="fintech-mini-card">
-                <div className="fintech-mini-icon" aria-hidden="true">
-                  <span />
-                </div>
-                <strong>{item}</strong>
-              </article>
+      <RevealSection as="section" className="infra-section">
+        <div className="infra-section-heading">
+          <span className="infra-eyebrow">Engagement model</span>
+          <h2>How we work</h2>
+          <p>Minimal, structured, and built for real delivery.</p>
+        </div>
+        <div className="infra-grid-four">
+          {deliverySteps.map((step) => (
+            <article key={step.id} className="infra-step-card">
+              <span className="infra-step-id">{step.id}</span>
+              <h3>{step.title}</h3>
+              <p>{step.description}</p>
+            </article>
+          ))}
+        </div>
+      </RevealSection>
+
+      <RevealSection as="section" className="infra-section">
+        <div className="infra-section-heading infra-section-heading-centered">
+          <span className="infra-eyebrow">Capabilities</span>
+          <h2>Example platform use cases</h2>
+          <p>Clear platform directions for serious operating environments.</p>
+        </div>
+        <div className="infra-grid-four">
+          {useCases.map((item) => (
+            <article key={item} className="infra-feature-card">
+              <h3>{item}</h3>
+              <p>Designed for secure workflows, reporting, and operational control.</p>
+            </article>
+          ))}
+        </div>
+      </RevealSection>
+
+      <RevealSection as="section" id="company" className="infra-section infra-section-wide">
+        <div className="infra-section-heading infra-section-heading-wide">
+          <span className="infra-eyebrow">Trust</span>
+          <h2>Production credibility built into the platform model</h2>
+          <p>Focused on African financial and operational systems.</p>
+          <div className="infra-micro-lines" aria-label="African system focus">
+            {africanSystemFocus.map((item) => (
+              <span key={item}>{item}</span>
             ))}
           </div>
         </div>
-      </RevealSection>
-
-      <RevealSection as="section" className="fintech-section fintech-section-alt">
-        <div className="fintech-platform-layout">
-          <div className="fintech-section-head">
-            <span className="fintech-eyebrow">Example platform capabilities</span>
-            <h2>Core modules for enterprise infrastructure</h2>
-            <p>Focused capability blocks that can be combined into production-ready platform architecture.</p>
-          </div>
-          <div className="fintech-solution-grid fintech-solution-grid-compact">
-            {platformExamples.map((item) => (
-              <article key={item} className="fintech-solution-card">
-                <span className="fintech-card-kicker">Capability</span>
-                <h3>{item}</h3>
-                <p>Structured platform delivery aligned to operational visibility, control, and scale.</p>
-              </article>
-            ))}
-          </div>
+        <div className="infra-grid-four">
+          {trustMetrics.map((metric) => (
+            <article key={metric.label} className="infra-metric-card">
+              <strong>{metric.value}</strong>
+              <span>{metric.label}</span>
+            </article>
+          ))}
         </div>
       </RevealSection>
 
-      <RevealSection as="section" className="fintech-section">
-        <div className="fintech-trust-layout">
-          <div className="fintech-section-head">
-            <span className="fintech-eyebrow">Trust</span>
-            <h2>Built for resilient infrastructure</h2>
-            <p>Enterprise deployment posture with reliability, scale, and security in view.</p>
+      <RevealSection as="section" id="contact" className="infra-section">
+        <div className="infra-cta infra-cta-split">
+          <div className="infra-section-heading">
+            <span className="infra-eyebrow">Start a project</span>
+            <h2>Start a project</h2>
+            <p>Tell us what you need. We design and deploy production-ready platforms.</p>
+            <div className="infra-actions">
+              <Link href="/contact" className="primary-link">
+                Start a Project
+              </Link>
+              <Link
+                href="/request-proposal?focus=dashboard&source=home-architecture-proposal"
+                className="secondary-link"
+              >
+                Request Architecture Proposal
+              </Link>
+            </div>
+            <p className="infra-response-note">We respond within 24-48 hours.</p>
           </div>
-          <div className="fintech-metric-row">
-            {trustMetrics.map((metric) => (
-              <article key={metric.label} className="fintech-metric-card">
-                <span>{metric.label}</span>
-                <strong>{metric.value}</strong>
-              </article>
-            ))}
-          </div>
-        </div>
-      </RevealSection>
-
-      <RevealSection as="section" id="contact" className="fintech-section fintech-cta-section">
-        <div className="fintech-cta-card">
-          <div className="fintech-section-head">
-            <span className="fintech-eyebrow">Start a Project</span>
-            <h2>Let&apos;s build your next system</h2>
-            <p>Architecture-first delivery for financial and enterprise operations.</p>
-          </div>
-          <div className="hero-actions fintech-actions">
-            <Link href="/contact" className="primary-link">
-              Start a Project
-            </Link>
-            <Link
-              href="/request-proposal?focus=dashboard&source=home-architecture-proposal"
-              className="secondary-link"
-            >
-              Request Architecture Proposal
-            </Link>
+          <div className="infra-form-panel">
+            <ContactForm
+              compactFields
+              sourcePage="home-page"
+              requestFocus="production-platform"
+              submitLabel="Send Request"
+              helperCopy="We respond within 24-48 hours."
+              detailsLabel="What they need"
+              detailsPlaceholder="Tell us what system you need and what it should do."
+            />
           </div>
         </div>
       </RevealSection>

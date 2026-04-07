@@ -21,6 +21,9 @@ type ContactFormProps = {
   helperCopy?: string;
   sourcePage?: string;
   requestFocus?: string;
+  compactFields?: boolean;
+  detailsLabel?: string;
+  detailsPlaceholder?: string;
 };
 
 export function ContactForm({
@@ -32,6 +35,9 @@ export function ContactForm({
   helperCopy = "Your message is validated and stored locally in this project so the site now has a real working submission flow.",
   sourcePage = "",
   requestFocus = "",
+  compactFields = false,
+  detailsLabel = "Project details",
+  detailsPlaceholder = "Tell us about your business, goals, timeline, and what you want the website to achieve.",
 }: ContactFormProps) {
   const [isPending, setIsPending] = useState(false);
   const [formState, setFormState] = useState<FormState>(initialState);
@@ -89,42 +95,51 @@ export function ContactForm({
         <input type="text" name="name" placeholder="Your full name" required />
       </label>
       <label>
-        <span>Business name</span>
+        <span>Company</span>
         <input type="text" name="business" placeholder="Your company or brand" />
       </label>
       <label>
         <span>Email address</span>
         <input type="email" name="email" placeholder="you@example.com" required />
       </label>
-      <label>
-        <span>Phone number</span>
-        <input type="tel" name="phone" placeholder="+251 ..." required />
-      </label>
+      {compactFields ? (
+        <>
+          <input type="hidden" name="phone" value="Not provided on homepage form" />
+          <input type="hidden" name="service" value="Homepage project request" />
+        </>
+      ) : (
+        <>
+          <label>
+            <span>Phone number</span>
+            <input type="tel" name="phone" placeholder="+251 ..." required />
+          </label>
+          <label className="full-width">
+            <span>What do you need?</span>
+            <select name="service" defaultValue={initialService} required>
+              <option value="" disabled>
+                Select a service
+              </option>
+              <option>Company website</option>
+              <option>Landing page</option>
+              <option>Dashboard or web app</option>
+              <option>Workflow system</option>
+              <option>Business portal</option>
+              <option>Reporting and visibility system</option>
+              <option>Brand/UI refresh</option>
+              <option>Digital growth support</option>
+              <option>Managed IT support</option>
+              <option>Network and infrastructure</option>
+              <option>Proposal request</option>
+            </select>
+          </label>
+        </>
+      )}
       <label className="full-width">
-        <span>What do you need?</span>
-        <select name="service" defaultValue={initialService} required>
-          <option value="" disabled>
-            Select a service
-          </option>
-          <option>Company website</option>
-          <option>Landing page</option>
-          <option>Dashboard or web app</option>
-          <option>Workflow system</option>
-          <option>Business portal</option>
-          <option>Reporting and visibility system</option>
-          <option>Brand/UI refresh</option>
-          <option>Digital growth support</option>
-          <option>Managed IT support</option>
-          <option>Network and infrastructure</option>
-          <option>Proposal request</option>
-        </select>
-      </label>
-      <label className="full-width">
-        <span>Project details</span>
+        <span>{detailsLabel}</span>
         <textarea
           name="details"
           rows={6}
-          placeholder="Tell us about your business, goals, timeline, and what you want the website to achieve."
+          placeholder={detailsPlaceholder}
           defaultValue={initialDetails}
           required
         />

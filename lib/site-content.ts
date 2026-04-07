@@ -7,8 +7,8 @@ export const site = {
   contactPerson: "Getnet Amdu Belay",
   contactRole: "General Manager",
   intro:
-    "Kelel IT Solution builds secure digital infrastructure for financial systems, enterprise operations, and production-grade platforms.",
-  tagline: "Secure platform infrastructure for financial and enterprise operations.",
+    "Kelel IT Solution helps organizations improve digital presence, operational systems, infrastructure, and technology delivery with a stronger business-first approach.",
+  tagline: "Enterprise technology, platforms, and IT services for growing organizations.",
 };
 
 export const navLinks = [
