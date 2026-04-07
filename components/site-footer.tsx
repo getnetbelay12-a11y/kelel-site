@@ -20,8 +20,13 @@ export function SiteFooter() {
           <LogoMark compact />
           <div>
             <span className="eyebrow">Kelel IT Solution</span>
-            <strong className="footer-title">Enterprise technology, platforms, and IT services</strong>
-            <p className="footer-copy">{site.intro}</p>
+            <strong className="footer-title">
+              Production-grade systems for banking, insurance, and enterprise operations
+            </strong>
+            <p className="footer-copy">
+              Kelel IT Solution builds production-grade systems for banking, insurance, and
+              enterprise operations across Africa.
+            </p>
           </div>
         </div>
         <div className="footer-actions">
@@ -54,8 +59,11 @@ export function SiteFooter() {
       </div>
       <div className="footer-legal">
         <span>{year} Kelel IT Solution</span>
-        <span>Kelel IT Solution builds production-grade systems for financial and enterprise operations.</span>
-        <span>Built for advisory, platforms, infrastructure, and digital business growth.</span>
+        <span>
+          Kelel IT Solution builds production-grade systems for banking, insurance, and
+          enterprise operations across Africa.
+        </span>
+        <span>Built for secure workflows, operational visibility, and scalable platform delivery.</span>
       </div>
     </footer>
   );

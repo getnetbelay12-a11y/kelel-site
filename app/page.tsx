@@ -42,10 +42,22 @@ const industries = [
 ];
 
 const platformCapabilities = [
-  "API-first systems",
-  "Secure workflows",
-  "Modular deployment",
-  "Reporting and visibility",
+  {
+    title: "API-first systems",
+    description: "Integration-ready services built for extensibility across teams and platforms.",
+  },
+  {
+    title: "Secure workflows",
+    description: "Permissions, controls, and approvals designed for operational trust.",
+  },
+  {
+    title: "Modular deployment",
+    description: "Phased rollout paths that support maintainability and business continuity.",
+  },
+  {
+    title: "Reporting and visibility",
+    description: "Dashboards, KPIs, and operational oversight for faster decision-making.",
+  },
 ];
 
 const proofStories = [
@@ -168,13 +180,13 @@ function HeroMotionVisual() {
             <div className="hero-data-track">
               <article className="hero-data-card">
                 <small>System uptime</small>
-                <strong>99.9%</strong>
-                <span>Production-ready reliability</span>
+                <strong>99.9% ready</strong>
+                <span>Reliable deployment standards</span>
               </article>
               <article className="hero-data-card">
                 <small>Operational visibility</small>
                 <strong>Live dashboards</strong>
-                <span>Clear reporting across teams</span>
+                <span>Clear KPI and workflow oversight</span>
               </article>
               <article className="hero-data-card hero-data-card-performance">
                 <small>Performance</small>
@@ -189,13 +201,13 @@ function HeroMotionVisual() {
               </article>
               <article className="hero-data-card">
                 <small>System uptime</small>
-                <strong>99.9%</strong>
-                <span>Production-ready reliability</span>
+                <strong>99.9% ready</strong>
+                <span>Reliable deployment standards</span>
               </article>
               <article className="hero-data-card">
                 <small>Operational visibility</small>
                 <strong>Live dashboards</strong>
-                <span>Clear reporting across teams</span>
+                <span>Clear KPI and workflow oversight</span>
               </article>
               <article className="hero-data-card hero-data-card-performance">
                 <small>Performance</small>
@@ -216,22 +228,22 @@ function HeroMotionVisual() {
               <article className="hero-data-card">
                 <small>Workflow security</small>
                 <strong>Secure processing</strong>
-                <span>Controls, audit, visibility</span>
+                <span>Controls, audit, approvals</span>
               </article>
               <article className="hero-data-card">
-                <small>Performance monitoring</small>
-                <strong>Scalable systems</strong>
-                <span>Metrics built into operations</span>
+                <small>Platform architecture</small>
+                <strong>Modular systems</strong>
+                <span>Built for phased rollout</span>
               </article>
               <article className="hero-data-card">
                 <small>Workflow security</small>
                 <strong>Secure processing</strong>
-                <span>Controls, audit, visibility</span>
+                <span>Controls, audit, approvals</span>
               </article>
               <article className="hero-data-card">
-                <small>Performance monitoring</small>
-                <strong>Scalable systems</strong>
-                <span>Metrics built into operations</span>
+                <small>Platform architecture</small>
+                <strong>Modular systems</strong>
+                <span>Built for phased rollout</span>
               </article>
             </div>
           </div>
@@ -432,9 +444,9 @@ export default function Home() {
             <span className="enterprise-panel-label">Platform capabilities</span>
             <div className="enterprise-capability-list">
               {platformCapabilities.map((item) => (
-                <article key={item}>
-                  <strong>{item}</strong>
-                  <p>Designed for real-world operations across African business environments.</p>
+                <article key={item.title}>
+                  <strong>{item.title}</strong>
+                  <p>{item.description}</p>
                 </article>
               ))}
             </div>
@@ -501,8 +513,8 @@ export default function Home() {
                 requestFocus="production-platform"
                 submitLabel="Send Request"
                 helperCopy="We respond within 24-48 hours."
-                detailsLabel="What they need"
-                detailsPlaceholder="Tell us what system you need and what it should do."
+                detailsLabel="System requirements"
+                detailsPlaceholder="Tell us what system you need, who it serves, and what it should improve."
               />
             </div>
           </div>
