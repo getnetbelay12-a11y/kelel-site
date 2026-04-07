@@ -4,7 +4,7 @@ import { site } from "@/lib/site-content";
 
 const footerLinks = [
   { href: "/#home", label: "Home" },
-  { href: "/#solutions", label: "Solutions" },
+  { href: "/#what-we-do", label: "Solutions" },
   { href: "/#platform", label: "Platform" },
   { href: "/#company", label: "Company" },
   { href: "/#contact", label: "Contact" },

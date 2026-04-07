@@ -7961,12 +7961,12 @@ body::before {
 .hero-portrait-marquee-back {
   top: 5.9rem;
   width: 31rem;
-  opacity: 0.78;
+  display: none;
 }
 
 .hero-portrait-marquee-front {
-  top: 16.1rem;
-  width: 34rem;
+  top: 11.1rem;
+  width: 26rem;
   z-index: 2;
 }
 
@@ -8070,26 +8070,16 @@ body::before {
   -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 1) 88%, transparent 100%);
 }
 
-.hero-data-marquee-back {
-  top: 4.3rem;
-  right: 0.8rem;
-  width: 26rem;
-}
-
 .hero-data-marquee-front {
   right: 1rem;
-  bottom: 2.8rem;
-  width: 25rem;
+  bottom: 2.2rem;
+  width: 18.5rem;
 }
 
 .hero-data-track {
   display: flex;
   width: max-content;
   gap: 0.9rem;
-}
-
-.hero-data-marquee-back .hero-data-track {
-  animation: marqueeLeft 24s linear infinite;
 }
 
 .hero-data-marquee-front .hero-data-track {
@@ -8612,6 +8602,23 @@ body::before {
   letter-spacing: -0.02em;
 }
 
+.enterprise-card-link {
+  display: block;
+  border-radius: 26px;
+  cursor: pointer;
+}
+
+.enterprise-card-link:focus-visible {
+  outline: 2px solid rgba(34, 197, 94, 0.95);
+  outline-offset: 4px;
+}
+
+.enterprise-card-link .enterprise-story-card,
+.enterprise-card-link .enterprise-industry-card,
+.enterprise-card-link .enterprise-proof-card {
+  height: 100%;
+}
+
 .enterprise-story-meta {
   display: flex;
   flex-wrap: wrap;
@@ -8937,12 +8944,12 @@ body::before {
   }
 
   .hero-portrait-marquee-back {
-    width: 24rem;
+    display: none;
   }
 
   .hero-portrait-marquee-front {
-    top: 16rem;
-    width: 27rem;
+    top: 10rem;
+    width: 21rem;
   }
 
   .hero-portrait-card {
@@ -8962,15 +8969,10 @@ body::before {
     height: 14rem;
   }
 
-  .hero-data-marquee-back {
-    width: 20rem;
-    right: 1rem;
-  }
-
   .hero-data-marquee-front {
-    width: 18rem;
+    width: 15.5rem;
     right: 0.8rem;
-    bottom: 3rem;
+    bottom: 2rem;
   }
 
   .enterprise-people-grid-featured {

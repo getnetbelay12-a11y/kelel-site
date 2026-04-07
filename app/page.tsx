@@ -11,6 +11,7 @@ const serviceTracks = [
     title: "Platform Architecture & System Design",
     description:
       "Designing end-to-end system architecture for scalable, secure, and production-ready platforms.",
+    href: "/services?focus=platform-architecture",
   },
   {
     id: "02",
@@ -18,6 +19,7 @@ const serviceTracks = [
     title: "Performance & System Optimization",
     description:
       "Improving system performance, reliability, and operational efficiency across existing platforms.",
+    href: "/services?focus=system-optimization",
   },
   {
     id: "03",
@@ -25,6 +27,7 @@ const serviceTracks = [
     title: "Data Infrastructure & Database Systems",
     description:
       "Designing and managing scalable database systems for high-performance and data-driven operations.",
+    href: "/services?focus=data-infrastructure",
   },
 ];
 
@@ -32,18 +35,22 @@ const industries = [
   {
     title: "Banks and financial institutions",
     description: "Built for digital transformation, reporting visibility, and operational control.",
+    href: "/industries/operations-heavy-organizations",
   },
   {
     title: "Insurance providers",
     description: "Designed for policy systems, renewal automation, and claims operations.",
+    href: "/industries/teams-modernizing-internal-workflows",
   },
   {
     title: "Logistics and operations companies",
     description: "Structured for live workflows, tracking visibility, and business coordination.",
+    href: "/industries/operations-heavy-organizations",
   },
   {
     title: "Growing enterprises",
     description: "Scalable systems for teams moving from manual work to dependable digital operations.",
+    href: "/industries/smes-and-growing-enterprises",
   },
 ];
 
@@ -71,21 +78,25 @@ const proofStories = [
     title: "Banking Platform Concept",
     description: "A premium concept for digital banking operations, dashboards, and control layers.",
     label: "Financial systems",
+    href: "/work/multi-branch-operations-platform",
   },
   {
     title: "Insurance Workflow System",
     description: "Claims, renewals, and internal operations managed through one cleaner workflow model.",
     label: "Insurance operations",
+    href: "/work/it-infrastructure-improvement-track",
   },
   {
     title: "Operations Dashboard Preview",
     description: "Executive-ready oversight for field teams, service operations, and internal reporting.",
     label: "Operational visibility",
+    href: "/work/multi-branch-operations-platform",
   },
   {
     title: "Enterprise Portal Concept",
     description: "A structured portal layer for business processes, approvals, and regional coordination.",
     label: "Enterprise platform",
+    href: "/work",
   },
 ];
 
@@ -191,53 +202,6 @@ function HeroMotionVisual() {
         </div>
         <HeroPortraitRotation items={heroPortraits} />
         <div className="hero-data-layer">
-          <div className="hero-data-marquee hero-data-marquee-back">
-            <div className="hero-data-track">
-              <article className="hero-data-card">
-                <small>System uptime</small>
-                <strong>99.9% ready</strong>
-                <span>Reliable deployment standards</span>
-              </article>
-              <article className="hero-data-card">
-                <small>Operational visibility</small>
-                <strong>Live dashboards</strong>
-                <span>Clear KPI and workflow oversight</span>
-              </article>
-              <article className="hero-data-card hero-data-card-performance">
-                <small>Performance</small>
-                <strong>Low latency</strong>
-                <div className="hero-data-mini-chart" aria-hidden="true">
-                  <span style={{ height: "36%" }} />
-                  <span style={{ height: "54%" }} />
-                  <span style={{ height: "48%" }} />
-                  <span style={{ height: "68%" }} />
-                  <span style={{ height: "82%" }} />
-                </div>
-              </article>
-              <article className="hero-data-card">
-                <small>System uptime</small>
-                <strong>99.9% ready</strong>
-                <span>Reliable deployment standards</span>
-              </article>
-              <article className="hero-data-card">
-                <small>Operational visibility</small>
-                <strong>Live dashboards</strong>
-                <span>Clear KPI and workflow oversight</span>
-              </article>
-              <article className="hero-data-card hero-data-card-performance">
-                <small>Performance</small>
-                <strong>Low latency</strong>
-                <div className="hero-data-mini-chart" aria-hidden="true">
-                  <span style={{ height: "36%" }} />
-                  <span style={{ height: "54%" }} />
-                  <span style={{ height: "48%" }} />
-                  <span style={{ height: "68%" }} />
-                  <span style={{ height: "82%" }} />
-                </div>
-              </article>
-            </div>
-          </div>
-
           <div className="hero-data-marquee hero-data-marquee-front">
             <div className="hero-data-track">
               <article className="hero-data-card">
@@ -433,14 +397,16 @@ export default function Home() {
         </div>
         <div className="enterprise-large-card-grid">
           {serviceTracks.map((track) => (
-            <article key={track.title} className="enterprise-story-card">
-              <div className="enterprise-story-meta">
-                <span className="enterprise-card-id">{track.id}</span>
-                <span className="enterprise-panel-label">{track.tag}</span>
-              </div>
-              <h3>{track.title}</h3>
-              <p>{track.description}</p>
-            </article>
+            <Link key={track.title} href={track.href} className="enterprise-card-link">
+              <article className="enterprise-story-card">
+                <div className="enterprise-story-meta">
+                  <span className="enterprise-card-id">{track.id}</span>
+                  <span className="enterprise-panel-label">{track.tag}</span>
+                </div>
+                <h3>{track.title}</h3>
+                <p>{track.description}</p>
+              </article>
+            </Link>
           ))}
         </div>
         <div className="enterprise-console-wrap">
@@ -457,10 +423,12 @@ export default function Home() {
           </div>
           <div className="enterprise-industry-grid">
             {industries.map((industry) => (
-              <article key={industry.title} className="enterprise-industry-card">
-                <h3>{industry.title}</h3>
-                <p>{industry.description}</p>
-              </article>
+              <Link key={industry.title} href={industry.href} className="enterprise-card-link">
+                <article className="enterprise-industry-card">
+                  <h3>{industry.title}</h3>
+                  <p>{industry.description}</p>
+                </article>
+              </Link>
             ))}
           </div>
         </div>
@@ -495,11 +463,13 @@ export default function Home() {
         </div>
         <div className="enterprise-proof-band">
           {proofStories.map((story) => (
-            <article key={story.title} className="enterprise-proof-card">
-              <span className="enterprise-proof-label">{story.label}</span>
-              <h3>{story.title}</h3>
-              <p>{story.description}</p>
-            </article>
+            <Link key={story.title} href={story.href} className="enterprise-card-link">
+              <article className="enterprise-proof-card">
+                <span className="enterprise-proof-label">{story.label}</span>
+                <h3>{story.title}</h3>
+                <p>{story.description}</p>
+              </article>
+            </Link>
           ))}
         </div>
         <div className="enterprise-metric-row">
