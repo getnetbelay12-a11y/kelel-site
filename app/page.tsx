@@ -80,61 +80,61 @@ const trustMetrics = [
 
 const heroPortraits = [
   {
-    title: "Architecture lead",
+    title: "Addis architect",
     image:
-      "https://images.pexels.com/photos/34690062/pexels-photo-34690062.jpeg?cs=srgb&dl=pexels-taiyesalawu-34690062.jpg&fm=jpg",
+      "https://images.pexels.com/photos/7841816/pexels-photo-7841816.jpeg?auto=compress&cs=tinysrgb&w=1200",
   },
   {
-    title: "Delivery team",
+    title: "Banking analyst",
     image:
-      "https://images.pexels.com/photos/30690402/pexels-photo-30690402.jpeg?cs=srgb&dl=pexels-ninthgrid-2149521550-30690402.jpg&fm=jpg",
+      "https://images.pexels.com/photos/3184306/pexels-photo-3184306.jpeg?auto=compress&cs=tinysrgb&w=1200",
   },
   {
-    title: "Operations review",
+    title: "Operations lead",
     image:
-      "https://images.pexels.com/photos/9301748/pexels-photo-9301748.jpeg?cs=srgb&dl=pexels-mikhail-nilov-9301748.jpg&fm=jpg",
+      "https://images.pexels.com/photos/1181406/pexels-photo-1181406.jpeg?auto=compress&cs=tinysrgb&w=1200",
   },
   {
-    title: "Platform operator",
+    title: "Implementation team",
     image:
-      "https://images.pexels.com/photos/34690062/pexels-photo-34690062.jpeg?cs=srgb&dl=pexels-taiyesalawu-34690062.jpg&fm=jpg",
+      "https://images.pexels.com/photos/3810792/pexels-photo-3810792.jpeg?auto=compress&cs=tinysrgb&w=1200",
   },
   {
-    title: "Systems analyst",
+    title: "Delivery architect",
     image:
-      "https://images.pexels.com/photos/30690402/pexels-photo-30690402.jpeg?cs=srgb&dl=pexels-ninthgrid-2149521550-30690402.jpg&fm=jpg",
+      "https://images.pexels.com/photos/8353800/pexels-photo-8353800.jpeg?auto=compress&cs=tinysrgb&w=1200",
   },
   {
-    title: "Implementation lead",
+    title: "Regional operator",
     image:
-      "https://images.pexels.com/photos/9301748/pexels-photo-9301748.jpeg?cs=srgb&dl=pexels-mikhail-nilov-9301748.jpg&fm=jpg",
+      "https://images.pexels.com/photos/3760067/pexels-photo-3760067.jpeg?auto=compress&cs=tinysrgb&w=1200",
   },
 ];
 
 const peopleStories = [
   {
     title: "Architecture and platform design",
-    description: "Systems planning for regulated and operational environments.",
+    description: "System planning for regulated delivery environments.",
     image:
-      "https://images.pexels.com/photos/34690062/pexels-photo-34690062.jpeg?cs=srgb&dl=pexels-taiyesalawu-34690062.jpg&fm=jpg",
+      "https://images.pexels.com/photos/7841816/pexels-photo-7841816.jpeg?auto=compress&cs=tinysrgb&w=1400",
   },
   {
     title: "Delivery and implementation",
-    description: "Teams moving projects from concept into real deployment.",
+    description: "From platform concept into live rollout.",
     image:
-      "https://images.pexels.com/photos/30690402/pexels-photo-30690402.jpeg?cs=srgb&dl=pexels-ninthgrid-2149521550-30690402.jpg&fm=jpg",
+      "https://images.pexels.com/photos/3810792/pexels-photo-3810792.jpeg?auto=compress&cs=tinysrgb&w=1200",
   },
   {
     title: "Reporting and operational visibility",
-    description: "Business oversight shaped through dashboards and workflow systems.",
+    description: "Dashboards and workflow oversight for decision-making.",
     image:
-      "https://images.pexels.com/photos/9301748/pexels-photo-9301748.jpeg?cs=srgb&dl=pexels-mikhail-nilov-9301748.jpg&fm=jpg",
+      "https://images.pexels.com/photos/8353800/pexels-photo-8353800.jpeg?auto=compress&cs=tinysrgb&w=1200",
   },
   {
     title: "Support and continuous improvement",
-    description: "Longer-term platform support for evolving operational needs.",
+    description: "Operational support as systems keep evolving.",
     image:
-      "https://images.pexels.com/photos/30690402/pexels-photo-30690402.jpeg?cs=srgb&dl=pexels-ninthgrid-2149521550-30690402.jpg&fm=jpg",
+      "https://images.pexels.com/photos/3184306/pexels-photo-3184306.jpeg?auto=compress&cs=tinysrgb&w=1200",
   },
 ];
 
@@ -167,9 +167,85 @@ function HeroMotionVisual() {
             <path className="signal-line signal-line-b" d="M424 298C388 292 326 289 278 292" />
             <path className="signal-line signal-line-c" d="M424 298C441 332 446 348 454 366" />
             <path className="signal-line signal-line-d" d="M424 298C410 396 390 470 372 522" />
+            <text className="hub-label" x="444" y="292">
+              Addis Ababa
+            </text>
           </svg>
         </div>
         <HeroPortraitRotation items={heroPortraits} />
+        <div className="hero-data-layer">
+          <div className="hero-data-marquee hero-data-marquee-back">
+            <div className="hero-data-track">
+              <article className="hero-data-card">
+                <small>System uptime</small>
+                <strong>99.9%</strong>
+                <span>Production-ready reliability</span>
+              </article>
+              <article className="hero-data-card">
+                <small>Operational visibility</small>
+                <strong>Live dashboards</strong>
+                <span>Clear reporting across teams</span>
+              </article>
+              <article className="hero-data-card hero-data-card-performance">
+                <small>Performance</small>
+                <strong>Low latency</strong>
+                <div className="hero-data-mini-chart" aria-hidden="true">
+                  <span style={{ height: "36%" }} />
+                  <span style={{ height: "54%" }} />
+                  <span style={{ height: "48%" }} />
+                  <span style={{ height: "68%" }} />
+                  <span style={{ height: "82%" }} />
+                </div>
+              </article>
+              <article className="hero-data-card">
+                <small>System uptime</small>
+                <strong>99.9%</strong>
+                <span>Production-ready reliability</span>
+              </article>
+              <article className="hero-data-card">
+                <small>Operational visibility</small>
+                <strong>Live dashboards</strong>
+                <span>Clear reporting across teams</span>
+              </article>
+              <article className="hero-data-card hero-data-card-performance">
+                <small>Performance</small>
+                <strong>Low latency</strong>
+                <div className="hero-data-mini-chart" aria-hidden="true">
+                  <span style={{ height: "36%" }} />
+                  <span style={{ height: "54%" }} />
+                  <span style={{ height: "48%" }} />
+                  <span style={{ height: "68%" }} />
+                  <span style={{ height: "82%" }} />
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <div className="hero-data-marquee hero-data-marquee-front">
+            <div className="hero-data-track">
+              <article className="hero-data-card">
+                <small>Workflow security</small>
+                <strong>Secure processing</strong>
+                <span>Controls, audit, visibility</span>
+              </article>
+              <article className="hero-data-card">
+                <small>Performance monitoring</small>
+                <strong>Scalable systems</strong>
+                <span>Metrics built into operations</span>
+              </article>
+              <article className="hero-data-card">
+                <small>Workflow security</small>
+                <strong>Secure processing</strong>
+                <span>Controls, audit, visibility</span>
+              </article>
+              <article className="hero-data-card">
+                <small>Performance monitoring</small>
+                <strong>Scalable systems</strong>
+                <span>Metrics built into operations</span>
+              </article>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div className="hero-wave-layer hero-wave-layer-a" />
@@ -272,8 +348,8 @@ export default function Home() {
           <span className="enterprise-kicker">Built for African markets. Designed for global standards.</span>
           <h1>Digital infrastructure for financial systems</h1>
           <p>
-            Secure, scalable platforms for banking, insurance, and enterprise operations across
-            Africa.
+            We design and deploy production-ready digital systems for banks, insurance, and
+            enterprise operations across Africa.
           </p>
           <div className="enterprise-actions">
             <Link href="/#contact" className="primary-link">
@@ -293,19 +369,32 @@ export default function Home() {
           <h2>Built with people who understand African operations.</h2>
           <p>Strategy, engineering, and delivery for real business environments across Africa.</p>
         </div>
-        <div className="enterprise-people-grid">
-          {peopleStories.map((story) => (
-            <article key={story.title} className="enterprise-people-card">
-              <div
-                className="enterprise-people-image"
-                style={{ backgroundImage: `linear-gradient(180deg, rgba(7, 18, 31, 0.12), rgba(7, 18, 31, 0.72)), url(${story.image})` }}
-              />
-              <div className="enterprise-people-copy">
-                <h3>{story.title}</h3>
-                <p>{story.description}</p>
-              </div>
-            </article>
-          ))}
+        <div className="enterprise-people-grid enterprise-people-grid-featured">
+          <article className="enterprise-people-card enterprise-people-card-lead">
+            <div
+              className="enterprise-people-image"
+              style={{ backgroundImage: `linear-gradient(180deg, rgba(7, 18, 31, 0.08), rgba(7, 18, 31, 0.78)), url(${peopleStories[0].image})` }}
+            />
+            <div className="enterprise-people-copy">
+              <span className="enterprise-panel-label">Lead team</span>
+              <h3>{peopleStories[0].title}</h3>
+              <p>{peopleStories[0].description}</p>
+            </div>
+          </article>
+          <div className="enterprise-people-stack">
+            {peopleStories.slice(1).map((story) => (
+              <article key={story.title} className="enterprise-people-card enterprise-people-card-compact">
+                <div
+                  className="enterprise-people-image"
+                  style={{ backgroundImage: `linear-gradient(180deg, rgba(7, 18, 31, 0.1), rgba(7, 18, 31, 0.76)), url(${story.image})` }}
+                />
+                <div className="enterprise-people-copy">
+                  <h3>{story.title}</h3>
+                  <p>{story.description}</p>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
       </RevealSection>
 

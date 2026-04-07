@@ -77,7 +77,7 @@ export function SiteHeader() {
       <Link href="/#home" className="brand-mark" onClick={() => setIsOpen(false)}>
         <LogoMark compact />
         <span className="brand-copy">
-          <span className="brand-kicker">Africa-first infrastructure</span>
+          <span className="brand-kicker">Ethiopia-first infrastructure</span>
           <strong>{site.name}</strong>
         </span>
       </Link>
