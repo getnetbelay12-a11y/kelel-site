@@ -77,6 +77,60 @@ const trustMetrics = [
   { value: "Regional", label: "operational scale" },
 ];
 
+const heroPortraits = [
+  {
+    title: "Architecture lead",
+    image:
+      "https://images.pexels.com/photos/34690062/pexels-photo-34690062.jpeg?cs=srgb&dl=pexels-taiyesalawu-34690062.jpg&fm=jpg",
+    className: "hero-portrait-card hero-portrait-a",
+  },
+  {
+    title: "Delivery team",
+    image:
+      "https://images.pexels.com/photos/30690402/pexels-photo-30690402.jpeg?cs=srgb&dl=pexels-ninthgrid-2149521550-30690402.jpg&fm=jpg",
+    className: "hero-portrait-card hero-portrait-b",
+  },
+  {
+    title: "Operations review",
+    image:
+      "https://images.pexels.com/photos/9301748/pexels-photo-9301748.jpeg?cs=srgb&dl=pexels-mikhail-nilov-9301748.jpg&fm=jpg",
+    className: "hero-portrait-card hero-portrait-c",
+  },
+  {
+    title: "Platform operator",
+    image:
+      "https://images.pexels.com/photos/34690062/pexels-photo-34690062.jpeg?cs=srgb&dl=pexels-taiyesalawu-34690062.jpg&fm=jpg",
+    className: "hero-portrait-card hero-portrait-d",
+  },
+];
+
+const peopleStories = [
+  {
+    title: "Architecture and platform design",
+    description: "Systems planning for regulated and operational environments.",
+    image:
+      "https://images.pexels.com/photos/34690062/pexels-photo-34690062.jpeg?cs=srgb&dl=pexels-taiyesalawu-34690062.jpg&fm=jpg",
+  },
+  {
+    title: "Delivery and implementation",
+    description: "Teams moving projects from concept into real deployment.",
+    image:
+      "https://images.pexels.com/photos/30690402/pexels-photo-30690402.jpeg?cs=srgb&dl=pexels-ninthgrid-2149521550-30690402.jpg&fm=jpg",
+  },
+  {
+    title: "Reporting and operational visibility",
+    description: "Business oversight shaped through dashboards and workflow systems.",
+    image:
+      "https://images.pexels.com/photos/9301748/pexels-photo-9301748.jpeg?cs=srgb&dl=pexels-mikhail-nilov-9301748.jpg&fm=jpg",
+  },
+  {
+    title: "Support and continuous improvement",
+    description: "Longer-term platform support for evolving operational needs.",
+    image:
+      "https://images.pexels.com/photos/30690402/pexels-photo-30690402.jpeg?cs=srgb&dl=pexels-ninthgrid-2149521550-30690402.jpg&fm=jpg",
+  },
+];
+
 export const metadata: Metadata = {
   title: "Kelel IT Solution | Digital Infrastructure for African Markets",
   description:
@@ -107,6 +161,17 @@ function HeroMotionVisual() {
             <path className="signal-line signal-line-c" d="M424 298C441 332 446 348 454 366" />
             <path className="signal-line signal-line-d" d="M424 298C410 396 390 470 372 522" />
           </svg>
+        </div>
+        <div className="hero-portrait-layer">
+          {heroPortraits.map((portrait) => (
+            <article
+              key={portrait.title}
+              className={portrait.className}
+              style={{ backgroundImage: `linear-gradient(180deg, rgba(7, 18, 31, 0.12), rgba(7, 18, 31, 0.72)), url(${portrait.image})` }}
+            >
+              <span>{portrait.title}</span>
+            </article>
+          ))}
         </div>
       </div>
 
@@ -223,6 +288,28 @@ export default function Home() {
           </div>
         </div>
         <HeroMotionVisual />
+      </RevealSection>
+
+      <RevealSection as="section" className="enterprise-section">
+        <div className="enterprise-section-heading">
+          <span className="enterprise-kicker">People</span>
+          <h2>Built with people who understand African operations.</h2>
+          <p>Strategy, engineering, and delivery for real business environments across Africa.</p>
+        </div>
+        <div className="enterprise-people-grid">
+          {peopleStories.map((story) => (
+            <article key={story.title} className="enterprise-people-card">
+              <div
+                className="enterprise-people-image"
+                style={{ backgroundImage: `linear-gradient(180deg, rgba(7, 18, 31, 0.12), rgba(7, 18, 31, 0.72)), url(${story.image})` }}
+              />
+              <div className="enterprise-people-copy">
+                <h3>{story.title}</h3>
+                <p>{story.description}</p>
+              </div>
+            </article>
+          ))}
+        </div>
       </RevealSection>
 
       <RevealSection as="section" id="what-we-do" className="enterprise-section">

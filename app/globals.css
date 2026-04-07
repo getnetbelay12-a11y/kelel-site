@@ -7870,6 +7870,67 @@ body::before {
   opacity: 0.35;
 }
 
+.hero-portrait-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.hero-portrait-card {
+  position: absolute;
+  width: 10.5rem;
+  height: 13rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 22px;
+  background-position: center;
+  background-size: cover;
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.18);
+  overflow: hidden;
+  animation: floatPortrait 14s ease-in-out infinite;
+}
+
+.hero-portrait-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(7, 18, 31, 0), rgba(7, 18, 31, 0.72));
+}
+
+.hero-portrait-card span {
+  position: absolute;
+  left: 0.9rem;
+  right: 0.9rem;
+  bottom: 0.85rem;
+  z-index: 1;
+  color: #ffffff;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.hero-portrait-a {
+  top: 8%;
+  left: 6%;
+}
+
+.hero-portrait-b {
+  top: 10%;
+  right: 8%;
+  animation-delay: -3s;
+}
+
+.hero-portrait-c {
+  bottom: 10%;
+  left: 12%;
+  animation-delay: -6s;
+}
+
+.hero-portrait-d {
+  bottom: 9%;
+  right: 10%;
+  animation-delay: -9s;
+}
+
 .hero-console {
   position: relative;
   min-height: 36rem;
@@ -8190,7 +8251,8 @@ body::before {
 .enterprise-large-card-grid,
 .enterprise-proof-band,
 .enterprise-metric-row,
-.enterprise-industry-grid {
+.enterprise-industry-grid,
+.enterprise-people-grid {
   display: grid;
   gap: 1.4rem;
   margin-top: 2.4rem;
@@ -8213,6 +8275,10 @@ body::before {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
+.enterprise-people-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
 .enterprise-editorial-layout {
   display: grid;
   grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
@@ -8231,6 +8297,7 @@ body::before {
 .enterprise-story-card,
 .enterprise-industry-card,
 .enterprise-proof-card,
+.enterprise-people-card,
 .enterprise-platform-panel,
 .enterprise-cta,
 .enterprise-cta-panel,
@@ -8246,6 +8313,7 @@ body::before {
 .enterprise-story-card,
 .enterprise-industry-card,
 .enterprise-proof-card,
+.enterprise-people-card,
 .enterprise-platform-panel,
 .enterprise-cta-panel,
 .enterprise-form-panel,
@@ -8260,6 +8328,7 @@ body::before {
 .enterprise-story-card:hover,
 .enterprise-industry-card:hover,
 .enterprise-proof-card:hover,
+.enterprise-people-card:hover,
 .enterprise-platform-panel:hover,
 .enterprise-cta-panel:hover,
 .enterprise-form-panel:hover,
@@ -8271,10 +8340,28 @@ body::before {
 
 .enterprise-story-card h3,
 .enterprise-industry-card h3,
-.enterprise-proof-card h3 {
+.enterprise-proof-card h3,
+.enterprise-people-card h3 {
   font-size: 1.34rem;
   line-height: 1.16;
   letter-spacing: -0.02em;
+}
+
+.enterprise-people-card {
+  overflow: hidden;
+  padding: 0;
+}
+
+.enterprise-people-image {
+  min-height: 18rem;
+  background-position: center;
+  background-size: cover;
+}
+
+.enterprise-people-copy {
+  display: grid;
+  gap: 0.75rem;
+  padding: 1.5rem 1.6rem 1.7rem;
 }
 
 .enterprise-card-id,
@@ -8488,6 +8575,16 @@ body::before {
   }
 }
 
+@keyframes floatPortrait {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
 @keyframes heroGlowShift {
   0%,
   100% {
@@ -8513,7 +8610,8 @@ body::before {
 
   .enterprise-large-card-grid,
   .enterprise-proof-band,
-  .enterprise-metric-row {
+  .enterprise-metric-row,
+  .enterprise-people-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -8524,6 +8622,11 @@ body::before {
 
   .hero-motion-map {
     inset: 1rem;
+  }
+
+  .hero-portrait-card {
+    width: 9rem;
+    height: 11rem;
   }
 }
 
@@ -8573,6 +8676,7 @@ body::before {
   .enterprise-proof-band,
   .enterprise-metric-row,
   .enterprise-industry-grid,
+  .enterprise-people-grid,
   .enterprise-form-panel .contact-form {
     grid-template-columns: 1fr;
   }
@@ -8609,6 +8713,12 @@ body::before {
 
   .hero-motion-map svg {
     width: min(74%, 18rem);
+  }
+
+  .hero-portrait-card {
+    width: 7rem;
+    height: 9rem;
+    border-radius: 18px;
   }
 
   .enterprise-story-card,
