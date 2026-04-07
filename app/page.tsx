@@ -6,21 +6,18 @@ import { RevealSection } from "@/components/reveal-section";
 const solutions = [
   {
     id: "01",
-    title: "Starter System",
-    description: "Internal dashboard or workflow system.",
-    detail: "Entry level: $$$",
+    title: "Banking Systems",
+    description: "Core platforms for reporting, controls, and transaction-ready operations.",
   },
   {
     id: "02",
-    title: "Business Platform",
-    description: "Full operational platform with API, database, and UI.",
-    detail: "API + database + UI",
+    title: "Insurance Platforms",
+    description: "Systems for policy workflows, claims visibility, and operational control.",
   },
   {
     id: "03",
-    title: "Enterprise System",
-    description: "Full scalable architecture for banking and insurance-grade operations.",
-    detail: "Banking / insurance grade",
+    title: "Enterprise Operations",
+    description: "Internal tools that improve coordination, dashboards, and business oversight.",
   },
 ];
 
@@ -242,7 +239,6 @@ export default function Home() {
               <span key={line}>{line}</span>
             ))}
           </div>
-          <p className="infra-positioning-line">We don&apos;t build apps. We build systems that run your business.</p>
         </div>
         <InfrastructureVisual />
       </RevealSection>
@@ -265,9 +261,9 @@ export default function Home() {
 
       <RevealSection as="section" id="solutions" className="infra-section infra-section-centered">
         <div className="infra-section-heading infra-section-heading-centered">
-          <span className="infra-eyebrow">System packages</span>
-          <h2>Clear packages for real business systems</h2>
-          <p>We sell systems, not generic development.</p>
+          <span className="infra-eyebrow">Solutions</span>
+          <h2>Focused infrastructure for critical operating environments</h2>
+          <p>Built for control, reporting, and production readiness.</p>
         </div>
         <div className="infra-grid-three">
           {solutions.map((solution) => (
@@ -277,7 +273,6 @@ export default function Home() {
                 <h3>{solution.title}</h3>
               </div>
               <p>{solution.description}</p>
-              <strong className="infra-card-detail">{solution.detail}</strong>
             </article>
           ))}
         </div>
@@ -387,8 +382,8 @@ export default function Home() {
               requestFocus="production-platform"
               submitLabel="Send Request"
               helperCopy="We respond within 24-48 hours."
-              detailsLabel="What they need"
-              detailsPlaceholder="Tell us what system you need and what it should do."
+              detailsLabel="Message"
+              detailsPlaceholder="Tell us about your system, goals, or project requirements."
             />
           </div>
         </div>
