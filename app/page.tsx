@@ -80,59 +80,49 @@ const trustMetrics = [
 
 const heroPortraits = [
   {
-    title: "Addis architect",
+    title: "Solutions architect",
     image:
       "https://images.pexels.com/photos/7841816/pexels-photo-7841816.jpeg?auto=compress&cs=tinysrgb&w=1200",
   },
   {
-    title: "Banking analyst",
+    title: "Data analyst",
     image:
       "https://images.pexels.com/photos/3184306/pexels-photo-3184306.jpeg?auto=compress&cs=tinysrgb&w=1200",
   },
   {
     title: "Operations lead",
     image:
-      "https://images.pexels.com/photos/1181406/pexels-photo-1181406.jpeg?auto=compress&cs=tinysrgb&w=1200",
-  },
-  {
-    title: "Implementation team",
-    image:
       "https://images.pexels.com/photos/3810792/pexels-photo-3810792.jpeg?auto=compress&cs=tinysrgb&w=1200",
   },
   {
-    title: "Delivery architect",
+    title: "Delivery engineer",
     image:
       "https://images.pexels.com/photos/8353800/pexels-photo-8353800.jpeg?auto=compress&cs=tinysrgb&w=1200",
-  },
-  {
-    title: "Regional operator",
-    image:
-      "https://images.pexels.com/photos/3760067/pexels-photo-3760067.jpeg?auto=compress&cs=tinysrgb&w=1200",
   },
 ];
 
 const peopleStories = [
   {
     title: "Architecture and platform design",
-    description: "System planning for regulated delivery environments.",
+    description: "Planning for regulated operating environments.",
     image:
       "https://images.pexels.com/photos/7841816/pexels-photo-7841816.jpeg?auto=compress&cs=tinysrgb&w=1400",
   },
   {
     title: "Delivery and implementation",
-    description: "From platform concept into live rollout.",
+    description: "From architecture into live rollout.",
     image:
       "https://images.pexels.com/photos/3810792/pexels-photo-3810792.jpeg?auto=compress&cs=tinysrgb&w=1200",
   },
   {
     title: "Reporting and operational visibility",
-    description: "Dashboards and workflow oversight for decision-making.",
+    description: "Dashboards built for faster decisions.",
     image:
       "https://images.pexels.com/photos/8353800/pexels-photo-8353800.jpeg?auto=compress&cs=tinysrgb&w=1200",
   },
   {
     title: "Support and continuous improvement",
-    description: "Operational support as systems keep evolving.",
+    description: "Support as platforms keep evolving.",
     image:
       "https://images.pexels.com/photos/3184306/pexels-photo-3184306.jpeg?auto=compress&cs=tinysrgb&w=1200",
   },
@@ -367,7 +357,7 @@ export default function Home() {
         <div className="enterprise-section-heading">
           <span className="enterprise-kicker">People</span>
           <h2>Built with people who understand African operations.</h2>
-          <p>Strategy, engineering, and delivery for real business environments across Africa.</p>
+          <p>Strategy, engineering, and delivery for real business environments across East Africa.</p>
         </div>
         <div className="enterprise-people-grid enterprise-people-grid-featured">
           <article className="enterprise-people-card enterprise-people-card-lead">

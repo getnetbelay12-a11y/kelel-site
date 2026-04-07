@@ -18,7 +18,7 @@ export function HeroPortraitRotation({ items }: HeroPortraitRotationProps) {
 
   return (
     <div className="hero-portrait-layer" aria-hidden="true">
-      <div className="hero-portrait-label">Regional operators / architects / delivery teams</div>
+      <div className="hero-portrait-label">Ethiopian architects / analysts / operators</div>
       <div className="hero-portrait-focus" />
 
       <div className="hero-portrait-marquee hero-portrait-marquee-back">
