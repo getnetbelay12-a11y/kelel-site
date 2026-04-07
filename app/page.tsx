@@ -7,18 +7,24 @@ import { RevealSection } from "@/components/reveal-section";
 const serviceTracks = [
   {
     id: "01",
-    title: "Banking Systems",
-    description: "Secure platforms for reporting, controls, KYC workflows, and transaction operations.",
+    tag: "Architecture",
+    title: "Platform Architecture & System Design",
+    description:
+      "Designing end-to-end system architecture for scalable, secure, and production-ready platforms.",
   },
   {
     id: "02",
-    title: "Insurance Platforms",
-    description: "Operational systems for policy management, renewals, claims workflows, and internal visibility.",
+    tag: "Performance",
+    title: "Performance & System Optimization",
+    description:
+      "Improving system performance, reliability, and operational efficiency across existing platforms.",
   },
   {
     id: "03",
-    title: "Enterprise Operations",
-    description: "Internal dashboards, workflow systems, and portals for coordination across growing organizations.",
+    tag: "Data",
+    title: "Data Infrastructure & Database Systems",
+    description:
+      "Designing and managing scalable database systems for high-performance and data-driven operations.",
   },
 ];
 
@@ -153,6 +159,10 @@ function HeroMotionVisual() {
         <div className="hero-motion-map">
           <svg viewBox="0 0 720 640" role="presentation">
             <path
+              className="africa-fill"
+              d="M335 42l77 49 33 74 48 35 14 64-36 44 16 65-38 53-18 101-62 55-29 77-55 22-37-44-44-23-33-72-59-35-20-72 29-62-30-54 40-76 51-33 40-93 113-55z"
+            />
+            <path
               className="africa-shape"
               d="M335 42l77 49 33 74 48 35 14 64-36 44 16 65-38 53-18 101-62 55-29 77-55 22-37-44-44-23-33-72-59-35-20-72 29-62-30-54 40-76 51-33 40-93 113-55z"
             />
@@ -160,11 +170,16 @@ function HeroMotionVisual() {
               className="east-africa"
               d="M392 350l38 31 12 46-44 30M356 423l-31 35 22 39"
             />
+            <path
+              className="signal-line signal-line-e"
+              d="M424 298C462 280 500 268 538 254"
+            />
             <circle className="hub hub-ethiopia" cx="424" cy="298" r="7" />
             <circle className="hub hub-kenya" cx="454" cy="366" r="5" />
             <circle className="hub hub-nigeria" cx="278" cy="292" r="5" />
             <circle className="hub hub-south-africa" cx="372" cy="522" r="5" />
             <circle className="hub hub-egypt" cx="468" cy="178" r="5" />
+            <circle className="hub hub-east-africa" cx="538" cy="254" r="4" />
             <path className="signal-line signal-line-a" d="M424 298C445 255 458 218 468 178" />
             <path className="signal-line signal-line-b" d="M424 298C388 292 326 289 278 292" />
             <path className="signal-line signal-line-c" d="M424 298C441 332 446 348 454 366" />
@@ -349,9 +364,12 @@ export default function Home() {
         <div className="enterprise-hero-copy">
           <span className="enterprise-kicker">Built for African markets. Designed for global standards.</span>
           <h1>Digital infrastructure for financial systems</h1>
-          <p>
+          <p className="enterprise-hero-copy-desktop">
             We design and deploy production-ready digital systems for banks, insurance, and
             enterprise operations across Africa.
+          </p>
+          <p className="enterprise-hero-copy-mobile">
+            Secure, scalable systems for banks, insurance, and enterprise operations across Africa.
           </p>
           <div className="enterprise-actions">
             <Link href="/#contact" className="primary-link">
@@ -410,7 +428,10 @@ export default function Home() {
         <div className="enterprise-large-card-grid">
           {serviceTracks.map((track) => (
             <article key={track.title} className="enterprise-story-card">
-              <span className="enterprise-card-id">{track.id}</span>
+              <div className="enterprise-story-meta">
+                <span className="enterprise-card-id">{track.id}</span>
+                <span className="enterprise-panel-label">{track.tag}</span>
+              </div>
               <h3>{track.title}</h3>
               <p>{track.description}</p>
             </article>
