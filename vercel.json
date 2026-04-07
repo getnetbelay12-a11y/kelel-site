@@ -1,0 +1,12 @@
+{
+  "crons": [
+    {
+      "path": "/api/reminders/digest?cadence=daily&secret=$REMINDER_DIGEST_SECRET",
+      "schedule": "0 8 * * *"
+    },
+    {
+      "path": "/api/reminders/digest?cadence=weekly&secret=$REMINDER_DIGEST_SECRET",
+      "schedule": "0 9 * * 1"
+    }
+  ]
+}

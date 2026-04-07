@@ -1,0 +1,10 @@
+<svg width="512" height="512" viewBox="0 0 88 88" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="kelel-icon-gradient" x1="6" y1="6" x2="82" y2="82" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1d4b42"/>
+      <stop offset="1" stop-color="#d35d2f"/>
+    </linearGradient>
+  </defs>
+  <rect x="4" y="4" width="80" height="80" rx="24" fill="url(#kelel-icon-gradient)"/>
+  <path d="M28 23h10v17l17-17h13L48.5 41.9 69 65H56.1L41.7 48.7 38 52.1V65H28V23Z" fill="#f8f4ec"/>
+</svg>
