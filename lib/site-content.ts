@@ -7,16 +7,14 @@ export const site = {
   contactPerson: "Getnet Amdu Belay",
   contactRole: "General Manager",
   intro:
-    "Kelel IT Solution helps organizations modernize operations, strengthen digital infrastructure, and launch dependable software and web platforms.",
-  tagline: "IT solutions, business systems, and digital transformation support.",
+    "Kelel IT Solution helps organizations improve digital presence, operational systems, infrastructure, and technology delivery with a stronger business-first approach.",
+  tagline: "Enterprise technology, platforms, and IT services for growing organizations.",
 };
 
 export const navLinks = [
   { href: "/", label: "Home" },
   { href: "/services", label: "Solutions" },
-  { href: "/trust", label: "Trust" },
-  { href: "/resources", label: "Resources" },
-  { href: "/work", label: "Case Studies" },
+  { href: "/platforms", label: "Platform" },
   { href: "/about", label: "Company" },
   { href: "/contact", label: "Contact" },
 ];
@@ -53,6 +51,99 @@ export const technologyFocus = [
   "IT operations support",
   "Infrastructure improvement",
   "Digital transformation",
+];
+
+export const platformUseCases = [
+  {
+    title: "Management dashboards",
+    summary:
+      "Reporting views for leaders who need clearer visibility into tasks, performance, follow-up, or operational bottlenecks.",
+  },
+  {
+    title: "Workflow tracking tools",
+    summary:
+      "Internal systems that help teams move work through a more structured, trackable, and accountable process.",
+  },
+  {
+    title: "Service and client portals",
+    summary:
+      "Web-based platforms that give staff, partners, or customers a clearer way to access information and services.",
+  },
+  {
+    title: "Operational reporting systems",
+    summary:
+      "Platform direction for teams that need stronger information flow, better records, and more reliable review data.",
+  },
+];
+
+export const platformDeliveryModels = [
+  {
+    title: "New platform delivery",
+    copy:
+      "For organizations starting from manual coordination or disconnected tools and needing a clearer digital operating structure.",
+  },
+  {
+    title: "Platform modernization",
+    copy:
+      "For teams that already have systems in place but need stronger usability, visibility, or better fit for current operations.",
+  },
+  {
+    title: "Reporting and visibility improvement",
+    copy:
+      "For leaders who need dashboards, business oversight, and cleaner management information before a larger system rollout.",
+  },
+  {
+    title: "Advisory and phased planning",
+    copy:
+      "For organizations that need help defining the right platform direction, delivery phases, and operating priorities before implementation.",
+  },
+];
+
+export const platformFaqs = [
+  {
+    question: "What does Kelel mean by a business platform?",
+    answer:
+      "A business platform can include dashboards, workflow systems, internal portals, client-facing portals, and reporting structures that make operations clearer and more manageable.",
+  },
+  {
+    question: "Can Kelel help if a team still relies on spreadsheets and manual follow-up?",
+    answer:
+      "Yes. The platform direction is designed for organizations moving from manual coordination toward more structured workflow, reporting, and digital operating tools.",
+  },
+  {
+    question: "Does platform work replace website work?",
+    answer:
+      "Not necessarily. Public websites, portals, dashboards, and internal systems can all fit together as part of one clearer digital operating model.",
+  },
+  {
+    question: "When is the right time to request a platform proposal?",
+    answer:
+      "It is usually the right time when reporting is difficult, coordination is fragmented, manual work is slowing operations, or leadership needs better system visibility.",
+  },
+];
+
+export const platformNextRoutes = [
+  {
+    title: "Read platform-oriented case studies",
+    href: "/work",
+    description:
+      "Use case-study pages to see how Kelel frames workflow visibility, reporting, modernization, and operational improvement.",
+    actionLabel: "Open case studies",
+  },
+  {
+    title: "Compare solutions and service fit",
+    href: "/services",
+    description:
+      "Move into the solutions page to compare platform work alongside support, infrastructure, and advisory services.",
+    actionLabel: "Compare solutions",
+  },
+  {
+    title: "Submit a formal platform request",
+    href: "/request-proposal",
+    description:
+      "Use the proposal route when the conversation is already moving toward a real platform, dashboard, or workflow project.",
+    actionLabel: "Request proposal",
+  },
 ];
 
 export const services = [
@@ -509,6 +600,15 @@ export const trustFAQs = [
 
 export const businessResources = [
   {
+    title: "Platforms and dashboards",
+    type: "Web page",
+    href: "/platforms",
+    description:
+      "A dedicated page for dashboards, workflow systems, business portals, reporting visibility, and software platform direction.",
+    actionLabel: "Open platforms page",
+    external: false,
+  },
+  {
     title: "Official company profile",
     type: "PDF document",
     href: "/downloads/kelel-company-profile.pdf",
@@ -542,6 +642,51 @@ export const businessResources = [
     description:
       "A guided checklist for reviewing Kelel's company profile, trust materials, case studies, and contact readiness.",
     actionLabel: "Open checklist",
+    external: false,
+  },
+  {
+    title: "Print-friendly review pack",
+    type: "Web page",
+    href: "/review-pack",
+    description:
+      "A cleaner, print-ready summary page for meetings, procurement review, and save-as-PDF handoff.",
+    actionLabel: "Open review pack",
+    external: false,
+  },
+  {
+    title: "Capability matrix",
+    type: "Web page",
+    href: "/capability-matrix",
+    description:
+      "A comparison-style matrix showing how Kelel's core service lines map to sectors and business outcomes.",
+    actionLabel: "Open capability matrix",
+    external: false,
+  },
+  {
+    title: "Proposal request page",
+    type: "Web page",
+    href: "/request-proposal",
+    description:
+      "A more formal proposal-request path for organizations ready to submit a structured project or support brief.",
+    actionLabel: "Request proposal",
+    external: false,
+  },
+  {
+    title: "Asset guide",
+    type: "Web page",
+    href: "/asset-guide",
+    description:
+      "A practical checklist for the real Kelel photos, screenshots, certificates, and business visuals needed to complete the site authentically.",
+    actionLabel: "Open asset guide",
+    external: false,
+  },
+  {
+    title: "Asset status",
+    type: "Web page",
+    href: "/asset-status",
+    description:
+      "A live status view showing which incoming Kelel asset files have arrived and which temporary website visuals are still waiting for replacement.",
+    actionLabel: "Open asset status",
     external: false,
   },
 ];
@@ -623,6 +768,114 @@ export const evidenceRegister = [
   },
 ];
 
+export const mediaReadinessPlan = [
+  {
+    title: "Leadership and office photos",
+    placement: "Homepage hero, About page, Contact page",
+    summary:
+      "Replace temporary stock visuals with real Kelel leadership, office environment, and business-setting photography.",
+  },
+  {
+    title: "Project and delivery screenshots",
+    placement: "Work page, case-study pages, company profile, trust page",
+    summary:
+      "Add dashboard screenshots, website previews, infrastructure visuals, or implementation photos that show real delivery work.",
+  },
+  {
+    title: "Certificates and registration visuals",
+    placement: "Trust page, Resources page, review materials",
+    summary:
+      "Add business registration, certificates, licenses, awards, and partner visuals as formal trust assets.",
+  },
+  {
+    title: "Client meeting and collaboration photos",
+    placement: "Resources, Request Proposal, Review Checklist, Services",
+    summary:
+      "Use approved real meeting, workshop, support, or planning images to reinforce Kelel's operating reality.",
+  },
+];
+
+export const assetGuideChecklist = [
+  {
+    title: "Leadership photos",
+    specs: [
+      "1 to 3 high-resolution portrait or working photos of leadership",
+      "Clean office, meeting, or professional business setting",
+      "Landscape versions preferred for hero sections",
+    ],
+  },
+  {
+    title: "Office and team environment",
+    specs: [
+      "Wide office shots, team collaboration moments, or client discussion scenes",
+      "Natural lighting or clear professional indoor lighting",
+      "Images should feel authentic and business-ready, not casual social photos",
+    ],
+  },
+  {
+    title: "Project proof visuals",
+    specs: [
+      "Website screenshots, dashboard screens, workflow interfaces, or infrastructure photos",
+      "Use PNG or JPG, ideally at least 1600px wide",
+      "Include only visuals that can be shown publicly",
+    ],
+  },
+  {
+    title: "Certificates and formal documents",
+    specs: [
+      "Business registration, certificates, licenses, awards, and partner materials",
+      "PDF, PNG, or JPG files are all useful",
+      "Scans should be clear, straight, and readable",
+    ],
+  },
+];
+
+export const assetReplacementMap = [
+  {
+    currentFile: "hero-businessman-tablet.jpg",
+    suggestedReplacement: "kelel-leadership-hero.jpg",
+    placements: ["Homepage hero", "About", "Contact", "Company Profile", "Request Proposal"],
+    guidance:
+      "Use a real Kelel leadership or executive-style business photo with strong landscape composition.",
+  },
+  {
+    currentFile: "team-tablet-meeting.jpg",
+    suggestedReplacement: "kelel-team-review.jpg",
+    placements: ["Resources", "Trust", "Review Checklist", "Asset Guide", "Work"],
+    guidance:
+      "Use a real team meeting, planning, client discussion, or review image that feels formal and business-ready.",
+  },
+  {
+    currentFile: "it-support-team.jpg",
+    suggestedReplacement: "kelel-delivery-team.jpg",
+    placements: ["Services", "Capability Matrix", "Work", "Contact", "Asset Guide"],
+    guidance:
+      "Use a real delivery, support, systems, or operations image showing people working around technology or infrastructure.",
+  },
+];
+
+export const incomingAssetFolders = [
+  {
+    folder: "leadership",
+    expectedFiles: ["kelel-leadership-hero.jpg"],
+  },
+  {
+    folder: "team",
+    expectedFiles: ["kelel-team-review.jpg", "kelel-delivery-team.jpg"],
+  },
+  {
+    folder: "projects",
+    expectedFiles: [
+      "kelel-project-screenshot-1.png",
+      "kelel-project-screenshot-2.png",
+    ],
+  },
+  {
+    folder: "certificates",
+    expectedFiles: ["kelel-certificate-1.pdf", "kelel-registration.pdf"],
+  },
+];
+
 export const reviewChecklist = [
   {
     title: "Company identity and contact",
@@ -654,6 +907,45 @@ export const reviewChecklist = [
       "Identify which certificates, badges, or registration documents should be added next.",
       "Identify which client references, endorsement letters, or visuals can be published.",
       "Use the evidence register to separate available materials from pending materials.",
+    ],
+  },
+];
+
+export const capabilityMatrix = [
+  {
+    service: "Managed IT Support",
+    sectorFit: ["SMEs", "Operations-heavy", "Service companies"],
+    outcomes: [
+      "More dependable day-to-day support",
+      "Faster issue handling and continuity",
+      "Clearer support discipline as the business grows",
+    ],
+  },
+  {
+    service: "Network and Infrastructure",
+    sectorFit: ["Operations-heavy", "SMEs", "Workflow modernization"],
+    outcomes: [
+      "Better infrastructure stability",
+      "Clearer readiness for future growth",
+      "Improved reliability for operational teams",
+    ],
+  },
+  {
+    service: "Software and Web Systems",
+    sectorFit: ["Service companies", "SMEs", "Workflow modernization"],
+    outcomes: [
+      "Stronger public digital presence",
+      "Better workflow visibility and internal tools",
+      "More structured client and team interactions",
+    ],
+  },
+  {
+    service: "Cloud, Security, and Advisory",
+    sectorFit: ["SMEs", "Operations-heavy", "Service companies", "Workflow modernization"],
+    outcomes: [
+      "Safer growth planning",
+      "Better technology decision support",
+      "Clearer roadmap for future digital investment",
     ],
   },
 ];

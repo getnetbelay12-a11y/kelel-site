@@ -1,39 +1,61 @@
 import { LogoMark } from "@/components/logo-mark";
 import Link from "next/link";
-import { navLinks, site } from "@/lib/site-content";
+import { site } from "@/lib/site-content";
+
+const footerLinks = [
+  { href: "/#home", label: "Home" },
+  { href: "/#solutions", label: "Solutions" },
+  { href: "/#platform", label: "Platform" },
+  { href: "/#company", label: "Company" },
+  { href: "/#contact", label: "Contact" },
+];
 
 export function SiteFooter() {
+  const year = new Date().getFullYear();
+
   return (
     <footer className="site-footer">
-      <div>
+      <div className="footer-primary">
         <div className="footer-brand">
-          <LogoMark />
+          <LogoMark compact />
           <div>
             <span className="eyebrow">Kelel IT Solution</span>
-            <strong className="footer-title">{site.tagline}</strong>
+            <strong className="footer-title">Enterprise technology, platforms, and IT services</strong>
             <p className="footer-copy">{site.intro}</p>
           </div>
         </div>
-        <div className="footer-leadership">
-          <strong>{site.contactPerson}</strong>
-          <span>{site.contactRole}</span>
+        <div className="footer-actions">
+          <Link href="/contact" className="primary-link">
+            Contact Kelel
+          </Link>
+          <Link
+            href="/request-proposal?focus=business-systems&source=footer-enterprise-proposal"
+            className="secondary-link"
+          >
+            Request Proposal
+          </Link>
         </div>
       </div>
 
       <div className="footer-links">
-        {navLinks.map((item) => (
+        <span className="footer-column-title">Links</span>
+        {footerLinks.map((item) => (
           <Link key={item.href} href={item.href}>
             {item.label}
           </Link>
         ))}
-        <Link href="/company-profile">Company Profile</Link>
       </div>
 
       <div className="footer-contact">
+        <span className="footer-column-title">Contact</span>
         <a href={`mailto:${site.email}`}>{site.email}</a>
-        <span>{site.phone}</span>
+        <a href={`tel:${site.phone}`}>{site.phone}</a>
         <span>{site.location}</span>
-        <span>{site.hours}</span>
+      </div>
+      <div className="footer-legal">
+        <span>{year} Kelel IT Solution</span>
+        <span>Kelel IT Solution builds production-grade systems for financial and enterprise operations.</span>
+        <span>Built for advisory, platforms, infrastructure, and digital business growth.</span>
       </div>
     </footer>
   );

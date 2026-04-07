@@ -1,16 +1,16 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Source_Serif_4 } from "next/font/google";
+import { Manrope, Playfair_Display } from "next/font/google";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { site } from "@/lib/site-content";
 import "./globals.css";
 
-const sans = Space_Grotesk({
+const sans = Manrope({
   subsets: ["latin"],
   variable: "--font-sans",
 });
 
-const serif = Source_Serif_4({
+const serif = Playfair_Display({
   subsets: ["latin"],
   variable: "--font-serif",
 });
@@ -18,22 +18,23 @@ const serif = Source_Serif_4({
 export const metadata: Metadata = {
   metadataBase: new URL("https://kelelitsolution.com"),
   title: {
-    default: site.name,
+    default: "Kelel IT Solution | Enterprise Technology and IT Services",
     template: `%s | ${site.name}`,
   },
-  description: site.intro,
+  description:
+    "Kelel IT Solution helps organizations strengthen operations through enterprise technology, platforms, web systems, infrastructure, and IT support.",
   applicationName: site.name,
   icons: {
     icon: "/icon.jpg",
     apple: "/apple-icon.jpg",
   },
   keywords: [
-    "IT solutions Ethiopia",
-    "managed IT support Addis Ababa",
-    "business systems development",
-    "network infrastructure services",
-    "corporate website development",
-    "digital transformation Ethiopia",
+    "digital infrastructure Africa",
+    "financial systems platform",
+    "banking systems Ethiopia",
+    "insurance platforms Africa",
+    "enterprise operations infrastructure",
+    "logistics systems platform",
   ],
   openGraph: {
     title: site.name,
@@ -91,12 +92,12 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <body className={`${sans.variable} ${serif.variable}`}>
+      <body>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
         />
-        <div className="site-frame">
+        <div className={`site-frame ${sans.variable} ${serif.variable}`}>
           <SiteHeader />
           {children}
           <SiteFooter />
