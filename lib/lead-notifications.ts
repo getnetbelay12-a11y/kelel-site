@@ -3,6 +3,14 @@ import type { StoredSubmission } from "@/lib/contact-submissions";
 import type { InboxDirectoryUser } from "@/lib/inbox-auth";
 import { site } from "@/lib/site-content";
 
+const publicSiteUrl = "https://kelelitsolution.com";
+const emailLogoUrl = `${publicSiteUrl}/brand/kelel-logo-en.jpg`;
+const emailAccent = "#c7a86a";
+const emailInk = "#13211d";
+const emailMuted = "#5f655f";
+const emailLine = "#ded6cb";
+const emailCanvas = "#f4ede3";
+
 function readRequiredEnv(name: string) {
   const value = process.env[name]?.trim();
   return value ? value : undefined;
@@ -81,6 +89,101 @@ function createTransporter() {
   };
 }
 
+function escapeHtml(value: string) {
+  return value
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#39;");
+}
+
+function formatOptionalValue(value?: string | null) {
+  return value?.trim() ? escapeHtml(value) : "Not provided";
+}
+
+function renderDataRows(rows: Array<{ label: string; value: string }>) {
+  return rows
+    .map(
+      (row) => `
+        <tr>
+          <td style="padding: 10px 0; width: 160px; font-weight: 700; color: ${emailInk}; vertical-align: top;">${escapeHtml(
+            row.label,
+          )}</td>
+          <td style="padding: 10px 0; color: ${emailInk};">${row.value}</td>
+        </tr>
+      `,
+    )
+    .join("");
+}
+
+function renderEmailShell(options: {
+  eyebrow: string;
+  title: string;
+  intro: string;
+  body: string;
+  footer?: string;
+}) {
+  return `
+    <div style="margin: 0; padding: 24px 0; background: ${emailCanvas}; font-family: Georgia, 'Times New Roman', serif; color: ${emailInk};">
+      <table role="presentation" style="width: 100%; border-collapse: collapse;">
+        <tbody>
+          <tr>
+            <td align="center">
+              <table role="presentation" style="width: 100%; max-width: 760px; border-collapse: collapse; background: #fffdf8; border: 1px solid ${emailLine}; border-radius: 20px; overflow: hidden;">
+                <tbody>
+                  <tr>
+                    <td style="padding: 28px 32px 18px; background: linear-gradient(135deg, #f5ede4 0%, #efe2d4 100%); border-bottom: 1px solid ${emailLine};">
+                      <table role="presentation" style="width: 100%; border-collapse: collapse;">
+                        <tbody>
+                          <tr>
+                            <td style="vertical-align: middle;">
+                              <img src="${emailLogoUrl}" alt="Kelel IT Solution" style="display: block; width: 140px; max-width: 100%; height: auto;" />
+                            </td>
+                            <td align="right" style="vertical-align: middle;">
+                              <div style="font-family: Arial, sans-serif; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: ${emailMuted};">${escapeHtml(
+                                options.eyebrow,
+                              )}</div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <h1 style="margin: 18px 0 8px; font-size: 34px; line-height: 1.08; color: ${emailInk};">${escapeHtml(
+                        options.title,
+                      )}</h1>
+                      <p style="margin: 0; max-width: 620px; font-family: Arial, sans-serif; font-size: 15px; line-height: 1.7; color: ${emailMuted};">${escapeHtml(
+                        options.intro,
+                      )}</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 28px 32px;">
+                      ${options.body}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 0 32px 30px;">
+                      <div style="padding-top: 18px; border-top: 1px solid ${emailLine}; font-family: Arial, sans-serif; font-size: 13px; line-height: 1.8; color: ${emailMuted};">
+                        ${options.footer ?? `Kelel IT Solution<br />${escapeHtml(site.location)}<br /><a href="mailto:${escapeHtml(
+                          site.email,
+                        )}" style="color: ${emailInk}; text-decoration: none;">${escapeHtml(
+                          site.email,
+                        )}</a> · <a href="tel:${escapeHtml(site.phone.replaceAll(" ", ""))}" style="color: ${emailInk}; text-decoration: none;">${escapeHtml(
+                          site.phone,
+                        )}</a>`}
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  `;
+}
+
 function buildLeadNotificationText(submission: StoredSubmission) {
   return [
     "A new website inquiry was submitted for Kelel IT Solution.",
@@ -98,28 +201,31 @@ function buildLeadNotificationText(submission: StoredSubmission) {
 }
 
 function buildLeadNotificationHtml(submission: StoredSubmission) {
-  const details = submission.details.replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;");
+  const details = escapeHtml(submission.details);
 
-  return `
-    <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #13211d;">
-      <h2 style="margin-bottom: 12px;">New Website Inquiry</h2>
-      <p style="margin-top: 0;">A new contact submission was received for Kelel IT Solution.</p>
-      <table style="border-collapse: collapse; width: 100%; max-width: 720px;">
+  return renderEmailShell({
+    eyebrow: "Lead notification",
+    title: "New website inquiry",
+    intro: "A new contact submission has been received through the Kelel IT Solution website.",
+    body: `
+      <table role="presentation" style="width: 100%; border-collapse: collapse;">
         <tbody>
-          <tr><td style="padding: 6px 0; font-weight: 700;">Name</td><td style="padding: 6px 0;">${submission.name}</td></tr>
-          <tr><td style="padding: 6px 0; font-weight: 700;">Business</td><td style="padding: 6px 0;">${submission.business || "Not provided"}</td></tr>
-          <tr><td style="padding: 6px 0; font-weight: 700;">Email</td><td style="padding: 6px 0;">${submission.email}</td></tr>
-          <tr><td style="padding: 6px 0; font-weight: 700;">Phone</td><td style="padding: 6px 0;">${submission.phone}</td></tr>
-          <tr><td style="padding: 6px 0; font-weight: 700;">Service</td><td style="padding: 6px 0;">${submission.service}</td></tr>
-          <tr><td style="padding: 6px 0; font-weight: 700;">Submitted</td><td style="padding: 6px 0;">${submission.createdAt}</td></tr>
+          ${renderDataRows([
+            { label: "Name", value: escapeHtml(submission.name) },
+            { label: "Business", value: formatOptionalValue(submission.business) },
+            { label: "Email", value: escapeHtml(submission.email) },
+            { label: "Phone", value: escapeHtml(submission.phone) },
+            { label: "Service", value: escapeHtml(submission.service) },
+            { label: "Submitted", value: escapeHtml(submission.createdAt) },
+          ])}
         </tbody>
       </table>
-      <div style="margin-top: 18px;">
-        <strong>Project details</strong>
-        <p style="white-space: pre-wrap; margin-top: 8px;">${details}</p>
+      <div style="margin-top: 24px; padding: 20px; border: 1px solid ${emailLine}; border-radius: 16px; background: #fff;">
+        <div style="margin-bottom: 8px; font-family: Arial, sans-serif; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: ${emailAccent};">Project brief</div>
+        <div style="font-family: Arial, sans-serif; white-space: pre-wrap; color: ${emailInk}; line-height: 1.7;">${details}</div>
       </div>
-    </div>
-  `;
+    `,
+  });
 }
 
 export async function sendNewLeadNotification(submission: StoredSubmission) {
@@ -169,6 +275,47 @@ function buildAssignmentNotificationText(
   ].join("\n");
 }
 
+function buildAssignmentNotificationHtml(
+  submission: StoredSubmission,
+  recipient: InboxDirectoryUser,
+  context: "assigned" | "follow_up_changed",
+) {
+  const intro =
+    context === "assigned"
+      ? `A lead has been assigned to ${recipient.name}.`
+      : `A follow-up date was updated for a lead assigned to ${recipient.name}.`;
+
+  return renderEmailShell({
+    eyebrow: context === "assigned" ? "Lead assignment" : "Follow-up update",
+    title: context === "assigned" ? "Lead assigned" : "Follow-up updated",
+    intro,
+    body: `
+      <table role="presentation" style="width: 100%; border-collapse: collapse;">
+        <tbody>
+          ${renderDataRows([
+            { label: "Lead", value: escapeHtml(submission.name) },
+            { label: "Business", value: formatOptionalValue(submission.business) },
+            { label: "Service", value: escapeHtml(submission.service) },
+            { label: "Owner", value: formatOptionalValue(submission.owner) },
+            {
+              label: "Follow-up date",
+              value: submission.followUpDate ? escapeHtml(formatDigestDate(submission.followUpDate)) : "Not scheduled",
+            },
+            { label: "Email", value: escapeHtml(submission.email) },
+            { label: "Phone", value: escapeHtml(submission.phone) },
+          ])}
+        </tbody>
+      </table>
+      <div style="margin-top: 24px; padding: 20px; border: 1px solid ${emailLine}; border-radius: 16px; background: #fff;">
+        <div style="margin-bottom: 8px; font-family: Arial, sans-serif; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: ${emailAccent};">Project details</div>
+        <div style="font-family: Arial, sans-serif; white-space: pre-wrap; color: ${emailInk}; line-height: 1.7;">${escapeHtml(
+          submission.details,
+        )}</div>
+      </div>
+    `,
+  });
+}
+
 export async function sendLeadAssignmentNotification(
   submission: StoredSubmission,
   recipient: InboxDirectoryUser,
@@ -196,6 +343,7 @@ export async function sendLeadAssignmentNotification(
       replyTo: submission.email,
       subject,
       text: buildAssignmentNotificationText(submission, recipient, context),
+      html: buildAssignmentNotificationHtml(submission, recipient, context),
     });
   } catch (error) {
     console.error("Lead assignee notification email could not be sent.", error);
@@ -242,32 +390,38 @@ function buildLeadDigestHtml(
 ) {
   const cadenceLabel = cadence === "daily" ? "Daily" : "Weekly";
 
-  return `
-    <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #13211d;">
-      <h2 style="margin-bottom: 12px;">${cadenceLabel} Lead Reminder Digest</h2>
-      <p style="margin-top: 0;">Here are the assigned leads that need attention for ${recipient.name}.</p>
-      ${submissions
-        .map(
-          (submission) => `
-            <div style="padding: 14px 0; border-top: 1px solid #d9d2c7;">
-              <strong style="font-size: 16px;">${submission.name}</strong>
-              <div style="margin-top: 8px;">
-                <div><strong>Business:</strong> ${submission.business || "Not provided"}</div>
-                <div><strong>Service:</strong> ${submission.service}</div>
-                <div><strong>Status:</strong> ${submission.status}</div>
-                <div><strong>Follow-up date:</strong> ${
-                  submission.followUpDate ? formatDigestDate(submission.followUpDate) : "Not scheduled"
-                }</div>
-                <div><strong>Email:</strong> ${submission.email}</div>
-                <div><strong>Phone:</strong> ${submission.phone}</div>
-                <div><strong>Notes:</strong> ${submission.notes || "No internal notes yet."}</div>
-              </div>
-            </div>
-          `,
-        )
-        .join("")}
-    </div>
-  `;
+  return renderEmailShell({
+    eyebrow: `${cadenceLabel} digest`,
+    title: `${cadenceLabel} lead reminder digest`,
+    intro: `Here are the assigned leads that need attention for ${recipient.name}.`,
+    body: submissions
+      .map(
+        (submission) => `
+          <div style="margin-top: 18px; padding: 20px; border: 1px solid ${emailLine}; border-radius: 16px; background: #fff;">
+            <div style="margin-bottom: 10px; font-size: 20px; font-weight: 700; color: ${emailInk};">${escapeHtml(
+              submission.name,
+            )}</div>
+            <table role="presentation" style="width: 100%; border-collapse: collapse;">
+              <tbody>
+                ${renderDataRows([
+                  { label: "Business", value: formatOptionalValue(submission.business) },
+                  { label: "Service", value: escapeHtml(submission.service) },
+                  { label: "Status", value: escapeHtml(submission.status) },
+                  {
+                    label: "Follow-up date",
+                    value: submission.followUpDate ? escapeHtml(formatDigestDate(submission.followUpDate)) : "Not scheduled",
+                  },
+                  { label: "Email", value: escapeHtml(submission.email) },
+                  { label: "Phone", value: escapeHtml(submission.phone) },
+                  { label: "Notes", value: formatOptionalValue(submission.notes) },
+                ])}
+              </tbody>
+            </table>
+          </div>
+        `,
+      )
+      .join(""),
+  });
 }
 
 export async function sendLeadReminderDigest(
