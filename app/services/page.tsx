@@ -5,10 +5,10 @@ import { SectionIntro } from "@/components/section-intro";
 import {
   assurancePoints,
   engagementModes,
-  industries,
   pillars,
   process,
   readinessSignals,
+  sectorPages,
   services,
 } from "@/lib/site-content";
 
@@ -83,9 +83,13 @@ export default function ServicesPage() {
           narrow
         />
         <div className="pillars-list">
-          {industries.map((industry) => (
-            <article key={industry}>
-              <strong>{industry}</strong>
+          {sectorPages.map((sector) => (
+            <article key={sector.slug}>
+              <strong>{sector.name}</strong>
+              <p>{sector.summary}</p>
+              <Link href={`/industries/${sector.slug}`} className="secondary-link">
+                View sector page
+              </Link>
             </article>
           ))}
         </div>

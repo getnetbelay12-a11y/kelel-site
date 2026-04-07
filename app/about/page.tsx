@@ -112,9 +112,14 @@ export default function AboutPage() {
           title="If your organization needs stronger systems, support, or digital presence, Kelel is ready to talk."
           narrow
         />
-        <Link href="/contact" className="primary-link">
-          Contact us
-        </Link>
+        <div className="contact-panel-stack">
+          <Link href="/trust" className="secondary-link">
+            Review trust page
+          </Link>
+          <Link href="/contact" className="primary-link">
+            Contact us
+          </Link>
+        </div>
       </section>
     </main>
   );

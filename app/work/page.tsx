@@ -30,6 +30,9 @@ export default function WorkPage() {
             <p>{project.blurb}</p>
             <p className="project-detail"><strong>Challenge:</strong> {project.challenge}</p>
             <p className="project-detail"><strong>Outcome:</strong> {project.outcome}</p>
+            <Link href={`/work/${project.slug}`} className="secondary-link">
+              View full case study
+            </Link>
           </article>
         ))}
       </section>

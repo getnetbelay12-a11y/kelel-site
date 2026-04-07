@@ -8,11 +8,11 @@ import {
   capabilityAreas,
   engagementModes,
   faqs,
-  industries,
   leadershipTouchpoints,
   process,
   projects,
   proofMetrics,
+  sectorPages,
   serviceHighlights,
   services,
   site,
@@ -212,9 +212,13 @@ export default function Home() {
           narrow
         />
         <div className="pillars-list">
-          {industries.map((industry) => (
-            <article key={industry}>
-              <strong>{industry}</strong>
+          {sectorPages.map((sector) => (
+            <article key={sector.slug}>
+              <strong>{sector.name}</strong>
+              <p>{sector.summary}</p>
+              <Link href={`/industries/${sector.slug}`} className="secondary-link">
+                View sector page
+              </Link>
             </article>
           ))}
         </div>

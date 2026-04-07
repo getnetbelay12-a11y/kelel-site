@@ -28,6 +28,9 @@ export default function CompanyProfilePage() {
           description="This page turns the downloadable company profile into a visible part of the website, so partners and clients can review Kelel before a meeting or proposal discussion."
         />
         <div className="profile-page-actions">
+          <Link href="/resources" className="secondary-link">
+            Resource center
+          </Link>
           <Link href="/contact" className="secondary-link">
             Talk to Kelel
           </Link>
@@ -125,6 +128,9 @@ export default function CompanyProfilePage() {
             <span className="project-type">{project.type}</span>
             <h3>{project.name}</h3>
             <p>{project.blurb}</p>
+            <Link href={`/work/${project.slug}`} className="secondary-link">
+              Open case study
+            </Link>
           </article>
         ))}
       </section>
