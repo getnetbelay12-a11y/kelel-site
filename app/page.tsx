@@ -1,326 +1,361 @@
-import { BrandShowcase } from "@/components/brand-showcase";
-import { CompanyProfileDownload } from "@/components/company-profile-download";
-import { ExecutiveContactCard } from "@/components/executive-contact-card";
-import { LogoMark } from "@/components/logo-mark";
+import type { Metadata } from "next";
 import Link from "next/link";
-import { SectionIntro } from "@/components/section-intro";
-import {
-  capabilityAreas,
-  engagementModes,
-  faqs,
-  leadershipTouchpoints,
-  process,
-  projects,
-  proofMetrics,
-  sectorPages,
-  serviceHighlights,
-  services,
-  site,
-  strengths,
-  technologyFocus,
-  testimonials,
-  trustPoints,
-} from "@/lib/site-content";
+import { RevealSection } from "@/components/reveal-section";
+import { site } from "@/lib/site-content";
+
+const solutions = [
+  {
+    title: "Banking Systems",
+    description:
+      "Core transaction, reporting, and customer operations infrastructure for financial institutions.",
+  },
+  {
+    title: "Insurance Platforms",
+    description:
+      "Policy, claims, and workflow systems built for operational visibility and controlled scale.",
+  },
+  {
+    title: "Logistics & Operations",
+    description:
+      "Tracking, coordination, and internal process infrastructure for distributed enterprise teams.",
+  },
+];
+
+const workflowSteps = [
+  "Assess business needs",
+  "Design system architecture",
+  "Build scalable platform",
+  "Deploy and optimize",
+];
+
+const differentiators = [
+  "Built for Africa",
+  "Production-ready systems",
+  "Secure and scalable",
+  "Fast deployment",
+];
+
+const capabilities = [
+  "API-first architecture",
+  "MongoDB-based backend",
+  "Modular systems",
+  "Secure workflows",
+];
+
+const trustMetrics = [
+  { label: "Uptime target", value: "99.9%" },
+  { label: "Architecture", value: "Scalable" },
+  { label: "Deployments", value: "Secure" },
+];
+
+const realWorldSystems = [
+  "Secure architecture",
+  "Scalable backend",
+  "Production-ready deployment",
+  "Enterprise-grade design",
+];
+
+const platformExamples = [
+  "Dashboard systems",
+  "Workflow automation",
+  "Reporting engines",
+  "Internal business platforms",
+];
+
+export const metadata: Metadata = {
+  title: "Kelel IT Solution | Digital Infrastructure for Financial Systems",
+  description:
+    "Kelel IT Solution builds secure digital infrastructure for financial systems, insurance operations, and enterprise platforms.",
+};
+
+function DashboardMock() {
+  return (
+    <div className="saas-dashboard" aria-hidden="true">
+      <div className="saas-dashboard-window">
+        <div className="saas-dashboard-topbar">
+          <span />
+          <span />
+          <span />
+        </div>
+        <div className="saas-dashboard-layout">
+          <aside className="saas-dashboard-sidebar">
+            <div className="saas-dashboard-brand">Kelel Core</div>
+            <div className="saas-dashboard-nav">
+              <span className="active">Infrastructure</span>
+              <span>Payments</span>
+              <span>Claims</span>
+              <span>Reporting</span>
+            </div>
+          </aside>
+          <div className="saas-dashboard-main">
+            <div className="saas-dashboard-summary">
+              <article>
+                <span>Processing volume</span>
+                <strong>1.2M</strong>
+              </article>
+              <article>
+                <span>System health</span>
+                <strong>99.9%</strong>
+              </article>
+              <article>
+                <span>Active workflows</span>
+                <strong>248</strong>
+              </article>
+            </div>
+            <div className="saas-dashboard-grid">
+              <section className="saas-dashboard-panel large">
+                <div className="saas-panel-header">
+                  <span>Infrastructure throughput</span>
+                  <strong>Realtime</strong>
+                </div>
+                <div className="saas-chart">
+                  <div className="saas-chart-bars">
+                    <span style={{ height: "34%" }} />
+                    <span style={{ height: "58%" }} />
+                    <span style={{ height: "49%" }} />
+                    <span style={{ height: "72%" }} />
+                    <span style={{ height: "61%" }} />
+                    <span style={{ height: "84%" }} />
+                    <span style={{ height: "68%" }} />
+                    <span style={{ height: "92%" }} />
+                  </div>
+                </div>
+              </section>
+              <section className="saas-dashboard-panel">
+                <div className="saas-panel-header">
+                  <span>Risk controls</span>
+                  <strong>Secure</strong>
+                </div>
+                <div className="saas-stack-list">
+                  <div>
+                    <small>Access policy</small>
+                    <strong>Enforced</strong>
+                  </div>
+                  <div>
+                    <small>Audit trail</small>
+                    <strong>Live</strong>
+                  </div>
+                  <div>
+                    <small>Workflow states</small>
+                    <strong>12 active</strong>
+                  </div>
+                </div>
+              </section>
+              <section className="saas-dashboard-panel">
+                <div className="saas-panel-header">
+                  <span>Architecture map</span>
+                  <strong>Modular</strong>
+                </div>
+                <div className="saas-node-grid">
+                  <span>API</span>
+                  <span>Core</span>
+                  <span>Data</span>
+                  <span>Ops</span>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default function Home() {
   return (
-    <main className="page-shell">
-      <section className="hero">
-        <div className="hero-copy">
-          <div className="hero-brand-row">
-            <LogoMark />
-            <div className="hero-brand-meta">
-              <span className="eyebrow">Addis Ababa Based IT Partner</span>
-              <p className="hero-brand-note">
-                Trusted business systems, infrastructure support, and practical digital transformation services.
-              </p>
-            </div>
-          </div>
-          <h1>Reliable IT solutions for organizations that need stronger systems and clearer digital presence.</h1>
-          <p className="hero-text">
-            {site.intro} We repositioned this website around the trust signals
-            decision-makers expect from a serious IT solutions company:
-            leadership visibility, clear service lines, sector fit, and a
-            direct path to inquiry.
+    <main className="fintech-home" id="home">
+      <RevealSection as="section" className="fintech-hero">
+        <div className="fintech-copy">
+          <span className="fintech-eyebrow">Enterprise Platform Infrastructure</span>
+          <h1>Digital Infrastructure for Financial Systems</h1>
+          <p>
+            We build secure, scalable platforms for banking, insurance, and enterprise
+            operations.
           </p>
-          <div className="hero-badges">
-            <span>{site.contactPerson}</span>
-            <span>{site.contactRole}</span>
-            <span>{site.email}</span>
-          </div>
-          <div className="hero-actions">
+          <div className="hero-actions fintech-actions">
             <Link href="/contact" className="primary-link">
-              Speak with Kelel
+              Start a Project
             </Link>
             <Link href="/services" className="secondary-link">
-              Explore solutions
-            </Link>
-            <Link href="/company-profile" className="secondary-link">
-              View company profile
+              View Solutions
             </Link>
           </div>
-        </div>
-
-        <div className="hero-card">
-          <p className="hero-card-label">Core solution areas</p>
-          <ul>
-            {services.map((service) => (
-              <li key={service.title}>{service.title}</li>
-            ))}
-          </ul>
-          <div className="impact-panel">
-            <span>Contact lead</span>
-            <strong>{site.contactPerson}, {site.contactRole}</strong>
+          <div className="fintech-hero-meta">
+            <div>
+              <span>Based in</span>
+              <strong>Addis Ababa</strong>
+            </div>
+            <div>
+              <span>Focus</span>
+              <strong>Financial + enterprise infrastructure</strong>
+            </div>
+            <div>
+              <span>Contact</span>
+              <strong>{site.email}</strong>
+            </div>
           </div>
         </div>
-      </section>
+        <DashboardMock />
+      </RevealSection>
 
-      <section className="stats-grid">
-        {proofMetrics.map((metric) => (
-          <article key={metric.label}>
-            <span>{metric.value}</span>
-            <strong>{metric.label}</strong>
-          </article>
-        ))}
-      </section>
-
-      <section className="section-block contrast-panel">
-        <BrandShowcase
-          title="A more credible website now carries the real Kelel identity throughout the experience."
-          description="The site now uses the actual Kelel logo system, which gives the homepage and company presentation much stronger brand consistency than the earlier placeholder mark."
-        />
-      </section>
-
-      <section className="section-block">
-        <SectionIntro
-          eyebrow="Trust signals"
-          title="What stronger IT company websites do well, this one now does far better."
-          description="The site now emphasizes service clarity, visible contact leadership, case-study framing, and straightforward conversion routes instead of generic marketing copy."
-        />
-        <div className="pillars-list">
-          {trustPoints.map((point) => (
-            <article key={point}>
-              <strong>{point}</strong>
-            </article>
-          ))}
+      <RevealSection as="section" id="solutions" className="fintech-section">
+        <div className="fintech-section-head">
+          <span className="fintech-eyebrow">Solutions</span>
+          <h2>Core infrastructure areas</h2>
+          <p>Three focused platform tracks for production environments.</p>
         </div>
-      </section>
-
-      <section className="section-block">
-        <SectionIntro
-          eyebrow="Solutions"
-          title="Technology solutions organized the way business decision-makers actually evaluate them."
-        />
-        <div className="service-grid">
-          {services.map((service) => (
-            <article key={service.title}>
-              <h3>{service.title}</h3>
-              <p>{service.summary}</p>
-              <ul className="service-bullets">
-                {service.bullets.map((bullet) => (
-                  <li key={bullet}>{bullet}</li>
-                ))}
-              </ul>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="section-block">
-        <SectionIntro
-          eyebrow="Capabilities"
-          title="A stronger IT website should show what the company can actually support across operations and delivery."
-          narrow
-        />
-        <div className="tag-cloud">
-          {capabilityAreas.map((item) => (
-            <span key={item} className="tag-pill">
-              {item}
-            </span>
-          ))}
-        </div>
-      </section>
-
-      <section className="section-block">
-        <SectionIntro
-          eyebrow="How we build"
-          title="A practical studio approach with stronger business thinking behind it."
-          narrow
-        />
-        <div className="highlight-grid">
-          {serviceHighlights.map((item) => (
-            <article key={item.title}>
+        <div className="fintech-solution-grid">
+          {solutions.map((item) => (
+            <article key={item.title} className="fintech-solution-card">
+              <span className="fintech-card-kicker">Platform track</span>
               <h3>{item.title}</h3>
-              <p>{item.copy}</p>
+              <p>{item.description}</p>
             </article>
           ))}
         </div>
-      </section>
+      </RevealSection>
 
-      <section className="section-block">
-        <SectionIntro
-          eyebrow="How clients engage"
-          title="Different organizations need different levels of support, so the offer should reflect that."
-          narrow
-        />
-        <div className="highlight-grid">
-          {engagementModes.map((mode) => (
-            <article key={mode.title}>
-              <h3>{mode.title}</h3>
-              <p>{mode.copy}</p>
+      <RevealSection as="section" className="fintech-section fintech-section-alt">
+        <div className="fintech-section-head">
+          <span className="fintech-eyebrow">How It Works</span>
+          <h2>Delivery built for execution</h2>
+          <p>A clean delivery path from architecture to live deployment.</p>
+        </div>
+        <div className="fintech-step-grid">
+          {workflowSteps.map((step, index) => (
+            <article key={step} className="fintech-step-card">
+              <span className="fintech-step-index">0{index + 1}</span>
+              <strong>{step}</strong>
             </article>
           ))}
         </div>
-      </section>
+      </RevealSection>
 
-      <section className="section-block contrast-panel">
-        <SectionIntro
-          eyebrow="Why Kelel"
-          title="The website now presents Kelel more like an IT partner and less like a generic studio."
-          narrow
-        />
-        <div className="strength-grid">
-          {strengths.map((item) => (
-            <article key={item.title}>
-              <h3>{item.title}</h3>
-              <p>{item.copy}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="section-block process-layout">
-        <SectionIntro
-          eyebrow="Delivery model"
-          title="A practical process for organizations improving technology and digital systems."
-          narrow
-        />
-        <div className="process-list">
-          {process.map((step, index) => (
-            <article key={step}>
-              <span>0{index + 1}</span>
-              <p>{step}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="section-block">
-        <SectionIntro
-          eyebrow="Industries"
-          title="Built to speak to the kinds of organizations that typically need dependable IT support."
-          narrow
-        />
-        <div className="pillars-list">
-          {sectorPages.map((sector) => (
-            <article key={sector.slug}>
-              <strong>{sector.name}</strong>
-              <p>{sector.summary}</p>
-              <Link href={`/industries/${sector.slug}`} className="secondary-link">
-                View sector page
-              </Link>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="section-block contrast-panel">
-        <SectionIntro
-          eyebrow="Technology focus"
-          title="The language of the website should reflect the types of systems and environments clients actually care about."
-          narrow
-        />
-        <div className="tag-cloud">
-          {technologyFocus.map((item) => (
-            <span key={item} className="tag-pill alt">
-              {item}
-            </span>
-          ))}
-        </div>
-      </section>
-
-      <section className="section-block proof-layout">
-        <SectionIntro
-          eyebrow="Leadership visibility"
-          title="A serious IT company website should make the path to a responsible decision-maker obvious."
-          narrow
-        />
-        <div className="proof-side">
-          <div className="pillars-list compact">
-            {leadershipTouchpoints.map((item) => (
-              <article key={item}>
+      <RevealSection as="section" id="company" className="fintech-section">
+        <div className="fintech-split">
+          <div className="fintech-section-head">
+            <span className="fintech-eyebrow">Why Kelel</span>
+            <h2>Infrastructure designed for real operating environments</h2>
+            <p>Technical clarity, deployment discipline, and systems built for production.</p>
+          </div>
+          <div className="fintech-mini-grid">
+            {differentiators.map((item) => (
+              <article key={item} className="fintech-mini-card">
+                <div className="fintech-mini-icon" aria-hidden="true">
+                  <span />
+                </div>
                 <strong>{item}</strong>
               </article>
             ))}
           </div>
-          <ExecutiveContactCard compact />
         </div>
-      </section>
+      </RevealSection>
 
-      <section className="section-block">
-        <CompanyProfileDownload copy="The branded Kelel company profile is now available online and as a downloadable PDF for procurement, partnership, and business-introduction use." />
-      </section>
-
-      <section className="project-grid">
-        {projects.map((project) => (
-          <article key={project.name} className="section-block project-card">
-            <span className="project-type">{project.type}</span>
-            <h3>{project.name}</h3>
-            <p>{project.blurb}</p>
-            <p className="project-detail"><strong>Challenge:</strong> {project.challenge}</p>
-            <p className="project-detail"><strong>Outcome:</strong> {project.outcome}</p>
-          </article>
-        ))}
-      </section>
-
-      <section className="section-block contrast-panel">
-        <SectionIntro
-          eyebrow="Client confidence"
-          title="Trust grows when service language, leadership visibility, and delivery expectations are all clear."
-          narrow
-        />
-        <div className="testimonial-grid">
-          {testimonials.map((item) => (
-            <article key={`${item.name}-${item.company}`}>
-              <p className="testimonial-quote">&ldquo;{item.quote}&rdquo;</p>
-              <strong>{item.name}</strong>
-              <span>{item.company}</span>
-            </article>
-          ))}
+      <RevealSection as="section" id="platform" className="fintech-section fintech-section-alt">
+        <div className="fintech-platform-layout">
+          <div className="fintech-section-head">
+            <span className="fintech-eyebrow">Platform Capabilities</span>
+            <h2>Built for production environments</h2>
+            <p>Composable architecture and operational readiness for enterprise platforms.</p>
+            <ul className="fintech-capability-list">
+              {capabilities.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </div>
+          <div className="fintech-code-card">
+            <div className="fintech-code-header">
+              <span>Platform architecture</span>
+              <strong>Production stack</strong>
+            </div>
+            <div className="fintech-code-lines">
+              <span>Gateway / API Layer</span>
+              <span>Secure Workflow Engine</span>
+              <span>Operational Services</span>
+              <span>MongoDB / Audit / Reporting</span>
+              <span>Deployment / Monitoring</span>
+            </div>
+          </div>
         </div>
-      </section>
+      </RevealSection>
 
-      <section className="section-block">
-        <SectionIntro
-          eyebrow="Questions"
-          title="The practical questions organizations ask before selecting an IT partner."
-          narrow
-        />
-        <div className="faq-list">
-          {faqs.map((item) => (
-            <article key={item.question}>
-              <h3>{item.question}</h3>
-              <p>{item.answer}</p>
-            </article>
-          ))}
+      <RevealSection as="section" className="fintech-section">
+        <div className="fintech-split">
+          <div className="fintech-section-head">
+            <span className="fintech-eyebrow">Built for real-world systems</span>
+            <h2>Architecture prepared for enterprise delivery</h2>
+            <p>Operational resilience, secure deployment, and controlled scale built into the platform approach.</p>
+          </div>
+          <div className="fintech-mini-grid">
+            {realWorldSystems.map((item) => (
+              <article key={item} className="fintech-mini-card">
+                <div className="fintech-mini-icon" aria-hidden="true">
+                  <span />
+                </div>
+                <strong>{item}</strong>
+              </article>
+            ))}
+          </div>
         </div>
-      </section>
+      </RevealSection>
 
-      <section className="section-block contact-panel">
-        <SectionIntro
-          eyebrow="Next Step"
-          title="If the site now looks closer to a serious IT company, the next job is to add real proof."
-          narrow
-        />
-        <p>
-          The strongest remaining upgrades are real client case studies,
-          certifications, partner logos, sector-specific service pages, and a
-          live delivery channel for inquiries.
-        </p>
-        <a href={`mailto:${site.email}`} className="primary-link">
-          {site.email}
-        </a>
-      </section>
+      <RevealSection as="section" className="fintech-section fintech-section-alt">
+        <div className="fintech-platform-layout">
+          <div className="fintech-section-head">
+            <span className="fintech-eyebrow">Example platform capabilities</span>
+            <h2>Core modules for enterprise infrastructure</h2>
+            <p>Focused capability blocks that can be combined into production-ready platform architecture.</p>
+          </div>
+          <div className="fintech-solution-grid fintech-solution-grid-compact">
+            {platformExamples.map((item) => (
+              <article key={item} className="fintech-solution-card">
+                <span className="fintech-card-kicker">Capability</span>
+                <h3>{item}</h3>
+                <p>Structured platform delivery aligned to operational visibility, control, and scale.</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </RevealSection>
+
+      <RevealSection as="section" className="fintech-section">
+        <div className="fintech-trust-layout">
+          <div className="fintech-section-head">
+            <span className="fintech-eyebrow">Trust</span>
+            <h2>Built for resilient infrastructure</h2>
+            <p>Enterprise deployment posture with reliability, scale, and security in view.</p>
+          </div>
+          <div className="fintech-metric-row">
+            {trustMetrics.map((metric) => (
+              <article key={metric.label} className="fintech-metric-card">
+                <span>{metric.label}</span>
+                <strong>{metric.value}</strong>
+              </article>
+            ))}
+          </div>
+        </div>
+      </RevealSection>
+
+      <RevealSection as="section" id="contact" className="fintech-section fintech-cta-section">
+        <div className="fintech-cta-card">
+          <div className="fintech-section-head">
+            <span className="fintech-eyebrow">Start a Project</span>
+            <h2>Let&apos;s build your next system</h2>
+            <p>Architecture-first delivery for financial and enterprise operations.</p>
+          </div>
+          <div className="hero-actions fintech-actions">
+            <Link href="/contact" className="primary-link">
+              Start a Project
+            </Link>
+            <Link
+              href="/request-proposal?focus=dashboard&source=home-architecture-proposal"
+              className="secondary-link"
+            >
+              Request Architecture Proposal
+            </Link>
+          </div>
+        </div>
+      </RevealSection>
     </main>
   );
 }

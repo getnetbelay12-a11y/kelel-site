@@ -1,0 +1,38 @@
+{
+  "generatedAt": "2026-04-07T14:54:00.635Z",
+  "mode": "dry-run",
+  "summary": {
+    "readyOrSyncedCount": 0,
+    "waitingCount": 3,
+    "blockedCount": 0
+  },
+  "items": [
+    {
+      "sourceFolder": "leadership",
+      "sourceName": "kelel-leadership-hero.jpg",
+      "targetName": "hero-businessman-tablet.jpg",
+      "label": "Homepage and leadership hero image",
+      "status": "waiting",
+      "approvedByManifest": true,
+      "notes": "Executive or leadership photo in landscape format"
+    },
+    {
+      "sourceFolder": "team",
+      "sourceName": "kelel-team-review.jpg",
+      "targetName": "team-tablet-meeting.jpg",
+      "label": "Team review and trust visual",
+      "status": "waiting",
+      "approvedByManifest": true,
+      "notes": "Formal meeting or review image"
+    },
+    {
+      "sourceFolder": "team",
+      "sourceName": "kelel-delivery-team.jpg",
+      "targetName": "it-support-team.jpg",
+      "label": "Delivery and support visual",
+      "status": "waiting",
+      "approvedByManifest": true,
+      "notes": "Technology or operations collaboration image"
+    }
+  ]
+}

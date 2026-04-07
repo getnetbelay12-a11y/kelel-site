@@ -15,23 +15,29 @@ export function BrandShowcase({ title, description }: BrandShowcaseProps) {
       </div>
       <div className="brand-showcase-visuals">
         <article className="brand-visual-card">
-          <Image
-            src="/brand/kelel-logo-en.jpg"
-            alt="Kelel logo in English"
-            width={900}
-            height={600}
-            className="brand-visual-image"
-          />
+          <div className="brand-visual-frame">
+            <Image
+              src="/brand/kelel-logo-en.jpg"
+              alt="Kelel logo in English"
+              width={900}
+              height={600}
+              className="brand-visual-image"
+            />
+            <span className="brand-visual-badge">Primary mark</span>
+          </div>
           <span>Primary English mark</span>
         </article>
         <article className="brand-visual-card">
-          <Image
-            src="/brand/kelel-logo-am.jpg"
-            alt="Kelel logo in Amharic"
-            width={900}
-            height={600}
-            className="brand-visual-image"
-          />
+          <div className="brand-visual-frame">
+            <Image
+              src="/brand/kelel-logo-am.jpg"
+              alt="Kelel logo in Amharic"
+              width={900}
+              height={600}
+              className="brand-visual-image"
+            />
+            <span className="brand-visual-badge alt">Amharic mark</span>
+          </div>
           <span>Amharic brand version</span>
         </article>
       </div>

@@ -9,6 +9,9 @@
     "lint": "eslint .",
     "generate:company-profile": "python scripts/generate_company_profile.py",
     "check:env": "node scripts/check-deployment-env.mjs",
+    "check:assets": "node scripts/check-assets.mjs",
+    "sync:assets:dry": "node scripts/sync-assets.mjs --dry-run",
+    "sync:assets": "node scripts/sync-assets.mjs",
     "generate:secrets": "node scripts/generate-secrets.mjs"
   },
   "keywords": [],

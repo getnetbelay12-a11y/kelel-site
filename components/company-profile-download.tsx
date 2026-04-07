@@ -9,9 +9,26 @@ export function CompanyProfileDownload({
 }: CompanyProfileDownloadProps) {
   return (
     <article className="profile-download-card">
-      <span className="eyebrow">Company profile</span>
+      <div className="profile-download-top">
+        <span className="eyebrow">Company profile</span>
+        <span className="status-pill status-contacted">Ready to share</span>
+      </div>
       <h3>{title}</h3>
       <p>{copy}</p>
+      <div className="profile-download-meta">
+        <article>
+          <span>Format</span>
+          <strong>PDF</strong>
+        </article>
+        <article>
+          <span>Use case</span>
+          <strong>Formal review</strong>
+        </article>
+        <article>
+          <span>Includes</span>
+          <strong>Contact + capability</strong>
+        </article>
+      </div>
       <div className="profile-download-actions">
         <a
           href="/downloads/kelel-company-profile.pdf"

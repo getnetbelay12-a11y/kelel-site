@@ -1,0 +1,8 @@
+filename,folder,asset_type,approved_for_public_use,preferred_page_or_section,notes
+kelel-leadership-hero.jpg,leadership,leadership photo,yes,Homepage hero,"Executive or leadership photo in landscape format"
+kelel-team-review.jpg,team,team meeting photo,yes,Resources / Trust / Review Checklist,"Formal meeting or review image"
+kelel-delivery-team.jpg,team,delivery or support photo,yes,Services / Work / Capability Matrix,"Technology or operations collaboration image"
+kelel-project-screenshot-1.png,projects,project screenshot,yes,Work / Case Study,"Dashboard, portal, website, or workflow screenshot"
+kelel-project-screenshot-2.png,projects,project screenshot,yes,Company Profile / Trust,"Second public-facing proof screenshot"
+kelel-certificate-1.pdf,certificates,certificate,yes,Trust / Resources,"Certificate, award, or formal credential"
+kelel-registration.pdf,certificates,registration document,yes,Trust / Resources,"Business registration or formal organization document"

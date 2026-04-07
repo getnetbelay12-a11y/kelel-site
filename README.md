@@ -12,6 +12,7 @@ Marketing website and internal lead inbox for Kelel IT Solution, built with Next
 - Email notifications for new leads and assignee updates
 - Optional Google Sheets sync
 - Manual and scheduled reminder digests
+- Proposal source and brief-type tracking across inbox, export, and notifications
 
 ## Local development
 
@@ -43,6 +44,61 @@ npm run dev
 
 - Public site: `http://localhost:3000`
 - Inbox: `http://localhost:3000/inbox`
+
+## Website asset handoff
+
+Real Kelel media files for the website can be placed in:
+
+```text
+incoming-assets/
+```
+
+Start with the guidance in:
+
+- [asset guide page](/C:/Projects/kelel%20It%20solution/app/asset-guide/page.tsx)
+- [asset replacement map](/C:/Projects/kelel%20It%20solution/docs/asset-replacement-map.md)
+- [incoming asset folder notes](/C:/Projects/kelel%20It%20solution/incoming-assets/README.md)
+
+Highest-impact first replacements:
+
+- `public/media/hero-businessman-tablet.jpg`
+- `public/media/team-tablet-meeting.jpg`
+- `public/media/it-support-team.jpg`
+
+Validate incoming website assets with:
+
+```bash
+npm run check:assets
+```
+
+When real approved files are in place, sync them into the live website media targets with:
+
+```bash
+npm run sync:assets
+```
+
+Preview the same replacement pass without changing files with:
+
+```bash
+npm run sync:assets:dry
+```
+
+This currently replaces the three main temporary visuals in:
+
+- `public/media/hero-businessman-tablet.jpg`
+- `public/media/team-tablet-meeting.jpg`
+- `public/media/it-support-team.jpg`
+
+This checks the expected files inside:
+
+- `incoming-assets/leadership`
+- `incoming-assets/team`
+- `incoming-assets/projects`
+- `incoming-assets/certificates`
+
+It also validates the manifest rows in:
+
+- `incoming-assets/asset-manifest-template.csv`
 
 ## Deployment validation
 
@@ -112,6 +168,15 @@ Enable lead sync with:
 
 - `GOOGLE_SHEETS_WEBHOOK_URL`
 - `GOOGLE_SHEETS_WEBHOOK_SECRET`
+
+The webhook payload now includes explicit top-level lead context fields such as:
+
+- `sourcePage`
+- `requestFocus`
+- `inquiryType`
+- `service`
+- `contactName`
+- `businessName`
 
 ### Reminder digests
 

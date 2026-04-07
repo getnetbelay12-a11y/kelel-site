@@ -26,13 +26,19 @@ export function ProofGallery() {
     <div className="proof-gallery">
       {proofItems.map((item) => (
         <article key={item.src} className="proof-card">
-          <Image
-            src={item.src}
-            alt={item.alt}
-            width={953}
-            height={1348}
-            className="proof-card-image"
-          />
+          <div className="proof-card-visual">
+            <Image
+              src={item.src}
+              alt={item.alt}
+              width={953}
+              height={1348}
+              className="proof-card-image"
+            />
+            <div className="proof-card-badge-row">
+              <span className="proof-card-badge">Kelel profile</span>
+              <span className="proof-card-badge alt">Review material</span>
+            </div>
+          </div>
           <div className="proof-card-copy">
             <h3>{item.title}</h3>
             <p>{item.copy}</p>

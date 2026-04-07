@@ -1,11 +1,19 @@
 import { LogoMark } from "@/components/logo-mark";
 import Link from "next/link";
-import { navLinks, site } from "@/lib/site-content";
+import { site } from "@/lib/site-content";
+
+const footerLinks = [
+  { href: "/", label: "Home" },
+  { href: "/services", label: "Solutions" },
+  { href: "/platforms", label: "Platform" },
+  { href: "/about", label: "Company" },
+  { href: "/contact", label: "Contact" },
+];
 
 export function SiteFooter() {
   return (
     <footer className="site-footer">
-      <div>
+      <div className="footer-primary">
         <div className="footer-brand">
           <LogoMark />
           <div>
@@ -14,24 +22,29 @@ export function SiteFooter() {
             <p className="footer-copy">{site.intro}</p>
           </div>
         </div>
-        <div className="footer-leadership">
-          <strong>{site.contactPerson}</strong>
-          <span>{site.contactRole}</span>
+        <div className="footer-actions">
+          <Link href="/contact" className="primary-link">
+            Get Started
+          </Link>
+          <Link href="/request-proposal?focus=dashboard&source=footer-architecture-proposal" className="secondary-link">
+            Architecture Proposal
+          </Link>
         </div>
       </div>
 
       <div className="footer-links">
-        {navLinks.map((item) => (
+        <span className="footer-column-title">Links</span>
+        {footerLinks.map((item) => (
           <Link key={item.href} href={item.href}>
             {item.label}
           </Link>
         ))}
-        <Link href="/company-profile">Company Profile</Link>
       </div>
 
       <div className="footer-contact">
+        <span className="footer-column-title">Contact</span>
         <a href={`mailto:${site.email}`}>{site.email}</a>
-        <span>{site.phone}</span>
+        <a href={`tel:${site.phone}`}>{site.phone}</a>
         <span>{site.location}</span>
         <span>{site.hours}</span>
       </div>

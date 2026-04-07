@@ -102,6 +102,18 @@ function formatOptionalValue(value?: string | null) {
   return value?.trim() ? escapeHtml(value) : "Not provided";
 }
 
+function formatSourceLabel(value?: string | null) {
+  if (!value?.trim()) {
+    return "Website form";
+  }
+
+  return value
+    .trim()
+    .split("-")
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+    .join(" ");
+}
+
 function renderDataRows(rows: Array<{ label: string; value: string }>) {
   return rows
     .map(
@@ -193,6 +205,8 @@ function buildLeadNotificationText(submission: StoredSubmission) {
     `Email: ${submission.email}`,
     `Phone: ${submission.phone}`,
     `Service: ${submission.service}`,
+    `Entry source: ${formatSourceLabel(submission.sourcePage)}`,
+    `Brief type: ${submission.requestFocus || "General proposal"}`,
     `Submitted: ${submission.createdAt}`,
     "",
     "Project details:",
@@ -216,6 +230,14 @@ function buildLeadNotificationHtml(submission: StoredSubmission) {
             { label: "Email", value: escapeHtml(submission.email) },
             { label: "Phone", value: escapeHtml(submission.phone) },
             { label: "Service", value: escapeHtml(submission.service) },
+            {
+              label: "Entry source",
+              value: escapeHtml(formatSourceLabel(submission.sourcePage)),
+            },
+            {
+              label: "Brief type",
+              value: escapeHtml(submission.requestFocus || "General proposal"),
+            },
             { label: "Submitted", value: escapeHtml(submission.createdAt) },
           ])}
         </tbody>
@@ -265,6 +287,8 @@ function buildAssignmentNotificationText(
     `Lead: ${submission.name}`,
     `Business: ${submission.business || "Not provided"}`,
     `Service: ${submission.service}`,
+    `Entry source: ${formatSourceLabel(submission.sourcePage)}`,
+    `Brief type: ${submission.requestFocus || "General proposal"}`,
     `Owner: ${submission.owner || "Unassigned"}`,
     `Follow-up date: ${submission.followUpDate || "Not scheduled"}`,
     `Email: ${submission.email}`,
@@ -296,6 +320,14 @@ function buildAssignmentNotificationHtml(
             { label: "Lead", value: escapeHtml(submission.name) },
             { label: "Business", value: formatOptionalValue(submission.business) },
             { label: "Service", value: escapeHtml(submission.service) },
+            {
+              label: "Entry source",
+              value: escapeHtml(formatSourceLabel(submission.sourcePage)),
+            },
+            {
+              label: "Brief type",
+              value: escapeHtml(submission.requestFocus || "General proposal"),
+            },
             { label: "Owner", value: formatOptionalValue(submission.owner) },
             {
               label: "Follow-up date",
@@ -373,6 +405,8 @@ function buildLeadDigestText(
       `Lead: ${submission.name}`,
       `Business: ${submission.business || "Not provided"}`,
       `Service: ${submission.service}`,
+      `Entry source: ${formatSourceLabel(submission.sourcePage)}`,
+      `Brief type: ${submission.requestFocus || "General proposal"}`,
       `Status: ${submission.status}`,
       `Follow-up date: ${submission.followUpDate ? formatDigestDate(submission.followUpDate) : "Not scheduled"}`,
       `Email: ${submission.email}`,
@@ -406,6 +440,14 @@ function buildLeadDigestHtml(
                 ${renderDataRows([
                   { label: "Business", value: formatOptionalValue(submission.business) },
                   { label: "Service", value: escapeHtml(submission.service) },
+                  {
+                    label: "Entry source",
+                    value: escapeHtml(formatSourceLabel(submission.sourcePage)),
+                  },
+                  {
+                    label: "Brief type",
+                    value: escapeHtml(submission.requestFocus || "General proposal"),
+                  },
                   { label: "Status", value: escapeHtml(submission.status) },
                   {
                     label: "Follow-up date",
@@ -477,6 +519,12 @@ export async function syncNewLeadToGoogleSheets(submission: StoredSubmission) {
       body: JSON.stringify({
         source: "kelel-it-solution-website",
         submittedAt: submission.createdAt,
+        sourcePage: submission.sourcePage || "",
+        requestFocus: submission.requestFocus || "",
+        inquiryType: submission.inquiryType,
+        service: submission.service,
+        contactName: submission.name,
+        businessName: submission.business || "",
         lead: submission,
       }),
       cache: "no-store",

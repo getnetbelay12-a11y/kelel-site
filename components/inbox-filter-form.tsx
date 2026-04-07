@@ -4,6 +4,10 @@ type InboxFilterFormProps = {
   view?: string;
   owner?: string;
   followUp?: string;
+  inquiryType?: string;
+  decisionStage?: string;
+  sourcePage?: string;
+  requestFocus?: string;
   currentUserName?: string;
 };
 
@@ -13,6 +17,10 @@ export function InboxFilterForm({
   view = "active",
   owner = "all",
   followUp = "all",
+  inquiryType = "all",
+  decisionStage = "all",
+  sourcePage = "all",
+  requestFocus = "all",
   currentUserName,
 }: InboxFilterFormProps) {
   return (
@@ -62,6 +70,49 @@ export function InboxFilterForm({
           <option value="upcoming">Due soon</option>
           <option value="scheduled">Scheduled later</option>
           <option value="none">Not scheduled</option>
+        </select>
+      </label>
+      <label>
+        <span>Inquiry type</span>
+        <select name="inquiryType" defaultValue={inquiryType}>
+          <option value="all">All types</option>
+          <option value="general">General inquiry</option>
+          <option value="proposal">Proposal request</option>
+        </select>
+      </label>
+      <label>
+        <span>Decision stage</span>
+        <select name="decisionStage" defaultValue={decisionStage}>
+          <option value="all">All stages</option>
+          <option value="Early exploration">Early exploration</option>
+          <option value="Comparing vendors">Comparing vendors</option>
+          <option value="Internal approval in progress">Internal approval in progress</option>
+          <option value="Budget approved">Budget approved</option>
+          <option value="Ready to start soon">Ready to start soon</option>
+          <option value="none">Not provided</option>
+        </select>
+      </label>
+      <label>
+        <span>Source</span>
+        <select name="sourcePage" defaultValue={sourcePage}>
+          <option value="all">All sources</option>
+          <option value="home-page">Home page</option>
+          <option value="home-page-final-cta">Home final CTA</option>
+          <option value="platforms-page">Platforms page</option>
+          <option value="platform-cta-panel">Platform CTA panel</option>
+          <option value="contact-page">Contact page</option>
+          <option value="request-proposal-page">Request proposal page</option>
+        </select>
+      </label>
+      <label>
+        <span>Brief type</span>
+        <select name="requestFocus" defaultValue={requestFocus}>
+          <option value="all">All brief types</option>
+          <option value="dashboard">Dashboard</option>
+          <option value="workflow">Workflow</option>
+          <option value="portal">Portal</option>
+          <option value="reporting">Reporting</option>
+          <option value="none">General proposal</option>
         </select>
       </label>
       <div className="inbox-filter-actions">

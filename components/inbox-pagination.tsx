@@ -6,6 +6,10 @@ type InboxPaginationProps = {
   view?: string;
   owner?: string;
   followUp?: string;
+  inquiryType?: string;
+  decisionStage?: string;
+  sourcePage?: string;
+  requestFocus?: string;
 };
 
 function buildInboxPageHref({
@@ -15,6 +19,10 @@ function buildInboxPageHref({
   view,
   owner,
   followUp,
+  inquiryType,
+  decisionStage,
+  sourcePage,
+  requestFocus,
 }: {
   page: number;
   query?: string;
@@ -22,6 +30,10 @@ function buildInboxPageHref({
   view?: string;
   owner?: string;
   followUp?: string;
+  inquiryType?: string;
+  decisionStage?: string;
+  sourcePage?: string;
+  requestFocus?: string;
 }) {
   const params = new URLSearchParams();
 
@@ -45,6 +57,22 @@ function buildInboxPageHref({
     params.set("followUp", followUp);
   }
 
+  if (inquiryType && inquiryType !== "all") {
+    params.set("inquiryType", inquiryType);
+  }
+
+  if (decisionStage && decisionStage !== "all") {
+    params.set("decisionStage", decisionStage);
+  }
+
+  if (sourcePage && sourcePage !== "all") {
+    params.set("sourcePage", sourcePage);
+  }
+
+  if (requestFocus && requestFocus !== "all") {
+    params.set("requestFocus", requestFocus);
+  }
+
   if (page > 1) {
     params.set("page", String(page));
   }
@@ -61,6 +89,10 @@ export function InboxPagination({
   view,
   owner,
   followUp,
+  inquiryType,
+  decisionStage,
+  sourcePage,
+  requestFocus,
 }: InboxPaginationProps) {
   if (totalPages <= 1) {
     return null;
@@ -76,6 +108,10 @@ export function InboxPagination({
           view,
           owner,
           followUp,
+          inquiryType,
+          decisionStage,
+          sourcePage,
+          requestFocus,
         })}
         className={`secondary-link${currentPage === 1 ? " disabled-link" : ""}`}
         aria-disabled={currentPage === 1}
@@ -93,6 +129,10 @@ export function InboxPagination({
           view,
           owner,
           followUp,
+          inquiryType,
+          decisionStage,
+          sourcePage,
+          requestFocus,
         })}
         className={`secondary-link${currentPage === totalPages ? " disabled-link" : ""}`}
         aria-disabled={currentPage === totalPages}
