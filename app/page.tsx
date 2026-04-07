@@ -3,187 +3,191 @@ import Link from "next/link";
 import { ContactForm } from "@/components/contact-form";
 import { RevealSection } from "@/components/reveal-section";
 
-const solutions = [
+const serviceTracks = [
   {
     id: "01",
     title: "Banking Systems",
-    description: "Core platforms for reporting, controls, and transaction-ready operations.",
+    description: "Secure platforms for reporting, controls, KYC workflows, and transaction operations.",
   },
   {
     id: "02",
     title: "Insurance Platforms",
-    description: "Systems for policy workflows, claims visibility, and operational control.",
+    description: "Operational systems for policy management, renewals, claims workflows, and internal visibility.",
   },
   {
     id: "03",
     title: "Enterprise Operations",
-    description: "Internal tools that improve coordination, dashboards, and business oversight.",
+    description: "Internal dashboards, workflow systems, and portals for coordination across growing organizations.",
   },
 ];
 
-const platformPoints = [
-  "API-first architecture",
-  "Scalable backend systems",
-  "Secure workflows",
-  "Modular deployment",
-];
-
-const africaFocusPoints = [
-  "Designed for local infrastructure realities",
-  "Adapted to regulatory and operating environments",
-  "Built for regional scale across African operations",
-];
-
-const organizationTypes = [
+const industries = [
   {
     title: "Banks and financial institutions",
-    description: "Secure systems for reporting, controls, and digital operations.",
+    description: "Built for digital transformation, reporting visibility, and operational control.",
   },
   {
     title: "Insurance providers",
-    description: "Platforms for policy flows, claims visibility, and oversight.",
+    description: "Designed for policy systems, renewal automation, and claims operations.",
   },
   {
     title: "Logistics and operations companies",
-    description: "Workflow tools that improve coordination and live visibility.",
+    description: "Structured for live workflows, tracking visibility, and business coordination.",
   },
   {
     title: "Growing enterprises",
-    description: "Modern systems that replace manual work with structured processes.",
+    description: "Scalable systems for teams moving from manual work to dependable digital operations.",
   },
 ];
 
-const useCases = [
-  "Digital banking platforms",
-  "Insurance policy systems",
-  "Internal operations dashboards",
-  "Workflow automation systems",
+const platformCapabilities = [
+  "API-first systems",
+  "Secure workflows",
+  "Modular deployment",
+  "Reporting and visibility",
 ];
 
-const deliverySteps = [
+const proofStories = [
   {
-    id: "01",
-    title: "Understand your business requirements",
-    description: "Map priorities, workflows, and operating needs.",
+    title: "Banking Platform Concept",
+    description: "A premium concept for digital banking operations, dashboards, and control layers.",
+    label: "Financial systems",
   },
   {
-    id: "02",
-    title: "Design system architecture",
-    description: "Define the right platform model and technical structure.",
+    title: "Insurance Workflow System",
+    description: "Claims, renewals, and internal operations managed through one cleaner workflow model.",
+    label: "Insurance operations",
   },
   {
-    id: "03",
-    title: "Build and test platform",
-    description: "Implement, validate, and prepare for production use.",
+    title: "Operations Dashboard Preview",
+    description: "Executive-ready oversight for field teams, service operations, and internal reporting.",
+    label: "Operational visibility",
   },
   {
-    id: "04",
-    title: "Deploy and support",
-    description: "Launch with monitoring, support, and continued improvement.",
+    title: "Enterprise Portal Concept",
+    description: "A structured portal layer for business processes, approvals, and regional coordination.",
+    label: "Enterprise platform",
   },
 ];
 
 const trustMetrics = [
   { value: "99.9%", label: "uptime-ready architecture" },
-  { value: "Modular", label: "deployment structure" },
+  { value: "API-first", label: "platform approach" },
   { value: "Secure", label: "workflow controls" },
-  { value: "Realtime", label: "reporting visibility" },
-];
-
-const africanSystemFocus = ["Banking", "Insurance", "Logistics"];
-
-const credibilityLines = [
-  "Production-ready systems",
-  "Built for scale",
-  "Secure by design",
-  "Designed for real-world operations",
+  { value: "Regional", label: "operational scale" },
 ];
 
 export const metadata: Metadata = {
-  title: "Kelel IT Solution | Digital Infrastructure for Financial Systems",
+  title: "Kelel IT Solution | Digital Infrastructure for African Markets",
   description:
-    "We design and deploy production-ready digital systems for banks, insurance, and enterprise operations across Africa.",
+    "Digital infrastructure for banking, insurance, and enterprise operations. Built for African markets and designed for global standards.",
 };
 
-function InfrastructureVisual() {
+function HeroMotionVisual() {
   return (
-    <div className="infra-visual" aria-hidden="true">
-      <div className="infra-shell">
-        <div className="infra-africa-map">
-          <svg viewBox="0 0 360 420" role="presentation">
-            <path d="M172 24l42 26 18 40 26 18 8 34-20 24 8 34-20 28-10 56-34 30-16 42-30 12-20-24-24-12-18-40-32-20-10-40 16-34-16-30 22-42 28-18 22-52 60-32z" />
-            <path d="M196 250l22 18 6 28-26 18" />
-            <path d="M174 292l-20 22 14 24" />
+    <div className="hero-motion-visual" aria-hidden="true">
+      <div className="hero-map-frame">
+        <div className="hero-motion-map">
+          <svg viewBox="0 0 720 640" role="presentation">
+            <path
+              className="africa-shape"
+              d="M335 42l77 49 33 74 48 35 14 64-36 44 16 65-38 53-18 101-62 55-29 77-55 22-37-44-44-23-33-72-59-35-20-72 29-62-30-54 40-76 51-33 40-93 113-55z"
+            />
+            <path
+              className="east-africa"
+              d="M392 350l38 31 12 46-44 30M356 423l-31 35 22 39"
+            />
+            <circle className="hub hub-ethiopia" cx="424" cy="298" r="7" />
+            <circle className="hub hub-kenya" cx="454" cy="366" r="5" />
+            <circle className="hub hub-nigeria" cx="278" cy="292" r="5" />
+            <circle className="hub hub-south-africa" cx="372" cy="522" r="5" />
+            <circle className="hub hub-egypt" cx="468" cy="178" r="5" />
+            <path className="signal-line signal-line-a" d="M424 298C445 255 458 218 468 178" />
+            <path className="signal-line signal-line-b" d="M424 298C388 292 326 289 278 292" />
+            <path className="signal-line signal-line-c" d="M424 298C441 332 446 348 454 366" />
+            <path className="signal-line signal-line-d" d="M424 298C410 396 390 470 372 522" />
           </svg>
-          <span className="node node-a" />
-          <span className="node node-b" />
-          <span className="node node-c" />
-          <span className="node node-d" />
-          <span className="beam beam-a" />
-          <span className="beam beam-b" />
-          <span className="beam beam-c" />
         </div>
-        <div className="infra-topbar">
-          <span />
-          <span />
-          <span />
-        </div>
-        <div className="infra-body">
-          <div className="infra-sidebar">
-            <strong>Kelel Core</strong>
-            <span className="active">Infrastructure</span>
-            <span>Operations</span>
-            <span>Controls</span>
-            <span>Reporting</span>
+      </div>
+
+      <div className="hero-wave-layer hero-wave-layer-a" />
+      <div className="hero-wave-layer hero-wave-layer-b" />
+      <div className="hero-particle hero-particle-a" />
+      <div className="hero-particle hero-particle-b" />
+      <div className="hero-particle hero-particle-c" />
+    </div>
+  );
+}
+
+function OperationsConsole() {
+  return (
+    <div className="hero-console" aria-hidden="true">
+      <div className="hero-console-topbar">
+        <span />
+        <span />
+        <span />
+      </div>
+
+      <div className="hero-console-grid">
+        <aside className="hero-console-sidebar">
+          <strong>Kelel Core</strong>
+          <span className="active">Infrastructure</span>
+          <span>Operations</span>
+          <span>Controls</span>
+          <span>Reporting</span>
+        </aside>
+
+        <div className="hero-console-main">
+          <div className="hero-console-stats">
+            <article>
+              <small>System health</small>
+              <strong>99.9%</strong>
+            </article>
+            <article>
+              <small>Active flows</small>
+              <strong>248</strong>
+            </article>
+            <article>
+              <small>Regions</small>
+              <strong>03</strong>
+            </article>
           </div>
-          <div className="infra-main">
-            <div className="infra-stat-row">
-              <article>
-                <small>System health</small>
-                <strong>99.9%</strong>
-              </article>
-              <article>
-                <small>Active flows</small>
-                <strong>248</strong>
-              </article>
-              <article>
-                <small>Regions</small>
-                <strong>03</strong>
-              </article>
-            </div>
-            <div className="infra-grid">
-              <article className="infra-card infra-card-wide">
-                <div className="infra-card-head">
-                  <small>Platform throughput</small>
-                  <strong>Realtime</strong>
-                </div>
-                <div className="infra-chart">
-                  <span style={{ height: "34%" }} />
-                  <span style={{ height: "44%" }} />
-                  <span style={{ height: "39%" }} />
-                  <span style={{ height: "61%" }} />
-                  <span style={{ height: "56%" }} />
-                  <span style={{ height: "72%" }} />
-                  <span style={{ height: "66%" }} />
-                  <span style={{ height: "86%" }} />
-                </div>
-              </article>
-              <article className="infra-card">
-                <div className="infra-card-head">
+
+          <div className="hero-console-panels">
+            <article className="hero-console-panel hero-console-panel-chart">
+              <div className="hero-console-panel-head">
+                <small>Platform throughput</small>
+                <strong>Realtime</strong>
+              </div>
+              <div className="hero-console-chart">
+                <span style={{ height: "34%" }} />
+                <span style={{ height: "46%" }} />
+                <span style={{ height: "40%" }} />
+                <span style={{ height: "58%" }} />
+                <span style={{ height: "72%" }} />
+                <span style={{ height: "66%" }} />
+                <span style={{ height: "84%" }} />
+              </div>
+            </article>
+
+            <div className="hero-console-panel-stack">
+              <article className="hero-console-panel">
+                <div className="hero-console-panel-head">
                   <small>Workflow security</small>
                   <strong>Enforced</strong>
                 </div>
-                <div className="infra-stack">
+                <div className="hero-console-stack">
                   <span>Access policy live</span>
                   <span>Audit trail active</span>
                 </div>
               </article>
-              <article className="infra-card">
-                <div className="infra-card-head">
+
+              <article className="hero-console-panel">
+                <div className="hero-console-panel-head">
                   <small>Architecture model</small>
                   <strong>Modular</strong>
                 </div>
-                <div className="infra-node-grid">
+                <div className="hero-console-node-grid">
                   <span>API</span>
                   <span>Core</span>
                   <span>Data</span>
@@ -198,157 +202,106 @@ function InfrastructureVisual() {
   );
 }
 
-function ArchitectureVisual() {
-  return (
-    <div className="architecture-visual" aria-hidden="true">
-      <div className="architecture-shell">
-        <div className="architecture-column">
-          <small>Architecture view</small>
-          <strong>Production stack</strong>
-        </div>
-        <div className="architecture-flow">
-          <span>Gateway / API layer</span>
-          <span>Business logic services</span>
-          <span>Workflow controls</span>
-          <span>Data / audit / reporting</span>
-          <span>Monitoring / deployment</span>
-        </div>
-      </div>
-    </div>
-  );
-}
-
 export default function Home() {
   return (
-    <main className="infra-homepage">
-      <RevealSection as="section" id="home" className="infra-hero">
-        <div className="infra-hero-copy">
-          <span className="infra-eyebrow">Built for African markets. Designed for global standards.</span>
-          <h1>Digital Infrastructure for Financial Systems</h1>
-          <p>We design and deploy production-ready digital systems for banks, insurance, and enterprise operations across Africa.</p>
-          <div className="infra-actions">
-            <Link href="/contact" className="primary-link">
+    <main className="enterprise-homepage">
+      <RevealSection as="section" id="home" className="enterprise-hero">
+        <div className="enterprise-hero-copy">
+          <span className="enterprise-kicker">Built for African markets</span>
+          <h1>Digital infrastructure for financial systems</h1>
+          <p>
+            Secure, scalable platforms for banking, insurance, and enterprise operations across
+            Africa.
+          </p>
+          <div className="enterprise-actions">
+            <Link href="/#contact" className="primary-link">
               Start a Project
             </Link>
-            <Link href="/#solutions" className="secondary-link">
-              View Solutions
+            <Link href="/#what-we-do" className="secondary-link">
+              Explore Solutions
             </Link>
           </div>
-          <div className="infra-micro-lines" aria-label="Credibility">
-            {credibilityLines.map((line) => (
-              <span key={line}>{line}</span>
+        </div>
+        <HeroMotionVisual />
+      </RevealSection>
+
+      <RevealSection as="section" id="what-we-do" className="enterprise-section">
+        <div className="enterprise-section-heading">
+          <span className="enterprise-kicker">What We Do</span>
+          <h2>Production-ready systems for core operating environments.</h2>
+          <p>Three focused system tracks for financial and enterprise delivery.</p>
+        </div>
+        <div className="enterprise-large-card-grid">
+          {serviceTracks.map((track) => (
+            <article key={track.title} className="enterprise-story-card">
+              <span className="enterprise-card-id">{track.id}</span>
+              <h3>{track.title}</h3>
+              <p>{track.description}</p>
+            </article>
+          ))}
+        </div>
+        <div className="enterprise-console-wrap">
+          <OperationsConsole />
+        </div>
+      </RevealSection>
+
+      <RevealSection as="section" id="industries" className="enterprise-section">
+        <div className="enterprise-editorial-layout">
+          <div className="enterprise-section-heading">
+            <span className="enterprise-kicker">Industries</span>
+            <h2>Built for organizations operating across African markets.</h2>
+            <p>Designed for local realities, regional scale, and enterprise expectations.</p>
+          </div>
+          <div className="enterprise-industry-grid">
+            {industries.map((industry) => (
+              <article key={industry.title} className="enterprise-industry-card">
+                <h3>{industry.title}</h3>
+                <p>{industry.description}</p>
+              </article>
             ))}
           </div>
         </div>
-        <InfrastructureVisual />
       </RevealSection>
 
-      <RevealSection as="section" className="infra-section">
-        <div className="infra-section-heading">
-          <span className="infra-eyebrow">Who we work with</span>
-          <h2>Built for organizations that need real systems</h2>
-          <p>Structured for technical buyers, operating teams, and growing businesses across Africa.</p>
-        </div>
-        <div className="infra-grid-two">
-          {organizationTypes.map((item) => (
-            <article key={item.title} className="infra-feature-card">
-              <h3>{item.title}</h3>
-              <p>{item.description}</p>
-            </article>
-          ))}
-        </div>
-      </RevealSection>
-
-      <RevealSection as="section" id="solutions" className="infra-section infra-section-centered">
-        <div className="infra-section-heading infra-section-heading-centered">
-          <span className="infra-eyebrow">Solutions</span>
-          <h2>Focused infrastructure for critical operating environments</h2>
-          <p>Built for control, reporting, and production readiness.</p>
-        </div>
-        <div className="infra-grid-three">
-          {solutions.map((solution) => (
-            <article key={solution.title} className="infra-feature-card">
-              <div className="infra-card-top">
-                <span>{solution.id}</span>
-                <h3>{solution.title}</h3>
-              </div>
-              <p>{solution.description}</p>
-            </article>
-          ))}
-        </div>
-      </RevealSection>
-
-      <RevealSection as="section" id="platform" className="infra-section">
-        <div className="infra-split">
-          <div className="infra-section-heading">
-            <span className="infra-eyebrow">Modern architecture</span>
-            <h2>Architecture that supports live systems</h2>
-            <p>Clear foundations for secure, scalable, and production-ready deployment across African markets.</p>
-            <ul className="infra-list">
-              {platformPoints.map((point) => (
-                <li key={point}>{point}</li>
+      <RevealSection as="section" id="platform" className="enterprise-section">
+        <div className="enterprise-editorial-layout enterprise-editorial-layout-reverse">
+          <div className="enterprise-platform-panel">
+            <span className="enterprise-panel-label">Platform capabilities</span>
+            <div className="enterprise-capability-list">
+              {platformCapabilities.map((item) => (
+                <article key={item}>
+                  <strong>{item}</strong>
+                  <p>Designed for real-world operations across African business environments.</p>
+                </article>
               ))}
-            </ul>
-            <div className="infra-africa-callout">
-              <strong>Built for Africa</strong>
-              <ul className="infra-list">
-                {africaFocusPoints.map((point) => (
-                  <li key={point}>{point}</li>
-                ))}
-              </ul>
             </div>
           </div>
-          <ArchitectureVisual />
-        </div>
-      </RevealSection>
-
-      <RevealSection as="section" className="infra-section">
-        <div className="infra-section-heading">
-          <span className="infra-eyebrow">Engagement model</span>
-          <h2>How we work</h2>
-          <p>Minimal, structured, and built for real delivery.</p>
-        </div>
-        <div className="infra-grid-four">
-          {deliverySteps.map((step) => (
-            <article key={step.id} className="infra-step-card">
-              <span className="infra-step-id">{step.id}</span>
-              <h3>{step.title}</h3>
-              <p>{step.description}</p>
-            </article>
-          ))}
-        </div>
-      </RevealSection>
-
-      <RevealSection as="section" className="infra-section">
-        <div className="infra-section-heading infra-section-heading-centered">
-          <span className="infra-eyebrow">Capabilities</span>
-          <h2>Example platform use cases</h2>
-          <p>Clear platform directions for serious operating environments.</p>
-        </div>
-        <div className="infra-grid-four">
-          {useCases.map((item) => (
-            <article key={item} className="infra-feature-card">
-              <h3>{item}</h3>
-              <p>Designed for secure workflows, reporting, and operational control.</p>
-            </article>
-          ))}
-        </div>
-      </RevealSection>
-
-      <RevealSection as="section" id="company" className="infra-section infra-section-wide">
-        <div className="infra-section-heading infra-section-heading-wide">
-          <span className="infra-eyebrow">Trust</span>
-          <h2>Production credibility built into the platform model</h2>
-          <p>Focused on African financial and operational systems.</p>
-          <div className="infra-micro-lines" aria-label="African system focus">
-            {africanSystemFocus.map((item) => (
-              <span key={item}>{item}</span>
-            ))}
+          <div className="enterprise-section-heading">
+            <span className="enterprise-kicker">Platform</span>
+            <h2>Modern architecture built for secure regional operations.</h2>
+            <p>API-first systems, modular deployment, and clear reporting structures.</p>
           </div>
         </div>
-        <div className="infra-grid-four">
+      </RevealSection>
+
+      <RevealSection as="section" id="company" className="enterprise-section">
+        <div className="enterprise-section-heading">
+          <span className="enterprise-kicker">Trust / Proof</span>
+          <h2>Focused on African financial and operational systems.</h2>
+          <p>Large proof stories, strong technical framing, and clear enterprise signals.</p>
+        </div>
+        <div className="enterprise-proof-band">
+          {proofStories.map((story) => (
+            <article key={story.title} className="enterprise-proof-card">
+              <span className="enterprise-proof-label">{story.label}</span>
+              <h3>{story.title}</h3>
+              <p>{story.description}</p>
+            </article>
+          ))}
+        </div>
+        <div className="enterprise-metric-row">
           {trustMetrics.map((metric) => (
-            <article key={metric.label} className="infra-metric-card">
+            <article key={metric.label}>
               <strong>{metric.value}</strong>
               <span>{metric.label}</span>
             </article>
@@ -356,35 +309,39 @@ export default function Home() {
         </div>
       </RevealSection>
 
-      <RevealSection as="section" id="contact" className="infra-section">
-        <div className="infra-cta infra-cta-split">
-          <div className="infra-section-heading">
-            <span className="infra-eyebrow">Start a project</span>
-            <h2>Start a project</h2>
-            <p>Tell us what you need. We design and deploy production-ready platforms.</p>
-            <div className="infra-actions">
-              <Link href="/contact" className="primary-link">
-                Start a Project
-              </Link>
-              <Link
-                href="/request-proposal?focus=dashboard&source=home-architecture-proposal"
-                className="secondary-link"
-              >
-                Request Architecture Proposal
-              </Link>
-            </div>
-            <p className="infra-response-note">We respond within 24-48 hours.</p>
+      <RevealSection as="section" id="contact" className="enterprise-section">
+        <div className="enterprise-cta">
+          <div className="enterprise-section-heading enterprise-section-heading-centered">
+            <span className="enterprise-kicker">Contact</span>
+            <h2>Let&apos;s build your next system.</h2>
+            <p>Tell us what you need and we&apos;ll shape the right architecture for it.</p>
           </div>
-          <div className="infra-form-panel">
-            <ContactForm
-              compactFields
-              sourcePage="home-page"
-              requestFocus="production-platform"
-              submitLabel="Send Request"
-              helperCopy="We respond within 24-48 hours."
-              detailsLabel="Message"
-              detailsPlaceholder="Tell us about your system, goals, or project requirements."
-            />
+          <div className="enterprise-cta-grid">
+            <div className="enterprise-cta-panel">
+              <div className="enterprise-actions">
+                <Link href="/contact" className="primary-link">
+                  Start a Project
+                </Link>
+                <Link
+                  href="/request-proposal?focus=dashboard&source=home-architecture-proposal"
+                  className="secondary-link"
+                >
+                  Request Architecture Proposal
+                </Link>
+              </div>
+              <p className="enterprise-note">We respond within 24-48 hours.</p>
+            </div>
+            <div className="enterprise-form-panel">
+              <ContactForm
+                compactFields
+                sourcePage="home-page"
+                requestFocus="production-platform"
+                submitLabel="Send Request"
+                helperCopy="We respond within 24-48 hours."
+                detailsLabel="What they need"
+                detailsPlaceholder="Tell us what system you need and what it should do."
+              />
+            </div>
           </div>
         </div>
       </RevealSection>

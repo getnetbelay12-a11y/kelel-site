@@ -8,7 +8,8 @@ import { site } from "@/lib/site-content";
 
 const primaryLinks = [
   { href: "/#home", label: "Home", section: "home" },
-  { href: "/#solutions", label: "Solutions", section: "solutions" },
+  { href: "/#what-we-do", label: "What We Do", section: "what-we-do" },
+  { href: "/#industries", label: "Industries", section: "industries" },
   { href: "/#platform", label: "Platform", section: "platform" },
   { href: "/#company", label: "Company", section: "company" },
   { href: "/#contact", label: "Contact", section: "contact" },
@@ -76,7 +77,7 @@ export function SiteHeader() {
       <Link href="/#home" className="brand-mark" onClick={() => setIsOpen(false)}>
         <LogoMark compact />
         <span className="brand-copy">
-          <span className="brand-kicker">Enterprise technology</span>
+          <span className="brand-kicker">Africa-first infrastructure</span>
           <strong>{site.name}</strong>
         </span>
       </Link>
