@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ContactForm } from "@/components/contact-form";
+import { HeroPortraitRotation } from "@/components/hero-portrait-rotation";
 import { RevealSection } from "@/components/reveal-section";
 
 const serviceTracks = [
@@ -82,25 +83,31 @@ const heroPortraits = [
     title: "Architecture lead",
     image:
       "https://images.pexels.com/photos/34690062/pexels-photo-34690062.jpeg?cs=srgb&dl=pexels-taiyesalawu-34690062.jpg&fm=jpg",
-    className: "hero-portrait-card hero-portrait-a",
   },
   {
     title: "Delivery team",
     image:
       "https://images.pexels.com/photos/30690402/pexels-photo-30690402.jpeg?cs=srgb&dl=pexels-ninthgrid-2149521550-30690402.jpg&fm=jpg",
-    className: "hero-portrait-card hero-portrait-b",
   },
   {
     title: "Operations review",
     image:
       "https://images.pexels.com/photos/9301748/pexels-photo-9301748.jpeg?cs=srgb&dl=pexels-mikhail-nilov-9301748.jpg&fm=jpg",
-    className: "hero-portrait-card hero-portrait-c",
   },
   {
     title: "Platform operator",
     image:
       "https://images.pexels.com/photos/34690062/pexels-photo-34690062.jpeg?cs=srgb&dl=pexels-taiyesalawu-34690062.jpg&fm=jpg",
-    className: "hero-portrait-card hero-portrait-d",
+  },
+  {
+    title: "Systems analyst",
+    image:
+      "https://images.pexels.com/photos/30690402/pexels-photo-30690402.jpeg?cs=srgb&dl=pexels-ninthgrid-2149521550-30690402.jpg&fm=jpg",
+  },
+  {
+    title: "Implementation lead",
+    image:
+      "https://images.pexels.com/photos/9301748/pexels-photo-9301748.jpeg?cs=srgb&dl=pexels-mikhail-nilov-9301748.jpg&fm=jpg",
   },
 ];
 
@@ -162,17 +169,7 @@ function HeroMotionVisual() {
             <path className="signal-line signal-line-d" d="M424 298C410 396 390 470 372 522" />
           </svg>
         </div>
-        <div className="hero-portrait-layer">
-          {heroPortraits.map((portrait) => (
-            <article
-              key={portrait.title}
-              className={portrait.className}
-              style={{ backgroundImage: `linear-gradient(180deg, rgba(7, 18, 31, 0.12), rgba(7, 18, 31, 0.72)), url(${portrait.image})` }}
-            >
-              <span>{portrait.title}</span>
-            </article>
-          ))}
-        </div>
+        <HeroPortraitRotation items={heroPortraits} />
       </div>
 
       <div className="hero-wave-layer hero-wave-layer-a" />
@@ -272,7 +269,7 @@ export default function Home() {
     <main className="enterprise-homepage">
       <RevealSection as="section" id="home" className="enterprise-hero">
         <div className="enterprise-hero-copy">
-          <span className="enterprise-kicker">Built for African markets</span>
+          <span className="enterprise-kicker">Built for African markets. Designed for global standards.</span>
           <h1>Digital infrastructure for financial systems</h1>
           <p>
             Secure, scalable platforms for banking, insurance, and enterprise operations across

@@ -7882,18 +7882,29 @@ body::before {
   height: 13rem;
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 22px;
-  background-position: center;
-  background-size: cover;
+  background: rgba(10, 22, 40, 0.34);
   box-shadow: 0 18px 42px rgba(0, 0, 0, 0.18);
   overflow: hidden;
   animation: floatPortrait 14s ease-in-out infinite;
+}
+
+.hero-portrait-surface {
+  position: absolute;
+  inset: 0;
+  background-position: center;
+  background-size: cover;
+  transform: scale(1.02);
+  animation: portraitSwapIn 800ms ease both;
 }
 
 .hero-portrait-card::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(7, 18, 31, 0), rgba(7, 18, 31, 0.72));
+  z-index: 0;
+  background:
+    linear-gradient(180deg, rgba(7, 18, 31, 0.08), rgba(7, 18, 31, 0.82)),
+    linear-gradient(180deg, rgba(7, 18, 31, 0), rgba(7, 18, 31, 0.34));
 }
 
 .hero-portrait-card span {
@@ -7906,6 +7917,7 @@ body::before {
   font-size: 0.82rem;
   font-weight: 700;
   letter-spacing: 0.04em;
+  text-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
 }
 
 .hero-portrait-a {
@@ -8582,6 +8594,18 @@ body::before {
   }
   50% {
     transform: translateY(-8px);
+  }
+}
+
+@keyframes portraitSwapIn {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 14px, 0) scale(0.985);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1.02);
   }
 }
 
