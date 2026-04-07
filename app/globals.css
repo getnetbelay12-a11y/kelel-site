@@ -7920,6 +7920,36 @@ body::before {
   opacity: 0.96;
 }
 
+.hero-portrait-mobile-feature {
+  display: none;
+  position: absolute;
+  top: 7rem;
+  right: 1.25rem;
+  width: 11.5rem;
+  height: 14.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow:
+    0 24px 56px rgba(0, 0, 0, 0.26),
+    0 0 0 1px rgba(59, 130, 246, 0.14);
+  background: rgba(10, 22, 40, 0.42);
+  z-index: 2;
+}
+
+.hero-portrait-mobile-feature span {
+  position: absolute;
+  left: 0.85rem;
+  right: 0.85rem;
+  bottom: 0.85rem;
+  z-index: 1;
+  color: #ffffff;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+}
+
 .hero-portrait-marquee {
   position: absolute;
   right: 0;
@@ -8077,6 +8107,16 @@ body::before {
   backdrop-filter: blur(12px);
   opacity: 0.82;
   animation: floatDataCard 9s ease-in-out infinite;
+}
+
+.hero-data-card-mobile {
+  display: none;
+  position: absolute;
+  right: 0.8rem;
+  bottom: 0.85rem;
+  min-width: 10rem;
+  max-width: 10rem;
+  z-index: 4;
 }
 
 .hero-data-track .hero-data-card:nth-child(2n) {
@@ -8954,8 +8994,9 @@ body::before {
 
 @media (max-width: 720px) {
   .enterprise-hero {
-    gap: 1.35rem;
-    padding: 6.75rem 1rem 3rem;
+    align-items: start;
+    gap: 1rem;
+    padding: 5.9rem 1rem 2.2rem;
   }
 
   .enterprise-homepage {
@@ -8964,7 +9005,7 @@ body::before {
 
   .enterprise-section {
     width: min(100% - 1rem, 1240px);
-    padding-top: 5rem;
+    padding-top: 4.2rem;
   }
 
   .enterprise-hero-copy h1,
@@ -9030,7 +9071,7 @@ body::before {
   }
 
   .hero-motion-visual {
-    min-height: 24rem;
+    min-height: 20rem;
   }
 
   .hero-console {
@@ -9040,7 +9081,7 @@ body::before {
   }
 
   .hero-map-frame {
-    min-height: 21rem;
+    min-height: 17.75rem;
     border-radius: 22px;
   }
 
@@ -9060,8 +9101,8 @@ body::before {
   }
 
   .hero-motion-map svg {
-    width: min(68%, 15rem);
-    opacity: 0.84;
+    width: min(78%, 16rem);
+    opacity: 0.94;
   }
 
   .hero-portrait-label {
@@ -9077,8 +9118,7 @@ body::before {
   }
 
   .hero-portrait-marquee-front {
-    top: 6.8rem;
-    width: 12.6rem;
+    display: none;
   }
 
   .hero-portrait-card {
@@ -9093,10 +9133,18 @@ body::before {
   }
 
   .hero-portrait-focus {
-    right: 2.5rem;
-    top: 6rem;
-    width: 8.5rem;
-    height: 11.5rem;
+    right: 2rem;
+    top: 4.3rem;
+    width: 9rem;
+    height: 11rem;
+  }
+
+  .hero-portrait-mobile-feature {
+    display: block;
+    top: 4.2rem;
+    right: 1rem;
+    width: 8.4rem;
+    height: 10.6rem;
   }
 
   .hero-data-card {
@@ -9122,9 +9170,16 @@ body::before {
   }
 
   .hero-data-marquee-front {
-    right: 0.45rem;
-    bottom: 1rem;
-    width: 10.4rem;
+    display: none;
+  }
+
+  .hero-data-card-mobile {
+    display: block;
+    right: 0.65rem;
+    bottom: 0.65rem;
+    min-width: 8.9rem;
+    max-width: 8.9rem;
+    padding: 0.8rem 0.85rem 0.9rem;
   }
 
   .hero-data-mini-chart {
@@ -9142,6 +9197,7 @@ body::before {
 
   .hub-label {
     font-size: 10px;
+    opacity: 1;
   }
 
   .enterprise-people-card-compact {
@@ -9240,12 +9296,12 @@ body::before {
 
 @media (max-width: 540px) {
   .enterprise-hero {
-    padding: 6.5rem 0.9rem 2.75rem;
+    padding: 5.5rem 0.9rem 2rem;
   }
 
   .enterprise-section {
     width: min(100% - 0.9rem, 1240px);
-    padding-top: 4.5rem;
+    padding-top: 3.8rem;
   }
 
   .enterprise-hero-copy h1 {
@@ -9253,41 +9309,36 @@ body::before {
   }
 
   .hero-motion-visual {
-    min-height: 22rem;
+    min-height: 18.6rem;
   }
 
   .hero-map-frame {
-    min-height: 19.5rem;
+    min-height: 16.5rem;
   }
 
   .hero-motion-map svg {
-    width: min(64%, 13.5rem);
-  }
-
-  .hero-portrait-marquee-front {
-    top: 6rem;
-    width: 10.8rem;
-  }
-
-  .hero-portrait-card {
-    width: 6.8rem;
-    height: 8.8rem;
+    width: min(82%, 14rem);
   }
 
   .hero-portrait-focus {
-    right: 1.8rem;
-    top: 5.5rem;
-    width: 7.6rem;
-    height: 10.2rem;
+    right: 1.2rem;
+    top: 3.8rem;
+    width: 7.2rem;
+    height: 9.2rem;
   }
 
-  .hero-data-marquee-front {
-    width: 9.2rem;
-    bottom: 0.9rem;
+  .hero-portrait-mobile-feature {
+    top: 3.65rem;
+    right: 0.8rem;
+    width: 7.2rem;
+    height: 9.2rem;
   }
 
-  .hero-data-card {
-    min-width: 8.8rem;
+  .hero-data-card-mobile {
+    right: 0.5rem;
+    bottom: 0.5rem;
+    min-width: 8rem;
+    max-width: 8rem;
   }
 }
 

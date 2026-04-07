@@ -15,11 +15,21 @@ function duplicateItems(items: PortraitItem[], offset = 0) {
 export function HeroPortraitRotation({ items }: HeroPortraitRotationProps) {
   const backItems = duplicateItems(items, 0);
   const frontItems = duplicateItems(items, 1);
+  const mobileFeatured = items[0];
 
   return (
     <div className="hero-portrait-layer" aria-hidden="true">
       <div className="hero-portrait-label">Ethiopian architects / analysts / operators</div>
       <div className="hero-portrait-focus" />
+      <article className="hero-portrait-mobile-feature">
+        <div
+          className="hero-portrait-surface"
+          style={{
+            backgroundImage: `linear-gradient(180deg, rgba(7, 18, 31, 0.06), rgba(7, 18, 31, 0.82)), url(${mobileFeatured.image})`,
+          }}
+        />
+        <span>{mobileFeatured.title}</span>
+      </article>
 
       <div className="hero-portrait-marquee hero-portrait-marquee-back">
         <div className="hero-portrait-track">

@@ -241,27 +241,33 @@ function HeroMotionVisual() {
           <div className="hero-data-marquee hero-data-marquee-front">
             <div className="hero-data-track">
               <article className="hero-data-card">
-                <small>Workflow system</small>
-                <strong>Secure workflows</strong>
-                <span>Controls, approvals, automation</span>
+                <small>System uptime</small>
+                <strong>99.9% uptime-ready</strong>
+                <span>Reliable systems built for production use.</span>
               </article>
               <article className="hero-data-card">
-                <small>Analytics dashboard</small>
-                <strong>Live operations</strong>
-                <span>Monitoring across teams and systems</span>
+                <small>Operations dashboard</small>
+                <strong>Live operational visibility</strong>
+                <span>Dashboards, controls, and performance insight.</span>
               </article>
               <article className="hero-data-card">
-                <small>Workflow system</small>
-                <strong>Secure workflows</strong>
-                <span>Controls, approvals, automation</span>
+                <small>System uptime</small>
+                <strong>99.9% uptime-ready</strong>
+                <span>Reliable systems built for production use.</span>
               </article>
               <article className="hero-data-card">
-                <small>Analytics dashboard</small>
-                <strong>Live operations</strong>
-                <span>Monitoring across teams and systems</span>
+                <small>Operations dashboard</small>
+                <strong>Live operational visibility</strong>
+                <span>Dashboards, controls, and performance insight.</span>
               </article>
             </div>
           </div>
+
+          <article className="hero-data-card hero-data-card-mobile">
+            <small>System uptime</small>
+            <strong>99.9% uptime-ready</strong>
+            <span>Live operational visibility across teams and systems.</span>
+          </article>
         </div>
       </div>
 
