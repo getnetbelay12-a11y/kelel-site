@@ -151,26 +151,36 @@ const whyKelel = [
   "Enterprise-grade design",
 ];
 
-const heroPortraits = [
+const heroOperator = {
+  title: "Ethiopian systems architect",
+  image:
+    "https://images.pexels.com/photos/7841816/pexels-photo-7841816.jpeg?auto=compress&cs=tinysrgb&w=1200",
+};
+
+const heroSystemCards = [
   {
-    title: "Solutions architect",
-    image:
-      "https://images.pexels.com/photos/7841816/pexels-photo-7841816.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    label: "Core dashboard",
+    title: "Operations command layer",
+    copy: "Dashboards, approvals, and reporting in one secure view.",
+    variant: "dashboard" as const,
   },
   {
-    title: "Data analyst",
-    image:
-      "https://images.pexels.com/photos/3184306/pexels-photo-3184306.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    label: "Analytics",
+    title: "Live performance insight",
+    copy: "Monitoring across active workflows and decision points.",
+    variant: "analytics" as const,
   },
   {
-    title: "Operations lead",
-    image:
-      "https://images.pexels.com/photos/3810792/pexels-photo-3810792.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    label: "Workflow",
+    title: "Secure process orchestration",
+    copy: "Permissions, handoffs, and controls for critical operations.",
+    variant: "workflow" as const,
   },
   {
-    title: "Delivery engineer",
-    image:
-      "https://images.pexels.com/photos/8353800/pexels-photo-8353800.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    label: "Infrastructure",
+    title: "Regional system topology",
+    copy: "Connected services and resilient infrastructure patterns.",
+    variant: "infrastructure" as const,
   },
 ];
 
@@ -208,27 +218,6 @@ export const metadata: Metadata = {
 };
 
 function HeroMotionVisual() {
-  const mobileMotionCards = [
-    {
-      type: "portrait",
-      title: "Solutions architect",
-      image:
-        "https://images.pexels.com/photos/7841816/pexels-photo-7841816.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    },
-    {
-      type: "metric",
-      label: "System uptime",
-      title: "99.9% uptime-ready",
-      copy: "Live visibility for production teams.",
-    },
-    {
-      type: "portrait",
-      title: "Data analyst",
-      image:
-        "https://images.pexels.com/photos/3184306/pexels-photo-3184306.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    },
-  ];
-
   return (
     <div className="hero-motion-visual" aria-hidden="true">
       <div className="hero-map-frame">
@@ -269,63 +258,12 @@ function HeroMotionVisual() {
             </text>
           </svg>
         </div>
-        <HeroPortraitRotation items={heroPortraits} />
-        <div className="hero-mobile-motion-marquee">
-          <div className="hero-mobile-motion-track">
-            {[...mobileMotionCards, ...mobileMotionCards].map((item, index) =>
-              item.type === "portrait" ? (
-                <article
-                  key={`mobile-portrait-${index}`}
-                  className={`hero-mobile-motion-card hero-mobile-motion-portrait${index % mobileMotionCards.length === 0 ? " is-primary" : ""}`}
-                >
-                  <div
-                    className="hero-mobile-motion-surface"
-                    style={{
-                      backgroundImage: `linear-gradient(180deg, rgba(7, 18, 31, 0.08), rgba(7, 18, 31, 0.82)), url(${item.image})`,
-                    }}
-                  />
-                  <span>{item.title}</span>
-                </article>
-              ) : (
-                <article key={`mobile-metric-${index}`} className="hero-mobile-motion-card hero-mobile-motion-kpi">
-                  <small>{item.label}</small>
-                  <strong>{item.title}</strong>
-                  <span>{item.copy}</span>
-                </article>
-              ),
-            )}
-          </div>
-        </div>
+        <HeroPortraitRotation operator={heroOperator} systemCards={heroSystemCards} />
         <div className="hero-data-layer">
-          <div className="hero-data-marquee hero-data-marquee-front">
-            <div className="hero-data-track">
-              <article className="hero-data-card">
-                <small>System uptime</small>
-                <strong>99.9% uptime-ready</strong>
-                <span>Production-ready reliability.</span>
-              </article>
-              <article className="hero-data-card">
-                <small>Operations dashboard</small>
-                <strong>Live operational visibility</strong>
-                <span>Dashboards, controls, and insight.</span>
-              </article>
-              <article className="hero-data-card">
-                <small>System uptime</small>
-                <strong>99.9% uptime-ready</strong>
-                <span>Production-ready reliability.</span>
-              </article>
-              <article className="hero-data-card">
-                <small>Operations dashboard</small>
-                <strong>Live operational visibility</strong>
-                <span>Dashboards, controls, and insight.</span>
-              </article>
-            </div>
-          </div>
-
           <article className="hero-data-card hero-data-card-mobile">
-            <small>System uptime</small>
-            <strong>99.9% uptime-ready</strong>
-            <span>Live visibility across teams.</span>
+            <small>System status</small>
+            <strong>Operational</strong>
+            <span>12 active systems</span>
           </article>
         </div>
       </div>
@@ -428,13 +366,10 @@ export default function Home() {
       <RevealSection as="section" id="home" className="enterprise-hero">
         <HeroMotionVisual />
         <div className="enterprise-hero-copy">
-          <span className="enterprise-kicker">Built for African markets. Designed for global standards.</span>
+          <span className="enterprise-kicker">Built for African markets</span>
           <h1>Kelel IT Solution</h1>
           <h2>Digital infrastructure for financial systems</h2>
-          <p>
-            Kelel IT Solution is a technology company based in Addis Ababa, Ethiopia, building
-            digital infrastructure for banking, insurance, and enterprise systems.
-          </p>
+          <p>Secure, scalable platforms for banking, insurance, and enterprise operations.</p>
           <div className="enterprise-actions">
             <Link href="/#contact" className="primary-link">
               Start a Project
