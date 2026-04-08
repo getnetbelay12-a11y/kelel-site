@@ -108,21 +108,6 @@ const trustMetrics = [
   { value: "Regional", label: "operational scale" },
 ];
 
-const systemScreens = [
-  {
-    title: "Workflow control layer",
-    description: "Approvals, handoffs, and operating visibility in one secure system view.",
-  },
-  {
-    title: "Reporting and dashboard layer",
-    description: "Real-time reporting panels for leadership, operations, and oversight teams.",
-  },
-  {
-    title: "Admin and platform tools",
-    description: "Structured admin tools for permissions, data handling, and platform configuration.",
-  },
-];
-
 const deliverySteps = [
   "Understand your business",
   "Design system architecture",
@@ -131,10 +116,22 @@ const deliverySteps = [
 ];
 
 const useCases = [
-  "Banking platform",
-  "Insurance system",
-  "Internal dashboard",
-  "Workflow automation",
+  {
+    title: "Banking platforms",
+    description: "Operational layers for controls, reporting, transactions, and oversight.",
+  },
+  {
+    title: "Insurance systems",
+    description: "Workflow-driven policy, renewal, claims, and service environments.",
+  },
+  {
+    title: "Internal dashboards",
+    description: "Decision-ready visibility for executives, teams, and operational leads.",
+  },
+  {
+    title: "Workflow automation",
+    description: "Structured approvals, handoffs, and activity tracking across live operations.",
+  },
 ];
 
 const simpleProof = [
@@ -519,7 +516,14 @@ export default function Home() {
 
       <RevealSection as="section" className="enterprise-section enterprise-company-statement">
         <div className="enterprise-company-statement-card">
-          <p>Real systems. Real operations. Real performance.</p>
+          <p>
+            Kelel IT Solution is a technology company based in Addis Ababa, Ethiopia, building
+            digital infrastructure for banking, insurance, and enterprise systems.
+          </p>
+          <div className="enterprise-company-statement-meta">
+            <span>API-first. Secure. Scalable. Built for real-world operations.</span>
+            <span>Real systems. Real operations. Real performance.</span>
+          </div>
         </div>
       </RevealSection>
 
@@ -550,13 +554,29 @@ export default function Home() {
           <p>Architecture, workflow, reporting, and monitoring surfaces for real operations.</p>
         </div>
         <div className="enterprise-ui-grid enterprise-ui-grid-expanded">
-            {platformSnapshots.map((snapshot, index) => (
-              <article key={snapshot.title} className={`enterprise-ui-card enterprise-ui-card-snapshot enterprise-ui-card-${index + 1}`}>
-                <ProductMock variant={snapshot.variant} />
-                <h3>{snapshot.title}</h3>
-                <p>{snapshot.description}</p>
-              </article>
+          {platformSnapshots.map((snapshot, index) => (
+            <article
+              key={snapshot.title}
+              className={`enterprise-ui-card enterprise-ui-card-snapshot enterprise-ui-card-${index + 1}`}
+            >
+              <ProductMock variant={snapshot.variant} />
+              <h3>{snapshot.title}</h3>
+              <p>{snapshot.description}</p>
+            </article>
+          ))}
+        </div>
+        <div className="enterprise-preview-summary">
+          <div className="enterprise-preview-proof">
+            <span className="enterprise-panel-label">System outputs</span>
+            <p>Interfaces, dashboards, and control layers designed for live operational use.</p>
+          </div>
+          <div className="enterprise-proof-list enterprise-proof-list-inline">
+            {useCases.map((item) => (
+              <span key={item.title} className="enterprise-trust-pill">
+                {item.title}
+              </span>
             ))}
+          </div>
         </div>
       </RevealSection>
 
@@ -582,50 +602,6 @@ export default function Home() {
         </div>
         <div className="enterprise-console-wrap">
           <OperationsConsole />
-        </div>
-      </RevealSection>
-
-      <RevealSection as="section" className="enterprise-section">
-        <div className="enterprise-editorial-layout">
-          <div className="enterprise-section-heading">
-            <span className="enterprise-kicker">Product</span>
-            <h2>Inside the systems we build.</h2>
-            <p>Dashboard UI, workflow screens, reporting panels, and admin tools for production use.</p>
-          </div>
-          <div className="enterprise-ui-grid">
-            {systemScreens.map((screen, index) => (
-              <article key={screen.title} className={`enterprise-ui-card enterprise-ui-card-${index + 1}`}>
-                <div className="enterprise-ui-mock" aria-hidden="true">
-                  <div className="enterprise-ui-topbar">
-                    <span />
-                    <span />
-                    <span />
-                  </div>
-                  <div className="enterprise-ui-layout">
-                    <div className="enterprise-ui-rail">
-                      <i />
-                      <i />
-                      <i />
-                    </div>
-                    <div className="enterprise-ui-panels">
-                      <div className="enterprise-ui-stat-row">
-                        <b />
-                        <b />
-                      </div>
-                      <div className="enterprise-ui-chart" />
-                      <div className="enterprise-ui-list">
-                        <span />
-                        <span />
-                        <span />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <h3>{screen.title}</h3>
-                <p>{screen.description}</p>
-              </article>
-            ))}
-          </div>
         </div>
       </RevealSection>
 
@@ -694,9 +670,9 @@ export default function Home() {
             <span className="enterprise-panel-label">What we build</span>
             <div className="enterprise-capability-list">
               {useCases.map((item) => (
-                <article key={item}>
-                  <strong>{item}</strong>
-                  <p>Configured for clear workflows and dependable delivery.</p>
+                <article key={item.title}>
+                  <strong>{item.title}</strong>
+                  <p>{item.description}</p>
                 </article>
               ))}
             </div>

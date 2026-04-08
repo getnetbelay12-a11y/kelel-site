@@ -9050,6 +9050,28 @@ body::before {
   line-height: 1.7;
 }
 
+.enterprise-company-statement-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-top: 1rem;
+}
+
+.enterprise-company-statement-meta span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.2rem;
+  padding: 0.5rem 0.8rem;
+  border-radius: 999px;
+  border: 1px solid rgba(159, 179, 200, 0.12);
+  background: rgba(255, 255, 255, 0.03);
+  color: #c8d8e6;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
 .hero-console {
   position: relative;
   min-height: 36rem;
@@ -9412,6 +9434,33 @@ body::before {
 
 .enterprise-console-wrap {
   margin-top: 2rem;
+}
+
+.enterprise-preview-summary {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 1rem;
+  align-items: center;
+  margin-top: 1.4rem;
+}
+
+.enterprise-preview-proof {
+  display: grid;
+  gap: 0.5rem;
+  padding: 1.1rem 1.2rem;
+  border-radius: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: linear-gradient(180deg, rgba(11, 24, 42, 0.88), rgba(9, 20, 36, 0.94));
+  box-shadow: var(--enterprise-shadow);
+}
+
+.enterprise-preview-proof p {
+  max-width: 34rem;
+}
+
+.enterprise-proof-list-inline {
+  margin-top: 0;
+  justify-content: flex-start;
 }
 
 .enterprise-console-wrap .hero-console {
@@ -10445,6 +10494,10 @@ body::before {
     line-height: 1.6;
   }
 
+  .enterprise-company-statement-meta {
+    justify-content: center;
+  }
+
   .enterprise-hero-copy h1,
   .enterprise-section-heading h2 {
     max-width: none;
@@ -10533,6 +10586,12 @@ body::before {
   .enterprise-editorial-layout,
   .enterprise-editorial-layout-reverse {
     gap: 1.5rem;
+  }
+
+  .enterprise-preview-summary {
+    grid-template-columns: 1fr;
+    gap: 0.9rem;
+    margin-top: 1rem;
   }
 
   .hero-motion-visual {
@@ -10962,6 +11021,12 @@ body::before {
 
   .enterprise-company-statement-card p {
     font-size: 0.92rem;
+  }
+
+  .enterprise-company-statement-meta span {
+    width: 100%;
+    justify-content: center;
+    font-size: 0.72rem;
   }
 
   .enterprise-section-heading p,
