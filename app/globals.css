@@ -9001,6 +9001,14 @@ body::before {
     padding: 5.9rem 1rem 2.2rem;
   }
 
+  .hero-motion-visual {
+    order: 1;
+  }
+
+  .enterprise-hero-copy {
+    order: 2;
+  }
+
   .enterprise-homepage {
     padding-bottom: 5rem;
   }
