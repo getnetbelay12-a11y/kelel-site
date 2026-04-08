@@ -108,6 +108,9 @@ export function SiteHeader() {
       </nav>
 
       <div className="header-actions">
+        <Link href="/contact?intent=book-call" className="secondary-link" onClick={() => setIsOpen(false)}>
+          Book a Call
+        </Link>
         <Link href="/#contact" className="header-quick-link" onClick={() => setIsOpen(false)}>
           Start a Project
         </Link>

@@ -2,6 +2,8 @@ export const site = {
   name: "Kelel IT Solution",
   email: "info@kelelitsolution.com",
   phone: "+251942137249",
+  whatsapp: "https://wa.me/251942137249",
+  calendlyPlaceholder: "/contact?intent=book-call",
   location: "Addis Ababa, Ethiopia",
   hours: "Mon - Sat, 8:30 AM - 6:00 PM",
   contactPerson: "Getnet Amdu Belay",

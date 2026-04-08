@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ContactForm } from "@/components/contact-form";
 import { HeroPortraitRotation } from "@/components/hero-portrait-rotation";
 import { RevealSection } from "@/components/reveal-section";
+import { site } from "@/lib/site-content";
 
 const serviceTracks = [
   {
@@ -107,6 +108,49 @@ const trustMetrics = [
   { value: "Regional", label: "operational scale" },
 ];
 
+const systemScreens = [
+  {
+    title: "Workflow control layer",
+    description: "Approvals, handoffs, and operating visibility in one secure system view.",
+  },
+  {
+    title: "Reporting and dashboard layer",
+    description: "Real-time reporting panels for leadership, operations, and oversight teams.",
+  },
+  {
+    title: "Admin and platform tools",
+    description: "Structured admin tools for permissions, data handling, and platform configuration.",
+  },
+];
+
+const deliverySteps = [
+  "Understand your business",
+  "Design system architecture",
+  "Build scalable platform",
+  "Deploy and support",
+];
+
+const useCases = [
+  "Banking platform",
+  "Insurance system",
+  "Internal dashboard",
+  "Workflow automation",
+];
+
+const simpleProof = [
+  "Real-time dashboards",
+  "Workflow automation",
+  "Data systems",
+  "Enterprise tools",
+];
+
+const whyKelel = [
+  "Built for Africa",
+  "Production-ready systems",
+  "Scalable architecture",
+  "Enterprise-grade design",
+];
+
 const heroPortraits = [
   {
     title: "Solutions architect",
@@ -164,6 +208,27 @@ export const metadata: Metadata = {
 };
 
 function HeroMotionVisual() {
+  const mobileMotionCards = [
+    {
+      type: "portrait",
+      title: "Solutions architect",
+      image:
+        "https://images.pexels.com/photos/7841816/pexels-photo-7841816.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    },
+    {
+      type: "metric",
+      label: "System uptime",
+      title: "99.9% uptime-ready",
+      copy: "Live visibility for production teams.",
+    },
+    {
+      type: "portrait",
+      title: "Data analyst",
+      image:
+        "https://images.pexels.com/photos/3184306/pexels-photo-3184306.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    },
+  ];
+
   return (
     <div className="hero-motion-visual" aria-hidden="true">
       <div className="hero-map-frame">
@@ -180,6 +245,10 @@ function HeroMotionVisual() {
             <path
               className="east-africa"
               d="M392 350l38 31 12 46-44 30M356 423l-31 35 22 39"
+            />
+            <path
+              className="ethiopia-shape"
+              d="M407 246l20 10 10 20-4 26-22 16-24-8-9-24 8-22 21-18z"
             />
             <path
               className="signal-line signal-line-e"
@@ -201,28 +270,54 @@ function HeroMotionVisual() {
           </svg>
         </div>
         <HeroPortraitRotation items={heroPortraits} />
+        <div className="hero-mobile-motion-marquee">
+          <div className="hero-mobile-motion-track">
+            {[...mobileMotionCards, ...mobileMotionCards].map((item, index) =>
+              item.type === "portrait" ? (
+                <article
+                  key={`mobile-portrait-${index}`}
+                  className={`hero-mobile-motion-card hero-mobile-motion-portrait${index % mobileMotionCards.length === 0 ? " is-primary" : ""}`}
+                >
+                  <div
+                    className="hero-mobile-motion-surface"
+                    style={{
+                      backgroundImage: `linear-gradient(180deg, rgba(7, 18, 31, 0.08), rgba(7, 18, 31, 0.82)), url(${item.image})`,
+                    }}
+                  />
+                  <span>{item.title}</span>
+                </article>
+              ) : (
+                <article key={`mobile-metric-${index}`} className="hero-mobile-motion-card hero-mobile-motion-kpi">
+                  <small>{item.label}</small>
+                  <strong>{item.title}</strong>
+                  <span>{item.copy}</span>
+                </article>
+              ),
+            )}
+          </div>
+        </div>
         <div className="hero-data-layer">
           <div className="hero-data-marquee hero-data-marquee-front">
             <div className="hero-data-track">
               <article className="hero-data-card">
                 <small>System uptime</small>
                 <strong>99.9% uptime-ready</strong>
-                <span>Reliable systems built for production use.</span>
+                <span>Production-ready reliability.</span>
               </article>
               <article className="hero-data-card">
                 <small>Operations dashboard</small>
                 <strong>Live operational visibility</strong>
-                <span>Dashboards, controls, and performance insight.</span>
+                <span>Dashboards, controls, and insight.</span>
               </article>
               <article className="hero-data-card">
                 <small>System uptime</small>
                 <strong>99.9% uptime-ready</strong>
-                <span>Reliable systems built for production use.</span>
+                <span>Production-ready reliability.</span>
               </article>
               <article className="hero-data-card">
                 <small>Operations dashboard</small>
                 <strong>Live operational visibility</strong>
-                <span>Dashboards, controls, and performance insight.</span>
+                <span>Dashboards, controls, and insight.</span>
               </article>
             </div>
           </div>
@@ -230,7 +325,7 @@ function HeroMotionVisual() {
           <article className="hero-data-card hero-data-card-mobile">
             <small>System uptime</small>
             <strong>99.9% uptime-ready</strong>
-            <span>Live operational visibility across teams and systems.</span>
+            <span>Live visibility across teams.</span>
           </article>
         </div>
       </div>
@@ -331,37 +426,53 @@ export default function Home() {
   return (
     <main className="enterprise-homepage">
       <RevealSection as="section" id="home" className="enterprise-hero">
+        <HeroMotionVisual />
         <div className="enterprise-hero-copy">
           <span className="enterprise-kicker">Built for African markets. Designed for global standards.</span>
           <h1>Kelel IT Solution</h1>
           <h2>Digital infrastructure for financial systems</h2>
-          <p className="enterprise-hero-copy-desktop">
+          <p>
             Kelel IT Solution is a technology company based in Addis Ababa, Ethiopia, building
             digital infrastructure for banking, insurance, and enterprise systems.
-          </p>
-          <p className="enterprise-hero-copy-mobile">
-            Secure, scalable platforms for banking, insurance, and enterprise systems across
-            Africa.
           </p>
           <div className="enterprise-actions">
             <Link href="/#contact" className="primary-link">
               Start a Project
             </Link>
-            <Link href="/#what-we-do" className="secondary-link">
-              Explore Solutions
+            <Link href={site.calendlyPlaceholder} className="secondary-link">
+              Book a Call
             </Link>
           </div>
           <p className="enterprise-hero-note">Designed and built by teams operating across Africa.</p>
         </div>
-        <HeroMotionVisual />
       </RevealSection>
 
       <RevealSection as="section" className="enterprise-section enterprise-company-statement">
         <div className="enterprise-company-statement-card">
           <p>
-            Kelel IT Solution is a technology company based in Addis Ababa, Ethiopia, building
-            digital infrastructure for banking, insurance, and enterprise systems.
+            API-first systems, secure workflows, and scalable platforms for real operating
+            environments across Africa.
           </p>
+        </div>
+      </RevealSection>
+
+      <RevealSection as="section" className="enterprise-section">
+        <div className="enterprise-editorial-layout enterprise-editorial-layout-reverse">
+          <div className="enterprise-platform-panel">
+            <span className="enterprise-panel-label">Why Kelel</span>
+            <div className="enterprise-capability-list">
+              {whyKelel.map((item) => (
+                <article key={item}>
+                  <strong>{item}</strong>
+                </article>
+              ))}
+            </div>
+          </div>
+          <div className="enterprise-section-heading">
+            <span className="enterprise-kicker">Trust Signals</span>
+            <h2>Why organizations choose Kelel for serious systems.</h2>
+            <p>Clear delivery, African market context, and production-grade platform thinking.</p>
+          </div>
         </div>
       </RevealSection>
 
@@ -369,7 +480,7 @@ export default function Home() {
         <div className="enterprise-section-heading">
           <span className="enterprise-kicker">People</span>
           <h2>Built with people who understand African operations.</h2>
-          <p>Strategy, engineering, and delivery for real business environments across East Africa.</p>
+          <p>Strategy, engineering, and delivery for business environments across East Africa.</p>
         </div>
         <div className="enterprise-people-grid enterprise-people-grid-featured">
           <article className="enterprise-people-card enterprise-people-card-lead">
@@ -404,7 +515,7 @@ export default function Home() {
         <div className="enterprise-section-heading">
           <span className="enterprise-kicker">What We Do</span>
           <h2>Production-ready systems for core operating environments.</h2>
-          <p>Three focused system tracks for financial and enterprise delivery.</p>
+          <p>Three focused system tracks for financial and enterprise platforms.</p>
         </div>
         <div className="enterprise-large-card-grid">
           {serviceTracks.map((track) => (
@@ -422,6 +533,50 @@ export default function Home() {
         </div>
         <div className="enterprise-console-wrap">
           <OperationsConsole />
+        </div>
+      </RevealSection>
+
+      <RevealSection as="section" className="enterprise-section">
+        <div className="enterprise-editorial-layout">
+          <div className="enterprise-section-heading">
+            <span className="enterprise-kicker">Product</span>
+            <h2>Inside the systems we build.</h2>
+            <p>Dashboard UI, workflow screens, reporting panels, and admin tools for production use.</p>
+          </div>
+          <div className="enterprise-ui-grid">
+            {systemScreens.map((screen, index) => (
+              <article key={screen.title} className={`enterprise-ui-card enterprise-ui-card-${index + 1}`}>
+                <div className="enterprise-ui-mock" aria-hidden="true">
+                  <div className="enterprise-ui-topbar">
+                    <span />
+                    <span />
+                    <span />
+                  </div>
+                  <div className="enterprise-ui-layout">
+                    <div className="enterprise-ui-rail">
+                      <i />
+                      <i />
+                      <i />
+                    </div>
+                    <div className="enterprise-ui-panels">
+                      <div className="enterprise-ui-stat-row">
+                        <b />
+                        <b />
+                      </div>
+                      <div className="enterprise-ui-chart" />
+                      <div className="enterprise-ui-list">
+                        <span />
+                        <span />
+                        <span />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <h3>{screen.title}</h3>
+                <p>{screen.description}</p>
+              </article>
+            ))}
+          </div>
         </div>
       </RevealSection>
 
@@ -466,11 +621,50 @@ export default function Home() {
         </div>
       </RevealSection>
 
+      <RevealSection as="section" className="enterprise-section">
+        <div className="enterprise-editorial-layout">
+          <div className="enterprise-section-heading">
+            <span className="enterprise-kicker">How Kelel Works</span>
+            <h2>A clear delivery path for serious systems.</h2>
+            <p>A structured process from architecture through rollout and support.</p>
+          </div>
+          <div className="enterprise-process-grid">
+            {deliverySteps.map((step, index) => (
+              <article key={step} className="enterprise-process-card">
+                <span className="enterprise-card-id">{`0${index + 1}`}</span>
+                <strong>{step}</strong>
+              </article>
+            ))}
+          </div>
+        </div>
+      </RevealSection>
+
+      <RevealSection as="section" className="enterprise-section">
+        <div className="enterprise-editorial-layout enterprise-editorial-layout-reverse">
+          <div className="enterprise-platform-panel">
+            <span className="enterprise-panel-label">What we build</span>
+            <div className="enterprise-capability-list">
+              {useCases.map((item) => (
+                <article key={item}>
+                  <strong>{item}</strong>
+                  <p>Configured for clear workflows and dependable delivery.</p>
+                </article>
+              ))}
+            </div>
+          </div>
+          <div className="enterprise-section-heading">
+            <span className="enterprise-kicker">Use Cases</span>
+            <h2>What clients can expect from Kelel.</h2>
+            <p>Focused system outputs that make the offer clearer and easier to trust.</p>
+          </div>
+        </div>
+      </RevealSection>
+
       <RevealSection as="section" id="company" className="enterprise-section">
         <div className="enterprise-section-heading">
           <span className="enterprise-kicker">Trust / Proof</span>
           <h2>Focused on African financial and operational systems.</h2>
-          <p>Large proof stories, strong technical framing, and clear enterprise signals.</p>
+          <p>Proof stories, strong technical framing, and clear enterprise signals.</p>
         </div>
         <div className="enterprise-proof-band">
           {proofStories.map((story) => (
@@ -491,6 +685,13 @@ export default function Home() {
             </article>
           ))}
         </div>
+        <div className="enterprise-proof-list">
+          {simpleProof.map((item) => (
+            <span key={item} className="enterprise-trust-pill">
+              {item}
+            </span>
+          ))}
+        </div>
       </RevealSection>
 
       <RevealSection as="section" id="contact" className="enterprise-section">
@@ -498,13 +699,16 @@ export default function Home() {
           <div className="enterprise-section-heading enterprise-section-heading-centered">
             <span className="enterprise-kicker">Contact</span>
             <h2>Let&apos;s build your next system.</h2>
-            <p>Tell us what you need and we&apos;ll shape the right architecture for it.</p>
+            <p>Tell us what you need and we&apos;ll shape the right architecture.</p>
           </div>
           <div className="enterprise-cta-grid">
             <div className="enterprise-cta-panel">
               <div className="enterprise-actions">
                 <Link href="/contact" className="primary-link">
                   Start a Project
+                </Link>
+                <Link href={site.calendlyPlaceholder} className="secondary-link">
+                  Book a Call
                 </Link>
                 <Link
                   href="/request-proposal?focus=dashboard&source=home-architecture-proposal"
@@ -529,6 +733,16 @@ export default function Home() {
           </div>
         </div>
       </RevealSection>
+
+      <a
+        href={site.whatsapp}
+        className="enterprise-chat-float"
+        target="_blank"
+        rel="noreferrer"
+        aria-label="Chat with Kelel on WhatsApp"
+      >
+        Chat with Kelel
+      </a>
     </main>
   );
 }
