@@ -7972,6 +7972,8 @@ body::before {
   position: relative;
   min-height: inherit;
   background:
+    radial-gradient(circle at 14% 38%, rgba(59, 130, 246, 0.14), transparent 24%),
+    radial-gradient(circle at 26% 62%, rgba(34, 197, 94, 0.08), transparent 16%),
     radial-gradient(circle at 20% 34%, rgba(59, 130, 246, 0.1), transparent 30%),
     radial-gradient(circle at 72% 36%, rgba(59, 130, 246, 0.14), transparent 32%),
     radial-gradient(circle at 54% 48%, rgba(34, 197, 94, 0.1), transparent 18%),
@@ -7984,9 +7986,21 @@ body::before {
   position: absolute;
   inset: 0;
   background:
+    radial-gradient(circle at 14% 30%, rgba(59, 130, 246, 0.14) 0 2px, transparent 3px),
+    radial-gradient(circle at 24% 54%, rgba(34, 197, 94, 0.12) 0 2px, transparent 3px),
+    radial-gradient(circle at 34% 22%, rgba(59, 130, 246, 0.12) 0 2px, transparent 3px),
+    linear-gradient(112deg, transparent 0 18%, rgba(59, 130, 246, 0.12) 18.2%, transparent 18.8%),
+    linear-gradient(102deg, transparent 0 30%, rgba(34, 197, 94, 0.08) 30.2%, transparent 30.8%),
     linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-  background-size: 120px 120px;
+  background-size:
+    auto,
+    auto,
+    auto,
+    100% 100%,
+    100% 100%,
+    120px 120px,
+    120px 120px;
   opacity: 0.22;
 }
 
@@ -7995,7 +8009,7 @@ body::before {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(90deg, rgba(3, 7, 14, 0.52) 0%, rgba(3, 7, 14, 0.28) 26%, rgba(3, 7, 14, 0.22) 72%, rgba(3, 7, 14, 0.38) 100%),
+    linear-gradient(90deg, rgba(3, 7, 14, 0.3) 0%, rgba(3, 7, 14, 0.18) 20%, rgba(3, 7, 14, 0.18) 78%, rgba(3, 7, 14, 0.3) 100%),
     radial-gradient(circle at 22% 38%, rgba(59, 130, 246, 0.08), transparent 24%),
     radial-gradient(circle at 74% 36%, rgba(59, 130, 246, 0.08), transparent 28%);
   pointer-events: none;
@@ -8018,7 +8032,7 @@ body::before {
   left: 50%;
   width: 14rem;
   height: 19rem;
-  transform: translateX(-8%);
+  transform: translateX(-18%);
   border-radius: 28px;
   background:
     radial-gradient(circle at center, rgba(59, 130, 246, 0.2), rgba(59, 130, 246, 0)),
@@ -8196,15 +8210,15 @@ body::before {
 
 .hero-portrait-marquee-back {
   top: 6rem;
-  left: -4vw;
-  width: 108vw;
+  left: -2vw;
+  width: 104vw;
   display: block;
 }
 
 .hero-portrait-marquee-front {
   top: 11.3rem;
-  left: -6vw;
-  width: 112vw;
+  left: -3vw;
+  width: 106vw;
   z-index: 2;
 }
 
@@ -8322,9 +8336,9 @@ body::before {
 }
 
 .hero-data-marquee-front {
-  left: -2vw;
+  left: -1vw;
   bottom: 2.2rem;
-  width: 104vw;
+  width: 102vw;
 }
 
 .hero-data-track {
@@ -8623,7 +8637,7 @@ body::before {
 }
 
 .hero-motion-map svg {
-  width: min(94vw, 74rem);
+  width: min(92vw, 72rem);
   height: auto;
   opacity: 0;
   filter:
@@ -9725,6 +9739,7 @@ body::before {
     border-radius: 0;
     box-shadow: none;
     background:
+      radial-gradient(circle at 16% 34%, rgba(59, 130, 246, 0.14), transparent 22%),
       radial-gradient(circle at 72% 36%, rgba(59, 130, 246, 0.18), transparent 30%),
       radial-gradient(circle at 54% 48%, rgba(34, 197, 94, 0.1), transparent 18%),
       linear-gradient(180deg, rgba(10, 22, 40, 0.96), rgba(8, 18, 33, 0.98));
@@ -9733,12 +9748,15 @@ body::before {
   .hero-map-frame::after {
     content: "";
     position: absolute;
-    inset: auto 5% 13% auto;
-    width: 8.5rem;
-    height: 8.5rem;
-    border-radius: 999px;
-    background: radial-gradient(circle, rgba(59, 130, 246, 0.18), rgba(59, 130, 246, 0));
-    opacity: 0.76;
+    inset: 0;
+    width: auto;
+    height: auto;
+    border-radius: 0;
+    background:
+      linear-gradient(90deg, rgba(3, 7, 14, 0.24) 0%, rgba(3, 7, 14, 0.14) 22%, rgba(3, 7, 14, 0.16) 78%, rgba(3, 7, 14, 0.26) 100%),
+      radial-gradient(circle at 18% 38%, rgba(59, 130, 246, 0.12), transparent 20%),
+      radial-gradient(circle at 78% 34%, rgba(59, 130, 246, 0.16), rgba(59, 130, 246, 0));
+    opacity: 0.82;
     pointer-events: none;
   }
 
