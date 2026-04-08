@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { ChatWithKelel } from "@/components/chat-with-kelel";
 import { ContactForm } from "@/components/contact-form";
 import { HeroPortraitRotation } from "@/components/hero-portrait-rotation";
 import { RevealSection } from "@/components/reveal-section";
@@ -242,6 +243,21 @@ function HeroMotionVisual() {
   return (
     <div className="hero-motion-visual" aria-hidden="true">
       <div className="hero-map-frame">
+        <div className="hero-map-atlas hero-map-atlas-africa">
+          <svg viewBox="0 0 420 360" role="presentation">
+            <path
+              d="M195 30l48 30 20 46 31 23 9 39-22 27 10 39-24 31-11 63-38 34-18 48-34 14-24-27-27-15-20-44-36-21-12-44 18-37-18-33 25-47 32-21 25-57 71-34 15 6z"
+            />
+          </svg>
+        </div>
+        <div className="hero-map-atlas hero-map-atlas-ethiopia">
+          <svg viewBox="0 0 220 220" role="presentation">
+            <path
+              d="M118 46l28 14 15 28-6 36-30 22-36-12-13-34 11-31 31-23z"
+            />
+            <circle cx="119" cy="102" r="10" />
+          </svg>
+        </div>
         <div className="hero-motion-map">
           <svg viewBox="0 0 720 640" role="presentation">
             <path
@@ -495,9 +511,11 @@ export default function Home() {
       <RevealSection as="section" id="home" className="enterprise-hero">
         <HeroMotionVisual />
         <div className="enterprise-hero-copy">
-          <span className="enterprise-kicker">Built for African markets</span>
-          <h1>Kelel IT Solution</h1>
-          <h2>Digital infrastructure and intelligent systems for financial operations</h2>
+          <div className="enterprise-hero-headingline">
+            <span className="enterprise-kicker">Built for African markets</span>
+            <h1>Kelel IT Solution</h1>
+            <h2>Digital infrastructure and intelligent systems for financial operations</h2>
+          </div>
           <p>Secure, scalable platforms for banking, insurance, and enterprise operations.</p>
           <p className="enterprise-tech-line">Powered by data, automation, and AI-driven insights.</p>
           <div className="enterprise-actions">
@@ -823,15 +841,7 @@ export default function Home() {
         </div>
       </RevealSection>
 
-      <a
-        href={site.whatsapp}
-        className="enterprise-chat-float"
-        target="_blank"
-        rel="noreferrer"
-        aria-label="Chat with Kelel on WhatsApp"
-      >
-        Chat with Kelel
-      </a>
+      <ChatWithKelel whatsappHref={site.whatsapp} />
     </main>
   );
 }
