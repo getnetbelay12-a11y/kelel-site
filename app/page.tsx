@@ -461,43 +461,6 @@ export default function Home() {
       <RevealSection as="section" id="home" className="enterprise-hero">
         <HeroMotionVisual />
         <div className="enterprise-hero-copy">
-          <div className="enterprise-hero-sidecards" aria-hidden="true">
-            <aside className="enterprise-hero-sidecard enterprise-hero-sidecard-left">
-              <div className="enterprise-hero-image-panel enterprise-hero-image-panel-left" />
-            </aside>
-
-            <aside className="enterprise-hero-sidecard enterprise-hero-sidecard-right">
-              <div className="enterprise-hero-image-panel enterprise-hero-image-panel-right">
-                <div className="enterprise-right-poster-grid">
-                  <article className="enterprise-right-poster enterprise-right-poster-a">
-                    <div className="enterprise-right-donut">
-                      <span />
-                    </div>
-                    <div className="enterprise-right-lines">
-                      <i />
-                      <i />
-                    </div>
-                  </article>
-                  <article className="enterprise-right-poster enterprise-right-poster-b">
-                    <div className="enterprise-right-grid" />
-                    <div className="enterprise-right-linechart">
-                      <i />
-                    </div>
-                  </article>
-                  <article className="enterprise-right-poster enterprise-right-poster-c">
-                    <div className="enterprise-right-pie">
-                      <span />
-                    </div>
-                    <div className="enterprise-right-bars">
-                      <i />
-                      <i />
-                      <i />
-                    </div>
-                  </article>
-                </div>
-              </div>
-            </aside>
-          </div>
           <span className="enterprise-kicker">Built for African markets</span>
           <h1>Kelel IT Solution</h1>
           <h2>Digital infrastructure for financial systems</h2>
@@ -679,8 +642,8 @@ export default function Home() {
           </div>
           <div className="enterprise-section-heading">
             <span className="enterprise-kicker">Use Cases</span>
-            <h2>What clients can expect from Kelel.</h2>
-            <p>Focused system outputs that make the offer clearer and easier to trust.</p>
+            <h2>Clear system outputs for operational teams.</h2>
+            <p>Short, concrete platform types that match what Kelel actually delivers.</p>
           </div>
         </div>
       </RevealSection>

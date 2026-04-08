@@ -105,8 +105,7 @@ function SystemCardVisual({ variant }: Pick<SystemCard, "variant">) {
 }
 
 export function HeroPortraitRotation({ systemCards }: HeroPortraitRotationProps) {
-  const backItems = duplicateItems(systemCards, 0);
-  const frontItems = duplicateItems(systemCards, 1);
+  const frontItems = duplicateItems(systemCards, 0);
   const mobilePrimary = systemCards[0];
   const mobileSecondary = systemCards[1];
 
@@ -116,28 +115,14 @@ export function HeroPortraitRotation({ systemCards }: HeroPortraitRotationProps)
 
       <article className="hero-system-mobile-feature hero-system-card hero-system-card-feature">
         <SystemCardVisual variant={mobilePrimary.variant} />
-        <small>{mobilePrimary.label}</small>
         <strong>{mobilePrimary.title}</strong>
         <span>{mobilePrimary.copy}</span>
       </article>
 
       <article className="hero-system-mobile-secondary hero-system-card">
         <SystemCardVisual variant={mobileSecondary.variant} />
-        <small>{mobileSecondary.label}</small>
         <strong>{mobileSecondary.title}</strong>
       </article>
-
-      <div className="hero-system-marquee hero-system-marquee-back">
-        <div className="hero-system-track">
-          {backItems.map((card, index) => (
-            <article key={`back-${index}-${card.title}`} className="hero-system-card hero-system-card-compact">
-              <SystemCardVisual variant={card.variant} />
-              <small>{card.label}</small>
-              <strong>{card.title}</strong>
-            </article>
-          ))}
-        </div>
-      </div>
 
       <div className="hero-system-marquee hero-system-marquee-front">
         <div className="hero-system-track">
@@ -147,7 +132,6 @@ export function HeroPortraitRotation({ systemCards }: HeroPortraitRotationProps)
               className={`hero-system-card ${index % systemCards.length === 1 ? "hero-system-card-prominent" : ""}`}
             >
               <SystemCardVisual variant={card.variant} />
-              <small>{card.label}</small>
               <strong>{card.title}</strong>
               <span>{card.copy}</span>
             </article>
