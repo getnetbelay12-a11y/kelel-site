@@ -470,7 +470,35 @@ export default function Home() {
             </aside>
 
             <aside className="enterprise-hero-sidecard enterprise-hero-sidecard-right">
-              <div className="enterprise-hero-image-panel enterprise-hero-image-panel-right" />
+              <div className="enterprise-hero-image-panel enterprise-hero-image-panel-right">
+                <div className="enterprise-right-poster-grid">
+                  <article className="enterprise-right-poster enterprise-right-poster-a">
+                    <div className="enterprise-right-donut">
+                      <span />
+                    </div>
+                    <div className="enterprise-right-lines">
+                      <i />
+                      <i />
+                    </div>
+                  </article>
+                  <article className="enterprise-right-poster enterprise-right-poster-b">
+                    <div className="enterprise-right-grid" />
+                    <div className="enterprise-right-linechart">
+                      <i />
+                    </div>
+                  </article>
+                  <article className="enterprise-right-poster enterprise-right-poster-c">
+                    <div className="enterprise-right-pie">
+                      <span />
+                    </div>
+                    <div className="enterprise-right-bars">
+                      <i />
+                      <i />
+                      <i />
+                    </div>
+                  </article>
+                </div>
+              </div>
             </aside>
           </div>
           <span className="enterprise-kicker">Built for African markets</span>

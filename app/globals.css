@@ -7825,9 +7825,87 @@ body::before {
 }
 
 .enterprise-hero-image-panel-right {
-  background-image:
+  background:
     linear-gradient(180deg, rgba(7, 18, 31, 0.04), rgba(7, 18, 31, 0.14)),
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 520 420'%3E%3Crect width='520' height='420' rx='30' fill='%23eef7fb'/%3E%3Crect x='18' y='24' width='148' height='236' rx='18' fill='%23ffffff' stroke='%23d7e2ee'/%3E%3Crect x='184' y='24' width='166' height='236' rx='18' fill='%23ffffff' stroke='%23d7e2ee'/%3E%3Crect x='364' y='24' width='138' height='236' rx='18' fill='%23ffffff' stroke='%23d7e2ee'/%3E%3Ccircle cx='94' cy='88' r='40' fill='none' stroke='%23f0b323' stroke-width='16'/%3E%3Cpath d='M94 48 A40 40 0 0 1 126 66' stroke='%233b82f6' stroke-width='16' fill='none'/%3E%3Cpath d='M94 48 A40 40 0 0 0 64 70' stroke='%2322c55e' stroke-width='16' fill='none'/%3E%3Cg stroke='%23bdd2e6' stroke-width='2'%3E%3Cpath d='M206 204 L332 204 M206 178 L332 178 M206 152 L332 152 M206 126 L332 126 M206 100 L332 100 M206 74 L332 74'/%3E%3Cpath d='M220 214 L220 60 M246 214 L246 60 M272 214 L272 60 M298 214 L298 60 M324 214 L324 60'/%3E%3C/g%3E%3Cpath d='M212 194 L236 166 L256 170 L280 140 L304 148 L332 98' stroke='%233b82f6' stroke-width='6' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cg fill='%233b82f6'%3E%3Ccircle cx='212' cy='194' r='5'/%3E%3Ccircle cx='236' cy='166' r='5'/%3E%3Ccircle cx='256' cy='170' r='5'/%3E%3Ccircle cx='280' cy='140' r='5'/%3E%3Ccircle cx='304' cy='148' r='5'/%3E%3Ccircle cx='332' cy='98' r='5'/%3E%3C/g%3E%3Ccircle cx='432' cy='90' r='40' fill='%23f0b323'/%3E%3Cpath d='M432 90 L432 50 A40 40 0 0 1 462 66 Z' fill='%2322c55e'/%3E%3Cpath d='M432 90 L462 66 A40 40 0 0 1 448 126 Z' fill='%233b82f6'/%3E%3Cg fill='%23aac0d8'%3E%3Crect x='394' y='152' width='74' height='10' rx='5'/%3E%3Crect x='388' y='172' width='86' height='10' rx='5'/%3E%3Crect x='380' y='192' width='96' height='10' rx='5'/%3E%3C/g%3E%3Cg fill='%2394aecb'%3E%3Crect x='42' y='292' width='132' height='10' rx='5'/%3E%3Crect x='42' y='310' width='112' height='10' rx='5'/%3E%3Crect x='42' y='328' width='98' height='10' rx='5'/%3E%3Crect x='206' y='292' width='146' height='10' rx='5'/%3E%3Crect x='206' y='310' width='128' height='10' rx='5'/%3E%3Crect x='206' y='328' width='118' height='10' rx='5'/%3E%3Crect x='380' y='292' width='88' height='10' rx='5'/%3E%3Crect x='380' y='310' width='74' height='10' rx='5'/%3E%3C/svg%3E");
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
+}
+
+.enterprise-right-poster-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr 1fr;
+  gap: 0.7rem;
+  padding: 0.8rem;
+}
+
+.enterprise-right-poster {
+  min-height: 13rem;
+  padding: 0.55rem;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02)),
+    rgba(255, 255, 255, 0.04);
+}
+
+.enterprise-right-poster-b {
+  min-height: 13.8rem;
+}
+
+.enterprise-right-donut,
+.enterprise-right-pie {
+  display: grid;
+  place-items: center;
+  margin-top: 0.2rem;
+}
+
+.enterprise-right-donut span,
+.enterprise-right-pie span {
+  display: block;
+  width: 2.9rem;
+  height: 2.9rem;
+  border-radius: 999px;
+  border: 8px solid rgba(59, 130, 246, 0.16);
+  border-top-color: rgba(245, 158, 11, 0.9);
+  border-right-color: rgba(34, 197, 94, 0.74);
+}
+
+.enterprise-right-lines,
+.enterprise-right-bars {
+  display: grid;
+  gap: 0.42rem;
+  margin-top: 0.7rem;
+}
+
+.enterprise-right-lines i,
+.enterprise-right-bars i {
+  display: block;
+  min-height: 0.75rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.enterprise-right-grid {
+  min-height: 8rem;
+  border-radius: 14px;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 16px 16px;
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
+.enterprise-right-linechart {
+  position: relative;
+  min-height: 2rem;
+  margin-top: 0.5rem;
+}
+
+.enterprise-right-linechart i {
+  position: absolute;
+  inset: 0.4rem 0.1rem 0.2rem 0.1rem;
+  display: block;
+  background: linear-gradient(135deg, transparent 0 16%, rgba(34, 197, 94, 0.84) 16% 18%, transparent 18% 34%, rgba(34, 197, 94, 0.84) 34% 36%, transparent 36% 58%, rgba(59, 130, 246, 0.86) 58% 60%, transparent 60% 100%);
+  opacity: 0.82;
 }
 
 .enterprise-hero-sidecard-topology,
