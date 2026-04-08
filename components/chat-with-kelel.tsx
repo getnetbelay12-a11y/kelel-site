@@ -2,10 +2,6 @@
 
 import { useMemo, useState } from "react";
 
-type ChatWithKelelProps = {
-  whatsappHref: string;
-};
-
 const helpOptions = [
   "I need a new system built for my business",
   "I need database management or data infrastructure support",
@@ -24,12 +20,14 @@ function labelForNeed(need: string) {
   return "Banking or insurance platform";
 }
 
-export function ChatWithKelel({ whatsappHref }: ChatWithKelelProps) {
+export function ChatWithKelel() {
   const [open, setOpen] = useState(false);
   const [selectedNeed, setSelectedNeed] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState("");
 
   const isReady = useMemo(
     () => phone.trim().length > 5 && email.trim().includes("@"),
@@ -39,23 +37,52 @@ export function ChatWithKelel({ whatsappHref }: ChatWithKelelProps) {
   function handleNeedSelect(option: string) {
     setSelectedNeed(option);
     setSubmitted(false);
+    setError("");
   }
 
-  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    if (!isReady) return;
-    const message = [
-      "New Kelel chat request",
-      `Need: ${selectedNeed}`,
-      `Phone: ${phone.trim()}`,
-      `Email: ${email.trim()}`,
-    ].join("\n");
-    const separator = whatsappHref.includes("?") ? "&" : "?";
-    const target = `${whatsappHref}${separator}text=${encodeURIComponent(message)}`;
 
-    setSubmitted(true);
-    if (typeof window !== "undefined") {
-      window.open(target, "_blank", "noopener,noreferrer");
+    if (!isReady || submitting) {
+      return;
+    }
+
+    setSubmitting(true);
+    setError("");
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: "Website chat lead",
+          business: "Not provided",
+          email: email.trim(),
+          phone: phone.trim(),
+          service: labelForNeed(selectedNeed),
+          details: `Submitted via Chat with Kelel. Request type: ${selectedNeed}. Please follow up with this lead directly.`,
+        }),
+      });
+
+      const payload = (await response.json().catch(() => null)) as { message?: string } | null;
+
+      if (!response.ok) {
+        throw new Error(
+          payload?.message || "The request could not be submitted right now. Please try again.",
+        );
+      }
+
+      setSubmitted(true);
+    } catch (submitError) {
+      setError(
+        submitError instanceof Error
+          ? submitError.message
+          : "The request could not be submitted right now. Please try again.",
+      );
+    } finally {
+      setSubmitting(false);
     }
   }
 
@@ -66,7 +93,7 @@ export function ChatWithKelel({ whatsappHref }: ChatWithKelelProps) {
           <div className="enterprise-chat-panel-head">
             <div>
               <strong>Chat with Kelel</strong>
-              <p>Choose the support you need and we’ll follow up shortly.</p>
+              <p>Choose the support you need and we&apos;ll follow up shortly.</p>
             </div>
             <button
               type="button"
@@ -125,18 +152,17 @@ export function ChatWithKelel({ whatsappHref }: ChatWithKelelProps) {
                         placeholder="name@company.com"
                       />
                     </label>
-                    <button type="submit" className="primary-link" disabled={!isReady}>
-                      Send
+                    <button type="submit" className="primary-link" disabled={!isReady || submitting}>
+                      {submitting ? "Sending..." : "Send"}
                     </button>
+                    {error ? <p className="enterprise-chat-error">{error}</p> : null}
                   </form>
                 </>
               ) : (
-                <>
-                  <div className="enterprise-chat-message enterprise-chat-message-assistant">
-                    <p>Thank you. Your details have been sent to our team.</p>
-                    <p>We’ll get back to you shortly.</p>
-                  </div>
-                </>
+                <div className="enterprise-chat-message enterprise-chat-message-assistant">
+                  <p>Thank you. Your details have been sent to our team.</p>
+                  <p>Our team will reach out to you shortly.</p>
+                </div>
               )}
             </>
           )}

@@ -848,7 +848,7 @@ export default function Home() {
         </div>
       </RevealSection>
 
-      <ChatWithKelel whatsappHref={site.whatsapp} />
+      <ChatWithKelel />
     </main>
   );
 }
