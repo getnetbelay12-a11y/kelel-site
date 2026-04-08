@@ -16,6 +16,7 @@ export function HeroPortraitRotation({ items }: HeroPortraitRotationProps) {
   const backItems = duplicateItems(items, 0);
   const frontItems = duplicateItems(items, 1);
   const mobileFeatured = items[0];
+  const mobileSupport = items[1];
 
   return (
     <div className="hero-portrait-layer" aria-hidden="true">
@@ -29,6 +30,15 @@ export function HeroPortraitRotation({ items }: HeroPortraitRotationProps) {
           }}
         />
         <span>{mobileFeatured.title}</span>
+      </article>
+      <article className="hero-portrait-mobile-support">
+        <div
+          className="hero-portrait-surface"
+          style={{
+            backgroundImage: `linear-gradient(180deg, rgba(7, 18, 31, 0.08), rgba(7, 18, 31, 0.84)), url(${mobileSupport.image})`,
+          }}
+        />
+        <span>{mobileSupport.title}</span>
       </article>
 
       <div className="hero-portrait-marquee hero-portrait-marquee-back">

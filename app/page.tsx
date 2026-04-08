@@ -337,11 +337,11 @@ export default function Home() {
           <h2>Digital infrastructure for financial systems</h2>
           <p className="enterprise-hero-copy-desktop">
             Kelel IT Solution is a technology company based in Addis Ababa, Ethiopia, building
-            secure and scalable platforms for banking, insurance, and enterprise operations.
+            digital infrastructure for banking, insurance, and enterprise systems.
           </p>
           <p className="enterprise-hero-copy-mobile">
-            Kelel IT Solution builds secure, scalable platforms for banking, insurance, and
-            enterprise operations.
+            Kelel IT Solution builds digital infrastructure for banking, insurance, and
+            enterprise systems.
           </p>
           <div className="enterprise-actions">
             <Link href="/#contact" className="primary-link">
@@ -354,6 +354,15 @@ export default function Home() {
           <p className="enterprise-hero-note">Designed and built by teams operating across Africa.</p>
         </div>
         <HeroMotionVisual />
+      </RevealSection>
+
+      <RevealSection as="section" className="enterprise-section enterprise-company-statement">
+        <div className="enterprise-company-statement-card">
+          <p>
+            Kelel IT Solution is a technology company based in Addis Ababa, Ethiopia, building
+            digital infrastructure for banking, insurance, and enterprise systems.
+          </p>
+        </div>
       </RevealSection>
 
       <RevealSection as="section" className="enterprise-section">
