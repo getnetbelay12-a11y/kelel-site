@@ -158,9 +158,9 @@ const peopleStories = [
 ];
 
 export const metadata: Metadata = {
-  title: "Kelel IT Solution | Digital Infrastructure for African Markets",
+  title: "Kelel IT Solution | Digital Infrastructure for Financial Systems in Africa",
   description:
-    "Digital infrastructure for banking, insurance, and enterprise operations. Built for African markets and designed for global standards.",
+    "Kelel IT Solution builds secure, scalable platforms for banking, insurance, and enterprise operations across Africa.",
 };
 
 function HeroMotionVisual() {
@@ -333,13 +333,15 @@ export default function Home() {
       <RevealSection as="section" id="home" className="enterprise-hero">
         <div className="enterprise-hero-copy">
           <span className="enterprise-kicker">Built for African markets. Designed for global standards.</span>
-          <h1>Digital infrastructure for financial systems</h1>
+          <h1>Kelel IT Solution</h1>
+          <h2>Digital infrastructure for financial systems</h2>
           <p className="enterprise-hero-copy-desktop">
-            We design and deploy production-ready digital systems for banks, insurance, and
-            enterprise operations across Africa.
+            Kelel IT Solution is a technology company based in Addis Ababa, Ethiopia, building
+            secure and scalable platforms for banking, insurance, and enterprise operations.
           </p>
           <p className="enterprise-hero-copy-mobile">
-            Secure, scalable systems for banks, insurance, and enterprise operations across Africa.
+            Kelel IT Solution builds secure, scalable platforms for banking, insurance, and
+            enterprise operations.
           </p>
           <div className="enterprise-actions">
             <Link href="/#contact" className="primary-link">

@@ -7800,6 +7800,7 @@ body::before {
 }
 
 .enterprise-hero-copy h1,
+.enterprise-hero-copy h2,
 .enterprise-section-heading h2 {
   font-family: var(--font-serif), serif;
   letter-spacing: -0.05em;
@@ -7807,8 +7808,16 @@ body::before {
 }
 
 .enterprise-hero-copy h1 {
+  max-width: 12ch;
+  font-size: clamp(3.2rem, 5.8vw, 5.2rem);
+  line-height: 0.9;
+}
+
+.enterprise-hero-copy h2 {
+  margin: -0.2rem 0 0;
   max-width: 10ch;
-  font-size: clamp(4.1rem, 7.2vw, 7.2rem);
+  color: #ffffff;
+  font-size: clamp(3.2rem, 6vw, 6rem);
   line-height: 0.88;
 }
 
@@ -9024,6 +9033,12 @@ body::before {
   }
 
   .enterprise-hero-copy h1 {
+    max-width: none;
+    font-size: clamp(2.2rem, 8vw, 3rem);
+    line-height: 0.96;
+  }
+
+  .enterprise-hero-copy h2 {
     max-width: 9ch;
     font-size: clamp(2.9rem, 13vw, 4.8rem);
     line-height: 0.9;
@@ -9315,6 +9330,10 @@ body::before {
   }
 
   .enterprise-hero-copy h1 {
+    font-size: clamp(2rem, 9vw, 2.5rem);
+  }
+
+  .enterprise-hero-copy h2 {
     font-size: clamp(2.7rem, 13vw, 4.1rem);
   }
 

@@ -9,18 +9,21 @@ import { assurancePoints, readinessSignals, strengths } from "@/lib/site-content
 export const metadata: Metadata = {
   title: "About | Kelel IT Solution",
   description:
-    "Learn how Kelel IT Solution approaches IT services, systems delivery, and business-focused digital transformation support.",
+    "Kelel IT Solution is a technology company based in Addis Ababa, Ethiopia, building digital platforms for banking, insurance, and enterprise operations.",
 };
 
 export default function AboutPage() {
   return (
     <main className="page-shell">
       <section className="section-block page-hero">
-        <SectionIntro
-          eyebrow="About us"
-          title="Kelel IT Solution is positioned to help organizations improve operations, infrastructure, and digital systems with more clarity."
-          description="The company profile now emphasizes IT capability, business alignment, and accountable communication instead of staying at the level of generic design language."
-        />
+        <div className="section-heading">
+          <span className="eyebrow">About us</span>
+          <h1>About Kelel IT Solution</h1>
+          <p className="section-copy">
+            Kelel IT Solution is a technology company based in Addis Ababa, Ethiopia, building
+            digital platforms for banking, insurance, and enterprise operations.
+          </p>
+        </div>
       </section>
 
       <section className="section-block story-layout">
