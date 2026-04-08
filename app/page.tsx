@@ -1,10 +1,17 @@
 import type { Metadata } from "next";
+import dynamic from "next/dynamic";
 import Link from "next/link";
-import { ChatWithKelel } from "@/components/chat-with-kelel";
-import { ContactForm } from "@/components/contact-form";
 import { HeroPortraitRotation } from "@/components/hero-portrait-rotation";
 import { RevealSection } from "@/components/reveal-section";
 import { site } from "@/lib/site-content";
+
+const ContactForm = dynamic(
+  () => import("@/components/contact-form").then((mod) => mod.ContactForm),
+);
+
+const ChatWithKelel = dynamic(
+  () => import("@/components/chat-with-kelel").then((mod) => mod.ChatWithKelel),
+);
 
 const serviceTracks = [
   {

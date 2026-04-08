@@ -7,12 +7,18 @@ type ChatWithKelelProps = {
 };
 
 const helpOptions = [
-  "I need an internal dashboard for my company",
+  "I need a new system built for my business",
+  "I need database management or data infrastructure support",
+  "I need to improve the performance of an existing platform",
+  "I need an internal dashboard or reporting system",
   "I need a workflow system for operations",
   "I need a banking or insurance platform",
 ];
 
 function labelForNeed(need: string) {
+  if (need.includes("new system")) return "System building";
+  if (need.includes("database") || need.includes("data infrastructure")) return "Database management";
+  if (need.includes("performance")) return "Performance improvement";
   if (need.includes("dashboard")) return "Internal dashboard";
   if (need.includes("workflow")) return "Workflow system";
   return "Banking or insurance platform";
@@ -38,7 +44,19 @@ export function ChatWithKelel({ whatsappHref }: ChatWithKelelProps) {
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     if (!isReady) return;
+    const message = [
+      "New Kelel chat request",
+      `Need: ${selectedNeed}`,
+      `Phone: ${phone.trim()}`,
+      `Email: ${email.trim()}`,
+    ].join("\n");
+    const separator = whatsappHref.includes("?") ? "&" : "?";
+    const target = `${whatsappHref}${separator}text=${encodeURIComponent(message)}`;
+
     setSubmitted(true);
+    if (typeof window !== "undefined") {
+      window.open(target, "_blank", "noopener,noreferrer");
+    }
   }
 
   return (
@@ -115,15 +133,8 @@ export function ChatWithKelel({ whatsappHref }: ChatWithKelelProps) {
               ) : (
                 <>
                   <div className="enterprise-chat-message enterprise-chat-message-assistant">
-                    <p>Thank you. We’ve received your details.</p>
-                    <p>Our team will get back to you shortly.</p>
-                  </div>
-
-                  <div className="enterprise-chat-handoff">
-                    <p>If you prefer, you can also continue directly on WhatsApp.</p>
-                    <a href={whatsappHref} target="_blank" rel="noreferrer" className="secondary-link">
-                      Continue on WhatsApp
-                    </a>
+                    <p>Thank you. Your details have been sent to our team.</p>
+                    <p>We’ll get back to you shortly.</p>
                   </div>
                 </>
               )}
