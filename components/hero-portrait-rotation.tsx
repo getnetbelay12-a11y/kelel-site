@@ -19,7 +19,7 @@ function SystemCardVisual({ variant }: Pick<SystemCard, "variant">) {
     return (
       <div className="hero-system-visual hero-system-visual-analytics">
         <div className="hero-system-visual-head">
-          <small>Performance</small>
+          <small>AI-powered analytics</small>
           <strong>248 active flows</strong>
         </div>
         <div className="hero-system-bars">
@@ -30,8 +30,8 @@ function SystemCardVisual({ variant }: Pick<SystemCard, "variant">) {
           <span style={{ height: "64%" }} />
         </div>
         <div className="hero-system-lines">
-          <i>Latency stable</i>
-          <i>Regional throughput live</i>
+          <i>Anomaly watch active</i>
+          <i>Regional insights live</i>
         </div>
       </div>
     );

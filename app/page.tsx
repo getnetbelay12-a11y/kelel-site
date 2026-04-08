@@ -9,25 +9,25 @@ const serviceTracks = [
   {
     id: "01",
     tag: "Architecture",
-    title: "Platform Architecture & System Design",
+    title: "Platform Architecture",
     description:
-      "Designing end-to-end system architecture for scalable, secure, and production-ready platforms.",
+      "End-to-end system design for secure, scalable, production-ready platforms.",
     href: "/services?focus=platform-architecture",
   },
   {
     id: "02",
     tag: "Performance",
-    title: "Performance & System Optimization",
+    title: "Performance Optimization",
     description:
-      "Improving system performance, reliability, and operational efficiency across existing platforms.",
+      "Performance tuning, reliability improvement, and operational efficiency across live systems.",
     href: "/services?focus=system-optimization",
   },
   {
     id: "03",
     tag: "Data",
-    title: "Data Infrastructure & Database Systems",
+    title: "Data Infrastructure",
     description:
-      "Designing and managing scalable database systems for high-performance and data-driven operations.",
+      "Scalable database architecture, data modeling, and infrastructure for high-volume operations.",
     href: "/services?focus=data-infrastructure",
   },
 ];
@@ -101,6 +101,15 @@ const proofStories = [
   },
 ];
 
+const caseStudyPreview = {
+  label: "Featured system example",
+  title: "Multi-branch operations platform",
+  description:
+    "A production-style concept for approvals, reporting, branch visibility, and operating controls across distributed teams.",
+  metrics: ["Approval workflows", "Regional reporting", "Executive visibility"],
+  href: "/work/multi-branch-operations-platform",
+};
+
 const trustMetrics = [
   { value: "99.9%", label: "uptime-ready architecture" },
   { value: "API-first", label: "platform approach" },
@@ -132,10 +141,15 @@ const useCases = [
     title: "Workflow automation",
     description: "Structured approvals, handoffs, and activity tracking across live operations.",
   },
+  {
+    title: "AI-powered analytics systems",
+    description: "Data-driven reporting layers with anomaly detection, trend visibility, and faster decision support.",
+  },
 ];
 
 const simpleProof = [
   "Real-time dashboards",
+  "AI-assisted insights",
   "Workflow automation",
   "Data systems",
   "Enterprise tools",
@@ -144,8 +158,28 @@ const simpleProof = [
 const whyKelel = [
   "Built for Africa",
   "Production-ready systems",
+  "Intelligent systems",
   "Scalable architecture",
   "Enterprise-grade design",
+];
+
+const intelligentSystems = [
+  {
+    title: "Intelligent workflow automation",
+    description: "Approval routing, task orchestration, and decision flows designed for live operational teams.",
+  },
+  {
+    title: "Predictive analytics and reporting",
+    description: "Data-driven reporting surfaces that highlight trends, exceptions, and performance changes faster.",
+  },
+  {
+    title: "Data-driven decision systems",
+    description: "Operational systems that combine reporting, controls, and signals for clearer next-step decisions.",
+  },
+  {
+    title: "AI-assisted operations monitoring",
+    description: "Monitoring layers for alerts, anomaly review, and intelligent oversight across active systems.",
+  },
 ];
 
 const heroSystemCards = [
@@ -157,8 +191,8 @@ const heroSystemCards = [
   },
   {
     label: "Analytics",
-    title: "Live performance insight",
-    copy: "Monitoring across active workflows and decision points.",
+    title: "Intelligent performance insight",
+    copy: "Monitoring across active workflows, anomalies, and decision points.",
     variant: "analytics" as const,
   },
   {
@@ -245,7 +279,7 @@ function HeroMotionVisual() {
             </text>
           </svg>
         </div>
-        <HeroPortraitRotation systemCards={heroSystemCards.slice(0, 3)} />
+        <HeroPortraitRotation systemCards={heroSystemCards.slice(0, 2)} />
         <div className="hero-data-layer">
           <article className="hero-data-card hero-data-card-mobile">
             <div className="hero-live-indicator">
@@ -463,8 +497,9 @@ export default function Home() {
         <div className="enterprise-hero-copy">
           <span className="enterprise-kicker">Built for African markets</span>
           <h1>Kelel IT Solution</h1>
-          <h2>Digital infrastructure for financial systems</h2>
+          <h2>Digital infrastructure and intelligent systems for financial operations</h2>
           <p>Secure, scalable platforms for banking, insurance, and enterprise operations.</p>
+          <p className="enterprise-tech-line">Powered by data, automation, and AI-driven insights.</p>
           <div className="enterprise-actions">
             <Link href="/#contact" className="primary-link">
               Start a Project
@@ -546,8 +581,8 @@ export default function Home() {
       <RevealSection as="section" id="what-we-do" className="enterprise-section">
         <div className="enterprise-section-heading">
           <span className="enterprise-kicker">What We Do</span>
-          <h2>Production-ready systems for core operating environments.</h2>
-          <p>Three focused system tracks for financial and enterprise platforms.</p>
+          <h2>Three focused capabilities for serious operational systems.</h2>
+          <p>Architecture, performance, and data infrastructure for enterprise platforms.</p>
         </div>
         <div className="enterprise-large-card-grid">
           {serviceTracks.map((track) => (
@@ -612,6 +647,27 @@ export default function Home() {
       <RevealSection as="section" className="enterprise-section">
         <div className="enterprise-editorial-layout">
           <div className="enterprise-section-heading">
+            <span className="enterprise-kicker">AI &amp; Intelligent Systems</span>
+            <h2>Intelligence built into operational platforms.</h2>
+            <p>Automation, predictive visibility, and AI-assisted monitoring applied to real business systems.</p>
+          </div>
+          <div className="enterprise-platform-panel">
+            <span className="enterprise-panel-label">Intelligent capabilities</span>
+            <div className="enterprise-capability-list">
+              {intelligentSystems.map((item) => (
+                <article key={item.title}>
+                  <strong>{item.title}</strong>
+                  <p>{item.description}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </div>
+      </RevealSection>
+
+      <RevealSection as="section" className="enterprise-section">
+        <div className="enterprise-editorial-layout">
+          <div className="enterprise-section-heading">
             <span className="enterprise-kicker">How Kelel Works</span>
             <h2>A clear delivery path for serious systems.</h2>
             <p>A structured process from architecture through rollout and support.</p>
@@ -651,9 +707,54 @@ export default function Home() {
       <RevealSection as="section" id="company" className="enterprise-section">
         <div className="enterprise-section-heading">
           <span className="enterprise-kicker">Trust / Proof</span>
-          <h2>Focused on African financial and operational systems.</h2>
-          <p>Proof stories, strong technical framing, and clear enterprise signals.</p>
+          <h2>Real platform thinking for African financial and operational systems.</h2>
+          <p>Clear system examples, technical framing, and stronger proof of delivery direction.</p>
         </div>
+        <Link href={caseStudyPreview.href} className="enterprise-card-link enterprise-case-study-link">
+          <article className="enterprise-case-study-feature">
+            <div className="enterprise-case-study-copy">
+              <span className="enterprise-proof-label">{caseStudyPreview.label}</span>
+              <h3>{caseStudyPreview.title}</h3>
+              <p>{caseStudyPreview.description}</p>
+              <div className="enterprise-proof-list enterprise-proof-list-inline">
+                {caseStudyPreview.metrics.map((metric) => (
+                  <span key={metric} className="enterprise-trust-pill">
+                    {metric}
+                  </span>
+                ))}
+              </div>
+            </div>
+            <div className="enterprise-ui-mock enterprise-ui-mock-reporting enterprise-case-study-visual" aria-hidden="true">
+              <div className="enterprise-ui-topbar">
+                <span />
+                <span />
+                <span />
+              </div>
+              <div className="enterprise-reporting-head">
+                <b />
+                <b />
+                <b />
+              </div>
+              <div className="enterprise-reporting-main">
+                <div className="enterprise-reporting-bars">
+                  <i style={{ height: "42%" }} />
+                  <i style={{ height: "68%" }} />
+                  <i style={{ height: "56%" }} />
+                  <i style={{ height: "84%" }} />
+                  <i style={{ height: "62%" }} />
+                </div>
+                <div className="enterprise-reporting-ring">
+                  <span />
+                </div>
+              </div>
+              <div className="enterprise-reporting-lines">
+                <i />
+                <i />
+                <i />
+              </div>
+            </div>
+          </article>
+        </Link>
         <div className="enterprise-proof-band">
           {proofStories.map((story) => (
             <Link key={story.title} href={story.href} className="enterprise-card-link">
