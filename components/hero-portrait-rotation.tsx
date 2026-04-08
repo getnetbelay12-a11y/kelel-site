@@ -1,8 +1,3 @@
-type PortraitItem = {
-  title: string;
-  image: string;
-};
-
 type SystemCard = {
   label: string;
   title: string;
@@ -11,7 +6,6 @@ type SystemCard = {
 };
 
 type HeroPortraitRotationProps = {
-  operator: PortraitItem;
   systemCards: SystemCard[];
 };
 
@@ -24,6 +18,10 @@ function SystemCardVisual({ variant }: Pick<SystemCard, "variant">) {
   if (variant === "analytics") {
     return (
       <div className="hero-system-visual hero-system-visual-analytics">
+        <div className="hero-system-visual-head">
+          <small>Performance</small>
+          <strong>248 active flows</strong>
+        </div>
         <div className="hero-system-bars">
           <span style={{ height: "36%" }} />
           <span style={{ height: "58%" }} />
@@ -32,8 +30,8 @@ function SystemCardVisual({ variant }: Pick<SystemCard, "variant">) {
           <span style={{ height: "64%" }} />
         </div>
         <div className="hero-system-lines">
-          <i />
-          <i />
+          <i>Latency stable</i>
+          <i>Regional throughput live</i>
         </div>
       </div>
     );
@@ -42,14 +40,18 @@ function SystemCardVisual({ variant }: Pick<SystemCard, "variant">) {
   if (variant === "workflow") {
     return (
       <div className="hero-system-visual hero-system-visual-workflow">
+        <div className="hero-system-visual-head">
+          <small>Workflow</small>
+          <strong>Approval routing</strong>
+        </div>
         <div className="hero-system-chip-row">
-          <span />
-          <span />
+          <span>KYC review</span>
+          <span>Priority</span>
         </div>
         <div className="hero-system-flow">
-          <i />
-          <i />
-          <i />
+          <i>Submit</i>
+          <i>Approve</i>
+          <i>Deploy</i>
         </div>
       </div>
     );
@@ -58,11 +60,15 @@ function SystemCardVisual({ variant }: Pick<SystemCard, "variant">) {
   if (variant === "infrastructure") {
     return (
       <div className="hero-system-visual hero-system-visual-infrastructure">
+        <div className="hero-system-visual-head">
+          <small>Infrastructure</small>
+          <strong>Regional topology</strong>
+        </div>
         <div className="hero-system-node-grid">
-          <span />
-          <span />
-          <span />
-          <span />
+          <span>API</span>
+          <span>Core</span>
+          <span>Data</span>
+          <span>Ops</span>
         </div>
         <div className="hero-system-connector" />
       </div>
@@ -71,20 +77,34 @@ function SystemCardVisual({ variant }: Pick<SystemCard, "variant">) {
 
   return (
     <div className="hero-system-visual hero-system-visual-dashboard">
-      <div className="hero-system-stat-row">
-        <span />
-        <span />
+      <div className="hero-system-visual-head">
+        <small>Dashboard</small>
+        <strong>Operational visibility</strong>
+      </div>
+      <div className="hero-system-screen hero-system-screen-dashboard">
+        <div className="hero-system-screen-sidebar">
+          <i />
+          <i />
+          <i />
+        </div>
+        <div className="hero-system-screen-main">
+          <div className="hero-system-stat-row">
+            <span>99.9%</span>
+            <span>12 live</span>
+          </div>
+          <div className="hero-system-screen-chart" />
+        </div>
       </div>
       <div className="hero-system-panel-grid">
-        <i />
-        <i />
-        <i />
+        <i>Auth</i>
+        <i>Reporting</i>
+        <i>Controls</i>
       </div>
     </div>
   );
 }
 
-export function HeroPortraitRotation({ operator, systemCards }: HeroPortraitRotationProps) {
+export function HeroPortraitRotation({ systemCards }: HeroPortraitRotationProps) {
   const backItems = duplicateItems(systemCards, 0);
   const frontItems = duplicateItems(systemCards, 1);
   const mobilePrimary = systemCards[0];
@@ -105,26 +125,6 @@ export function HeroPortraitRotation({ operator, systemCards }: HeroPortraitRota
         <SystemCardVisual variant={mobileSecondary.variant} />
         <small>{mobileSecondary.label}</small>
         <strong>{mobileSecondary.title}</strong>
-      </article>
-
-      <article className="hero-portrait-mobile-support hero-operator-card">
-        <div
-          className="hero-portrait-surface"
-          style={{
-            backgroundImage: `linear-gradient(180deg, rgba(7, 18, 31, 0.08), rgba(7, 18, 31, 0.84)), url(${operator.image})`,
-          }}
-        />
-        <span>{operator.title}</span>
-      </article>
-
-      <article className="hero-operator-card hero-operator-card-desktop">
-        <div
-          className="hero-portrait-surface"
-          style={{
-            backgroundImage: `linear-gradient(180deg, rgba(7, 18, 31, 0.08), rgba(7, 18, 31, 0.84)), url(${operator.image})`,
-          }}
-        />
-        <span>{operator.title}</span>
       </article>
 
       <div className="hero-system-marquee hero-system-marquee-back">

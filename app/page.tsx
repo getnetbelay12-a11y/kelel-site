@@ -151,12 +151,6 @@ const whyKelel = [
   "Enterprise-grade design",
 ];
 
-const heroOperator = {
-  title: "Ethiopian systems architect",
-  image:
-    "https://images.pexels.com/photos/7841816/pexels-photo-7841816.jpeg?auto=compress&cs=tinysrgb&w=1200",
-};
-
 const heroSystemCards = [
   {
     label: "Core dashboard",
@@ -184,30 +178,26 @@ const heroSystemCards = [
   },
 ];
 
-const peopleStories = [
+const platformSnapshots = [
   {
-    title: "Architecture and platform design",
-    description: "Planning for regulated operating environments.",
-    image:
-      "https://images.pexels.com/photos/7841816/pexels-photo-7841816.jpeg?auto=compress&cs=tinysrgb&w=1400",
+    title: "Architecture blueprint",
+    description: "End-to-end platform topology for secure operating environments.",
+    variant: "topology" as const,
   },
   {
-    title: "Delivery and implementation",
-    description: "From architecture into live rollout.",
-    image:
-      "https://images.pexels.com/photos/3810792/pexels-photo-3810792.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    title: "Delivery workflow",
+    description: "Structured rollout paths for approvals, handoffs, and live delivery.",
+    variant: "workflow" as const,
   },
   {
-    title: "Reporting and operational visibility",
-    description: "Dashboards built for faster decisions.",
-    image:
-      "https://images.pexels.com/photos/8353800/pexels-photo-8353800.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    title: "Reporting dashboard",
+    description: "Executive-ready visibility across dashboards, metrics, and oversight.",
+    variant: "reporting" as const,
   },
   {
-    title: "Support and continuous improvement",
-    description: "Support as platforms keep evolving.",
-    image:
-      "https://images.pexels.com/photos/3184306/pexels-photo-3184306.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    title: "Monitoring console",
+    description: "Live monitoring for system status, workflows, and ongoing support.",
+    variant: "monitoring" as const,
   },
 ];
 
@@ -258,21 +248,19 @@ function HeroMotionVisual() {
             </text>
           </svg>
         </div>
-        <HeroPortraitRotation operator={heroOperator} systemCards={heroSystemCards} />
+        <HeroPortraitRotation systemCards={heroSystemCards.slice(0, 3)} />
         <div className="hero-data-layer">
           <article className="hero-data-card hero-data-card-mobile">
+            <div className="hero-live-indicator">
+              <i />
+              <span>System Active</span>
+            </div>
             <small>System status</small>
             <strong>Operational</strong>
             <span>12 active systems</span>
           </article>
         </div>
       </div>
-
-      <div className="hero-wave-layer hero-wave-layer-a" />
-      <div className="hero-wave-layer hero-wave-layer-b" />
-      <div className="hero-particle hero-particle-a" />
-      <div className="hero-particle hero-particle-b" />
-      <div className="hero-particle hero-particle-c" />
     </div>
   );
 }
@@ -360,12 +348,131 @@ function OperationsConsole() {
   );
 }
 
+function ProductMock({ variant }: { variant: "topology" | "workflow" | "reporting" | "monitoring" }) {
+  if (variant === "reporting") {
+    return (
+      <div className="enterprise-ui-mock enterprise-ui-mock-reporting" aria-hidden="true">
+        <div className="enterprise-ui-topbar">
+          <span />
+          <span />
+          <span />
+        </div>
+        <div className="enterprise-reporting-head">
+          <b />
+          <b />
+          <b />
+        </div>
+        <div className="enterprise-reporting-main">
+          <div className="enterprise-reporting-bars">
+            <i style={{ height: "42%" }} />
+            <i style={{ height: "68%" }} />
+            <i style={{ height: "56%" }} />
+            <i style={{ height: "84%" }} />
+            <i style={{ height: "62%" }} />
+          </div>
+          <div className="enterprise-reporting-ring">
+            <span />
+          </div>
+        </div>
+        <div className="enterprise-reporting-lines">
+          <i />
+          <i />
+          <i />
+        </div>
+      </div>
+    );
+  }
+
+  if (variant === "monitoring") {
+    return (
+      <div className="enterprise-ui-mock enterprise-ui-mock-monitoring" aria-hidden="true">
+        <div className="enterprise-ui-topbar">
+          <span />
+          <span />
+          <span />
+        </div>
+        <div className="enterprise-monitoring-status">
+          <span />
+          <strong>All systems active</strong>
+        </div>
+        <div className="enterprise-monitoring-grid">
+          <i>API</i>
+          <i>Core</i>
+          <i>Data</i>
+          <i>Ops</i>
+        </div>
+        <div className="enterprise-monitoring-timeline">
+          <b />
+        </div>
+      </div>
+    );
+  }
+
+  if (variant === "workflow") {
+    return (
+      <div className="enterprise-ui-mock enterprise-ui-mock-workflow" aria-hidden="true">
+        <div className="enterprise-ui-topbar">
+          <span />
+          <span />
+          <span />
+        </div>
+        <div className="enterprise-workflow-steps">
+          <i>Input</i>
+          <i>Review</i>
+          <i>Release</i>
+        </div>
+        <div className="enterprise-workflow-cards">
+          <b>Policy review</b>
+          <b>Claims approval</b>
+        </div>
+        <div className="enterprise-workflow-lines">
+          <span />
+          <span />
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="enterprise-ui-mock enterprise-ui-mock-topology" aria-hidden="true">
+      <div className="enterprise-ui-topbar">
+        <span />
+        <span />
+        <span />
+      </div>
+      <div className="enterprise-topology-grid">
+        <i>Gateway</i>
+        <i>Core API</i>
+        <i>Data</i>
+        <i>Reporting</i>
+      </div>
+      <div className="enterprise-topology-links">
+        <span />
+        <span />
+        <span />
+      </div>
+      <div className="enterprise-topology-ring">
+        <b />
+      </div>
+    </div>
+  );
+}
+
 export default function Home() {
   return (
     <main className="enterprise-homepage">
       <RevealSection as="section" id="home" className="enterprise-hero">
         <HeroMotionVisual />
         <div className="enterprise-hero-copy">
+          <div className="enterprise-hero-sidecards" aria-hidden="true">
+            <aside className="enterprise-hero-sidecard enterprise-hero-sidecard-left">
+              <div className="enterprise-hero-image-panel enterprise-hero-image-panel-left" />
+            </aside>
+
+            <aside className="enterprise-hero-sidecard enterprise-hero-sidecard-right">
+              <div className="enterprise-hero-image-panel enterprise-hero-image-panel-right" />
+            </aside>
+          </div>
           <span className="enterprise-kicker">Built for African markets</span>
           <h1>Kelel IT Solution</h1>
           <h2>Digital infrastructure for financial systems</h2>
@@ -384,10 +491,7 @@ export default function Home() {
 
       <RevealSection as="section" className="enterprise-section enterprise-company-statement">
         <div className="enterprise-company-statement-card">
-          <p>
-            API-first systems, secure workflows, and scalable platforms for real operating
-            environments across Africa.
-          </p>
+          <p>Real systems. Real operations. Real performance.</p>
         </div>
       </RevealSection>
 
@@ -413,36 +517,18 @@ export default function Home() {
 
       <RevealSection as="section" className="enterprise-section">
         <div className="enterprise-section-heading">
-          <span className="enterprise-kicker">People</span>
-          <h2>Built with people who understand African operations.</h2>
-          <p>Strategy, engineering, and delivery for business environments across East Africa.</p>
+          <span className="enterprise-kicker">System Preview</span>
+          <h2>Inside the platforms we build.</h2>
+          <p>Architecture, workflow, reporting, and monitoring surfaces for real operations.</p>
         </div>
-        <div className="enterprise-people-grid enterprise-people-grid-featured">
-          <article className="enterprise-people-card enterprise-people-card-lead">
-            <div
-              className="enterprise-people-image"
-              style={{ backgroundImage: `linear-gradient(180deg, rgba(7, 18, 31, 0.08), rgba(7, 18, 31, 0.78)), url(${peopleStories[0].image})` }}
-            />
-            <div className="enterprise-people-copy">
-              <span className="enterprise-panel-label">Lead team</span>
-              <h3>{peopleStories[0].title}</h3>
-              <p>{peopleStories[0].description}</p>
-            </div>
-          </article>
-          <div className="enterprise-people-stack">
-            {peopleStories.slice(1).map((story) => (
-              <article key={story.title} className="enterprise-people-card enterprise-people-card-compact">
-                <div
-                  className="enterprise-people-image"
-                  style={{ backgroundImage: `linear-gradient(180deg, rgba(7, 18, 31, 0.1), rgba(7, 18, 31, 0.76)), url(${story.image})` }}
-                />
-                <div className="enterprise-people-copy">
-                  <h3>{story.title}</h3>
-                  <p>{story.description}</p>
-                </div>
+        <div className="enterprise-ui-grid enterprise-ui-grid-expanded">
+            {platformSnapshots.map((snapshot, index) => (
+              <article key={snapshot.title} className={`enterprise-ui-card enterprise-ui-card-snapshot enterprise-ui-card-${index + 1}`}>
+                <ProductMock variant={snapshot.variant} />
+                <h3>{snapshot.title}</h3>
+                <p>{snapshot.description}</p>
               </article>
             ))}
-          </div>
         </div>
       </RevealSection>
 
