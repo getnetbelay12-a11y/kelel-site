@@ -340,8 +340,8 @@ export default function Home() {
             digital infrastructure for banking, insurance, and enterprise systems.
           </p>
           <p className="enterprise-hero-copy-mobile">
-            Kelel IT Solution builds digital infrastructure for banking, insurance, and
-            enterprise systems.
+            Secure, scalable platforms for banking, insurance, and enterprise systems across
+            Africa.
           </p>
           <div className="enterprise-actions">
             <Link href="/#contact" className="primary-link">
