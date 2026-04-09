@@ -8,6 +8,7 @@ import {
 } from "@/lib/contact-submissions";
 import {
   sendNewLeadNotification,
+  sendTelegramLeadNotification,
   syncNewLeadToGoogleSheets,
 } from "@/lib/lead-notifications";
 
@@ -56,6 +57,7 @@ export async function POST(request: Request) {
     }
 
     await sendNewLeadNotification(submission);
+    await sendTelegramLeadNotification(submission);
     await syncNewLeadToGoogleSheets(submission);
 
     return NextResponse.json({

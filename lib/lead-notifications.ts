@@ -68,6 +68,20 @@ function getGoogleSheetsConfig() {
   };
 }
 
+function getTelegramConfig() {
+  const token = readRequiredEnv("TELEGRAM_BOT_TOKEN");
+  const chatId = readRequiredEnv("TELEGRAM_CHAT_ID");
+
+  if (!token || !chatId) {
+    return null;
+  }
+
+  return {
+    token,
+    chatId,
+  };
+}
+
 function createTransporter() {
   const config = getNotificationConfig();
 
@@ -228,6 +242,22 @@ function buildLeadNotificationHtml(submission: StoredSubmission) {
   });
 }
 
+function buildLeadTelegramMessage(submission: StoredSubmission) {
+  return [
+    "New Kelel lead",
+    "",
+    `Name: ${submission.name}`,
+    `Business: ${submission.business || "Not provided"}`,
+    `Email: ${submission.email}`,
+    `Phone: ${submission.phone}`,
+    `Service: ${submission.service}`,
+    `Submitted: ${submission.createdAt}`,
+    "",
+    "Project details:",
+    submission.details,
+  ].join("\n");
+}
+
 export async function sendNewLeadNotification(submission: StoredSubmission) {
   const mailer = createTransporter();
 
@@ -246,6 +276,34 @@ export async function sendNewLeadNotification(submission: StoredSubmission) {
     });
   } catch (error) {
     console.error("Lead notification email could not be sent.", error);
+  }
+}
+
+export async function sendTelegramLeadNotification(submission: StoredSubmission) {
+  const config = getTelegramConfig();
+
+  if (!config) {
+    return;
+  }
+
+  try {
+    const response = await fetch(`https://api.telegram.org/bot${config.token}/sendMessage`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        chat_id: config.chatId,
+        text: buildLeadTelegramMessage(submission),
+      }),
+      cache: "no-store",
+    });
+
+    if (!response.ok) {
+      throw new Error(`Telegram notification failed with status ${response.status}.`);
+    }
+  } catch (error) {
+    console.error("Lead notification could not be sent to Telegram.", error);
   }
 }
 
