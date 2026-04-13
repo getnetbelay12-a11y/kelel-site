@@ -9159,6 +9159,32 @@ body::before {
   text-transform: uppercase;
 }
 
+.enterprise-company-summary {
+  padding-top: 2.2rem;
+}
+
+.enterprise-company-summary-card {
+  width: min(100%, 68rem);
+  margin: 1.4rem auto 0;
+  display: grid;
+  gap: 0.85rem;
+  padding: 1.35rem 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 22px;
+  background:
+    radial-gradient(circle at top right, rgba(59, 130, 246, 0.08), transparent 28%),
+    linear-gradient(180deg, rgba(11, 24, 42, 0.86), rgba(9, 20, 36, 0.94));
+  box-shadow: var(--enterprise-shadow);
+}
+
+.enterprise-company-summary-card p {
+  margin: 0;
+  max-width: 56rem;
+  color: #d6e3ef;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
 .hero-console {
   position: relative;
   min-height: 36rem;
@@ -10847,12 +10873,27 @@ body::before {
     padding-top: 1rem;
   }
 
+  .enterprise-company-summary {
+    padding-top: 1.8rem;
+  }
+
   .enterprise-company-statement-card {
     padding: 1.15rem 1rem;
     border-radius: var(--enterprise-radius-sm);
   }
 
+  .enterprise-company-summary-card {
+    margin-top: 1.15rem;
+    padding: 1.15rem 1rem;
+    border-radius: var(--enterprise-radius-sm);
+  }
+
   .enterprise-company-statement-card p {
+    font-size: 0.93rem;
+    line-height: 1.6;
+  }
+
+  .enterprise-company-summary-card p {
     font-size: 0.93rem;
     line-height: 1.6;
   }
@@ -11423,6 +11464,10 @@ body::before {
   }
 
   .enterprise-company-statement-card p {
+    font-size: 0.92rem;
+  }
+
+  .enterprise-company-summary-card p {
     font-size: 0.92rem;
   }
 

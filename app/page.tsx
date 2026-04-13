@@ -240,6 +240,12 @@ const platformSnapshots = [
   },
 ];
 
+const companySummary = [
+  "Kelel IT Solution is based in Addis Ababa, Ethiopia.",
+  "We build secure digital systems for banking, insurance, and enterprise operations.",
+  "Our work focuses on platform architecture, performance improvement, and data infrastructure.",
+];
+
 export const metadata: Metadata = {
   title: "Kelel IT Solution | Digital Infrastructure for Financial Systems in Africa",
   description:
@@ -547,6 +553,19 @@ export default function Home() {
             <span>API-first. Secure. Scalable. Built for real-world operations.</span>
             <span>Real systems. Real operations. Real performance.</span>
           </div>
+        </div>
+      </RevealSection>
+
+      <RevealSection as="section" className="enterprise-section enterprise-company-summary">
+        <div className="enterprise-section-heading">
+          <span className="enterprise-kicker">Our Company</span>
+          <h2>Who we are.</h2>
+          <p>A short overview of what Kelel does and where we operate.</p>
+        </div>
+        <div className="enterprise-company-summary-card">
+          {companySummary.map((item) => (
+            <p key={item}>{item}</p>
+          ))}
         </div>
       </RevealSection>
 
