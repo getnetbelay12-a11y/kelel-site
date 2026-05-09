@@ -61,26 +61,43 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
-  color: var(--text);
-  font-family: var(--font-sans), sans-serif;
-  background:
-    radial-gradient(circle at top left, rgba(212, 104, 52, 0.24), transparent 28%),
-    radial-gradient(circle at right 14% top 10%, rgba(26, 90, 75, 0.18), transparent 24%),
-    radial-gradient(circle at left 20% bottom 10%, rgba(94, 141, 91, 0.12), transparent 26%),
-    linear-gradient(180deg, #fbf7f0 0%, #ede4d6 100%);
+  color: var(--ink);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.55;
+  background: var(--obsidian);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
+/* Cyan/amber atmospheric glow */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background-image:
-    linear-gradient(rgba(19, 33, 29, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(19, 33, 29, 0.03) 1px, transparent 1px);
-  background-size: 120px 120px;
-  opacity: 0.8;
-  mask-image: radial-gradient(circle at center, black 45%, transparent 88%);
+  background:
+    radial-gradient(ellipse at 15% 0%, rgba(75, 227, 214, 0.08), transparent 50%),
+    radial-gradient(ellipse at 85% 30%, rgba(240, 168, 104, 0.06), transparent 60%);
   pointer-events: none;
+  z-index: 0;
+}
+
+/* Film-grain noise overlay */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence baseFrequency='0.9' numOctaves='2'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.4 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  opacity: 0.3;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+  z-index: 0;
+}
+
+::selection {
+  background: var(--cyan);
+  color: var(--obsidian);
 }
 
 a {
