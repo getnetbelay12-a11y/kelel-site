@@ -18,13 +18,18 @@ const primaryLinks = [
 export function SiteHeader() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [isHidden, setIsHidden] = useState(false);
   const pathname = usePathname();
   const isHome = pathname === "/";
 
   useEffect(() => {
-    const onScroll = () => setIsScrolled(window.scrollY > 16);
-    onScroll();
+    let lastY = 0;
+    const onScroll = () => {
+      const y = window.scrollY;
+      if (y > 80 && y > lastY) setIsHidden(true);
+      else setIsHidden(false);
+      lastY = y;
+    };
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -73,47 +78,48 @@ export function SiteHeader() {
   );
 
   return (
-    <header className={`site-header${isOpen ? " open" : ""}${isScrolled ? " scrolled" : ""}`}>
-      <Link href="/#home" className="brand-mark" onClick={() => setIsOpen(false)}>
-        <LogoMark compact />
-        <span className="brand-copy">
-          <span className="brand-kicker">Ethiopia infrastructure</span>
-          <strong>{site.name}</strong>
-        </span>
-      </Link>
+    <header className={`site-header${isHidden ? " hidden" : ""}${isOpen ? " open" : ""}`}>
+      <div className="nav-inner">
+        <Link href="/#home" className="brand-mark" onClick={() => setIsOpen(false)}>
+          <LogoMark compact />
+          <span className="brand-copy">
+            <span className="brand-kicker">Addis Ababa · ET</span>
+            <strong>{site.name}</strong>
+          </span>
+        </Link>
 
-      <button
-        type="button"
-        className="menu-toggle"
-        aria-expanded={isOpen}
-        aria-controls="primary-nav"
-        aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
-        onClick={() => setIsOpen((current) => !current)}
-      >
-        {isOpen ? "Close" : "Menu"}
-      </button>
+        <nav className="site-nav" id="primary-nav" aria-label="Primary">
+          {resolvedLinks.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              onClick={() => setIsOpen(false)}
+              className={item.active ? "active" : undefined}
+              aria-current={item.active ? "page" : undefined}
+            >
+              {item.label}
+            </Link>
+          ))}
+        </nav>
 
-      <nav className="site-nav" id="primary-nav" aria-label="Primary">
-        {resolvedLinks.map((item) => (
-          <Link
-            key={item.href}
-            href={item.href}
-            onClick={() => setIsOpen(false)}
-            className={item.active ? "active" : undefined}
-            aria-current={item.active ? "page" : undefined}
-          >
-            {item.label}
+        <div className="header-actions">
+          <Link href="/contact?intent=book-call" className="secondary-link" onClick={() => setIsOpen(false)}>
+            Book a Call
           </Link>
-        ))}
-      </nav>
-
-      <div className="header-actions">
-        <Link href="/contact?intent=book-call" className="secondary-link" onClick={() => setIsOpen(false)}>
-          Book a Call
-        </Link>
-        <Link href="/#contact" className="header-quick-link" onClick={() => setIsOpen(false)}>
-          Start a Project
-        </Link>
+          <Link href="/#contact" className="header-quick-link" onClick={() => setIsOpen(false)}>
+            Start a Project
+          </Link>
+          <button
+            type="button"
+            className="menu-toggle"
+            aria-expanded={isOpen}
+            aria-controls="primary-nav"
+            aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
+            onClick={() => setIsOpen((current) => !current)}
+          >
+            {isOpen ? "✕" : "☰"}
+          </button>
+        </div>
       </div>
     </header>
   );
