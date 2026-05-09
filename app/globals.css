@@ -15189,9 +15189,176 @@ body::before {
   display: block !important;
 }
 
-/* ── Responsive: hide map panel on mobile (already hidden via display:none) ── */
+/* ── Responsive: hide map panel on mobile ── */
 @media (max-width: 900px) {
   .nexus-africa-map-wrap {
     display: none;
   }
+}
+
+/* ════════════════════════════════════════════════════════
+   MAP VISIBILITY + HEADER SCAN + HERO PARTICLES
+   ════════════════════════════════════════════════════════ */
+
+/* ── 1. Africa continent — visible dark-navy on dark background ── */
+.nexus-africa-bg {
+  fill: rgba(8, 35, 68, 0.95) !important;
+}
+
+.nexus-africa-outline {
+  stroke: rgba(78, 222, 163, 0.55) !important;
+  stroke-width: 2 !important;
+  animation: nmOutlineDraw 1.4s ease-out 0.4s both !important;
+}
+
+@keyframes nmOutlineDraw {
+  from { stroke-dasharray: 2000; stroke-dashoffset: 2000; opacity: 0.2; }
+  to   { stroke-dashoffset: 0; opacity: 1; }
+}
+
+/* ── 2. Ethiopia — clearly highlighted ── */
+.nexus-ethiopia {
+  fill: rgba(78, 222, 163, 0.22) !important;
+  stroke: #4edea3 !important;
+  stroke-width: 2 !important;
+  opacity: 0 !important;
+  animation: nmEthReveal 0.6s ease-out 1.0s both !important;
+}
+
+@keyframes nmEthReveal {
+  from { opacity: 0; fill-opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.nexus-eth-halo {
+  opacity: 0 !important;
+  animation: nmFadeIn 0.7s ease-out 0.9s both !important;
+}
+
+/* ── 3. Map card entrance — start visible, spring in ── */
+.nexus-africa-map-wrap {
+  animation: nmSpringIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both !important;
+}
+
+@keyframes nmSpringIn {
+  0%   { transform: scale(0.15) rotate(-3deg); opacity: 0; }
+  60%  { opacity: 1; }
+  75%  { transform: scale(1.03) rotate(0deg); }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+/* ── 4. Map card — stronger glass border so it reads on dark bg ── */
+.nexus-africa-map-wrap {
+  border: 1px solid rgba(78, 222, 163, 0.30) !important;
+  border-top-color: rgba(78, 222, 163, 0.55) !important;
+  box-shadow:
+    0 0 0 1px rgba(78, 222, 163, 0.10),
+    0 0 60px rgba(78, 222, 163, 0.08),
+    0 32px 80px rgba(0, 0, 0, 0.60),
+    inset 0 1px 0 rgba(255,255,255,0.08) !important;
+}
+
+/* ── 5. Signal lines — more visible ── */
+.nexus-signal {
+  stroke: rgba(78, 222, 163, 0.55) !important;
+  stroke-width: 1.2 !important;
+}
+.nm-line-1, .nm-line-2, .nm-line-4 {
+  stroke: rgba(173, 198, 255, 0.55) !important;
+}
+
+/* ── 6. Header scan beam ── */
+.site-header {
+  overflow: hidden !important;
+}
+
+.site-header::after {
+  content: "" !important;
+  position: absolute !important;
+  bottom: 0 !important;
+  left: -100% !important;
+  width: 70% !important;
+  height: 1px !important;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(78, 222, 163, 0.0) 5%,
+    rgba(78, 222, 163, 0.7) 35%,
+    rgba(173, 198, 255, 0.9) 50%,
+    rgba(78, 222, 163, 0.7) 65%,
+    rgba(78, 222, 163, 0.0) 95%,
+    transparent 100%
+  ) !important;
+  animation: hdrScan 6s linear infinite !important;
+  pointer-events: none !important;
+  z-index: 10 !important;
+}
+
+@keyframes hdrScan {
+  from { transform: translateX(0%); }
+  to   { transform: translateX(290%); }
+}
+
+/* ── 7. Header bottom glow pulse (sits behind the scan beam) ── */
+.site-header::before {
+  content: "" !important;
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  height: 1px !important;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(78, 222, 163, 0.12) 20%,
+    rgba(78, 222, 163, 0.20) 50%,
+    rgba(78, 222, 163, 0.12) 80%,
+    transparent 100%
+  ) !important;
+  pointer-events: none !important;
+}
+
+/* ── 8. Hero floating particle nodes ── */
+.nexus-hero-particles {
+  position: absolute !important;
+  inset: 0 !important;
+  pointer-events: none !important;
+  overflow: hidden !important;
+  z-index: 0 !important;
+}
+
+.nhp-node {
+  position: absolute;
+  border-radius: 50%;
+  background: #4edea3;
+  box-shadow: 0 0 10px rgba(78, 222, 163, 0.7), 0 0 20px rgba(78, 222, 163, 0.3);
+  animation: nhpFloat var(--dur, 8s) ease-in-out var(--delay, 0s) infinite alternate;
+}
+
+@keyframes nhpFloat {
+  0%   { transform: translate(0, 0); opacity: var(--lo, 0.12); }
+  50%  { opacity: var(--hi, 0.55); }
+  100% { transform: translate(var(--tx, 20px), var(--ty, -20px)); opacity: var(--lo, 0.12); }
+}
+
+/* Emerald nodes */
+.nhp-0  { width:3px; height:3px; left:4%;  top:18%; --dur:8s;  --delay:0s;    --tx:28px;  --ty:-38px; --lo:0.10; --hi:0.50; }
+.nhp-1  { width:2px; height:2px; left:14%; top:62%; --dur:11s; --delay:2.1s;  --tx:-18px; --ty:28px;  --lo:0.08; --hi:0.40; }
+.nhp-2  { width:4px; height:4px; left:22%; top:8%;  --dur:7s;  --delay:0.7s;  --tx:20px;  --ty:42px;  --lo:0.12; --hi:0.55; }
+.nhp-4  { width:2px; height:2px; left:44%; top:12%; --dur:10s; --delay:0.4s;  --tx:22px;  --ty:30px;  --lo:0.08; --hi:0.38; }
+.nhp-5  { width:3px; height:3px; left:52%; top:82%; --dur:8s;  --delay:3.1s;  --tx:-14px; --ty:-36px; --lo:0.10; --hi:0.45; }
+.nhp-8  { width:2px; height:2px; left:86%; top:22%; --dur:9s;  --delay:0.2s;  --tx:-18px; --ty:32px;  --lo:0.08; --hi:0.42; }
+.nhp-10 { width:3px; height:3px; left:18%; top:42%; --dur:13s; --delay:0.6s;  --tx:38px;  --ty:18px;  --lo:0.10; --hi:0.48; }
+
+/* Electric blue nodes */
+.nhp-3  { width:3px; height:3px; left:32%; top:75%; --dur:9s;  --delay:1.9s;  --tx:-32px; --ty:-18px; --lo:0.10; --hi:0.50; background:#adc6ff; box-shadow:0 0 10px rgba(173,198,255,0.7),0 0 20px rgba(173,198,255,0.3); }
+.nhp-6  { width:4px; height:4px; left:66%; top:28%; --dur:10s; --delay:0.9s;  --tx:18px;  --ty:22px;  --lo:0.12; --hi:0.55; background:#adc6ff; box-shadow:0 0 10px rgba(173,198,255,0.7),0 0 20px rgba(173,198,255,0.3); }
+.nhp-7  { width:2px; height:2px; left:74%; top:68%; --dur:8s;  --delay:2.4s;  --tx:-22px; --ty:-14px; --lo:0.08; --hi:0.40; background:#adc6ff; box-shadow:0 0 10px rgba(173,198,255,0.7),0 0 20px rgba(173,198,255,0.3); }
+.nhp-9  { width:3px; height:3px; left:90%; top:52%; --dur:7s;  --delay:1.7s;  --tx:14px;  --ty:-22px; --lo:0.10; --hi:0.48; background:#adc6ff; box-shadow:0 0 10px rgba(173,198,255,0.7),0 0 20px rgba(173,198,255,0.3); }
+.nhp-11 { width:2px; height:2px; left:60%; top:48%; --dur:10s; --delay:2.2s;  --tx:-28px; --ty:32px;  --lo:0.08; --hi:0.38; background:#adc6ff; box-shadow:0 0 10px rgba(173,198,255,0.7),0 0 20px rgba(173,198,255,0.3); }
+
+/* ── 9. Hero section z-index: ensure particles behind content ── */
+.enterprise-hero-wrap {
+  position: relative !important;
+  z-index: 1 !important;
 }

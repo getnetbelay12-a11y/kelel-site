@@ -539,6 +539,13 @@ export default function Home() {
   return (
     <main className="enterprise-homepage">
       <RevealSection as="section" id="home" className="enterprise-hero">
+        {/* Ambient floating particle nodes */}
+        <div className="nexus-hero-particles" aria-hidden="true">
+          {Array.from({ length: 12 }, (_, i) => (
+            <span key={i} className={`nhp-node nhp-${i}`} />
+          ))}
+        </div>
+
         <div className="enterprise-hero-wrap">
           <div className="enterprise-hero-copy">
             <div className="enterprise-hero-headingline">
