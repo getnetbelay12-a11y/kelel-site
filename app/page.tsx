@@ -525,11 +525,11 @@ export default function Home() {
         <div className="enterprise-hero-wrap">
           <div className="enterprise-hero-copy">
             <div className="enterprise-hero-headingline">
-              <span className="enterprise-kicker">Built for African markets</span>
-              <h1>Kelel IT Solution</h1>
-              <h2>Digital infrastructure and intelligent systems for financial operations</h2>
+              <span className="enterprise-kicker"><i className="nexus-live-dot" />Enterprise · Addis Ababa</span>
+              <h1>Enterprise systems<br />built for <em>Africa.</em></h1>
+              <h2>Digital infrastructure and intelligent platforms for banking, insurance, and operations</h2>
             </div>
-            <p>Secure, scalable platforms for banking, insurance, and enterprise operations.</p>
+            <p>Secure, scalable platforms purpose-built for African financial operations and enterprise teams.</p>
             <p className="enterprise-tech-line">Powered by data, automation, and AI-driven insights.</p>
             <div className="enterprise-actions">
               <Link href="/#contact" className="primary-link">
