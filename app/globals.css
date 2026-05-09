@@ -11750,3 +11750,541 @@ body::before {
     animation: none !important;
   }
 }
+
+/* ==========================================================================
+   DARK REDESIGN OVERRIDES
+   Appended last so these rules win the cascade over legacy light-theme rules.
+   ========================================================================== */
+
+/* ---- Shared buttons ---- */
+.primary-link,
+.secondary-link,
+.button-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 11px 22px;
+  border-radius: 8px;
+  font-size: 13.5px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.primary-link {
+  background: var(--cyan);
+  color: var(--obsidian);
+}
+
+.primary-link:hover {
+  box-shadow: 0 0 32px var(--cyan-glow);
+  transform: translateY(-1px);
+  color: var(--obsidian);
+}
+
+.secondary-link {
+  background: transparent;
+  color: var(--ink-2);
+  border: 1px solid var(--line-2);
+}
+
+.secondary-link:hover {
+  border-color: var(--cyan);
+  color: var(--cyan);
+  transform: none;
+}
+
+/* ---- Section label / kicker ---- */
+.enterprise-kicker,
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono), monospace;
+  font-size: 11px;
+  color: var(--cyan);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  margin-bottom: 16px;
+}
+
+.enterprise-kicker::before {
+  content: "";
+  width: 24px;
+  height: 1px;
+  background: var(--cyan);
+}
+
+/* ---- Enterprise section shell ---- */
+.enterprise-section {
+  padding: 100px 0;
+  width: min(1320px, calc(100% - 4rem));
+  margin: 0 auto;
+  position: relative;
+}
+
+.enterprise-section + .enterprise-section {
+  padding-top: 0;
+}
+
+/* ---- Section headings ---- */
+.enterprise-section-heading h2,
+.enterprise-hero-copy h2 {
+  font-family: var(--font-serif), serif;
+  font-weight: 400;
+  font-size: clamp(32px, 4vw, 54px);
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+  max-width: 780px;
+}
+
+.enterprise-section-heading p,
+.enterprise-hero-copy p {
+  font-size: 17px;
+  color: var(--ink-2);
+  max-width: 600px;
+  line-height: 1.55;
+}
+
+/* ---- Hero ---- */
+.enterprise-hero {
+  padding: 120px 0 60px;
+}
+
+.enterprise-hero-copy h1 {
+  font-family: var(--font-serif), serif;
+  font-weight: 400;
+  font-size: clamp(40px, 5.4vw, 76px);
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+  margin-bottom: 24px;
+  color: var(--ink);
+}
+
+.enterprise-hero-copy h2 {
+  font-size: clamp(18px, 2vw, 22px);
+  font-family: var(--font-sans), sans-serif;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: var(--ink-2);
+  margin-bottom: 20px;
+  line-height: 1.4;
+  max-width: 560px;
+}
+
+/* Gradient on em in hero h1 */
+.enterprise-hero-copy h1 em,
+.enterprise-section-heading h2 em {
+  font-style: italic;
+  background: linear-gradient(120deg, var(--cyan) 0%, var(--amber) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.enterprise-hero-note,
+.enterprise-tech-line {
+  font-size: 13px;
+  color: var(--ink-3);
+  margin-top: 8px;
+}
+
+.enterprise-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 24px 0;
+}
+
+/* ---- Statement card ---- */
+.enterprise-company-statement-card {
+  background: var(--obsidian-3);
+  border: 1px solid var(--line-2);
+  border-radius: 16px;
+  padding: 2rem 2.5rem;
+}
+
+.enterprise-company-statement-card p {
+  font-family: var(--font-serif), serif;
+  font-size: clamp(18px, 2.2vw, 26px);
+  font-weight: 400;
+  line-height: 1.45;
+  color: var(--ink);
+}
+
+.enterprise-company-statement-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+}
+
+.enterprise-company-statement-meta span {
+  font-family: var(--font-mono), monospace;
+  font-size: 11px;
+  color: var(--ink-3);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* ---- Company summary ---- */
+.enterprise-company-summary-card {
+  background: var(--obsidian-3);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 2rem;
+}
+
+.enterprise-company-summary-card p {
+  color: var(--ink-2);
+  line-height: 1.7;
+  margin: 0 0 0.75rem;
+}
+
+.enterprise-company-summary-card p:last-child {
+  margin-bottom: 0;
+}
+
+/* ---- Editorial / split layout ---- */
+.enterprise-editorial-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.enterprise-editorial-layout-reverse .enterprise-platform-panel {
+  order: -1;
+}
+
+@media (max-width: 880px) {
+  .enterprise-editorial-layout {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .enterprise-editorial-layout-reverse .enterprise-platform-panel {
+    order: 0;
+  }
+}
+
+/* ---- Platform panel / capability list ---- */
+.enterprise-platform-panel {
+  background: var(--obsidian-3);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 2rem;
+}
+
+.enterprise-panel-label {
+  font-family: var(--font-mono), monospace;
+  font-size: 11px;
+  color: var(--ink-3);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  display: block;
+  margin-bottom: 1.25rem;
+}
+
+.enterprise-capability-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.enterprise-capability-list article {
+  padding: 1rem;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.enterprise-capability-list strong {
+  display: block;
+  font-size: 14px;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+
+.enterprise-capability-list p {
+  font-size: 13px;
+  color: var(--ink-3);
+  margin: 0;
+  line-height: 1.55;
+}
+
+/* ---- Large card grid (service tracks) ---- */
+.enterprise-large-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+@media (max-width: 780px) {
+  .enterprise-large-card-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.enterprise-story-card {
+  background: var(--obsidian-3);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 2rem;
+  display: grid;
+  gap: 1rem;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.enterprise-story-card:hover {
+  border-color: var(--line-2);
+  background: var(--obsidian-4);
+}
+
+.enterprise-story-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.enterprise-card-id {
+  font-family: var(--font-mono), monospace;
+  font-size: 11px;
+  color: var(--ink-4);
+}
+
+.enterprise-story-card h3 {
+  font-family: var(--font-serif), serif;
+  font-weight: 400;
+  font-size: 22px;
+  color: var(--ink);
+  margin: 0;
+}
+
+.enterprise-story-card p {
+  font-size: 13.5px;
+  color: var(--ink-3);
+  margin: 0;
+  line-height: 1.55;
+}
+
+/* ---- Industry grid ---- */
+.enterprise-industry-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+@media (max-width: 640px) {
+  .enterprise-industry-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.enterprise-industry-card {
+  background: var(--obsidian-3);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 1.5rem;
+  display: grid;
+  gap: 0.5rem;
+  transition: border-color 0.2s;
+}
+
+.enterprise-industry-card:hover {
+  border-color: var(--cyan);
+}
+
+.enterprise-industry-card h3 {
+  font-size: 16px;
+  color: var(--ink);
+  margin: 0;
+}
+
+.enterprise-industry-card p {
+  font-size: 13.5px;
+  color: var(--ink-3);
+  margin: 0;
+}
+
+/* ---- Process grid ---- */
+.enterprise-process-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+@media (max-width: 780px) {
+  .enterprise-process-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.enterprise-process-card {
+  background: var(--obsidian-3);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 1.5rem;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.enterprise-process-card strong {
+  font-size: 15px;
+  color: var(--ink);
+}
+
+/* ---- Card link wrapper ---- */
+.enterprise-card-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ---- Note text ---- */
+.enterprise-note {
+  font-size: 13px;
+  color: var(--ink-3);
+  margin: 0;
+}
+
+/* ---- CTA section ---- */
+.enterprise-cta {
+  background: var(--obsidian-3);
+  border: 1px solid var(--line-2);
+  border-radius: 24px;
+  padding: 3rem;
+}
+
+.enterprise-cta-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin-top: 2rem;
+}
+
+@media (max-width: 780px) {
+  .enterprise-cta-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.enterprise-section-heading-centered {
+  text-align: center;
+}
+
+.enterprise-section-heading-centered h2,
+.enterprise-section-heading-centered p {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ---- Hero motion visual (Africa map) ---- */
+.hero-motion-visual {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  background: var(--obsidian-2);
+  border: 1px solid var(--line);
+  min-height: 420px;
+}
+
+/* Map signal lines get cyan */
+.hero-motion-map .signal-line {
+  stroke: var(--cyan);
+  stroke-width: 1.5;
+  fill: none;
+  opacity: 0.5;
+}
+
+.hero-motion-map .hub {
+  fill: var(--cyan);
+}
+
+.hero-motion-map .hub-ethiopia {
+  fill: var(--cyan);
+  filter: drop-shadow(0 0 6px var(--cyan));
+}
+
+.hero-motion-map .africa-fill {
+  fill: rgba(75, 227, 214, 0.05);
+}
+
+.hero-motion-map .africa-shape {
+  fill: none;
+  stroke: rgba(75, 227, 214, 0.2);
+  stroke-width: 1;
+}
+
+.hero-motion-map .ethiopia-shape {
+  fill: rgba(75, 227, 214, 0.15);
+  stroke: var(--cyan);
+  stroke-width: 1.5;
+}
+
+.hero-motion-map .hub-label {
+  fill: var(--cyan);
+  font-size: 10px;
+  font-family: var(--font-mono), monospace;
+}
+
+/* ---- Hero data card (floating status) ---- */
+.hero-data-layer {
+  position: absolute;
+  bottom: 1.25rem;
+  right: 1.25rem;
+}
+
+.hero-data-card {
+  background: rgba(15, 18, 24, 0.88);
+  border: 1px solid var(--line-2);
+  border-radius: 12px;
+  padding: 0.85rem 1.1rem;
+  display: grid;
+  gap: 0.35rem;
+  backdrop-filter: blur(12px);
+}
+
+.hero-live-indicator {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono), monospace;
+  font-size: 10px;
+  color: var(--green);
+}
+
+.hero-live-indicator i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 6px var(--green);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.3); }
+}
+
+.hero-data-card small {
+  font-family: var(--font-mono), monospace;
+  font-size: 10px;
+  color: var(--ink-3);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.hero-data-card strong {
+  font-size: 14px;
+  color: var(--ink);
+}
+
+.hero-data-card span {
+  font-size: 12px;
+  color: var(--ink-3);
+}
