@@ -17,6 +17,7 @@ const serviceTracks = [
   {
     id: "01",
     tag: "Architecture",
+    icon: "⬡",
     title: "Platform Architecture",
     description:
       "End-to-end system design for secure, scalable, production-ready platforms.",
@@ -25,6 +26,7 @@ const serviceTracks = [
   {
     id: "02",
     tag: "Performance",
+    icon: "⚡",
     title: "Performance Optimization",
     description:
       "Performance tuning, reliability improvement, and operational efficiency across live systems.",
@@ -33,11 +35,25 @@ const serviceTracks = [
   {
     id: "03",
     tag: "Data",
+    icon: "◈",
     title: "Data Infrastructure",
     description:
       "Scalable database architecture, data modeling, and infrastructure for high-volume operations.",
     href: "/services?focus=data-infrastructure",
   },
+];
+
+const nexusTrustTags = [
+  "API-First Architecture",
+  "Banking Platforms",
+  "Insurance Systems",
+  "Enterprise Dashboards",
+  "Real-time Analytics",
+  "Workflow Automation",
+  "Data Infrastructure",
+  "Secure Operations",
+  "African Markets",
+  "Production-Ready",
 ];
 
 const industries = [
@@ -584,24 +600,20 @@ export default function Home() {
         </div>
       </RevealSection>
 
-      <RevealSection as="section" className="enterprise-section enterprise-company-statement">
-        <div className="enterprise-company-statement-card">
-          <p>
-            Kelel IT Solution is a technology company based in Addis Ababa, Ethiopia, building
-            digital infrastructure for banking, insurance, and enterprise systems.
-          </p>
-          <div className="enterprise-company-statement-meta">
-            <span>API-first. Secure. Scalable. Built for real-world operations.</span>
-            <span>Real systems. Real operations. Real performance.</span>
-          </div>
+      {/* Capability trust strip */}
+      <div className="nexus-trust-strip" aria-hidden="true">
+        <div className="nexus-trust-track">
+          {[...nexusTrustTags, ...nexusTrustTags].map((tag, i) => (
+            <span key={i} className="nexus-trust-tag">{tag}</span>
+          ))}
         </div>
-      </RevealSection>
+      </div>
 
       <RevealSection as="section" className="enterprise-section enterprise-company-summary">
         <div className="enterprise-section-heading">
           <span className="enterprise-kicker">Our Company</span>
-          <h2>Who we are.</h2>
-          <p>A short overview of what Kelel does and where we operate.</p>
+          <h2>Built in Addis Ababa.<br />Deployed across Africa.</h2>
+          <p>Kelel IT Solution delivers production-grade systems for banks, insurers, and enterprise operations teams.</p>
         </div>
         <div className="enterprise-company-summary-card">
           {companySummary.map((item) => (
@@ -624,8 +636,8 @@ export default function Home() {
           </div>
           <div className="enterprise-section-heading">
             <span className="enterprise-kicker">Trust Signals</span>
-            <h2>Why organizations choose Kelel for serious systems.</h2>
-            <p>Clear delivery, African market context, and production-grade platform thinking.</p>
+            <h2>No shortcuts.<br />No guesswork.</h2>
+            <p>Production-grade delivery, African market context, and architecture that scales.</p>
           </div>
         </div>
       </RevealSection>
@@ -666,19 +678,21 @@ export default function Home() {
       <RevealSection as="section" id="what-we-do" className="enterprise-section">
         <div className="enterprise-section-heading">
           <span className="enterprise-kicker">What We Do</span>
-          <h2>Three focused capabilities for serious operational systems.</h2>
-          <p>Architecture, performance, and data infrastructure for enterprise platforms.</p>
+          <h2>Three capabilities.<br />One mission: systems that work.</h2>
+          <p>Architecture, performance, and data infrastructure — designed for real operations, not demos.</p>
         </div>
         <div className="enterprise-large-card-grid">
           {serviceTracks.map((track) => (
             <Link key={track.title} href={track.href} className="enterprise-card-link">
               <article className="enterprise-story-card">
+                <div className="nexus-service-icon" aria-hidden="true">{track.icon}</div>
                 <div className="enterprise-story-meta">
                   <span className="enterprise-card-id">{track.id}</span>
                   <span className="enterprise-panel-label">{track.tag}</span>
                 </div>
                 <h3>{track.title}</h3>
                 <p>{track.description}</p>
+                <span className="nexus-card-arrow">→</span>
               </article>
             </Link>
           ))}
@@ -692,8 +706,8 @@ export default function Home() {
         <div className="enterprise-editorial-layout">
           <div className="enterprise-section-heading">
             <span className="enterprise-kicker">Industries</span>
-            <h2>Built for organizations operating across African markets.</h2>
-            <p>Designed for local realities, regional scale, and enterprise expectations.</p>
+            <h2>Banking. Insurance.<br />Enterprise. All three.</h2>
+            <p>Purpose-built for African financial institutions and operations-heavy organizations.</p>
           </div>
           <div className="enterprise-industry-grid">
             {industries.map((industry) => (
@@ -723,8 +737,8 @@ export default function Home() {
           </div>
           <div className="enterprise-section-heading">
             <span className="enterprise-kicker">Platform</span>
-            <h2>Modern architecture built for secure regional operations.</h2>
-            <p>API-first systems, modular deployment, and clear reporting structures.</p>
+            <h2>API-first.<br />Modular. Secure.</h2>
+            <p>Production-ready architecture with phased deployment paths and built-in reporting visibility.</p>
           </div>
         </div>
       </RevealSection>
@@ -733,8 +747,8 @@ export default function Home() {
         <div className="enterprise-editorial-layout">
           <div className="enterprise-section-heading">
             <span className="enterprise-kicker">AI &amp; Intelligent Systems</span>
-            <h2>Intelligence built into operational platforms.</h2>
-            <p>Automation, predictive visibility, and AI-assisted monitoring applied to real business systems.</p>
+            <h2>Not AI hype.<br />AI that ships.</h2>
+            <p>Automation, predictive analytics, and intelligent monitoring applied to live business operations.</p>
           </div>
           <div className="enterprise-platform-panel">
             <span className="enterprise-panel-label">Intelligent capabilities</span>
@@ -753,9 +767,9 @@ export default function Home() {
       <RevealSection as="section" className="enterprise-section">
         <div className="enterprise-editorial-layout">
           <div className="enterprise-section-heading">
-            <span className="enterprise-kicker">How Kelel Works</span>
-            <h2>A clear delivery path for serious systems.</h2>
-            <p>A structured process from architecture through rollout and support.</p>
+            <span className="enterprise-kicker">How We Work</span>
+            <h2>Understand. Design.<br />Build. Support.</h2>
+            <p>A structured delivery process that takes you from architecture through live operations.</p>
           </div>
           <div className="enterprise-process-grid">
             {deliverySteps.map((step, index) => (
@@ -869,11 +883,11 @@ export default function Home() {
       </RevealSection>
 
       <RevealSection as="section" id="contact" className="enterprise-section">
-        <div className="enterprise-cta">
-          <div className="enterprise-section-heading enterprise-section-heading-centered">
-            <span className="enterprise-kicker">Contact</span>
-            <h2>Let&apos;s build your next system.</h2>
-            <p>Tell us what you need and we&apos;ll shape the right architecture.</p>
+        <div className="enterprise-cta nexus-cta-glow">
+          <div className="nexus-cta-header">
+            <span className="enterprise-kicker">Start a Project</span>
+            <h2 className="nexus-cta-h2">Ready to build?<br /><em>Let&apos;s talk.</em></h2>
+            <p>Tell us what you need and we&apos;ll shape the right architecture for your operations.</p>
           </div>
           <div className="enterprise-cta-grid">
             <div className="enterprise-cta-panel">

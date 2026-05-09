@@ -14196,3 +14196,217 @@ body::before {
   background: linear-gradient(135deg, var(--cyan) 0%, var(--cyan-deep) 100%) !important;
   box-shadow: 0 0 20px rgba(78, 222, 163, 0.25) !important;
 }
+
+/* ==========================================================================
+   NEXUS PHASE 3 — Trust strip, service card icons, CTA glow, section polish
+   ========================================================================== */
+
+/* ---- Scrolling capability trust strip ---- */
+.nexus-trust-strip {
+  width: 100%;
+  overflow: hidden;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 14px 0;
+  background: rgba(5, 20, 36, 0.5);
+  -webkit-mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+}
+
+.nexus-trust-track {
+  display: flex;
+  gap: 0;
+  white-space: nowrap;
+  animation: nexusTrustScroll 28s linear infinite;
+  width: max-content;
+}
+
+.nexus-trust-tag {
+  font-family: var(--font-mono), monospace;
+  font-size: 10.5px;
+  color: var(--ink-3);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 28px;
+  flex-shrink: 0;
+}
+
+.nexus-trust-tag::before {
+  content: "◆";
+  color: var(--cyan);
+  font-size: 7px;
+  margin-right: 28px;
+  opacity: 0.7;
+}
+
+@keyframes nexusTrustScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ---- Service card icon ---- */
+.nexus-service-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(78, 222, 163, 0.09);
+  border: 1px solid rgba(78, 222, 163, 0.20);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  color: var(--cyan);
+  margin-bottom: 0.75rem;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+.enterprise-story-card:hover .nexus-service-icon {
+  background: rgba(78, 222, 163, 0.16);
+  box-shadow: 0 0 18px rgba(78, 222, 163, 0.20);
+}
+
+/* ---- Card arrow affordance ---- */
+.nexus-card-arrow {
+  display: block;
+  font-size: 16px;
+  color: var(--ink-4);
+  margin-top: auto;
+  transition: color 0.2s, transform 0.2s;
+  padding-top: 0.5rem;
+}
+
+.enterprise-story-card {
+  display: grid !important;
+  grid-template-rows: auto auto auto 1fr auto !important;
+}
+
+.enterprise-story-card:hover .nexus-card-arrow {
+  color: var(--cyan);
+  transform: translateX(4px);
+}
+
+/* ---- CTA section — dramatic glow ---- */
+.nexus-cta-glow {
+  background:
+    radial-gradient(ellipse at 30% 0%, rgba(78,222,163,0.12), transparent 60%),
+    radial-gradient(ellipse at 80% 100%, rgba(173,198,255,0.08), transparent 50%),
+    var(--glass-bg) !important;
+  border: 1px solid rgba(78, 222, 163, 0.22) !important;
+  box-shadow:
+    0 0 80px rgba(78, 222, 163, 0.08),
+    inset 0 1px 0 rgba(255,255,255,0.06) !important;
+}
+
+.nexus-cta-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.nexus-cta-h2 {
+  font-family: var(--font-sans), sans-serif !important;
+  font-weight: 800 !important;
+  font-size: clamp(36px, 4.5vw, 64px) !important;
+  letter-spacing: -0.035em !important;
+  line-height: 1.05 !important;
+  color: var(--ink) !important;
+  margin: 12px 0 16px !important;
+}
+
+.nexus-cta-h2 em {
+  font-style: normal !important;
+  background: linear-gradient(120deg, var(--cyan) 0%, var(--amber) 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  color: transparent !important;
+}
+
+/* ---- Section heading line-break headings — more weight ---- */
+.enterprise-section-heading h2 br,
+.enterprise-hero-copy h1 br {
+  display: block;
+}
+
+/* ---- Industry card — arrow ---- */
+.enterprise-industry-card {
+  display: grid !important;
+  gap: 0.5rem !important;
+  position: relative !important;
+}
+
+.enterprise-industry-card::after {
+  content: "→";
+  position: absolute;
+  bottom: 1.25rem;
+  right: 1.25rem;
+  font-size: 14px;
+  color: var(--ink-4);
+  transition: color 0.2s, transform 0.2s;
+}
+
+.enterprise-industry-card:hover::after {
+  color: var(--cyan);
+  transform: translateX(3px);
+}
+
+/* ---- Process card — numbered accent ---- */
+.enterprise-process-card .enterprise-card-id {
+  font-size: 28px !important;
+  color: var(--cyan) !important;
+  line-height: 1 !important;
+  opacity: 0.6;
+}
+
+/* ---- Proof / case study card ---- */
+.enterprise-case-study-feature {
+  position: relative !important;
+}
+
+/* ---- Trust pill — refined ---- */
+.enterprise-trust-pill {
+  background: rgba(78, 222, 163, 0.06) !important;
+  border-color: rgba(78, 222, 163, 0.18) !important;
+  color: var(--ink-2) !important;
+}
+
+/* ---- Section spacing rhythm — tighten consecutive sections ---- */
+.enterprise-section + .enterprise-section {
+  padding-top: 64px !important;
+}
+
+/* ---- Hero h2 subtitle — shorter on large screens ---- */
+.enterprise-hero-copy h2 {
+  font-size: clamp(16px, 1.8vw, 20px) !important;
+  max-width: 480px !important;
+  color: var(--ink-2) !important;
+  font-weight: 400 !important;
+}
+
+/* ---- Metric row — larger numbers ---- */
+.enterprise-metric-row strong {
+  font-size: 30px !important;
+  font-weight: 800 !important;
+}
+
+/* ---- Proof label (e.g., "Featured system example") ---- */
+.enterprise-proof-label {
+  color: var(--cyan) !important;
+}
+
+/* ---- Section system preview cards: taller mocks ---- */
+.enterprise-ui-card-snapshot {
+  gap: 1rem !important;
+}
+
+/* ---- console wrap ---- */
+.enterprise-console-wrap {
+  margin-top: 1.5rem !important;
+}
+
+/* ---- Small screens: trust strip slows down ---- */
+@media (max-width: 640px) {
+  .nexus-trust-track {
+    animation-duration: 20s;
+  }
+}
