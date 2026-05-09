@@ -1,40 +1,50 @@
 :root {
-  /* Dark fintech palette */
-  --obsidian: #0a0c10;
-  --obsidian-2: #0f1218;
-  --obsidian-3: #161a23;
-  --obsidian-4: #1d212c;
+  /* ── Nexus High-Tech palette ── */
+  /* Surfaces — deep navy */
+  --obsidian:   #051424;
+  --obsidian-2: #0d1c2d;
+  --obsidian-3: #122131;
+  --obsidian-4: #1c2b3c;
 
   /* Text scale */
-  --ink: #e8eaed;
-  --ink-2: #b6bcc6;
-  --ink-3: #6e7585;
-  --ink-4: #454a55;
+  --ink:   #d4e4fa;
+  --ink-2: #bbcabf;
+  --ink-3: #86948a;
+  --ink-4: #3c4a42;
 
-  /* Accents */
-  --cyan: #4be3d6;
-  --cyan-2: #6ef0e4;
-  --cyan-glow: rgba(75, 227, 214, 0.18);
-  --cyan-deep: #2ba89e;
-  --amber: #f0a868;
-  --amber-glow: rgba(240, 168, 104, 0.16);
-  --green: #6ee7a8;
-  --red: #ff7a7a;
+  /* Primary — emerald */
+  --cyan:      #4edea3;
+  --cyan-2:    #6ffbbe;
+  --cyan-glow: rgba(78, 222, 163, 0.20);
+  --cyan-deep: #10b981;
 
-  /* Borders */
-  --line: rgba(255, 255, 255, 0.08);
+  /* Secondary — electric blue */
+  --amber:      #adc6ff;
+  --amber-glow: rgba(173, 198, 255, 0.16);
+
+  /* Status */
+  --green: #4edea3;
+  --red:   #ffb4ab;
+
+  /* Borders — 1px white hairlines for glass */
+  --line:   rgba(255, 255, 255, 0.08);
   --line-2: rgba(255, 255, 255, 0.14);
   --line-3: rgba(255, 255, 255, 0.22);
+
+  /* Glass card surface */
+  --glass-bg:     rgba(17, 35, 58, 0.60);
+  --glass-border: rgba(255, 255, 255, 0.10);
+  --glass-top:    rgba(255, 255, 255, 0.18);
 
   /* Animation */
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
 
-  /* Legacy aliases — keep all existing CSS rules working without a mass rename */
+  /* Legacy aliases — keep all existing CSS rules working */
   --font-sans: system-ui, -apple-system, sans-serif;
   --font-serif: serif;
   --font-mono: monospace;
   --bg: var(--obsidian);
-  --surface: rgba(22, 26, 35, 0.82);
+  --surface: var(--glass-bg);
   --surface-strong: var(--obsidian-3);
   --text: var(--ink);
   --muted: var(--ink-3);
@@ -43,9 +53,9 @@
   --forest: var(--obsidian-2);
   --ink-strong: var(--ink);
   --ink-soft: var(--ink-2);
-  --shadow: 0 26px 90px rgba(0, 0, 0, 0.45);
-  --enterprise-radius: 26px;
-  --enterprise-radius-sm: 20px;
+  --shadow: 0 0 20px rgba(78, 222, 163, 0.15);
+  --enterprise-radius: 16px;
+  --enterprise-radius-sm: 12px;
   --enterprise-shadow: 0 22px 52px rgba(0, 0, 0, 0.45);
   --enterprise-shadow-hover: 0 28px 60px rgba(0, 0, 0, 0.55);
 }
@@ -71,27 +81,27 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-/* Cyan/amber atmospheric glow */
+/* Nexus emerald/blue atmospheric glow */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   background:
-    radial-gradient(ellipse at 15% 0%, rgba(75, 227, 214, 0.08), transparent 50%),
-    radial-gradient(ellipse at 85% 30%, rgba(240, 168, 104, 0.06), transparent 60%);
+    radial-gradient(ellipse at 10% 0%, rgba(78, 222, 163, 0.10), transparent 45%),
+    radial-gradient(ellipse at 90% 20%, rgba(173, 198, 255, 0.07), transparent 55%),
+    radial-gradient(ellipse at 50% 80%, rgba(78, 222, 163, 0.05), transparent 50%);
   pointer-events: none;
   z-index: 0;
 }
 
-/* Film-grain noise overlay */
+/* Dot-grid background texture */
 body::after {
   content: "";
   position: fixed;
   inset: 0;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence baseFrequency='0.9' numOctaves='2'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.4 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
-  opacity: 0.3;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.07) 1px, transparent 1px);
+  background-size: 40px 40px;
   pointer-events: none;
-  mix-blend-mode: overlay;
   z-index: 0;
 }
 
@@ -13653,3 +13663,383 @@ body::before {
 .fade-up.delay-1 { transition-delay: 0.1s; }
 .fade-up.delay-2 { transition-delay: 0.2s; }
 .fade-up.delay-3 { transition-delay: 0.3s; }
+
+/* ==========================================================================
+   NEXUS HIGH-TECH — Phase 2 glassmorphism & layout layer
+   ========================================================================== */
+
+/* ---- Hero v1 split layout ---- */
+.enterprise-hero {
+  padding: 110px 0 56px;
+}
+
+.enterprise-hero-wrap {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 4rem;
+  align-items: center;
+  width: min(1320px, calc(100% - 4rem));
+  margin: 0 auto;
+}
+
+@media (max-width: 900px) {
+  .enterprise-hero-wrap {
+    grid-template-columns: 1fr;
+  }
+  .enterprise-hero-right {
+    display: none;
+  }
+}
+
+/* ---- Hero right panel ---- */
+.enterprise-hero-right {
+  position: relative;
+  display: grid;
+  gap: 0.875rem;
+}
+
+/* ---- Decorative blur blobs ---- */
+.nexus-hero-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.nexus-hero-blob-1 {
+  width: 280px;
+  height: 280px;
+  background: rgba(78, 222, 163, 0.14);
+  top: -80px;
+  right: -60px;
+}
+
+.nexus-hero-blob-2 {
+  width: 180px;
+  height: 180px;
+  background: rgba(173, 198, 255, 0.10);
+  bottom: -40px;
+  left: 8%;
+}
+
+/* ---- Nexus glassmorphic metric card ---- */
+.nexus-metric-card {
+  position: relative;
+  z-index: 1;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-top-color: var(--glass-top);
+  border-radius: 16px;
+  padding: 1.1rem 1.4rem;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: border-color 0.22s, box-shadow 0.22s;
+}
+
+.nexus-metric-card:hover {
+  border-color: rgba(78, 222, 163, 0.30);
+  box-shadow: 0 0 28px rgba(78, 222, 163, 0.10);
+}
+
+.nexus-metric-icon {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: rgba(78, 222, 163, 0.10);
+  border: 1px solid rgba(78, 222, 163, 0.22);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: var(--cyan);
+}
+
+.nexus-metric-body {
+  display: grid;
+  gap: 2px;
+}
+
+.nexus-metric-label {
+  font-family: var(--font-mono), monospace;
+  font-size: 10px;
+  color: var(--ink-3);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+
+.nexus-metric-value {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--cyan);
+  line-height: 1;
+}
+
+.nexus-metric-value-sm {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--cyan-deep);
+}
+
+.nexus-metric-delta {
+  font-family: var(--font-mono), monospace;
+  font-size: 10px;
+  color: var(--ink-3);
+  margin-top: 1px;
+}
+
+/* ---- Mini console widget ---- */
+.nexus-hero-console {
+  position: relative;
+  z-index: 1;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-top-color: rgba(78, 222, 163, 0.22);
+  border-radius: 14px;
+  overflow: hidden;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  margin-top: 0.25rem;
+}
+
+.nexus-console-bar {
+  display: flex;
+  gap: 6px;
+  padding: 10px 14px;
+  background: rgba(0, 0, 0, 0.18);
+  border-bottom: 1px solid var(--line);
+}
+
+.nexus-console-bar span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.nexus-console-bar span:nth-child(1) { background: rgba(255,95,86,0.7); }
+.nexus-console-bar span:nth-child(2) { background: rgba(255,189,46,0.7); }
+.nexus-console-bar span:nth-child(3) { background: rgba(78,222,163,0.7); }
+
+.nexus-console-body {
+  padding: 10px 14px 12px;
+  display: grid;
+  gap: 5px;
+}
+
+.nexus-console-line {
+  font-family: var(--font-mono), monospace;
+  font-size: 11px;
+  color: var(--ink-2);
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.nexus-console-line em {
+  font-style: normal;
+  color: var(--cyan);
+  font-size: 10px;
+}
+
+.nexus-console-line b {
+  color: var(--cyan);
+  font-weight: 500;
+}
+
+.nexus-console-line--dim {
+  color: var(--ink-4);
+}
+
+.nexus-console-line--dim em {
+  color: var(--ink-4);
+}
+
+/* ==========================================================================
+   Glassmorphism card upgrades — cascade wins over all previous backgrounds
+   ========================================================================== */
+
+.enterprise-story-card {
+  background: var(--glass-bg) !important;
+  border-color: var(--glass-border) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border-top-color: var(--glass-top) !important;
+}
+
+.enterprise-story-card:hover {
+  border-color: rgba(78, 222, 163, 0.28) !important;
+  box-shadow: 0 0 32px rgba(78, 222, 163, 0.08) !important;
+}
+
+.enterprise-industry-card {
+  background: var(--glass-bg) !important;
+  border-color: var(--glass-border) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border-top-color: var(--glass-top) !important;
+}
+
+.enterprise-industry-card:hover {
+  border-color: rgba(78, 222, 163, 0.35) !important;
+  box-shadow: 0 0 20px rgba(78, 222, 163, 0.10) !important;
+}
+
+.enterprise-process-card {
+  background: var(--glass-bg) !important;
+  border-color: var(--glass-border) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border-top-color: var(--glass-top) !important;
+}
+
+.enterprise-platform-panel {
+  background: var(--glass-bg) !important;
+  border-color: var(--glass-border) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border-top-color: var(--glass-top) !important;
+}
+
+.enterprise-ui-card {
+  background: var(--glass-bg) !important;
+  border-color: var(--glass-border) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border-top-color: var(--glass-top) !important;
+}
+
+.enterprise-ui-card:hover {
+  border-color: rgba(78, 222, 163, 0.28) !important;
+  box-shadow: 0 0 24px rgba(78, 222, 163, 0.08) !important;
+}
+
+.enterprise-company-statement-card {
+  background: var(--glass-bg) !important;
+  border-color: var(--glass-border) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border-top-color: var(--glass-top) !important;
+}
+
+.enterprise-company-summary-card {
+  background: var(--glass-bg) !important;
+  border-color: var(--glass-border) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border-top-color: var(--glass-top) !important;
+}
+
+.enterprise-case-study-feature {
+  background: var(--glass-bg) !important;
+  border-color: var(--glass-border) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border-top-color: var(--glass-top) !important;
+}
+
+.enterprise-case-study-feature:hover {
+  border-color: rgba(78, 222, 163, 0.28) !important;
+  box-shadow: 0 0 40px rgba(78, 222, 163, 0.08) !important;
+}
+
+.enterprise-proof-card {
+  background: var(--glass-bg) !important;
+  border-color: var(--glass-border) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border-top-color: var(--glass-top) !important;
+}
+
+.enterprise-proof-card:hover {
+  border-color: rgba(78, 222, 163, 0.28) !important;
+}
+
+.enterprise-metric-row article {
+  background: var(--glass-bg) !important;
+  border-color: var(--glass-border) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border-top-color: var(--glass-top) !important;
+}
+
+.enterprise-cta {
+  background: var(--glass-bg) !important;
+  border-color: rgba(78, 222, 163, 0.15) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+}
+
+.project-card {
+  background: var(--glass-bg) !important;
+  border-color: var(--glass-border) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border-top-color: var(--glass-top) !important;
+}
+
+.project-card:hover {
+  border-color: rgba(78, 222, 163, 0.28) !important;
+  box-shadow: 0 0 24px rgba(78, 222, 163, 0.07) !important;
+}
+
+.contact-location {
+  background: var(--glass-bg) !important;
+  border-color: var(--glass-border) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border-top-color: var(--glass-top) !important;
+}
+
+.contrast-panel {
+  background: var(--glass-bg) !important;
+  border-color: var(--glass-border) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border-top-color: var(--glass-top) !important;
+}
+
+/* ---- Enhanced button glows ---- */
+.primary-link {
+  background: linear-gradient(135deg, var(--cyan) 0%, var(--cyan-deep) 100%) !important;
+  color: var(--obsidian) !important;
+  box-shadow: 0 0 20px rgba(78, 222, 163, 0.20) !important;
+}
+
+.primary-link:hover {
+  box-shadow: 0 0 40px rgba(78, 222, 163, 0.45) !important;
+  transform: translateY(-2px) !important;
+  color: var(--obsidian) !important;
+}
+
+.secondary-link:hover {
+  border-color: var(--cyan) !important;
+  color: var(--cyan) !important;
+  box-shadow: 0 0 16px rgba(78, 222, 163, 0.15) !important;
+}
+
+.header-quick-link {
+  background: linear-gradient(135deg, var(--cyan) 0%, var(--cyan-deep) 100%) !important;
+  box-shadow: 0 0 16px rgba(78, 222, 163, 0.22) !important;
+}
+
+.header-quick-link:hover {
+  box-shadow: 0 0 30px rgba(78, 222, 163, 0.45) !important;
+}
+
+/* ---- Capability list items glass ---- */
+.enterprise-capability-list article {
+  background: rgba(255, 255, 255, 0.03) !important;
+  border-color: var(--glass-border) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+}
+
+/* ---- Header glass ---- */
+.site-header {
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+}

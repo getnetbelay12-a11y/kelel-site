@@ -522,24 +522,65 @@ export default function Home() {
   return (
     <main className="enterprise-homepage">
       <RevealSection as="section" id="home" className="enterprise-hero">
-        <HeroMotionVisual />
-        <div className="enterprise-hero-copy">
-          <div className="enterprise-hero-headingline">
-            <span className="enterprise-kicker">Built for African markets</span>
-            <h1>Kelel IT Solution</h1>
-            <h2>Digital infrastructure and intelligent systems for financial operations</h2>
+        <div className="enterprise-hero-wrap">
+          <div className="enterprise-hero-copy">
+            <div className="enterprise-hero-headingline">
+              <span className="enterprise-kicker">Built for African markets</span>
+              <h1>Kelel IT Solution</h1>
+              <h2>Digital infrastructure and intelligent systems for financial operations</h2>
+            </div>
+            <p>Secure, scalable platforms for banking, insurance, and enterprise operations.</p>
+            <p className="enterprise-tech-line">Powered by data, automation, and AI-driven insights.</p>
+            <div className="enterprise-actions">
+              <Link href="/#contact" className="primary-link">
+                Start a Project
+              </Link>
+              <Link href={site.calendlyPlaceholder} className="secondary-link">
+                Book a Call
+              </Link>
+            </div>
+            <p className="enterprise-hero-note">Designed and built by teams operating across Africa.</p>
           </div>
-          <p>Secure, scalable platforms for banking, insurance, and enterprise operations.</p>
-          <p className="enterprise-tech-line">Powered by data, automation, and AI-driven insights.</p>
-          <div className="enterprise-actions">
-            <Link href="/#contact" className="primary-link">
-              Start a Project
-            </Link>
-            <Link href={site.calendlyPlaceholder} className="secondary-link">
-              Book a Call
-            </Link>
+
+          <div className="enterprise-hero-right" aria-hidden="true">
+            <div className="nexus-hero-blob nexus-hero-blob-1" />
+            <div className="nexus-hero-blob nexus-hero-blob-2" />
+            <article className="nexus-metric-card">
+              <div className="nexus-metric-icon">⚡</div>
+              <div className="nexus-metric-body">
+                <span className="nexus-metric-label">System Health</span>
+                <span className="nexus-metric-value">99.98<span className="nexus-metric-value-sm">%</span></span>
+                <span className="nexus-metric-delta">↑ all systems operational</span>
+              </div>
+            </article>
+            <article className="nexus-metric-card">
+              <div className="nexus-metric-icon">◉</div>
+              <div className="nexus-metric-body">
+                <span className="nexus-metric-label">Active Nodes</span>
+                <span className="nexus-metric-value">1,248</span>
+                <span className="nexus-metric-delta">across 12 enterprise systems</span>
+              </div>
+            </article>
+            <article className="nexus-metric-card">
+              <div className="nexus-metric-icon">⟶</div>
+              <div className="nexus-metric-body">
+                <span className="nexus-metric-label">Avg Latency</span>
+                <span className="nexus-metric-value">12<span className="nexus-metric-value-sm">ms</span></span>
+                <span className="nexus-metric-delta">real-time response</span>
+              </div>
+            </article>
+            <div className="nexus-hero-console" aria-hidden="true">
+              <div className="nexus-console-bar">
+                <span /><span /><span />
+              </div>
+              <div className="nexus-console-body">
+                <div className="nexus-console-line"><em>■</em> Banking Platform — <b>ONLINE</b></div>
+                <div className="nexus-console-line"><em>■</em> Insurance Workflow — <b>ONLINE</b></div>
+                <div className="nexus-console-line"><em>■</em> Analytics Engine — <b>ACTIVE</b></div>
+                <div className="nexus-console-line nexus-console-line--dim"><em>▸</em> audit_log: 0 anomalies</div>
+              </div>
+            </div>
           </div>
-          <p className="enterprise-hero-note">Designed and built by teams operating across Africa.</p>
         </div>
       </RevealSection>
 
