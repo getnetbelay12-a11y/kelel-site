@@ -1,32 +1,53 @@
 :root {
-  --font-sans:
-    "Aptos",
-    "Segoe UI",
-    "Helvetica Neue",
-    Arial,
-    sans-serif;
-  --font-serif:
-    "Georgia",
-    "Iowan Old Style",
-    "Palatino Linotype",
-    "Times New Roman",
-    serif;
-  --bg: #f2ede4;
-  --surface: rgba(255, 252, 247, 0.78);
-  --surface-strong: #fbf7f0;
-  --text: #10201c;
-  --muted: #5b6963;
-  --line: rgba(16, 32, 28, 0.1);
-  --accent: #d46834;
-  --accent-deep: #8b3f18;
-  --forest: #1a5a4b;
-  --ink-strong: #152621;
-  --ink-soft: #5f6d68;
-  --shadow: 0 26px 90px rgba(26, 90, 75, 0.12);
+  /* Dark fintech palette */
+  --obsidian: #0a0c10;
+  --obsidian-2: #0f1218;
+  --obsidian-3: #161a23;
+  --obsidian-4: #1d212c;
+
+  /* Text scale */
+  --ink: #e8eaed;
+  --ink-2: #b6bcc6;
+  --ink-3: #6e7585;
+  --ink-4: #454a55;
+
+  /* Accents */
+  --cyan: #4be3d6;
+  --cyan-2: #6ef0e4;
+  --cyan-glow: rgba(75, 227, 214, 0.18);
+  --cyan-deep: #2ba89e;
+  --amber: #f0a868;
+  --amber-glow: rgba(240, 168, 104, 0.16);
+  --green: #6ee7a8;
+  --red: #ff7a7a;
+
+  /* Borders */
+  --line: rgba(255, 255, 255, 0.08);
+  --line-2: rgba(255, 255, 255, 0.14);
+  --line-3: rgba(255, 255, 255, 0.22);
+
+  /* Animation */
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Legacy aliases — keep all existing CSS rules working without a mass rename */
+  --font-sans: system-ui, -apple-system, sans-serif;
+  --font-serif: serif;
+  --font-mono: monospace;
+  --bg: var(--obsidian);
+  --surface: rgba(22, 26, 35, 0.82);
+  --surface-strong: var(--obsidian-3);
+  --text: var(--ink);
+  --muted: var(--ink-3);
+  --accent: var(--cyan);
+  --accent-deep: var(--cyan-deep);
+  --forest: var(--obsidian-2);
+  --ink-strong: var(--ink);
+  --ink-soft: var(--ink-2);
+  --shadow: 0 26px 90px rgba(0, 0, 0, 0.45);
   --enterprise-radius: 26px;
   --enterprise-radius-sm: 20px;
-  --enterprise-shadow: 0 22px 52px rgba(0, 0, 0, 0.16);
-  --enterprise-shadow-hover: 0 28px 60px rgba(0, 0, 0, 0.22);
+  --enterprise-shadow: 0 22px 52px rgba(0, 0, 0, 0.45);
+  --enterprise-shadow-hover: 0 28px 60px rgba(0, 0, 0, 0.55);
 }
 
 * {

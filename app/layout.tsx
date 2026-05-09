@@ -1,18 +1,23 @@
 import type { Metadata } from "next";
-import { Manrope, Playfair_Display } from "next/font/google";
+import { Fraunces, Geist, JetBrains_Mono } from "next/font/google";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { site } from "@/lib/site-content";
 import "./globals.css";
 
-const sans = Manrope({
+const sans = Geist({
   subsets: ["latin"],
   variable: "--font-sans",
 });
 
-const serif = Playfair_Display({
+const serif = Fraunces({
   subsets: ["latin"],
   variable: "--font-serif",
+});
+
+const mono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
 });
 
 export const metadata: Metadata = {
@@ -97,7 +102,7 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
         />
-        <div className={`site-frame ${sans.variable} ${serif.variable}`}>
+        <div className={`site-frame ${sans.variable} ${serif.variable} ${mono.variable}`}>
           <SiteHeader />
           {children}
           <SiteFooter />
