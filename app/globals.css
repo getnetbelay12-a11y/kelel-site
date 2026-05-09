@@ -14410,3 +14410,126 @@ body::before {
     animation-duration: 20s;
   }
 }
+
+/* ==========================================================================
+   NEXUS BUG FIXES — override legacy CSS conflicts
+   ========================================================================== */
+
+/* 1. Hero section — reset legacy background, overflow, and animation */
+.enterprise-hero {
+  display: block !important;
+  background: transparent !important;
+  overflow: visible !important;
+  animation: none !important;
+  padding: 110px 0 48px !important;
+}
+
+/* 2. Hero ::before — clear the legacy blue gradient overlay */
+.enterprise-hero::before {
+  display: none !important;
+}
+
+/* 3. Hero-copy — remove the 34rem max-width that crushes the left column */
+.enterprise-hero-copy {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* 4. Headingline — use grid so kicker/h1/h2 stack vertically, not flex-inline */
+.enterprise-hero-headingline {
+  display: grid !important;
+  gap: 0.75rem !important;
+  align-items: start !important;
+  max-width: 100% !important;
+}
+
+/* 5. Hero-wrap fills full width inside the section */
+.enterprise-hero-wrap {
+  display: grid !important;
+  grid-template-columns: 1.1fr 0.9fr !important;
+  gap: 4rem !important;
+  align-items: center !important;
+  width: min(1320px, calc(100% - 4rem)) !important;
+  margin: 0 auto !important;
+}
+
+@media (max-width: 900px) {
+  .enterprise-hero-wrap {
+    grid-template-columns: 1fr !important;
+  }
+  .enterprise-hero-right {
+    display: none !important;
+  }
+}
+
+/* 6. Hero h1 — ensure correct size (legacy had clamp overrides) */
+.enterprise-hero-copy h1 {
+  font-family: var(--font-sans), sans-serif !important;
+  font-size: clamp(44px, 5.8vw, 84px) !important;
+  font-weight: 800 !important;
+  line-height: 1.0 !important;
+  letter-spacing: -0.04em !important;
+  color: var(--ink) !important;
+  margin: 0 !important;
+}
+
+/* 7. Hero h2 subtitle */
+.enterprise-hero-copy h2 {
+  font-size: clamp(15px, 1.7vw, 19px) !important;
+  font-weight: 400 !important;
+  line-height: 1.5 !important;
+  color: var(--ink-2) !important;
+  max-width: 480px !important;
+  margin: 0 !important;
+  letter-spacing: -0.01em !important;
+}
+
+/* 8. Hero body paragraphs */
+.enterprise-hero-copy p {
+  color: var(--ink-2) !important;
+  font-size: 15px !important;
+  max-width: 460px !important;
+  margin: 0 !important;
+}
+
+.enterprise-hero-copy .enterprise-tech-line {
+  font-size: 13px !important;
+  color: var(--ink-3) !important;
+  font-family: var(--font-mono), monospace !important;
+}
+
+/* 9. Hero actions row */
+.enterprise-hero-copy .enterprise-actions {
+  margin: 8px 0 4px !important;
+}
+
+/* 10. Section heading h2 — bold, no gradient-clip (keep readable) */
+.enterprise-section-heading h2 {
+  font-weight: 700 !important;
+  letter-spacing: -0.025em !important;
+  line-height: 1.08 !important;
+}
+
+/* 11. enterprise-hero-note */
+.enterprise-hero-note {
+  font-size: 12px !important;
+  color: var(--ink-4) !important;
+}
+
+/* 12. Trust strip sits flush under hero (no extra enterprise-section padding) */
+.nexus-trust-strip {
+  margin-top: 0 !important;
+}
+
+/* 13. Company summary section — remove legacy redundant max-width from hero-copy leaking in */
+.enterprise-company-summary .enterprise-company-summary-card {
+  margin-top: 1.5rem !important;
+}
+
+/* 14. Footer — ensure proper background */
+.site-footer {
+  background: rgba(5, 20, 36, 0.90) !important;
+  border-top: 1px solid var(--line) !important;
+}
