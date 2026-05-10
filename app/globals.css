@@ -19137,3 +19137,209 @@ body::before {
   display: block;
   border-radius: 8px;
 }
+
+/* ══════════════════════════════════════════════════════════════════
+   MOTION — Phase 6: Animations
+   ══════════════════════════════════════════════════════════════════ */
+
+/* ── Keyframes ──────────────────────────────────────────────────── */
+
+@keyframes float-y {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-7px); }
+}
+
+@keyframes pulse-dot {
+  0%, 100% { transform: scale(1);    opacity: 1; }
+  50%       { transform: scale(0.65); opacity: 0.4; }
+}
+
+@keyframes blink-cursor {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+@keyframes scan-line {
+  0%   { transform: translateY(-4px); opacity: 0; }
+  5%   { opacity: 1; }
+  95%  { opacity: 1; }
+  100% { transform: translateY(400px); opacity: 0; }
+}
+
+@keyframes shimmer-sweep {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(75,227,214,0), 0 0 0 2px var(--cyan); }
+  50%       { box-shadow: 0 0 24px 6px rgba(75,227,214,0.18), 0 0 0 2px var(--cyan); }
+}
+
+@keyframes card-rise {
+  from { transform: translateY(28px); }
+  to   { transform: translateY(0); }
+}
+
+@keyframes progress-reveal {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+@keyframes ring-draw-aa  { from { stroke-dashoffset: 289.03; } to { stroke-dashoffset:  0.29; } }
+@keyframes ring-draw-nbi { from { stroke-dashoffset: 289.03; } to { stroke-dashoffset:  4.62; } }
+@keyframes ring-draw-lgs { from { stroke-dashoffset: 289.03; } to { stroke-dashoffset:  8.38; } }
+@keyframes ring-draw-dkr { from { stroke-dashoffset: 289.03; } to { stroke-dashoffset: 12.14; } }
+
+/* ── Hero: staggered child entrance ────────────────────────────── */
+
+.stitch-hero .stitch-kicker {
+  transform: translateY(10px);
+  transition: transform 0.55s cubic-bezier(0.16,1,0.3,1) 0.05s;
+}
+.stitch-hero .stitch-h1 {
+  transform: translateY(16px);
+  transition: transform 0.65s cubic-bezier(0.16,1,0.3,1) 0.13s;
+}
+.stitch-hero .stitch-body {
+  transform: translateY(12px);
+  transition: transform 0.6s cubic-bezier(0.16,1,0.3,1) 0.22s;
+}
+.stitch-hero .stitch-metrics-row {
+  transform: translateY(16px);
+  transition: transform 0.7s cubic-bezier(0.16,1,0.3,1) 0.32s;
+}
+.stitch-hero.visible .stitch-kicker,
+.stitch-hero.visible .stitch-h1,
+.stitch-hero.visible .stitch-body,
+.stitch-hero.visible .stitch-metrics-row { transform: translateY(0); }
+
+/* Hero metric cards: stagger rise + continuous float */
+.stitch-hero.visible .stitch-metric-card:nth-child(1) {
+  animation: card-rise 0.65s cubic-bezier(0.16,1,0.3,1) 0.35s both,
+             float-y   5.5s ease-in-out 1.1s infinite;
+}
+.stitch-hero.visible .stitch-metric-card:nth-child(2) {
+  animation: card-rise 0.65s cubic-bezier(0.16,1,0.3,1) 0.47s both,
+             float-y   5.5s ease-in-out 1.7s infinite;
+}
+.stitch-hero.visible .stitch-metric-card:nth-child(3) {
+  animation: card-rise 0.65s cubic-bezier(0.16,1,0.3,1) 0.59s both,
+             float-y   5.5s ease-in-out 2.3s infinite;
+}
+
+/* ── Progress bars: fill on reveal ─────────────────────────────── */
+
+.stitch-progress-fill {
+  transform-origin: left center !important;
+  transform: scaleX(0) !important;
+}
+.visible .stitch-progress-fill {
+  animation: progress-reveal 1.4s cubic-bezier(0.16,1,0.3,1) 0.45s forwards !important;
+}
+
+/* ── Node dots: breathing pulse ─────────────────────────────────── */
+
+.plt-dot--cyan  { animation: pulse-dot 2.6s ease-in-out infinite; }
+.plt-dot--amber { animation: pulse-dot 2.6s ease-in-out 0.45s infinite; }
+.plt-dot--green { animation: pulse-dot 2.6s ease-in-out 0.9s infinite; }
+
+/* ── Code block: blinking cursor ────────────────────────────────── */
+
+.stitch-code-block pre::after {
+  content: '▋';
+  color: var(--cyan);
+  animation: blink-cursor 1.1s step-end infinite;
+  font-size: 0.8em;
+  vertical-align: baseline;
+  margin-left: 1px;
+}
+
+/* ── NPM rings: draw on section reveal ──────────────────────────── */
+
+.npm-ring-fill--cyan,
+.npm-ring-fill--blue,
+.npm-ring-fill--purple,
+.npm-ring-fill--amber { stroke-dashoffset: 289.03 !important; }
+
+.visible .npm-ring-fill--cyan   { animation: ring-draw-aa  1.6s cubic-bezier(0.16,1,0.3,1) 0.15s forwards !important; }
+.visible .npm-ring-fill--blue   { animation: ring-draw-nbi 1.6s cubic-bezier(0.16,1,0.3,1) 0.35s forwards !important; }
+.visible .npm-ring-fill--purple { animation: ring-draw-lgs 1.6s cubic-bezier(0.16,1,0.3,1) 0.55s forwards !important; }
+.visible .npm-ring-fill--amber  { animation: ring-draw-dkr 1.6s cubic-bezier(0.16,1,0.3,1) 0.75s forwards !important; }
+
+/* NPM cards: stagger rise on reveal + gentle float */
+.npm-card { transform: translateY(24px); }
+.visible .npm-card:nth-child(1) {
+  animation: card-rise 0.65s cubic-bezier(0.16,1,0.3,1) 0.1s both,
+             float-y   6s ease-in-out 0.9s infinite;
+}
+.visible .npm-card:nth-child(2) {
+  animation: card-rise 0.65s cubic-bezier(0.16,1,0.3,1) 0.24s both,
+             float-y   6s ease-in-out 1.4s infinite;
+}
+.visible .npm-card:nth-child(3) {
+  animation: card-rise 0.65s cubic-bezier(0.16,1,0.3,1) 0.38s both,
+             float-y   6s ease-in-out 1.9s infinite;
+}
+.visible .npm-card:nth-child(4) {
+  animation: card-rise 0.65s cubic-bezier(0.16,1,0.3,1) 0.52s both,
+             float-y   6s ease-in-out 2.4s infinite;
+}
+
+/* ── Tech bento: stagger on reveal ──────────────────────────────── */
+
+.stitch-tech-wide,
+.stitch-tech-narrow {
+  transform: translateY(20px);
+  transition: transform 0.6s cubic-bezier(0.16,1,0.3,1);
+}
+.visible .stitch-tech-wide:nth-child(1)  { transform: none; transition-delay: 0.05s; }
+.visible .stitch-tech-narrow:nth-child(2) { transform: none; transition-delay: 0.17s; }
+.visible .stitch-tech-narrow:nth-child(3) { transform: none; transition-delay: 0.29s; }
+.visible .stitch-tech-wide:nth-child(4)  { transform: none; transition-delay: 0.41s; }
+
+/* ── Architecture circle glow ───────────────────────────────────── */
+
+.plt-arch-circle--1 {
+  animation: glow-pulse 3s ease-in-out infinite !important;
+}
+
+/* ── Kicker text: gradient shimmer sweep ────────────────────────── */
+
+.stitch-kicker {
+  background: linear-gradient(90deg, var(--ink-3) 30%, var(--cyan) 50%, var(--ink-3) 70%) !important;
+  background-size: 200% auto !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+  animation: shimmer-sweep 5s linear infinite;
+}
+
+/* ── Platform screen: scan line ─────────────────────────────────── */
+
+.pss-screen {
+  position: relative;
+}
+.pss-screen::before {
+  content: '';
+  position: absolute;
+  left: 4px; right: 4px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(75,227,214,0.45), transparent);
+  z-index: 2;
+  pointer-events: none;
+  animation: scan-line 4.5s linear infinite;
+}
+
+/* ── Respect reduced-motion preference ──────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
