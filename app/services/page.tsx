@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { RevealSection } from "@/components/reveal-section";
+import { CtaBand } from "@/components/cta-band";
 import { services, process, engagementModes, sectorPages } from "@/lib/site-content";
 
 export const metadata: Metadata = {
@@ -33,24 +34,43 @@ const strokeMap: Record<string, string> = {
 export default function ServicesPage() {
   return (
     <main className="stitch-page">
-      {/* ── Hero ── */}
-      <RevealSection className="stitch-hero">
-        <div className="stitch-container">
-          <span className="stitch-kicker">SERVICES</span>
-          <h1 className="stitch-h1">
-            Production-grade IT services<br />for enterprise Africa.
-          </h1>
-          <p className="stitch-body" style={{ maxWidth: "620px" }}>
-            From managed support and network infrastructure to AI-powered platforms
-            and digital transformation — we build and run the systems that keep
-            African enterprises moving.
-          </p>
-          <div className="stitch-cta-btns" style={{ marginTop: "36px" }}>
-            <Link href="/contact" className="stitch-btn-primary">Get a Quote</Link>
-            <Link href="/request-proposal" className="stitch-btn-ghost">Request Proposal</Link>
+      {/* ── Page Hero ── */}
+      <section className="page-hero">
+        <div className="page-hero-inner">
+          <div className="page-crumbs">
+            <Link href="/">Home</Link>
+            <span className="page-crumbs-sep">/</span>
+            <span>Services</span>
+          </div>
+          <div className="page-hero-grid">
+            <div>
+              <div className="site-eyebrow" style={{ marginBottom: "24px" }}>
+                <span className="site-eyebrow-dot" />
+                Services · Infrastructure to Intelligent Systems
+              </div>
+              <h1 className="page-title-plain">
+                Production-grade IT services for <em>enterprise Africa.</em>
+              </h1>
+              <p className="page-sub">
+                From managed support and network infrastructure to AI-powered platforms
+                and digital transformation — we build and run the systems that keep
+                African enterprises moving.
+              </p>
+              <div style={{ display: "flex", gap: "12px", marginTop: "32px", flexWrap: "wrap" }}>
+                <Link href="/contact" className="site-hero-btn-primary btn-magnetic">Get a quote →</Link>
+                <Link href="/request-proposal" className="site-hero-btn-ghost">Request proposal</Link>
+              </div>
+            </div>
+            <div className="page-meta">
+              <div className="page-meta-row"><span>Service lines</span><span>4 core tracks</span></div>
+              <div className="page-meta-row"><span>Engagement</span><span>Project · Retainer · Support</span></div>
+              <div className="page-meta-row"><span>Delivery model</span><span>4-phase structured</span></div>
+              <div className="page-meta-row"><span>Response SLA</span><span>24 hours</span></div>
+              <div className="page-meta-row"><span>Markets</span><span>Pan-African</span></div>
+            </div>
           </div>
         </div>
-      </RevealSection>
+      </section>
 
       {/* ── Service cards ── */}
       <RevealSection className="stitch-section">
@@ -95,10 +115,10 @@ export default function ServicesPage() {
       {/* ── Process ── */}
       <RevealSection className="stitch-section">
         <div className="stitch-container">
-          <div className="stitch-section-header">
-            <span className="stitch-kicker">HOW WE WORK</span>
-            <h2 className="stitch-h2">A delivery process built for accountability.</h2>
-          </div>
+          <div className="hp-section-label">How We Work</div>
+          <h2 className="hp-section-title" style={{ marginBottom: "40px" }}>
+            A delivery process built <em>for accountability.</em>
+          </h2>
           <div className="srv-process">
             {process.map((step, i) => (
               <div key={step} className="srv-process-step stitch-glass">
@@ -113,10 +133,10 @@ export default function ServicesPage() {
       {/* ── Engagement modes ── */}
       <RevealSection className="stitch-section">
         <div className="stitch-container">
-          <div className="stitch-section-header">
-            <span className="stitch-kicker">ENGAGEMENT MODELS</span>
-            <h2 className="stitch-h2">How you can work with us.</h2>
-          </div>
+          <div className="hp-section-label">Engagement Models</div>
+          <h2 className="hp-section-title" style={{ marginBottom: "40px" }}>
+            How you can <em>work with us.</em>
+          </h2>
           <div className="stitch-caps-grid">
             {engagementModes.map((mode) => (
               <div key={mode.title} className="stitch-cap-card">
@@ -131,10 +151,10 @@ export default function ServicesPage() {
       {/* ── Industry fit ── */}
       <RevealSection className="stitch-section">
         <div className="stitch-container">
-          <div className="stitch-section-header">
-            <span className="stitch-kicker">SECTOR FIT</span>
-            <h2 className="stitch-h2">Sectors we serve across Africa.</h2>
-          </div>
+          <div className="hp-section-label">Sector Fit</div>
+          <h2 className="hp-section-title" style={{ marginBottom: "40px" }}>
+            Sectors we serve <em>across Africa.</em>
+          </h2>
           <div className="srv-sectors">
             {sectorPages.map((sector) => (
               <Link
@@ -152,20 +172,16 @@ export default function ServicesPage() {
       </RevealSection>
 
       {/* ── CTA ── */}
-      <RevealSection className="stitch-cta-section">
-        <div className="stitch-container">
-          <div className="stitch-cta-glass stitch-glass">
-            <h2>Ready to scope your project?</h2>
-            <p className="stitch-body">
-              Tell us what support, system, or infrastructure your organization needs.
-              We&apos;ll structure a clear path from brief to delivery.
-            </p>
-            <div className="stitch-cta-btns">
-              <Link href="/contact" className="stitch-btn-primary">Contact Kelel</Link>
-              <Link href="/request-proposal" className="stitch-btn-ghost">Request Proposal</Link>
-            </div>
-          </div>
-        </div>
+      <RevealSection as="div">
+        <CtaBand
+          kicker="Start a project"
+          heading={<>Ready to scope <em>your project?</em></>}
+          sub="Tell us what support, system, or infrastructure your organization needs. We'll structure a clear path from brief to delivery."
+          primaryLabel="Contact Kelel →"
+          primaryHref="/contact"
+          ghostLabel="Request proposal"
+          ghostHref="/request-proposal"
+        />
       </RevealSection>
     </main>
   );
