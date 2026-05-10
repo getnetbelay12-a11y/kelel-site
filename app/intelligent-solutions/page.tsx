@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { RevealSection } from "@/components/reveal-section";
+import { CtaBand } from "@/components/cta-band";
 
 export const metadata: Metadata = {
   title: "Intelligent Solutions | Kelel IT Solution",
@@ -43,64 +44,72 @@ const barHeights = ["40%", "65%", "50%", "80%", "55%", "70%", "45%", "90%", "60%
 export default function IntelligentSolutionsPage() {
   return (
     <main className="stitch-page">
-      {/* Hero */}
-      <RevealSection className="stitch-hero">
-        <div className="stitch-container">
-          <div className="stitch-hero-inner">
-            <div className="stitch-hero-copy">
-              <span className="stitch-kicker">AI &amp; INTELLIGENT SYSTEMS</span>
-              <h1 className="stitch-h1">
-                Intelligence built into operational platforms.
+      {/* Page Hero */}
+      <section className="page-hero">
+        <div className="page-hero-inner">
+          <div className="page-crumbs">
+            <Link href="/">Home</Link>
+            <span className="page-crumbs-sep">/</span>
+            <span>Intelligent Solutions</span>
+          </div>
+          <div className="page-hero-grid">
+            <div>
+              <div className="site-eyebrow" style={{ marginBottom: "24px" }}>
+                <span className="site-eyebrow-dot" />
+                AI &amp; Intelligent Systems
+              </div>
+              <h1 className="page-title-plain">
+                Intelligence built into <em>operational platforms.</em>
               </h1>
-              <p className="stitch-body">
-                We embed AI-powered automation, predictive analytics, and smart
-                monitoring directly into the platforms African enterprises rely
-                on — so every decision is faster, smarter, and backed by data.
+              <p className="page-sub">
+                We embed AI-powered automation, predictive analytics, and smart monitoring
+                directly into the platforms African enterprises rely on — every decision faster,
+                smarter, and backed by data.
               </p>
-              <div className="stitch-hero-ctas">
-                <Link href="/contact" className="stitch-btn-primary">
-                  Deploy Intelligence
+              <div style={{ display: "flex", gap: "12px", marginTop: "32px", flexWrap: "wrap" }}>
+                <Link href="/contact" className="site-hero-btn-primary btn-magnetic">
+                  Deploy intelligence →
                 </Link>
-                <Link href="/services" className="stitch-btn-ghost">
-                  Explore Services
+                <Link href="/services" className="site-hero-btn-ghost">
+                  Explore services
                 </Link>
               </div>
             </div>
+            <div className="page-meta">
+              <div className="page-meta-row"><span>AI layer</span><span>Embedded · Not bolted on</span></div>
+              <div className="page-meta-row"><span>Pipeline latency</span><span>&lt; 15ms</span></div>
+              <div className="page-meta-row"><span>Routing accuracy</span><span>99.97%</span></div>
+              <div className="page-meta-row"><span>Flows / day</span><span>2.4M (illustrative)</span></div>
+              <div className="page-meta-row"><span>Manual steps</span><span>Zero</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-            {/* 2×2 Bento Visualization */}
-            <div className="stitch-bento-2x2">
-              {/* Tall left card — Realtime Flow bar chart */}
-              <div className="stitch-glass stitch-bento-tall">
-                <div className="stitch-bento-label">Realtime Flow</div>
-                <div className="stitch-bar-chart">
-                  {barHeights.map((h, i) => (
-                    <div
-                      key={i}
-                      className="stitch-bar"
-                      style={{ height: h }}
-                    />
-                  ))}
-                </div>
-                <div className="stitch-bento-sub">NODE THROUGHPUT / LIVE</div>
+      {/* Bento viz strip */}
+      <RevealSection className="stitch-section" style={{ paddingTop: "60px" }}>
+        <div className="stitch-container">
+          <div className="stitch-bento-2x2" style={{ maxWidth: "640px" }}>
+            <div className="stitch-glass stitch-bento-tall">
+              <div className="stitch-bento-label">Realtime Flow</div>
+              <div className="stitch-bar-chart">
+                {barHeights.map((h, i) => (
+                  <div key={i} className="stitch-bar" style={{ height: h }} />
+                ))}
               </div>
-
-              {/* Top-right — Operational Health ring */}
-              <div className="stitch-glass stitch-bento-sm">
-                <div className="stitch-bento-label">Operational Health</div>
-                <div className="stitch-health-ring">
-                  <span>99%</span>
-                </div>
+              <div className="stitch-bento-sub">NODE THROUGHPUT / LIVE</div>
+            </div>
+            <div className="stitch-glass stitch-bento-sm">
+              <div className="stitch-bento-label">Operational Health</div>
+              <div className="stitch-health-ring"><span>99%</span></div>
+            </div>
+            <div className="stitch-glass stitch-bento-sm">
+              <div className="stitch-bento-label">Active Nodes</div>
+              <div className="stitch-bento-stat">1,248</div>
+              <div className="stitch-progress-track">
+                <div className="stitch-progress-fill" style={{ width: "82%" }} />
               </div>
-
-              {/* Bottom-right — Active Nodes */}
-              <div className="stitch-glass stitch-bento-sm">
-                <div className="stitch-bento-label">Active Nodes</div>
-                <div className="stitch-bento-stat">1,248</div>
-                <div className="stitch-progress-track">
-                  <div className="stitch-progress-fill" style={{ width: "82%" }} />
-                </div>
-                <div className="stitch-bento-sub">82% capacity</div>
-              </div>
+              <div className="stitch-bento-sub">82% capacity</div>
             </div>
           </div>
         </div>
@@ -109,10 +118,10 @@ export default function IntelligentSolutionsPage() {
       {/* Capabilities Grid */}
       <RevealSection className="stitch-section">
         <div className="stitch-container">
-          <div className="stitch-section-header">
-            <span className="stitch-kicker">CORE CAPABILITIES</span>
-            <h2 className="stitch-h2">What intelligent systems do for your operations</h2>
-          </div>
+          <div className="hp-section-label">Core Capabilities</div>
+          <h2 className="hp-section-title" style={{ marginBottom: "40px" }}>
+            What intelligent systems do <em>for your operations.</em>
+          </h2>
           <div className="stitch-caps-grid">
             {capabilities.map((cap) => (
               <div
@@ -143,15 +152,14 @@ export default function IntelligentSolutionsPage() {
       {/* Workflow Automation Grid */}
       <RevealSection className="stitch-section">
         <div className="stitch-container">
-          <div className="stitch-section-header">
-            <span className="stitch-kicker">WORKFLOW ENGINE</span>
-            <h2 className="stitch-h2">End-to-end automation pipeline</h2>
-            <p className="stitch-body">
-              Every transaction, request, or signal passes through a structured
-              pipeline — validated, processed, routed, and executed without
-              manual intervention.
-            </p>
-          </div>
+          <div className="hp-section-label">Workflow Engine</div>
+          <h2 className="hp-section-title" style={{ marginBottom: "16px" }}>
+            End-to-end <em>automation pipeline.</em>
+          </h2>
+          <p className="hp-section-intro">
+            Every transaction, request, or signal passes through a structured pipeline — validated,
+            processed, routed, and executed without manual intervention.
+          </p>
 
           <div className="wf-pipeline">
             {/* Step 1 */}
@@ -272,15 +280,15 @@ export default function IntelligentSolutionsPage() {
       {/* Command Center */}
       <RevealSection className="stitch-section">
         <div className="stitch-container">
-          <div className="stitch-section-header">
-            <span className="stitch-kicker">COMMAND CENTER</span>
-            <h2 className="stitch-h2">One console. Full operational visibility.</h2>
-            <p className="stitch-body">
-              A unified control surface that surfaces live system signals,
-              health indicators, and intelligent alerts across your entire
-              operational footprint.
-            </p>
-          </div>
+          <div className="hp-section-label">Command Center</div>
+          <h2 className="hp-section-title" style={{ marginBottom: "16px" }}>
+            One console. <em>Full operational visibility.</em>
+          </h2>
+          <p className="hp-section-intro">
+            A unified control surface that surfaces live system signals,
+            health indicators, and intelligent alerts across your entire
+            operational footprint.
+          </p>
 
           <div className="stitch-glass stitch-console">
             {/* Left panel */}
@@ -353,23 +361,16 @@ export default function IntelligentSolutionsPage() {
       </RevealSection>
 
       {/* CTA */}
-      <RevealSection className="stitch-cta-section">
-        <div className="stitch-container">
-          <span className="stitch-kicker">GET STARTED</span>
-          <h2 className="stitch-h2">Ready to deploy regional intelligence?</h2>
-          <p className="stitch-body">
-            Let&apos;s build AI-driven systems tailored to your operational
-            environment — from Addis Ababa to Nairobi and beyond.
-          </p>
-          <div className="stitch-cta-btns">
-            <Link href="/contact" className="stitch-btn-primary">
-              Start a Conversation
-            </Link>
-            <Link href="/request-proposal" className="stitch-btn-ghost">
-              Request Proposal
-            </Link>
-          </div>
-        </div>
+      <RevealSection as="div">
+        <CtaBand
+          kicker="Get Started"
+          heading={<>Ready to deploy <em>regional intelligence?</em></>}
+          sub="Let's build AI-driven systems tailored to your operational environment — from Addis Ababa to Nairobi and beyond."
+          primaryLabel="Start a conversation →"
+          primaryHref="/contact"
+          ghostLabel="Request proposal"
+          ghostHref="/request-proposal"
+        />
       </RevealSection>
     </main>
   );
