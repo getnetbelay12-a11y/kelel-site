@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { RevealSection } from "@/components/reveal-section";
+import { CtaBand } from "@/components/cta-band";
 import { projects, site } from "@/lib/site-content";
 
 type WorkDetailPageProps = {
@@ -29,18 +30,36 @@ export default async function WorkDetailPage({ params }: WorkDetailPageProps) {
 
   return (
     <main className="stitch-page">
-      {/* ── Hero ── */}
-      <RevealSection className="stitch-hero">
-        <div className="stitch-container">
-          <span className="stitch-kicker">{project.type}</span>
-          <h1 className="stitch-h1">{project.name}</h1>
-          <p className="stitch-body" style={{ maxWidth: "640px" }}>{project.blurb}</p>
-          <div className="stitch-cta-btns" style={{ marginTop: "32px" }}>
-            <Link href="/contact" className="stitch-btn-primary">Discuss a Similar Project</Link>
-            <Link href="/work" className="stitch-btn-ghost">← All Case Studies</Link>
+      {/* ── Page Hero ── */}
+      <section className="page-hero">
+        <div className="page-hero-inner">
+          <div className="page-crumbs">
+            <Link href="/">Home</Link>
+            <span className="page-crumbs-sep">/</span>
+            <Link href="/work">Work</Link>
+            <span className="page-crumbs-sep">/</span>
+            <span>{project.type}</span>
+          </div>
+          <div className="page-hero-grid">
+            <div>
+              <div className="site-eyebrow" style={{ marginBottom: "24px" }}>
+                <span className="site-eyebrow-dot" />
+                {project.type} · Case Study
+              </div>
+              <h1 className="page-title-plain">{project.name}</h1>
+              <p className="page-sub">{project.blurb}</p>
+              <div style={{ display: "flex", gap: "12px", marginTop: "32px", flexWrap: "wrap" }}>
+                <Link href="/contact" className="site-hero-btn-primary btn-magnetic">Discuss a similar project →</Link>
+                <Link href="/work" className="site-hero-btn-ghost">← All case studies</Link>
+              </div>
+            </div>
+            <div className="page-meta">
+              <div className="page-meta-row"><span>Type</span><span>{project.type}</span></div>
+              <div className="page-meta-row"><span>Scope</span><span>{project.scope}</span></div>
+            </div>
           </div>
         </div>
-      </RevealSection>
+      </section>
 
       {/* ── Scope + Contact ── */}
       <RevealSection className="stitch-section">
@@ -85,10 +104,10 @@ export default async function WorkDetailPage({ params }: WorkDetailPageProps) {
       {/* ── Approach ── */}
       <RevealSection className="stitch-section">
         <div className="stitch-container">
-          <div className="stitch-section-header">
-            <span className="stitch-kicker">APPROACH</span>
-            <h2 className="stitch-h2">How we structured the delivery.</h2>
-          </div>
+          <div className="hp-section-label">Approach</div>
+          <h2 className="hp-section-title" style={{ marginBottom: "40px" }}>
+            How we structured <em>the delivery.</em>
+          </h2>
           <div className="cs-steps">
             {project.approach.map((step, i) => (
               <div key={step} className="cs-step stitch-glass">
@@ -103,10 +122,10 @@ export default async function WorkDetailPage({ params }: WorkDetailPageProps) {
       {/* ── Deliverables ── */}
       <RevealSection className="stitch-section">
         <div className="stitch-container">
-          <div className="stitch-section-header">
-            <span className="stitch-kicker">DELIVERABLES</span>
-            <h2 className="stitch-h2">What the engagement produced.</h2>
-          </div>
+          <div className="hp-section-label">Deliverables</div>
+          <h2 className="hp-section-title" style={{ marginBottom: "40px" }}>
+            What the engagement <em>produced.</em>
+          </h2>
           <div className="cs-chips">
             {project.deliverables.map((item) => (
               <div key={item} className="cs-chip">{item}</div>
@@ -118,10 +137,10 @@ export default async function WorkDetailPage({ params }: WorkDetailPageProps) {
       {/* ── Business Impact ── */}
       <RevealSection className="stitch-section">
         <div className="stitch-container">
-          <div className="stitch-section-header">
-            <span className="stitch-kicker">BUSINESS IMPACT</span>
-            <h2 className="stitch-h2">Operational value delivered.</h2>
-          </div>
+          <div className="hp-section-label">Business Impact</div>
+          <h2 className="hp-section-title" style={{ marginBottom: "40px" }}>
+            Operational value <em>delivered.</em>
+          </h2>
           <div className="cs-impact">
             {project.impactPoints.map((item) => (
               <div key={item} className="cs-impact-item stitch-glass">
@@ -134,20 +153,16 @@ export default async function WorkDetailPage({ params }: WorkDetailPageProps) {
       </RevealSection>
 
       {/* ── CTA ── */}
-      <RevealSection className="stitch-cta-section">
-        <div className="stitch-container">
-          <div className="stitch-cta-glass stitch-glass">
-            <h2>Ready to build a similar solution?</h2>
-            <p className="stitch-body">
-              Let&apos;s discuss your operational challenges and define the right delivery path
-              for your team.
-            </p>
-            <div className="stitch-cta-btns">
-              <Link href="/contact" className="stitch-btn-primary">Start a Conversation</Link>
-              <Link href="/work" className="stitch-btn-ghost">More Case Studies</Link>
-            </div>
-          </div>
-        </div>
+      <RevealSection as="div">
+        <CtaBand
+          kicker="Build with us"
+          heading={<>Ready to build <em>a similar solution?</em></>}
+          sub="Let's discuss your operational challenges and define the right delivery path for your team."
+          primaryLabel="Start a conversation →"
+          primaryHref="/contact"
+          ghostLabel="More case studies"
+          ghostHref="/work"
+        />
       </RevealSection>
     </main>
   );
