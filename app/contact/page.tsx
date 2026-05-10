@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { RevealSection } from "@/components/reveal-section";
 import { ContactForm } from "@/components/contact-form";
+import { CtaBand } from "@/components/cta-band";
 import { faqs, responseCommitments, site } from "@/lib/site-content";
 
 export const metadata: Metadata = {
@@ -14,13 +15,21 @@ export default function ContactPage() {
   return (
     <main className="stitch-page">
       {/* ── Hero ── */}
-      <RevealSection className="stitch-hero">
-        <div className="stitch-container">
+      <section className="page-hero">
+        <div className="page-hero-inner">
+          <div className="page-crumbs">
+            <Link href="/">Home</Link>
+            <span className="page-crumbs-sep">/</span>
+            <span>Contact</span>
+          </div>
           <div className="ctc-hero-inner">
             <div className="ctc-hero-copy">
-              <span className="stitch-kicker">GET IN TOUCH</span>
-              <h1 className="stitch-h1">
-                Start the<br />conversation.
+              <div className="site-eyebrow" style={{ marginBottom: "20px" }}>
+                <span className="site-eyebrow-dot" />
+                Get in touch
+              </div>
+              <h1 className="page-title-plain">
+                Start the <em>conversation.</em>
               </h1>
               <p className="stitch-body">
                 Whether you&apos;re planning infrastructure, modernizing a system, or
@@ -69,7 +78,7 @@ export default function ContactPage() {
             </div>
           </div>
         </div>
-      </RevealSection>
+      </section>
 
       {/* ── Contact methods ── */}
       <RevealSection className="stitch-section">
@@ -119,9 +128,11 @@ export default function ContactPage() {
         <div className="stitch-container">
           <div className="ctc-form-wrap">
             <div className="ctc-form-header">
-              <span className="stitch-kicker">PROJECT BRIEF</span>
-              <h2 className="stitch-h2">Tell us about your project.</h2>
-              <p className="stitch-body">
+              <div className="hp-section-label">Project Brief</div>
+              <h2 className="hp-section-title" style={{ marginBottom: "12px" }}>
+                Tell us about <em>your project.</em>
+              </h2>
+              <p className="hp-section-intro">
                 Share what you&apos;re building and your timeline. We respond within 24 hours
                 with a structured next step.
               </p>
@@ -136,10 +147,10 @@ export default function ContactPage() {
       {/* ── What happens next ── */}
       <RevealSection className="stitch-section">
         <div className="stitch-container">
-          <div className="stitch-section-header">
-            <span className="stitch-kicker">AFTER YOU CONTACT US</span>
-            <h2 className="stitch-h2">A clear path from inquiry to delivery.</h2>
-          </div>
+          <div className="hp-section-label">After You Contact Us</div>
+          <h2 className="hp-section-title" style={{ marginBottom: "40px" }}>
+            A clear path from inquiry <em>to delivery.</em>
+          </h2>
           <div className="ctc-next-grid">
             {responseCommitments.map((item, i) => (
               <div key={item.title} className="ctc-next-card stitch-glass">
@@ -155,10 +166,10 @@ export default function ContactPage() {
       {/* ── FAQ ── */}
       <RevealSection className="stitch-section">
         <div className="stitch-container">
-          <div className="stitch-section-header">
-            <span className="stitch-kicker">FAQ</span>
-            <h2 className="stitch-h2">Common questions before you reach out.</h2>
-          </div>
+          <div className="hp-section-label">FAQ</div>
+          <h2 className="hp-section-title" style={{ marginBottom: "40px" }}>
+            Common questions before <em>you reach out.</em>
+          </h2>
           <div className="ctc-faq-list">
             {faqs.slice(0, 3).map((item) => (
               <div key={item.question} className="ctc-faq-item stitch-glass">
@@ -171,24 +182,16 @@ export default function ContactPage() {
       </RevealSection>
 
       {/* ── CTA ── */}
-      <RevealSection className="stitch-cta-section">
-        <div className="stitch-container">
-          <div className="stitch-cta-glass stitch-glass">
-            <h2>Need a formal proposal?</h2>
-            <p className="stitch-body">
-              Submit a structured brief and receive a scoped proposal for your infrastructure,
-              platform, or AI-driven system.
-            </p>
-            <div className="stitch-cta-btns">
-              <Link href="/request-proposal" className="stitch-btn-primary">
-                Request a Proposal
-              </Link>
-              <Link href="/work" className="stitch-btn-ghost">
-                View Case Studies
-              </Link>
-            </div>
-          </div>
-        </div>
+      <RevealSection as="div">
+        <CtaBand
+          kicker="Formal inquiry"
+          heading={<>Need a <em>formal proposal?</em></>}
+          sub="Submit a structured brief and receive a scoped proposal for your infrastructure, platform, or AI-driven system."
+          primaryLabel="Request a proposal →"
+          primaryHref="/request-proposal"
+          ghostLabel="View case studies"
+          ghostHref="/work"
+        />
       </RevealSection>
     </main>
   );
