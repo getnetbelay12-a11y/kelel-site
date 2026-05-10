@@ -33,3 +33,4 @@ tmp/
 # claude code
 .claude/
 tsconfig.tsbuildinfo
+.vercel

@@ -5,11 +5,9 @@ import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { site } from "@/lib/site-content";
 import "./globals.css";
+import { cn } from "@/lib/utils";
 
-const sans = Geist({
-  subsets: ["latin"],
-  variable: "--font-sans",
-});
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 const serif = Fraunces({
   subsets: ["latin"],
@@ -98,13 +96,13 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en">
+    <html lang="en" className={cn("font-sans", geist.variable)}>
       <body>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
         />
-        <div className={`site-frame ${sans.variable} ${serif.variable} ${mono.variable}`}>
+        <div className={`site-frame ${geist.variable} ${serif.variable} ${mono.variable}`}>
           <SiteEffects />
           <SiteHeader />
           {children}
