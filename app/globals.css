@@ -14932,8 +14932,8 @@ body::before {
 
 .nexus-africa-outline {
   fill: none;
-  stroke: rgba(78, 222, 163, 0.18);
-  stroke-width: 1.5;
+  stroke: rgba(75, 227, 214, 0.65);
+  stroke-width: 2;
   animation: nmOutlineFade 0.8s ease-out 0.6s both;
 }
 
@@ -14950,9 +14950,9 @@ body::before {
 
 /* ── Ethiopia fill ── */
 .nexus-ethiopia {
-  fill: rgba(78, 222, 163, 0.18);
-  stroke: var(--cyan);
-  stroke-width: 1.5;
+  fill: rgba(75, 227, 214, 0.30);
+  stroke: rgba(75, 227, 214, 0.95);
+  stroke-width: 2;
   opacity: 0;
   animation: nmFadeIn 0.5s ease-out 1.1s both;
 }
@@ -14972,17 +14972,17 @@ body::before {
 /* ── Signal / connection lines ── */
 .nexus-signal {
   fill: none;
-  stroke: rgba(78, 222, 163, 0.35);
-  stroke-width: 1;
+  stroke: rgba(75, 227, 214, 0.65);
+  stroke-width: 1.2;
   stroke-dasharray: 600;
   stroke-dashoffset: 600;
 }
 
 .nm-line-0 { animation: nmLineDraw 1.2s ease-out 1.3s both; }
-.nm-line-1 { animation: nmLineDraw 1.4s ease-out 1.5s both; stroke: rgba(240,168,104,0.4); }
-.nm-line-2 { animation: nmLineDraw 1.2s ease-out 1.7s both; stroke: rgba(240,168,104,0.35); }
+.nm-line-1 { animation: nmLineDraw 1.4s ease-out 1.5s both; stroke: rgba(240,168,104,0.75); }
+.nm-line-2 { animation: nmLineDraw 1.2s ease-out 1.7s both; stroke: rgba(240,168,104,0.65); }
 .nm-line-3 { animation: nmLineDraw 1.0s ease-out 1.9s both; }
-.nm-line-4 { animation: nmLineDraw 1.6s ease-out 2.1s both; stroke: rgba(240,168,104,0.30); }
+.nm-line-4 { animation: nmLineDraw 1.6s ease-out 2.1s both; stroke: rgba(240,168,104,0.60); }
 
 @keyframes nmLineDraw {
   to { stroke-dashoffset: 0; }
@@ -15002,14 +15002,14 @@ body::before {
 /* ── Hub pulse rings (Addis Ababa concentric rings) ── */
 .nexus-hub-ring {
   fill: none;
-  stroke: rgba(78, 222, 163, 0.4);
-  stroke-width: 1;
+  stroke: rgba(75, 227, 214, 0.7);
+  stroke-width: 1.2;
   transform-origin: 424px 298px;
   animation: nmRingExpand 3s ease-out infinite;
 }
 
-.nm-ring-1 { animation-delay: 1s; stroke: rgba(78, 222, 163, 0.25); }
-.nm-ring-2 { animation-delay: 2s; stroke: rgba(78, 222, 163, 0.12); }
+.nm-ring-1 { animation-delay: 1s; stroke: rgba(75, 227, 214, 0.45); }
+.nm-ring-2 { animation-delay: 2s; stroke: rgba(75, 227, 214, 0.20); }
 
 @keyframes nmRingExpand {
   0%   { transform: scale(0.2); opacity: 0.9; }
@@ -15018,7 +15018,7 @@ body::before {
 
 /* ── City hub dots ── */
 .nexus-hub-dot {
-  fill: rgba(78, 222, 163, 0.55);
+  fill: rgba(75, 227, 214, 0.80);
   opacity: 0;
 }
 
@@ -15048,13 +15048,13 @@ body::before {
 .nexus-city-label {
   font-family: monospace;
   font-size: 10px;
-  fill: rgba(212, 228, 250, 0.45);
+  fill: rgba(212, 228, 250, 0.78);
   opacity: 0;
   animation: nmFadeIn 0.4s ease-out 2.4s both;
 }
 
 .nexus-city-main {
-  fill: rgba(78, 222, 163, 0.85);
+  fill: rgba(75, 227, 214, 1.0);
   font-size: 11px;
   font-weight: 600;
   animation-delay: 1.4s;
@@ -19363,8 +19363,8 @@ body::before {
 /* Ethiopia region label */
 .nexus-eth-label {
   font-family: var(--font-mono), monospace;
-  font-size: 9px;
-  fill: rgba(75,227,214,0.4);
+  font-size: 9.5px;
+  fill: rgba(75,227,214,0.92);
   letter-spacing: 0.14em;
   text-transform: uppercase;
   opacity: 0;
@@ -19441,4 +19441,113 @@ body::before {
     display: block !important;
     max-height: 360px !important;
   }
+}
+
+/* ── Why Kelel checklist ─────────────────────────────────────────── */
+
+.nexus-trust-checklist {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.nexus-trust-check-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  border-radius: 12px;
+  border: 1px solid rgba(75,227,214,0.10);
+  background: rgba(75,227,214,0.03);
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.nexus-trust-check-item:hover {
+  background: rgba(75,227,214,0.07);
+  border-color: rgba(75,227,214,0.28);
+  transform: translateX(4px);
+}
+
+.nexus-trust-check-item span {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+/* ── Use Cases numbered grid ─────────────────────────────────────── */
+
+.nexus-usecase-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+@media (max-width: 640px) {
+  .nexus-usecase-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.nexus-usecase-card {
+  padding: 24px;
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,0.06);
+  background:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(75,227,214,0.07), transparent),
+    linear-gradient(180deg, rgba(12,24,44,0.92), rgba(8,18,34,0.96));
+  position: relative;
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+
+.nexus-usecase-card:hover {
+  border-color: rgba(75,227,214,0.28);
+  transform: translateY(-4px);
+}
+
+.nexus-usecase-num {
+  display: block;
+  font-family: var(--font-mono), monospace;
+  font-size: 11px;
+  color: var(--cyan);
+  letter-spacing: 0.08em;
+  opacity: 0.65;
+  margin-bottom: 10px;
+}
+
+.nexus-usecase-card strong {
+  display: block;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+
+.nexus-usecase-card p {
+  font-size: 14px;
+  color: var(--ink-3);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ── Stronger section alternating tint ───────────────────────────── */
+
+.enterprise-section:nth-of-type(odd) {
+  background: radial-gradient(ellipse 80% 60% at 80% 50%, rgba(75,227,214,0.055) 0%, transparent 65%) !important;
+}
+
+.enterprise-section:nth-of-type(even) {
+  background: radial-gradient(ellipse 80% 60% at 20% 50%, rgba(240,168,104,0.055) 0%, transparent 65%) !important;
+}
+
+/* ── Africa map: brighter wrap border ───────────────────────────── */
+
+.nexus-africa-map-wrap {
+  border-color: rgba(75,227,214,0.25) !important;
+  border-top-color: rgba(75,227,214,0.45) !important;
+  box-shadow:
+    0 0 0 1px rgba(75,227,214,0.10),
+    0 0 60px rgba(75,227,214,0.10),
+    0 32px 80px rgba(0,0,0,0.55),
+    inset 0 1px 0 rgba(255,255,255,0.08) !important;
 }

@@ -106,12 +106,12 @@ export function NexusAfricaMap() {
         />
 
         {/* ── Ethiopia glow halo ── */}
-        <ellipse cx="428" cy="292" rx="54" ry="44" fill="url(#nmEthGlow)" className="nexus-eth-halo" />
+        <ellipse cx="428" cy="294" rx="62" ry="52" fill="url(#nmEthGlow)" className="nexus-eth-halo" />
 
-        {/* ── Ethiopia region highlight (improved shape) ── */}
+        {/* ── Ethiopia region highlight ── */}
         <path
           className="nexus-ethiopia"
-          d="M408,256 L426,250 L448,258 L460,272 L458,290 L452,310 L442,322 L426,326 L412,320 L400,308 L396,292 L402,272 Z"
+          d="M404,252 L424,244 L450,254 L464,268 L462,288 L456,312 L444,328 L426,332 L410,326 L396,310 L390,292 L396,270 Z"
         />
 
         {/* Ethiopia region label */}

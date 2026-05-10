@@ -454,11 +454,15 @@ export default function Home() {
         <div className="enterprise-editorial-layout enterprise-editorial-layout-reverse">
           <div className="enterprise-platform-panel">
             <span className="enterprise-panel-label">Why Kelel</span>
-            <div className="enterprise-capability-list">
+            <div className="nexus-trust-checklist">
               {whyKelel.map((item) => (
-                <article key={item}>
-                  <strong>{item}</strong>
-                </article>
+                <div key={item} className="nexus-trust-check-item">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <circle cx="8" cy="8" r="7.5" stroke="rgba(75,227,214,0.35)"/>
+                    <path d="M5 8l2.5 2.5L11 5" stroke="var(--cyan)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                  <span>{item}</span>
+                </div>
               ))}
             </div>
           </div>
@@ -671,23 +675,19 @@ export default function Home() {
       </RevealSection>
 
       <RevealSection as="section" className="enterprise-section">
-        <div className="enterprise-editorial-layout enterprise-editorial-layout-reverse">
-          <div className="enterprise-platform-panel">
-            <span className="enterprise-panel-label">What we build</span>
-            <div className="enterprise-capability-list">
-              {useCases.map((item) => (
-                <article key={item.title}>
-                  <strong>{item.title}</strong>
-                  <p>{item.description}</p>
-                </article>
-              ))}
-            </div>
-          </div>
-          <div className="enterprise-section-heading">
-            <span className="enterprise-kicker">Use Cases</span>
-            <h2>Clear system outputs for operational teams.</h2>
-            <p>Short, concrete platform types that match what Kelel actually delivers.</p>
-          </div>
+        <div className="enterprise-section-heading enterprise-section-heading-centered" style={{ marginBottom: "40px" }}>
+          <span className="enterprise-kicker">Use Cases</span>
+          <h2>Clear system outputs for operational teams.</h2>
+          <p>Short, concrete platform types that match what Kelel actually delivers.</p>
+        </div>
+        <div className="nexus-usecase-grid">
+          {useCases.map((item, i) => (
+            <article key={item.title} className="nexus-usecase-card">
+              <span className="nexus-usecase-num">0{i + 1}</span>
+              <strong>{item.title}</strong>
+              <p>{item.description}</p>
+            </article>
+          ))}
         </div>
       </RevealSection>
 
