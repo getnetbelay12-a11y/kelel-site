@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import Link from "next/link";
-import { HeroPortraitRotation } from "@/components/hero-portrait-rotation";
-import { NexusAfricaMap } from "@/components/nexus-africa-map";
 import { RevealSection } from "@/components/reveal-section";
 import { site } from "@/lib/site-content";
 
@@ -210,56 +208,6 @@ const intelligentSystems = [
   },
 ];
 
-const heroSystemCards = [
-  {
-    label: "Core dashboard",
-    title: "Operations command layer",
-    copy: "Dashboards, approvals, and reporting in one secure view.",
-    variant: "dashboard" as const,
-  },
-  {
-    label: "Analytics",
-    title: "Intelligent performance insight",
-    copy: "Monitoring across active workflows, anomalies, and decision points.",
-    variant: "analytics" as const,
-  },
-  {
-    label: "Workflow",
-    title: "Secure process orchestration",
-    copy: "Permissions, handoffs, and controls for critical operations.",
-    variant: "workflow" as const,
-  },
-  {
-    label: "Infrastructure",
-    title: "Regional system topology",
-    copy: "Connected services and resilient infrastructure patterns.",
-    variant: "infrastructure" as const,
-  },
-];
-
-const platformSnapshots = [
-  {
-    title: "Architecture blueprint",
-    description: "End-to-end platform topology for secure operating environments.",
-    variant: "topology" as const,
-  },
-  {
-    title: "Delivery workflow",
-    description: "Structured rollout paths for approvals, handoffs, and live delivery.",
-    variant: "workflow" as const,
-  },
-  {
-    title: "Reporting dashboard",
-    description: "Executive-ready visibility across dashboards, metrics, and oversight.",
-    variant: "reporting" as const,
-  },
-  {
-    title: "Monitoring console",
-    description: "Live monitoring for system status, workflows, and ongoing support.",
-    variant: "monitoring" as const,
-  },
-];
-
 const companySummary = [
   "Kelel IT Solution is based in Addis Ababa, Ethiopia.",
   "We build secure digital systems for banking, insurance, and enterprise operations.",
@@ -271,79 +219,6 @@ export const metadata: Metadata = {
   description:
     "Kelel IT Solution builds secure, scalable platforms for banking, insurance, and enterprise operations across Africa.",
 };
-
-function HeroMotionVisual() {
-  return (
-    <div className="hero-motion-visual" aria-hidden="true">
-      <div className="hero-map-frame">
-        <div className="hero-map-atlas hero-map-atlas-africa">
-          <svg viewBox="0 0 420 360" role="presentation">
-            <path
-              d="M195 30l48 30 20 46 31 23 9 39-22 27 10 39-24 31-11 63-38 34-18 48-34 14-24-27-27-15-20-44-36-21-12-44 18-37-18-33 25-47 32-21 25-57 71-34 15 6z"
-            />
-          </svg>
-        </div>
-        <div className="hero-map-atlas hero-map-atlas-ethiopia">
-          <svg viewBox="0 0 220 220" role="presentation">
-            <path
-              d="M118 46l28 14 15 28-6 36-30 22-36-12-13-34 11-31 31-23z"
-            />
-            <circle cx="119" cy="102" r="10" />
-          </svg>
-        </div>
-        <div className="hero-motion-map">
-          <svg viewBox="0 0 720 640" role="presentation">
-            <path
-              className="africa-fill"
-              d="M335 42l77 49 33 74 48 35 14 64-36 44 16 65-38 53-18 101-62 55-29 77-55 22-37-44-44-23-33-72-59-35-20-72 29-62-30-54 40-76 51-33 40-93 113-55z"
-            />
-            <path
-              className="africa-shape"
-              d="M335 42l77 49 33 74 48 35 14 64-36 44 16 65-38 53-18 101-62 55-29 77-55 22-37-44-44-23-33-72-59-35-20-72 29-62-30-54 40-76 51-33 40-93 113-55z"
-            />
-            <path
-              className="east-africa"
-              d="M392 350l38 31 12 46-44 30M356 423l-31 35 22 39"
-            />
-            <path
-              className="ethiopia-shape"
-              d="M407 246l20 10 10 20-4 26-22 16-24-8-9-24 8-22 21-18z"
-            />
-            <path
-              className="signal-line signal-line-e"
-              d="M424 298C462 280 500 268 538 254"
-            />
-            <circle className="hub hub-ethiopia" cx="424" cy="298" r="7" />
-            <circle className="hub hub-kenya" cx="454" cy="366" r="5" />
-            <circle className="hub hub-nigeria" cx="278" cy="292" r="5" />
-            <circle className="hub hub-south-africa" cx="372" cy="522" r="5" />
-            <circle className="hub hub-egypt" cx="468" cy="178" r="5" />
-            <circle className="hub hub-east-africa" cx="538" cy="254" r="4" />
-            <path className="signal-line signal-line-a" d="M424 298C445 255 458 218 468 178" />
-            <path className="signal-line signal-line-b" d="M424 298C388 292 326 289 278 292" />
-            <path className="signal-line signal-line-c" d="M424 298C441 332 446 348 454 366" />
-            <path className="signal-line signal-line-d" d="M424 298C410 396 390 470 372 522" />
-            <text className="hub-label" x="444" y="292">
-              Addis Ababa
-            </text>
-          </svg>
-        </div>
-        <HeroPortraitRotation systemCards={heroSystemCards.slice(0, 2)} />
-        <div className="hero-data-layer">
-          <article className="hero-data-card hero-data-card-mobile">
-            <div className="hero-live-indicator">
-              <i />
-              <span>System Active</span>
-            </div>
-            <small>System status</small>
-            <strong>Operational</strong>
-            <span>12 active systems</span>
-          </article>
-        </div>
-      </div>
-    </div>
-  );
-}
 
 function OperationsConsole() {
   return (
@@ -428,111 +303,76 @@ function OperationsConsole() {
   );
 }
 
-function ProductMock({ variant }: { variant: "topology" | "workflow" | "reporting" | "monitoring" }) {
-  if (variant === "reporting") {
-    return (
-      <div className="enterprise-ui-mock enterprise-ui-mock-reporting" aria-hidden="true">
-        <div className="enterprise-ui-topbar">
-          <span />
-          <span />
-          <span />
-        </div>
-        <div className="enterprise-reporting-head">
-          <b />
-          <b />
-          <b />
-        </div>
-        <div className="enterprise-reporting-main">
-          <div className="enterprise-reporting-bars">
-            <i style={{ height: "42%" }} />
-            <i style={{ height: "68%" }} />
-            <i style={{ height: "56%" }} />
-            <i style={{ height: "84%" }} />
-            <i style={{ height: "62%" }} />
-          </div>
-          <div className="enterprise-reporting-ring">
-            <span />
-          </div>
-        </div>
-        <div className="enterprise-reporting-lines">
-          <i />
-          <i />
-          <i />
-        </div>
-      </div>
-    );
-  }
+const PULSE_BARS = ["38%","55%","42%","70%","82%","65%","90%","58%","74%","48%","86%","62%"];
 
-  if (variant === "monitoring") {
-    return (
-      <div className="enterprise-ui-mock enterprise-ui-mock-monitoring" aria-hidden="true">
-        <div className="enterprise-ui-topbar">
-          <span />
-          <span />
-          <span />
-        </div>
-        <div className="enterprise-monitoring-status">
-          <span />
-          <strong>All systems active</strong>
-        </div>
-        <div className="enterprise-monitoring-grid">
-          <i>API</i>
-          <i>Core</i>
-          <i>Data</i>
-          <i>Ops</i>
-        </div>
-        <div className="enterprise-monitoring-timeline">
-          <b />
-        </div>
-      </div>
-    );
-  }
-
-  if (variant === "workflow") {
-    return (
-      <div className="enterprise-ui-mock enterprise-ui-mock-workflow" aria-hidden="true">
-        <div className="enterprise-ui-topbar">
-          <span />
-          <span />
-          <span />
-        </div>
-        <div className="enterprise-workflow-steps">
-          <i>Input</i>
-          <i>Review</i>
-          <i>Release</i>
-        </div>
-        <div className="enterprise-workflow-cards">
-          <b>Policy review</b>
-          <b>Claims approval</b>
-        </div>
-        <div className="enterprise-workflow-lines">
-          <span />
-          <span />
-        </div>
-      </div>
-    );
-  }
-
+function HeroDashboard() {
   return (
-    <div className="enterprise-ui-mock enterprise-ui-mock-topology" aria-hidden="true">
-      <div className="enterprise-ui-topbar">
-        <span />
-        <span />
-        <span />
+    <div className="hdash-panel" aria-hidden="true">
+      {/* Row 1: Health ring + metrics */}
+      <div className="hdash-top-row">
+        <div className="hdash-card hdash-card--ring stitch-glass">
+          <span className="hdash-label">System Health</span>
+          <div className="hdash-ring-wrap">
+            <svg viewBox="0 0 120 120" className="hdash-ring-svg">
+              <circle cx="60" cy="60" r="46" fill="none" stroke="rgba(255,255,255,0.07)" strokeWidth="9"/>
+              <circle cx="60" cy="60" r="46" fill="none" stroke="#10b981" strokeWidth="9"
+                strokeDasharray="289.03" strokeDashoffset="0.29"
+                strokeLinecap="round" transform="rotate(-90 60 60)"/>
+            </svg>
+            <div className="hdash-ring-center">
+              <span className="hdash-ring-val">99.9%</span>
+              <span className="hdash-ring-unit">uptime</span>
+            </div>
+          </div>
+        </div>
+        <div className="hdash-card hdash-card--metrics stitch-glass">
+          <div className="hdash-metric-item">
+            <span className="hdash-label">Latency</span>
+            <span className="hdash-metric-num">&lt;45<em>ms</em></span>
+          </div>
+          <div className="hdash-metric-bar"><div style={{ width: "22%" }}/></div>
+          <div className="hdash-metric-item">
+            <span className="hdash-label">Active Flows</span>
+            <span className="hdash-metric-num hdash-metric-num--sm">1,248</span>
+          </div>
+          <div className="hdash-metric-bar"><div style={{ width: "82%" }}/></div>
+        </div>
       </div>
-      <div className="enterprise-topology-grid">
-        <i>Gateway</i>
-        <i>Core API</i>
-        <i>Data</i>
-        <i>Reporting</i>
+
+      {/* Row 2: Node connectivity */}
+      <div className="hdash-card stitch-glass">
+        <span className="hdash-label">Node Connectivity</span>
+        <div className="hdash-nodes">
+          <div className="hdash-node">
+            <span className="hdash-dot hdash-dot--primary"/>
+            <span className="hdash-node-name">Addis Ababa</span>
+            <span className="hdash-badge hdash-badge--green">Primary Hub</span>
+          </div>
+          <div className="hdash-node">
+            <span className="hdash-dot hdash-dot--blue"/>
+            <span className="hdash-node-name">Nairobi</span>
+            <span className="hdash-badge hdash-badge--blue">Active</span>
+          </div>
+          <div className="hdash-node">
+            <span className="hdash-dot hdash-dot--dim"/>
+            <span className="hdash-node-name">Lagos</span>
+            <span className="hdash-badge hdash-badge--dim">Standby</span>
+          </div>
+        </div>
       </div>
-      <div className="enterprise-topology-links">
-        <span />
-        <span />
-        <span />
-      </div>
-      <div className="enterprise-topology-ring">
-        <b />
+
+      {/* Row 3: System Pulse */}
+      <div className="hdash-card stitch-glass">
+        <div className="hdash-pulse-header">
+          <span className="hdash-label">System Pulse</span>
+          <span className="hdash-live">● LIVE</span>
+        </div>
+        <div className="hdash-pulse-bars">
+          {PULSE_BARS.map((h, i) => (
+            <div key={i} className="hdash-pulse-bar" style={{ height: h }}/>
+          ))}
+        </div>
+        <span className="hdash-label">Transaction throughput / realtime</span>
       </div>
     </div>
   );
@@ -569,8 +409,8 @@ export default function Home() {
             <p className="enterprise-hero-note">Designed and built by teams operating across Africa.</p>
           </div>
 
-          <div className="enterprise-hero-right" aria-hidden="true">
-            <NexusAfricaMap />
+          <div className="enterprise-hero-right">
+            <HeroDashboard />
           </div>
         </div>
       </RevealSection>
@@ -623,86 +463,79 @@ export default function Home() {
           <h2>Inside the platforms we build.</h2>
           <p>Architecture, workflow, reporting, and monitoring surfaces for real operations.</p>
         </div>
-        <div className="nexus-bento-grid" aria-hidden="true">
-          {/* Main dashboard card */}
-          <div className="nexus-bento-main">
-            <div className="nexus-bento-header">
-              <div className="nexus-bento-dots">
-                <span className="nexus-bento-dot-r" />
-                <span className="nexus-bento-dot-y" />
-                <span className="nexus-bento-dot-g" />
-              </div>
-              <span className="nexus-bento-engine-label">kelel-core · ops-layer</span>
-              <span className="nexus-bento-live-badge">● LIVE</span>
+        {/* System topology visualization */}
+        <div className="hp-topo" aria-hidden="true">
+          {/* Topology top row */}
+          <div className="hp-topo-row">
+            <div className="hp-topo-node">
+              <div className="hp-topo-icon">⚡</div>
+              <span>Auth Gateway</span>
+              <span className="hp-topo-status hp-topo-status--on">ON</span>
             </div>
-            <div className="nexus-bento-dashboard">
-              <div className="nexus-bento-throughput">
-                <div className="nexus-bento-throughput-label">Platform Throughput / Realtime</div>
-                <div className="nexus-bento-bars">
-                  {["34%","46%","40%","58%","72%","66%","84%","52%","68%","78%"].map((h, i) => (
-                    <div key={i} className="nexus-bento-bar nexus-bento-bar--emerald" style={{ height: h }} />
-                  ))}
-                </div>
-                <div className="nexus-bento-stats">
-                  <div className="nexus-bento-stat-card">
-                    <div className="nexus-bento-stat-label">Active Flows</div>
-                    <div className="nexus-bento-stat-val">1,248</div>
-                  </div>
-                  <div className="nexus-bento-stat-card">
-                    <div className="nexus-bento-stat-label">Health</div>
-                    <div className="nexus-bento-stat-val">99.9%</div>
-                  </div>
-                </div>
+            <div className="hp-topo-connector"/>
+            <div className="hp-topo-node hp-topo-node--core">
+              <div className="hp-topo-core-ring"/>
+              <div className="hp-topo-core-text">
+                <span>CORE</span>
+                <span>API</span>
               </div>
-              <div className="nexus-bento-security">
-                <div className="nexus-bento-security-title">Security Audit Log</div>
-                <div className="nexus-bento-log-row">
-                  <span>Approval chain verified</span>
-                  <span className="nexus-bento-log-ok">PASS</span>
-                </div>
-                <div className="nexus-bento-log-row">
-                  <span>Data sync complete</span>
-                  <span className="nexus-bento-log-blue">SYNC</span>
-                </div>
-                <div className="nexus-bento-log-row">
-                  <span>Multi-sig auth active</span>
-                  <span className="nexus-bento-log-ok">ON</span>
-                </div>
-                <div className="nexus-bento-log-row">
-                  <span>Encryption layer</span>
-                  <span className="nexus-bento-log-blue">256-bit</span>
-                </div>
-              </div>
+            </div>
+            <div className="hp-topo-connector"/>
+            <div className="hp-topo-node">
+              <div className="hp-topo-icon hp-topo-icon--blue">◈</div>
+              <span>Data Store</span>
+              <span className="hp-topo-status hp-topo-status--on">ON</span>
             </div>
           </div>
-          {/* Side card */}
-          <div className="nexus-bento-side">
-            <div className="nexus-bento-side-label">Operational Health</div>
-            <div className="nexus-bento-side-title">All systems nominal across active nodes.</div>
-            <div className="nexus-bento-side-body">
-              Monitoring across deployment regions with automated alerts, anomaly detection, and audit trails.
-            </div>
-            <div className="nexus-bento-side-glow">⚙</div>
+
+          {/* Vertical connectors */}
+          <div className="hp-topo-vrow">
+            <div className="hp-topo-vline"/>
+            <div className="hp-topo-vline hp-topo-vline--center"/>
+            <div className="hp-topo-vline"/>
           </div>
-          {/* Connectivity row */}
-          <div className="nexus-bento-wide">
-            <div>
-              <div className="nexus-bento-wide-title">Regional Node Connectivity</div>
-              <div className="nexus-bento-wide-body">Live infrastructure across East, West, and Southern Africa.</div>
+
+          {/* Topology bottom row */}
+          <div className="hp-topo-row">
+            <div className="hp-topo-node">
+              <div className="hp-topo-icon hp-topo-icon--purple">⬡</div>
+              <span>Security</span>
+              <span className="hp-topo-status hp-topo-status--on">ON</span>
             </div>
-            <div className="nexus-bento-nodes">
-              <div className="nexus-bento-node">
-                <span className="nexus-bento-node-dot nexus-bento-node-dot--ping" />
-                Addis Ababa · Primary Hub
-              </div>
-              <div className="nexus-bento-node">
-                <span className="nexus-bento-node-dot nexus-bento-node-dot--blue" />
-                Nairobi · Active
-              </div>
-              <div className="nexus-bento-node">
-                <span className="nexus-bento-node-dot nexus-bento-node-dot--slate" />
-                Lagos · Standby
-              </div>
+            <div className="hp-topo-connector"/>
+            <div className="hp-topo-node">
+              <div className="hp-topo-icon">📊</div>
+              <span>Reporting</span>
+              <span className="hp-topo-status hp-topo-status--on">ON</span>
+            </div>
+            <div className="hp-topo-connector"/>
+            <div className="hp-topo-node">
+              <div className="hp-topo-icon hp-topo-icon--blue">🤖</div>
+              <span>AI Engine</span>
+              <span className="hp-topo-status hp-topo-status--pulse">LIVE</span>
+            </div>
+          </div>
+
+          {/* Bottom metrics strip */}
+          <div className="hp-topo-metrics">
+            <div className="hp-topo-metric">
+              <span className="hp-topo-metric-val">99.9%</span>
+              <span className="hp-topo-metric-label">System Health</span>
+            </div>
+            <div className="hp-topo-metric-sep"/>
+            <div className="hp-topo-metric">
+              <span className="hp-topo-metric-val">&lt;45ms</span>
+              <span className="hp-topo-metric-label">API Latency</span>
+            </div>
+            <div className="hp-topo-metric-sep"/>
+            <div className="hp-topo-metric">
+              <span className="hp-topo-metric-val">256-bit</span>
+              <span className="hp-topo-metric-label">Encryption</span>
+            </div>
+            <div className="hp-topo-metric-sep"/>
+            <div className="hp-topo-metric">
+              <span className="hp-topo-metric-val">6 Nodes</span>
+              <span className="hp-topo-metric-label">Connected</span>
             </div>
           </div>
         </div>
