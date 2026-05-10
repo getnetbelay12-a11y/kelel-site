@@ -29,3 +29,7 @@ Thumbs.db
 # local app data
 output/
 tmp/
+
+# claude code
+.claude/
+tsconfig.tsbuildinfo

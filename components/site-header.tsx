@@ -7,10 +7,9 @@ import { useEffect, useMemo, useState } from "react";
 import { site } from "@/lib/site-content";
 
 const primaryLinks = [
-  { href: "/#home", label: "Home", section: "home" },
-  { href: "/#what-we-do", label: "What We Do", section: "what-we-do" },
-  { href: "/#industries", label: "Industries", section: "industries" },
+  { href: "/#what-we-do", label: "Solutions", section: "what-we-do" },
   { href: "/platform", label: "Platform", section: "platform" },
+  { href: "/intelligent-solutions", label: "Intelligence", section: "intelligence" },
   { href: "/#company", label: "Company", section: "company" },
   { href: "/#contact", label: "Contact", section: "contact" },
 ];
@@ -19,6 +18,7 @@ export function SiteHeader() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const [isHidden, setIsHidden] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
   const isHome = pathname === "/";
 
@@ -26,6 +26,7 @@ export function SiteHeader() {
     let lastY = 0;
     const onScroll = () => {
       const y = window.scrollY;
+      setScrolled(y > 20);
       if (y > 80 && y > lastY) setIsHidden(true);
       else setIsHidden(false);
       lastY = y;
@@ -35,35 +36,21 @@ export function SiteHeader() {
   }, []);
 
   useEffect(() => {
-    if (!isHome) {
-      return;
-    }
-
+    if (!isHome) return;
     const ids = primaryLinks.map((item) => item.section);
     const elements = ids
       .map((id) => document.getElementById(id))
       .filter((value): value is HTMLElement => Boolean(value));
-
-    if (elements.length === 0) {
-      return;
-    }
-
+    if (elements.length === 0) return;
     const observer = new IntersectionObserver(
       (entries) => {
         const visible = entries
           .filter((entry) => entry.isIntersecting)
           .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-
-        if (visible?.target?.id) {
-          setActiveSection(visible.target.id);
-        }
+        if (visible?.target?.id) setActiveSection(visible.target.id);
       },
-      {
-        rootMargin: "-22% 0px -55% 0px",
-        threshold: [0.2, 0.35, 0.5, 0.75],
-      },
+      { rootMargin: "-22% 0px -55% 0px", threshold: [0.2, 0.35, 0.5, 0.75] },
     );
-
     elements.forEach((element) => observer.observe(element));
     return () => observer.disconnect();
   }, [isHome]);
@@ -72,15 +59,16 @@ export function SiteHeader() {
     () =>
       primaryLinks.map((item) => ({
         ...item,
-        active: isHome ? activeSection === item.section : false,
+        active: isHome ? activeSection === item.section : pathname.startsWith(item.href.replace("/#", "/")),
       })),
-    [activeSection, isHome],
+    [activeSection, isHome, pathname],
   );
 
   return (
-    <header className={`site-header${isHidden ? " hidden" : ""}${isOpen ? " open" : ""}`}>
+    <header className={`site-header nexus-header${isHidden ? " hidden" : ""}${isOpen ? " open" : ""}${scrolled ? " scrolled" : ""}`}>
       <div className="nav-inner">
-        <Link href="/#home" className="brand-mark" onClick={() => setIsOpen(false)}>
+        {/* Brand */}
+        <Link href="/" className="brand-mark" onClick={() => setIsOpen(false)}>
           <LogoMark compact />
           <span className="brand-copy">
             <span className="brand-kicker">Addis Ababa · ET</span>
@@ -88,6 +76,7 @@ export function SiteHeader() {
           </span>
         </Link>
 
+        {/* Primary nav */}
         <nav className="site-nav" id="primary-nav" aria-label="Primary">
           {resolvedLinks.map((item) => (
             <Link
@@ -102,11 +91,12 @@ export function SiteHeader() {
           ))}
         </nav>
 
+        {/* Actions */}
         <div className="header-actions">
-          <Link href="/contact?intent=book-call" className="secondary-link" onClick={() => setIsOpen(false)}>
-            Book a Call
+          <Link href="/contact" className="nexus-header-ghost" onClick={() => setIsOpen(false)}>
+            Contact
           </Link>
-          <Link href="/#contact" className="header-quick-link" onClick={() => setIsOpen(false)}>
+          <Link href="/request-proposal" className="nexus-header-cta" onClick={() => setIsOpen(false)}>
             Start a Project
           </Link>
           <button

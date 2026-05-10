@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { RevealSection } from "@/components/reveal-section";
+import { PlatformScreenSwitcher } from "@/components/platform-screen-switcher";
 
 export const metadata: Metadata = {
   title: "Platform | Kelel IT Solution",
@@ -30,10 +31,7 @@ export default function PlatformPage() {
               <span className="stitch-metric-label">UPTIME</span>
               <span className="stitch-metric-val">99.99%</span>
               <div className="stitch-progress">
-                <div
-                  className="stitch-progress-fill"
-                  style={{ width: "99.99%", background: "#10b981" }}
-                />
+                <div className="stitch-progress-fill" style={{ width: "99.99%" }} />
               </div>
             </div>
 
@@ -42,10 +40,7 @@ export default function PlatformPage() {
               <span className="stitch-metric-label">LATENCY</span>
               <span className="stitch-metric-val">&lt;&nbsp;45ms</span>
               <div className="stitch-progress">
-                <div
-                  className="stitch-progress-fill"
-                  style={{ width: "22%", background: "#3b82f6" }}
-                />
+                <div className="stitch-progress-fill stitch-progress-fill--amber" style={{ width: "22%" }} />
               </div>
             </div>
 
@@ -53,44 +48,11 @@ export default function PlatformPage() {
             <div className="stitch-metric-card stitch-glass">
               <span className="stitch-metric-label">REGIONS</span>
               <span className="stitch-metric-val">12 Nodes</span>
-              <div style={{ display: "flex", alignItems: "center", gap: "6px", marginTop: "8px" }}>
-                <span
-                  style={{
-                    display: "inline-block",
-                    width: "10px",
-                    height: "10px",
-                    borderRadius: "50%",
-                    background: "#10b981",
-                  }}
-                />
-                <span
-                  style={{
-                    display: "inline-block",
-                    width: "10px",
-                    height: "10px",
-                    borderRadius: "50%",
-                    background: "#3b82f6",
-                  }}
-                />
-                <span
-                  style={{
-                    display: "inline-block",
-                    width: "10px",
-                    height: "10px",
-                    borderRadius: "50%",
-                    background: "#8b5cf6",
-                  }}
-                />
-                <span
-                  style={{
-                    fontSize: "12px",
-                    fontFamily: "monospace",
-                    opacity: 0.6,
-                    marginLeft: "2px",
-                  }}
-                >
-                  +9
-                </span>
+              <div className="plt-node-dots">
+                <span className="plt-dot plt-dot--cyan" />
+                <span className="plt-dot plt-dot--amber" />
+                <span className="plt-dot plt-dot--green" />
+                <span className="plt-dot-more">+9</span>
               </div>
             </div>
           </div>
@@ -138,33 +100,11 @@ export default function PlatformPage() {
               <ul className="stitch-enforce-list">
                 <li className="stitch-enforce-item">
                   <span>Multi-Sig Approval</span>
-                  <span
-                    style={{
-                      fontSize: "11px",
-                      fontFamily: "monospace",
-                      color: "#10b981",
-                      border: "1px solid #10b981",
-                      borderRadius: "4px",
-                      padding: "2px 6px",
-                    }}
-                  >
-                    ENFORCED
-                  </span>
+                  <span className="plt-badge plt-badge--enforced">ENFORCED</span>
                 </li>
                 <li className="stitch-enforce-item">
                   <span>Hardware Auth</span>
-                  <span
-                    style={{
-                      fontSize: "11px",
-                      fontFamily: "monospace",
-                      color: "#3b82f6",
-                      border: "1px solid #3b82f6",
-                      borderRadius: "4px",
-                      padding: "2px 6px",
-                    }}
-                  >
-                    REQUIRED
-                  </span>
+                  <span className="plt-badge plt-badge--required">REQUIRED</span>
                 </li>
               </ul>
             </div>
@@ -181,8 +121,8 @@ export default function PlatformPage() {
                   style={{
                     width: "64px",
                     height: "64px",
-                    background: "rgba(16,185,129,0.15)",
-                    border: "1px solid rgba(16,185,129,0.4)",
+                    background: "rgba(75,227,214,0.15)",
+                    border: "1px solid rgba(75,227,214,0.4)",
                     borderRadius: "6px",
                     transform: "rotate(-6deg) translateY(8px)",
                     position: "absolute",
@@ -239,8 +179,8 @@ export default function PlatformPage() {
               >
                 <div
                   style={{
-                    background: "rgba(16,185,129,0.08)",
-                    border: "1px solid rgba(16,185,129,0.25)",
+                    background: "rgba(75,227,214,0.08)",
+                    border: "1px solid rgba(75,227,214,0.25)",
                     borderRadius: "8px",
                     padding: "12px 16px",
                     fontFamily: "monospace",
@@ -250,7 +190,7 @@ export default function PlatformPage() {
                   <div style={{ opacity: 0.5, fontSize: "11px", marginBottom: "4px" }}>
                     NODE A
                   </div>
-                  <div style={{ color: "#10b981", fontWeight: 600 }}>STABLE</div>
+                  <div style={{ color: "var(--cyan)", fontWeight: 600 }}>STABLE</div>
                 </div>
                 <div
                   style={{
@@ -270,6 +210,20 @@ export default function PlatformPage() {
               </div>
             </div>
           </div>
+        </div>
+      </RevealSection>
+
+      {/* ── Platform Screen Switcher ─────────────────────────────────── */}
+      <RevealSection className="stitch-section">
+        <div className="stitch-container">
+          <div className="stitch-section-header" style={{ textAlign: "center", marginBottom: "40px" }}>
+            <span className="stitch-kicker">PLATFORM INTERFACE</span>
+            <h2 className="stitch-h2">Built for operators, not just developers.</h2>
+            <p className="stitch-body">
+              Purpose-built screens for every operational role — from transaction officers to network engineers.
+            </p>
+          </div>
+          <PlatformScreenSwitcher />
         </div>
       </RevealSection>
 
@@ -293,7 +247,7 @@ export default function PlatformPage() {
                   <circle cx="60" cy="60" r="46" fill="none" stroke="rgba(255,255,255,0.06)" strokeWidth="9" />
                   <circle
                     cx="60" cy="60" r="46" fill="none"
-                    stroke="#10b981" strokeWidth="9"
+                    className="npm-ring-fill--cyan" strokeWidth="9"
                     strokeDasharray="289.03" strokeDashoffset="0.29"
                     strokeLinecap="round" transform="rotate(-90 60 60)"
                   />
@@ -326,7 +280,7 @@ export default function PlatformPage() {
                   <circle cx="60" cy="60" r="46" fill="none" stroke="rgba(255,255,255,0.06)" strokeWidth="9" />
                   <circle
                     cx="60" cy="60" r="46" fill="none"
-                    stroke="#3b82f6" strokeWidth="9"
+                    className="npm-ring-fill--blue" strokeWidth="9"
                     strokeDasharray="289.03" strokeDashoffset="4.62"
                     strokeLinecap="round" transform="rotate(-90 60 60)"
                   />
@@ -359,7 +313,7 @@ export default function PlatformPage() {
                   <circle cx="60" cy="60" r="46" fill="none" stroke="rgba(255,255,255,0.06)" strokeWidth="9" />
                   <circle
                     cx="60" cy="60" r="46" fill="none"
-                    stroke="#8b5cf6" strokeWidth="9"
+                    className="npm-ring-fill--purple" strokeWidth="9"
                     strokeDasharray="289.03" strokeDashoffset="8.38"
                     strokeLinecap="round" transform="rotate(-90 60 60)"
                   />
@@ -392,7 +346,7 @@ export default function PlatformPage() {
                   <circle cx="60" cy="60" r="46" fill="none" stroke="rgba(255,255,255,0.06)" strokeWidth="9" />
                   <circle
                     cx="60" cy="60" r="46" fill="none"
-                    stroke="#f59e0b" strokeWidth="9"
+                    className="npm-ring-fill--amber" strokeWidth="9"
                     strokeDasharray="289.03" strokeDashoffset="12.14"
                     strokeLinecap="round" transform="rotate(-90 60 60)"
                   />
@@ -434,9 +388,9 @@ export default function PlatformPage() {
               <div
                 className="stitch-arch-circle"
                 style={{
-                  background: "rgba(16,185,129,0.15)",
-                  border: "2px solid #10b981",
-                  color: "#10b981",
+                  background: "rgba(75,227,214,0.15)",
+                  border: "2px solid var(--cyan)",
+                  color: "var(--cyan)",
                 }}
               >
                 1
@@ -445,7 +399,7 @@ export default function PlatformPage() {
                 className="stitch-arch-line"
                 style={{
                   background:
-                    "linear-gradient(to bottom, #10b981, #3b82f6)",
+                    "linear-gradient(to bottom, var(--cyan), #3b82f6)",
                 }}
               />
             </div>
