@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { RevealSection } from "@/components/reveal-section";
+import { CtaBand } from "@/components/cta-band";
 import { strengths, readinessSignals, site } from "@/lib/site-content";
 
 export const metadata: Metadata = {
@@ -9,61 +10,100 @@ export const metadata: Metadata = {
     "Kelel IT Solution is a technology company based in Addis Ababa, Ethiopia, building digital infrastructure for banking, insurance, and enterprise systems.",
 };
 
+const principles = [
+  {
+    num: "01",
+    title: "Technology as a business enabler.",
+    body: "Technology should make work more reliable, more visible, and easier to scale. That applies to infrastructure, internal systems, and the public digital presence clients use to judge your organization.",
+  },
+  {
+    num: "02",
+    title: "Clear. Accountable. Structured.",
+    body: "We put leadership contact up front because serious B2B buyers look for accountability. Every engagement has a named contact, a defined scope, and a clear path from first conversation to live delivery.",
+  },
+  {
+    num: "03",
+    title: "Africa-rooted by design.",
+    body: "We don't apply foreign platform patterns to African realities. Our systems are built for the operational constraints, connectivity conditions, and compliance environments that define African enterprise.",
+  },
+];
+
 export default function AboutPage() {
   return (
     <main className="stitch-page">
-      {/* ── Hero ── */}
-      <RevealSection className="stitch-hero">
-        <div className="stitch-container">
-          <span className="stitch-kicker">ABOUT US</span>
-          <h1 className="stitch-h1">
-            Enterprise technology built<br />for African infrastructure.
-          </h1>
-          <p className="stitch-body" style={{ maxWidth: "620px" }}>
-            Kelel IT Solution is a technology company based in Addis Ababa, Ethiopia.
-            We design and deliver production-grade digital infrastructure for banking,
-            insurance, and enterprise operations across the continent.
-          </p>
-        </div>
-      </RevealSection>
 
-      {/* ── Story ── */}
+      {/* ── Page Hero ─────────────────────────────────────────────────── */}
+      <section className="page-hero">
+        <div className="page-hero-inner">
+          <div className="page-crumbs">
+            <Link href="/">Home</Link>
+            <span className="page-crumbs-sep">/</span>
+            <span>About</span>
+          </div>
+          <div className="page-hero-grid">
+            <div>
+              <div className="site-eyebrow" style={{ marginBottom: "24px" }}>
+                <span className="site-eyebrow-dot" />
+                Addis Ababa · Ethiopian-built · African-scaled
+              </div>
+              <h1 className="page-title-plain">
+                Enterprise technology built for <em>African infrastructure.</em>
+              </h1>
+              <p className="page-sub">
+                Kelel IT Solution designs and delivers production-grade digital infrastructure
+                for banking, insurance, and enterprise operations across the continent —
+                built in Ethiopia with the operational realities of Africa in mind.
+              </p>
+            </div>
+            <div className="page-meta">
+              <div className="page-meta-row">
+                <span>Founded</span><span>Addis Ababa, Ethiopia</span>
+              </div>
+              <div className="page-meta-row">
+                <span>Focus</span><span>Financial &amp; Enterprise Systems</span>
+              </div>
+              <div className="page-meta-row">
+                <span>Reach</span><span>5+ African markets</span>
+              </div>
+              <div className="page-meta-row">
+                <span>Delivery model</span><span>4-phase · Accountable</span>
+              </div>
+              <div className="page-meta-row">
+                <span>Leadership contact</span><span>Public · Direct</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Manifesto / Principles ─────────────────────────────────────── */}
       <RevealSection className="stitch-section">
         <div className="stitch-container">
-          <div className="abt-story-grid">
-            <div className="abt-story-card stitch-glass">
-              <span className="stitch-kicker" style={{ fontSize: "10px", marginBottom: "16px", display: "block" }}>
-                WHAT WE STAND FOR
-              </span>
-              <h3 className="abt-story-title">Technology as a business enabler.</h3>
-              <p className="stitch-body" style={{ marginTop: "12px" }}>
-                Technology should make work more reliable, more visible, and easier to
-                scale. That applies to infrastructure, internal systems, and the public
-                digital presence clients use to judge your organization.
-              </p>
-            </div>
-            <div className="abt-story-card stitch-glass">
-              <span className="stitch-kicker" style={{ fontSize: "10px", marginBottom: "16px", display: "block" }}>
-                HOW WE DELIVER
-              </span>
-              <h3 className="abt-story-title">Clear. Accountable. Structured.</h3>
-              <p className="stitch-body" style={{ marginTop: "12px" }}>
-                We put leadership contact up front because serious B2B buyers look for
-                accountability. Every engagement has a named contact, a defined scope, and
-                a clear path from first conversation to live delivery.
-              </p>
-            </div>
+          <div className="hp-section-label">What We Stand For</div>
+          <h2 className="hp-section-title" style={{ marginBottom: "48px" }}>
+            A few things we <em>refuse to compromise on.</em>
+          </h2>
+          <div className="abt-principles">
+            {principles.map((p) => (
+              <div key={p.num} className="abt-principle stitch-glass">
+                <div className="abt-principle-num">{p.num}</div>
+                <div>
+                  <h3 className="abt-principle-title">{p.title}</h3>
+                  <p className="stitch-body" style={{ marginTop: "10px" }}>{p.body}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </RevealSection>
 
-      {/* ── Strengths ── */}
+      {/* ── Strengths ─────────────────────────────────────────────────── */}
       <RevealSection className="stitch-section">
         <div className="stitch-container">
-          <div className="stitch-section-header">
-            <span className="stitch-kicker">WHY KELEL</span>
-            <h2 className="stitch-h2">What sets us apart.</h2>
-          </div>
+          <div className="hp-section-label">Why Kelel</div>
+          <h2 className="hp-section-title" style={{ marginBottom: "40px" }}>
+            What sets us <em>apart.</em>
+          </h2>
           <div className="stitch-caps-grid">
             {strengths.map((item) => (
               <div key={item.title} className="stitch-cap-card">
@@ -75,13 +115,13 @@ export default function AboutPage() {
         </div>
       </RevealSection>
 
-      {/* ── Operational readiness ── */}
+      {/* ── Operational Readiness ─────────────────────────────────────── */}
       <RevealSection className="stitch-section">
         <div className="stitch-container">
-          <div className="stitch-section-header">
-            <span className="stitch-kicker">OPERATIONAL READINESS</span>
-            <h2 className="stitch-h2">Built to deliver, respond, and grow.</h2>
-          </div>
+          <div className="hp-section-label">Operational Readiness</div>
+          <h2 className="hp-section-title" style={{ marginBottom: "40px" }}>
+            Built to deliver, respond, <em>and grow.</em>
+          </h2>
           <div className="stitch-caps-grid">
             {readinessSignals.map((item) => (
               <div key={item.title} className="stitch-cap-card">
@@ -93,9 +133,13 @@ export default function AboutPage() {
         </div>
       </RevealSection>
 
-      {/* ── Leadership ── */}
+      {/* ── Leadership ────────────────────────────────────────────────── */}
       <RevealSection className="stitch-section">
         <div className="stitch-container">
+          <div className="hp-section-label">Leadership</div>
+          <h2 className="hp-section-title" style={{ marginBottom: "40px" }}>
+            A named contact from <em>day one.</em>
+          </h2>
           <div className="abt-leader-wrap">
             <div className="abt-leader-card stitch-glass">
               <div className="abt-leader-inner">
@@ -121,22 +165,19 @@ export default function AboutPage() {
         </div>
       </RevealSection>
 
-      {/* ── CTA ── */}
-      <RevealSection className="stitch-cta-section">
-        <div className="stitch-container">
-          <div className="stitch-cta-glass stitch-glass">
-            <h2>Let&apos;s build something meaningful together.</h2>
-            <p className="stitch-body">
-              If your organization needs stronger systems, infrastructure, or digital
-              presence — Kelel is ready to scope, design, and deliver.
-            </p>
-            <div className="stitch-cta-btns">
-              <Link href="/contact" className="stitch-btn-primary">Contact Us</Link>
-              <Link href="/work" className="stitch-btn-ghost">View Our Work</Link>
-            </div>
-          </div>
-        </div>
+      {/* ── CTA ───────────────────────────────────────────────────────── */}
+      <RevealSection as="div">
+        <CtaBand
+          kicker="Work with us"
+          heading={<>Let&apos;s build something <em>meaningful together.</em></>}
+          sub="If your organization needs stronger systems, infrastructure, or digital presence — Kelel is ready to scope, design, and deliver."
+          primaryLabel="Start a conversation →"
+          primaryHref="/contact"
+          ghostLabel="View our work"
+          ghostHref="/work"
+        />
       </RevealSection>
+
     </main>
   );
 }

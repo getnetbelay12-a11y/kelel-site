@@ -20743,3 +20743,213 @@ body::before {
     transition: none;
   }
 }
+
+/* ═══════════════════════════════════════════════════════════
+   INNER PAGE HERO — shared across /platform, /about, /contact,
+   /services, /intelligent-solutions, /work
+   Appended 2026-05-10
+═══════════════════════════════════════════════════════════ */
+
+.page-hero {
+  padding: 160px 0 80px;
+  background: var(--obsidian);
+  position: relative;
+  overflow: hidden;
+}
+
+.page-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 60% 0%, rgba(75, 227, 214, 0.05), transparent 60%);
+  pointer-events: none;
+}
+
+.page-hero-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 40px;
+  position: relative;
+  z-index: 1;
+}
+
+.page-crumbs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-3);
+  margin-bottom: 40px;
+}
+
+.page-crumbs a {
+  color: var(--ink-3);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.page-crumbs a:hover {
+  color: var(--cyan);
+}
+
+.page-crumbs-sep {
+  color: var(--line-2);
+}
+
+.page-hero-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.page-title {
+  font-family: var(--font-serif);
+  font-size: clamp(40px, 6vw, 80px);
+  font-weight: 400;
+  line-height: 1.0;
+  letter-spacing: -0.03em;
+  background: linear-gradient(120deg, var(--cyan), var(--amber));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin: 0 0 20px;
+}
+
+.page-title-plain {
+  font-family: var(--font-serif);
+  font-size: clamp(40px, 6vw, 80px);
+  font-weight: 400;
+  line-height: 1.0;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  margin: 0 0 20px;
+}
+
+.page-title-plain em {
+  font-style: italic;
+  color: var(--cyan);
+}
+
+.page-sub {
+  font-family: var(--font-sans);
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--ink-2);
+  max-width: 540px;
+  margin: 0;
+}
+
+.page-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-top: 20px;
+}
+
+.page-meta-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--line);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.page-meta-row:last-child {
+  border-bottom: none;
+}
+
+.page-meta-row span:first-child {
+  color: var(--ink-3);
+}
+
+.page-meta-row span:last-child {
+  color: var(--ink-2);
+  text-align: right;
+}
+
+@media (max-width: 900px) {
+  .page-hero {
+    padding: 120px 0 60px;
+  }
+  .page-hero-inner {
+    padding: 0 24px;
+  }
+  .page-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .page-meta {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-hero-inner {
+    padding: 0 18px;
+  }
+}
+
+/* ── Platform page additions ── */
+.plt-node-status-pill {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 8px 14px;
+  border-radius: 6px;
+  background: rgba(75, 227, 214, 0.06);
+  border: 1px solid rgba(75, 227, 214, 0.2);
+  color: var(--cyan);
+}
+
+/* ── About page — principles list ───────────────────────────── */
+.abt-principles {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.abt-principle {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 24px;
+  align-items: start;
+  padding: 28px 32px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+
+.abt-principle-num {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--cyan);
+  padding-top: 4px;
+}
+
+.abt-principle-title {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--ink-4);
+  margin: 0;
+}
+
+@media (max-width: 600px) {
+  .abt-principle {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 20px;
+  }
+}
