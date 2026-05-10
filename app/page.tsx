@@ -22,6 +22,7 @@ const serviceTracks = [
     title: "Platform Architecture",
     description:
       "End-to-end system design for secure, scalable, production-ready platforms.",
+    bullets: ["Distributed Systems", "Cloud-Native Infrastructure", "Security-First Design"],
     href: "/services?focus=platform-architecture",
   },
   {
@@ -31,6 +32,7 @@ const serviceTracks = [
     title: "Performance Optimization",
     description:
       "Performance tuning, reliability improvement, and operational efficiency across live systems.",
+    bullets: ["Sub-50ms Latency", "99.9% Uptime Targets", "Load Optimization"],
     href: "/services?focus=system-optimization",
   },
   {
@@ -40,6 +42,7 @@ const serviceTracks = [
     title: "Data Infrastructure",
     description:
       "Scalable database architecture, data modeling, and infrastructure for high-volume operations.",
+    bullets: ["Real-time Analytics", "High-Volume Pipelines", "Data Governance"],
     href: "/services?focus=data-infrastructure",
   },
 ];
@@ -620,29 +623,87 @@ export default function Home() {
           <h2>Inside the platforms we build.</h2>
           <p>Architecture, workflow, reporting, and monitoring surfaces for real operations.</p>
         </div>
-        <div className="enterprise-ui-grid enterprise-ui-grid-expanded">
-          {platformSnapshots.map((snapshot, index) => (
-            <article
-              key={snapshot.title}
-              className={`enterprise-ui-card enterprise-ui-card-snapshot enterprise-ui-card-${index + 1}`}
-            >
-              <ProductMock variant={snapshot.variant} />
-              <h3>{snapshot.title}</h3>
-              <p>{snapshot.description}</p>
-            </article>
-          ))}
-        </div>
-        <div className="enterprise-preview-summary">
-          <div className="enterprise-preview-proof">
-            <span className="enterprise-panel-label">System outputs</span>
-            <p>Interfaces, dashboards, and control layers designed for live operational use.</p>
+        <div className="nexus-bento-grid" aria-hidden="true">
+          {/* Main dashboard card */}
+          <div className="nexus-bento-main">
+            <div className="nexus-bento-header">
+              <div className="nexus-bento-dots">
+                <span className="nexus-bento-dot-r" />
+                <span className="nexus-bento-dot-y" />
+                <span className="nexus-bento-dot-g" />
+              </div>
+              <span className="nexus-bento-engine-label">kelel-core · ops-layer</span>
+              <span className="nexus-bento-live-badge">● LIVE</span>
+            </div>
+            <div className="nexus-bento-dashboard">
+              <div className="nexus-bento-throughput">
+                <div className="nexus-bento-throughput-label">Platform Throughput / Realtime</div>
+                <div className="nexus-bento-bars">
+                  {["34%","46%","40%","58%","72%","66%","84%","52%","68%","78%"].map((h, i) => (
+                    <div key={i} className="nexus-bento-bar nexus-bento-bar--emerald" style={{ height: h }} />
+                  ))}
+                </div>
+                <div className="nexus-bento-stats">
+                  <div className="nexus-bento-stat-card">
+                    <div className="nexus-bento-stat-label">Active Flows</div>
+                    <div className="nexus-bento-stat-val">1,248</div>
+                  </div>
+                  <div className="nexus-bento-stat-card">
+                    <div className="nexus-bento-stat-label">Health</div>
+                    <div className="nexus-bento-stat-val">99.9%</div>
+                  </div>
+                </div>
+              </div>
+              <div className="nexus-bento-security">
+                <div className="nexus-bento-security-title">Security Audit Log</div>
+                <div className="nexus-bento-log-row">
+                  <span>Approval chain verified</span>
+                  <span className="nexus-bento-log-ok">PASS</span>
+                </div>
+                <div className="nexus-bento-log-row">
+                  <span>Data sync complete</span>
+                  <span className="nexus-bento-log-blue">SYNC</span>
+                </div>
+                <div className="nexus-bento-log-row">
+                  <span>Multi-sig auth active</span>
+                  <span className="nexus-bento-log-ok">ON</span>
+                </div>
+                <div className="nexus-bento-log-row">
+                  <span>Encryption layer</span>
+                  <span className="nexus-bento-log-blue">256-bit</span>
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="enterprise-proof-list enterprise-proof-list-inline">
-            {useCases.map((item) => (
-              <span key={item.title} className="enterprise-trust-pill">
-                {item.title}
-              </span>
-            ))}
+          {/* Side card */}
+          <div className="nexus-bento-side">
+            <div className="nexus-bento-side-label">Operational Health</div>
+            <div className="nexus-bento-side-title">All systems nominal across active nodes.</div>
+            <div className="nexus-bento-side-body">
+              Monitoring across deployment regions with automated alerts, anomaly detection, and audit trails.
+            </div>
+            <div className="nexus-bento-side-glow">⚙</div>
+          </div>
+          {/* Connectivity row */}
+          <div className="nexus-bento-wide">
+            <div>
+              <div className="nexus-bento-wide-title">Regional Node Connectivity</div>
+              <div className="nexus-bento-wide-body">Live infrastructure across East, West, and Southern Africa.</div>
+            </div>
+            <div className="nexus-bento-nodes">
+              <div className="nexus-bento-node">
+                <span className="nexus-bento-node-dot nexus-bento-node-dot--ping" />
+                Addis Ababa · Primary Hub
+              </div>
+              <div className="nexus-bento-node">
+                <span className="nexus-bento-node-dot nexus-bento-node-dot--blue" />
+                Nairobi · Active
+              </div>
+              <div className="nexus-bento-node">
+                <span className="nexus-bento-node-dot nexus-bento-node-dot--slate" />
+                Lagos · Standby
+              </div>
+            </div>
           </div>
         </div>
       </RevealSection>
@@ -664,6 +725,11 @@ export default function Home() {
                 </div>
                 <h3>{track.title}</h3>
                 <p>{track.description}</p>
+                <ul className="nexus-service-bullets">
+                  {track.bullets.map((b) => (
+                    <li key={b} className="nexus-service-bullet">{b}</li>
+                  ))}
+                </ul>
                 <span className="nexus-card-arrow">→</span>
               </article>
             </Link>

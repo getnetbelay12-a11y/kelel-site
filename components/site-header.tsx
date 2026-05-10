@@ -10,7 +10,7 @@ const primaryLinks = [
   { href: "/#home", label: "Home", section: "home" },
   { href: "/#what-we-do", label: "What We Do", section: "what-we-do" },
   { href: "/#industries", label: "Industries", section: "industries" },
-  { href: "/#platform", label: "Platform", section: "platform" },
+  { href: "/platform", label: "Platform", section: "platform" },
   { href: "/#company", label: "Company", section: "company" },
   { href: "/#contact", label: "Contact", section: "contact" },
 ];
