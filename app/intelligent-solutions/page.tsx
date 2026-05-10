@@ -140,6 +140,135 @@ export default function IntelligentSolutionsPage() {
         </div>
       </RevealSection>
 
+      {/* Workflow Automation Grid */}
+      <RevealSection className="stitch-section">
+        <div className="stitch-container">
+          <div className="stitch-section-header">
+            <span className="stitch-kicker">WORKFLOW ENGINE</span>
+            <h2 className="stitch-h2">End-to-end automation pipeline</h2>
+            <p className="stitch-body">
+              Every transaction, request, or signal passes through a structured
+              pipeline — validated, processed, routed, and executed without
+              manual intervention.
+            </p>
+          </div>
+
+          <div className="wf-pipeline">
+            {/* Step 1 */}
+            <div className="wf-step">
+              <div className="wf-step-icon wf-step-icon--green">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="16 16 12 12 8 16" /><line x1="12" y1="12" x2="12" y2="21" />
+                  <path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3" />
+                </svg>
+              </div>
+              <div className="wf-step-num">01</div>
+              <div className="wf-step-title">Input Data</div>
+              <div className="wf-step-body">Raw signals from APIs, files, or live feeds enter the system.</div>
+              <div className="wf-step-badge wf-step-badge--green">LIVE</div>
+            </div>
+
+            <div className="wf-arrow" aria-hidden="true" />
+
+            {/* Step 2 */}
+            <div className="wf-step">
+              <div className="wf-step-icon wf-step-icon--blue">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <div className="wf-step-num">02</div>
+              <div className="wf-step-title">Validate Schema</div>
+              <div className="wf-step-body">Rules engine enforces compliance, format, and field integrity.</div>
+              <div className="wf-step-badge wf-step-badge--blue">ENFORCED</div>
+            </div>
+
+            <div className="wf-arrow" aria-hidden="true" />
+
+            {/* Step 3 */}
+            <div className="wf-step">
+              <div className="wf-step-icon wf-step-icon--green">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+                </svg>
+              </div>
+              <div className="wf-step-num">03</div>
+              <div className="wf-step-title">Process Logic</div>
+              <div className="wf-step-body">AI engine applies business rules, transforms, and enriches data.</div>
+              <div className="wf-step-badge wf-step-badge--green">AI</div>
+            </div>
+
+            <div className="wf-arrow" aria-hidden="true" />
+
+            {/* Step 4 */}
+            <div className="wf-step">
+              <div className="wf-step-icon wf-step-icon--purple">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="12" cy="12" r="3" /><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83" />
+                </svg>
+              </div>
+              <div className="wf-step-num">04</div>
+              <div className="wf-step-title">Route Decision</div>
+              <div className="wf-step-body">Dynamic routing sends each payload to the correct downstream handler.</div>
+              <div className="wf-step-badge wf-step-badge--purple">SMART</div>
+            </div>
+
+            <div className="wf-arrow" aria-hidden="true" />
+
+            {/* Step 5 */}
+            <div className="wf-step">
+              <div className="wf-step-icon wf-step-icon--green">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <polygon points="5 3 19 12 5 21 5 3" />
+                </svg>
+              </div>
+              <div className="wf-step-num">05</div>
+              <div className="wf-step-title">Execute Action</div>
+              <div className="wf-step-body">Transactional commits, API calls, and ledger writes fire atomically.</div>
+              <div className="wf-step-badge wf-step-badge--green">ATOMIC</div>
+            </div>
+
+            <div className="wf-arrow" aria-hidden="true" />
+
+            {/* Step 6 */}
+            <div className="wf-step">
+              <div className="wf-step-icon wf-step-icon--blue">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><polyline points="14 2 14 8 20 8" /><line x1="16" y1="13" x2="8" y2="13" /><line x1="16" y1="17" x2="8" y2="17" /><polyline points="10 9 9 9 8 9" />
+                </svg>
+              </div>
+              <div className="wf-step-num">06</div>
+              <div className="wf-step-title">Generate Report</div>
+              <div className="wf-step-body">Structured output feeds dashboards, audit logs, and alerts instantly.</div>
+              <div className="wf-step-badge wf-step-badge--blue">OUTPUT</div>
+            </div>
+          </div>
+
+          {/* Pipeline stats row */}
+          <div className="wf-stats">
+            <div className="wf-stat">
+              <span className="wf-stat-val">&lt;15ms</span>
+              <span className="wf-stat-label">Pipeline latency</span>
+            </div>
+            <div className="wf-stat-sep" />
+            <div className="wf-stat">
+              <span className="wf-stat-val">99.97%</span>
+              <span className="wf-stat-label">Routing accuracy</span>
+            </div>
+            <div className="wf-stat-sep" />
+            <div className="wf-stat">
+              <span className="wf-stat-val">2.4M</span>
+              <span className="wf-stat-label">Flows / day</span>
+            </div>
+            <div className="wf-stat-sep" />
+            <div className="wf-stat">
+              <span className="wf-stat-val">Zero</span>
+              <span className="wf-stat-label">Manual steps</span>
+            </div>
+          </div>
+        </div>
+      </RevealSection>
+
       {/* Command Center */}
       <RevealSection className="stitch-section">
         <div className="stitch-container">

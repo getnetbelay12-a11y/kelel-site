@@ -273,6 +273,154 @@ export default function PlatformPage() {
         </div>
       </RevealSection>
 
+      {/* ── Node Performance Monitoring ──────────────────────────────── */}
+      <RevealSection className="stitch-section">
+        <div className="stitch-container">
+          <div className="stitch-section-header" style={{ textAlign: "center", marginBottom: "48px" }}>
+            <span className="stitch-kicker">NODE PERFORMANCE</span>
+            <h2 className="stitch-h2">Regional node efficiency monitoring</h2>
+            <p className="stitch-body">
+              Real-time health rings, latency figures, and throughput metrics
+              across every active node in the network.
+            </p>
+          </div>
+
+          <div className="npm-grid">
+            {/* Node 1 — Addis Ababa */}
+            <div className="npm-card stitch-glass">
+              <div className="npm-ring-wrap">
+                <svg viewBox="0 0 120 120" className="npm-ring-svg">
+                  <circle cx="60" cy="60" r="46" fill="none" stroke="rgba(255,255,255,0.06)" strokeWidth="9" />
+                  <circle
+                    cx="60" cy="60" r="46" fill="none"
+                    stroke="#10b981" strokeWidth="9"
+                    strokeDasharray="289.03" strokeDashoffset="0.29"
+                    strokeLinecap="round" transform="rotate(-90 60 60)"
+                  />
+                </svg>
+                <div className="npm-ring-center">
+                  <span className="npm-ring-val">99.9%</span>
+                  <span className="npm-ring-sub">HEALTH</span>
+                </div>
+              </div>
+              <div className="npm-node-id">NODE AA-01</div>
+              <div className="npm-location">Addis Ababa</div>
+              <div className="npm-status npm-status--active">ACTIVE</div>
+              <div className="npm-metrics">
+                <div className="npm-metric">
+                  <span className="npm-metric-val">42<em>ms</em></span>
+                  <span className="npm-metric-label">Latency</span>
+                </div>
+                <div className="npm-metric-sep" />
+                <div className="npm-metric">
+                  <span className="npm-metric-val">847<em>/s</em></span>
+                  <span className="npm-metric-label">Throughput</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Node 2 — Nairobi */}
+            <div className="npm-card stitch-glass">
+              <div className="npm-ring-wrap">
+                <svg viewBox="0 0 120 120" className="npm-ring-svg">
+                  <circle cx="60" cy="60" r="46" fill="none" stroke="rgba(255,255,255,0.06)" strokeWidth="9" />
+                  <circle
+                    cx="60" cy="60" r="46" fill="none"
+                    stroke="#3b82f6" strokeWidth="9"
+                    strokeDasharray="289.03" strokeDashoffset="4.62"
+                    strokeLinecap="round" transform="rotate(-90 60 60)"
+                  />
+                </svg>
+                <div className="npm-ring-center">
+                  <span className="npm-ring-val npm-ring-val--blue">98.4%</span>
+                  <span className="npm-ring-sub">HEALTH</span>
+                </div>
+              </div>
+              <div className="npm-node-id">NODE NBI-02</div>
+              <div className="npm-location">Nairobi</div>
+              <div className="npm-status npm-status--active">ACTIVE</div>
+              <div className="npm-metrics">
+                <div className="npm-metric">
+                  <span className="npm-metric-val npm-metric-val--blue">38<em>ms</em></span>
+                  <span className="npm-metric-label">Latency</span>
+                </div>
+                <div className="npm-metric-sep" />
+                <div className="npm-metric">
+                  <span className="npm-metric-val npm-metric-val--blue">612<em>/s</em></span>
+                  <span className="npm-metric-label">Throughput</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Node 3 — Lagos */}
+            <div className="npm-card stitch-glass">
+              <div className="npm-ring-wrap">
+                <svg viewBox="0 0 120 120" className="npm-ring-svg">
+                  <circle cx="60" cy="60" r="46" fill="none" stroke="rgba(255,255,255,0.06)" strokeWidth="9" />
+                  <circle
+                    cx="60" cy="60" r="46" fill="none"
+                    stroke="#8b5cf6" strokeWidth="9"
+                    strokeDasharray="289.03" strokeDashoffset="8.38"
+                    strokeLinecap="round" transform="rotate(-90 60 60)"
+                  />
+                </svg>
+                <div className="npm-ring-center">
+                  <span className="npm-ring-val npm-ring-val--purple">97.1%</span>
+                  <span className="npm-ring-sub">HEALTH</span>
+                </div>
+              </div>
+              <div className="npm-node-id">NODE LGS-03</div>
+              <div className="npm-location">Lagos</div>
+              <div className="npm-status npm-status--active">ACTIVE</div>
+              <div className="npm-metrics">
+                <div className="npm-metric">
+                  <span className="npm-metric-val npm-metric-val--purple">51<em>ms</em></span>
+                  <span className="npm-metric-label">Latency</span>
+                </div>
+                <div className="npm-metric-sep" />
+                <div className="npm-metric">
+                  <span className="npm-metric-val npm-metric-val--purple">523<em>/s</em></span>
+                  <span className="npm-metric-label">Throughput</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Node 4 — Dakar */}
+            <div className="npm-card stitch-glass">
+              <div className="npm-ring-wrap">
+                <svg viewBox="0 0 120 120" className="npm-ring-svg">
+                  <circle cx="60" cy="60" r="46" fill="none" stroke="rgba(255,255,255,0.06)" strokeWidth="9" />
+                  <circle
+                    cx="60" cy="60" r="46" fill="none"
+                    stroke="#f59e0b" strokeWidth="9"
+                    strokeDasharray="289.03" strokeDashoffset="12.14"
+                    strokeLinecap="round" transform="rotate(-90 60 60)"
+                  />
+                </svg>
+                <div className="npm-ring-center">
+                  <span className="npm-ring-val npm-ring-val--amber">95.8%</span>
+                  <span className="npm-ring-sub">HEALTH</span>
+                </div>
+              </div>
+              <div className="npm-node-id">NODE DKR-04</div>
+              <div className="npm-location">Dakar</div>
+              <div className="npm-status npm-status--sync">SYNCING</div>
+              <div className="npm-metrics">
+                <div className="npm-metric">
+                  <span className="npm-metric-val npm-metric-val--amber">67<em>ms</em></span>
+                  <span className="npm-metric-label">Latency</span>
+                </div>
+                <div className="npm-metric-sep" />
+                <div className="npm-metric">
+                  <span className="npm-metric-val npm-metric-val--amber">341<em>/s</em></span>
+                  <span className="npm-metric-label">Throughput</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </RevealSection>
+
       {/* ── Architecture Schema ───────────────────────────────────────── */}
       <RevealSection className="stitch-section stitch-arch-schema">
         <div className="stitch-container">
