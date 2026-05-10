@@ -19343,3 +19343,96 @@ body::before {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* ══════════════════════════════════════════════════════════════════
+   AFRICA MAP — Phase 6 improvements
+   ══════════════════════════════════════════════════════════════════ */
+
+/* New signal lines for line-5 (Dakar) */
+.nm-line-5 {
+  stroke: rgba(75,227,214,0.3);
+  animation: nmLineDraw 1.6s ease-out 2.3s both;
+}
+
+/* Ethiopia region label */
+.nexus-eth-label {
+  font-family: var(--font-mono), monospace;
+  font-size: 9px;
+  fill: rgba(75,227,214,0.4);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0;
+  animation: nmFadeIn 0.5s ease-out 1.5s both;
+}
+
+/* New city hub dots */
+.nm-hub-d5 {
+  fill: rgba(75,227,214,0.5);
+  opacity: 0;
+  animation: nmHubAppear 0.3s ease-out 2.4s both;
+}
+
+/* Label for Dakar */
+.nm-label-d5 {
+  font-family: monospace;
+  font-size: 10px;
+  fill: rgba(212,228,250,0.4);
+  opacity: 0;
+  animation: nmFadeIn 0.4s ease-out 3.0s both;
+  text-anchor: end;
+}
+
+/* Africa map section on homepage */
+.enterprise-africa-section .enterprise-africa-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 60px;
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  .enterprise-africa-section .enterprise-africa-wrap {
+    grid-template-columns: 1fr;
+  }
+}
+
+.enterprise-africa-stats {
+  display: flex;
+  gap: 32px;
+  margin-top: 32px;
+  flex-wrap: wrap;
+}
+
+.enterprise-africa-stats > div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.enterprise-africa-stats strong {
+  font-family: var(--font-mono), monospace;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--cyan);
+  line-height: 1;
+}
+
+.enterprise-africa-stats span {
+  font-family: var(--font-mono), monospace;
+  font-size: 10px;
+  color: var(--ink-3);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* Full-width map variant */
+.nexus-africa-map-wrap {
+  max-height: 520px !important;
+}
+
+@media (max-width: 900px) {
+  .enterprise-africa-section .nexus-africa-map-wrap {
+    display: block !important;
+    max-height: 360px !important;
+  }
+}

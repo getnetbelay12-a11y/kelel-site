@@ -1,10 +1,8 @@
 export function NexusAfricaMap() {
   return (
     <div className="nexus-africa-map-wrap" aria-hidden="true">
-      {/* Dot-grid background */}
       <div className="nexus-map-bg-grid" />
 
-      {/* Main SVG — 720×640 viewbox matches original HeroMotionVisual coordinates */}
       <svg
         className="nexus-map-svg"
         viewBox="0 0 720 640"
@@ -12,141 +10,164 @@ export function NexusAfricaMap() {
         role="presentation"
       >
         <defs>
-          {/* Ethiopia glow */}
           <radialGradient id="nmEthGlow" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="#4edea3" stopOpacity="0.45" />
-            <stop offset="100%" stopColor="#4edea3" stopOpacity="0" />
+            <stop offset="0%"   stopColor="#4be3d6" stopOpacity="0.55" />
+            <stop offset="100%" stopColor="#4be3d6" stopOpacity="0" />
           </radialGradient>
-          {/* Hub glow filter */}
-          <filter id="nmHubGlow" x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur stdDeviation="4" result="blur" />
+          <radialGradient id="nmHubMainGlow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%"   stopColor="#4be3d6" stopOpacity="0.8" />
+            <stop offset="100%" stopColor="#4be3d6" stopOpacity="0" />
+          </radialGradient>
+          <filter id="nmHubGlow" x="-80%" y="-80%" width="260%" height="260%">
+            <feGaussianBlur stdDeviation="5" result="blur" />
             <feMerge>
               <feMergeNode in="blur" />
               <feMergeNode in="SourceGraphic" />
             </feMerge>
           </filter>
-          {/* Scan gradient */}
+          <filter id="nmPacketGlow" x="-100%" y="-100%" width="300%" height="300%">
+            <feGaussianBlur stdDeviation="2.5" result="blur" />
+            <feMerge>
+              <feMergeNode in="blur" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+          <linearGradient id="nmLineGradCyan" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%"   stopColor="#4be3d6" stopOpacity="0.9" />
+            <stop offset="100%" stopColor="#4be3d6" stopOpacity="0.25" />
+          </linearGradient>
+          <linearGradient id="nmLineGradAmber" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%"   stopColor="#f0a868" stopOpacity="0.9" />
+            <stop offset="100%" stopColor="#f0a868" stopOpacity="0.25" />
+          </linearGradient>
           <linearGradient id="nmScanGrad" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stopColor="#4edea3" stopOpacity="0" />
-            <stop offset="30%" stopColor="#4edea3" stopOpacity="0.6" />
-            <stop offset="70%" stopColor="#4edea3" stopOpacity="0.6" />
-            <stop offset="100%" stopColor="#4edea3" stopOpacity="0" />
+            <stop offset="0%"   stopColor="#4be3d6" stopOpacity="0" />
+            <stop offset="30%"  stopColor="#4be3d6" stopOpacity="0.55" />
+            <stop offset="70%"  stopColor="#4be3d6" stopOpacity="0.55" />
+            <stop offset="100%" stopColor="#4be3d6" stopOpacity="0" />
           </linearGradient>
-          {/* Signal line gradient */}
-          <linearGradient id="nmLineGrad" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stopColor="#4edea3" stopOpacity="0.8" />
-            <stop offset="100%" stopColor="#adc6ff" stopOpacity="0.4" />
-          </linearGradient>
+          {/* Clip to Africa continent */}
+          <clipPath id="africaClip">
+            <path d="M268,82 C330,72 380,72 440,82 L495,100 L525,148 L540,198 L555,252 L545,292 L520,340 C505,368 490,400 470,440 C455,468 440,500 420,516 C405,530 385,550 368,565 C352,572 335,570 320,558 C295,538 278,505 265,465 C252,425 242,388 248,345 C252,320 258,308 268,305 L275,298 L258,292 L228,298 C215,288 208,278 208,268 C210,250 215,240 225,245 C235,225 248,205 255,188 C260,158 265,130 268,110 Z" />
+          </clipPath>
         </defs>
 
-        {/* ── Africa continent ── */}
+        {/* ── Lat / lon grid ── */}
+        {[148, 225, 298, 375, 452].map(y => (
+          <line key={`gy${y}`} className="nexus-grid-line" x1="185" y1={y} x2="575" y2={y} />
+        ))}
+        {[268, 358, 424, 495, 545].map(x => (
+          <line key={`gx${x}`} className="nexus-grid-line" x1={x} y1="65" x2={x} y2="585" />
+        ))}
+
+        {/* ── Africa continent fill ── */}
         <path
           className="nexus-africa-bg"
-          d="M335 42l77 49 33 74 48 35 14 64-36 44 16 65-38 53-18 101-62 55-29 77-55 22-37-44-44-23-33-72-59-35-20-72 29-62-30-54 40-76 51-33 40-93 113-55z"
+          d="M268,82 C330,72 380,72 440,82 L495,100 L525,148 L540,198 L555,252 L545,292 L520,340 C505,368 490,400 470,440 C455,468 440,500 420,516 C405,530 385,550 368,565 C352,572 335,570 320,558 C295,538 278,505 265,465 C252,425 242,388 248,345 C252,320 258,308 268,305 L275,298 L258,292 L228,298 C215,288 208,278 208,268 C210,250 215,240 225,245 C235,225 248,205 255,188 C260,158 265,130 268,110 Z"
         />
+
+        {/* ── Africa continent outline ── */}
         <path
           className="nexus-africa-outline"
-          d="M335 42l77 49 33 74 48 35 14 64-36 44 16 65-38 53-18 101-62 55-29 77-55 22-37-44-44-23-33-72-59-35-20-72 29-62-30-54 40-76 51-33 40-93 113-55z"
+          d="M268,82 C330,72 380,72 440,82 L495,100 L525,148 L540,198 L555,252 L545,292 L520,340 C505,368 490,400 470,440 C455,468 440,500 420,516 C405,530 385,550 368,565 C352,572 335,570 320,558 C295,538 278,505 265,465 C252,425 242,388 248,345 C252,320 258,308 268,305 L275,298 L258,292 L228,298 C215,288 208,278 208,268 C210,250 215,240 225,245 C235,225 248,205 255,188 C260,158 265,130 268,110 Z"
         />
 
         {/* ── Ethiopia glow halo ── */}
-        <ellipse
-          cx="424" cy="278" rx="52" ry="44"
-          fill="url(#nmEthGlow)"
-          className="nexus-eth-halo"
-        />
+        <ellipse cx="428" cy="290" rx="56" ry="46" fill="url(#nmEthGlow)" className="nexus-eth-halo" />
 
-        {/* ── Ethiopia fill ── */}
+        {/* ── Ethiopia highlighted region (improved shape) ── */}
         <path
           className="nexus-ethiopia"
-          d="M407 246l20 10 10 20-4 26-22 16-24-8-9-24 8-22 21-18z"
+          d="M406,255 L425,250 L450,258 L462,272 L460,288 L454,308 L444,322 L428,326 L413,320 L400,308 L396,292 L400,272 Z"
         />
 
-        {/* ── Signal / connection paths ── */}
-        {/* Addis → East Africa */}
-        <path className="nexus-signal nm-line-0" d="M424 298C462 280 500 268 538 254" />
+        {/* ── Addis Ababa label in Ethiopia ── */}
+        <text className="nexus-eth-label" x="386" y="345">ETHIOPIA</text>
+
+        {/* ── Signal / connection paths from Addis ── */}
+        {/* Addis → Djibouti / Horn */}
+        <path className="nexus-signal nm-line-0" d="M424,298 C465,278 505,268 545,255" />
         {/* Addis → Cairo */}
-        <path className="nexus-signal nm-line-1" d="M424 298C445 255 458 218 468 178" />
+        <path className="nexus-signal nm-line-1" d="M424,298 C448,248 468,205 492,118" />
         {/* Addis → Lagos */}
-        <path className="nexus-signal nm-line-2" d="M424 298C388 292 326 289 278 292" />
+        <path className="nexus-signal nm-line-2" d="M424,298 C385,295 330,300 272,305" />
         {/* Addis → Nairobi */}
-        <path className="nexus-signal nm-line-3" d="M424 298C441 332 446 348 454 366" />
+        <path className="nexus-signal nm-line-3" d="M424,298 C436,320 444,338 452,355" />
         {/* Addis → Johannesburg */}
-        <path className="nexus-signal nm-line-4" d="M424 298C410 396 390 470 372 522" />
+        <path className="nexus-signal nm-line-4" d="M424,298 C410,390 394,465 378,535" />
+        {/* Addis → Dakar */}
+        <path className="nexus-signal nm-line-5" d="M424,298 C355,278 285,262 215,248" />
 
         {/* ── Traveling data packets ── */}
-        <circle className="nexus-packet nm-packet-0" r="3">
-          <animateMotion dur="3s" repeatCount="indefinite" begin="2.2s"
-            path="M424 298C462 280 500 268 538 254" />
+        <circle className="nexus-packet nm-packet-cyan" r="3" filter="url(#nmPacketGlow)">
+          <animateMotion dur="2.8s" repeatCount="indefinite" begin="2.2s"
+            path="M424,298 C465,278 505,268 545,255" />
         </circle>
-        <circle className="nexus-packet nm-packet-1" r="3">
-          <animateMotion dur="4s" repeatCount="indefinite" begin="2.8s"
-            path="M424 298C445 255 458 218 468 178" />
+        <circle className="nexus-packet nm-packet-amber" r="2.5" filter="url(#nmPacketGlow)">
+          <animateMotion dur="3.8s" repeatCount="indefinite" begin="2.6s"
+            path="M424,298 C448,248 468,205 492,118" />
         </circle>
-        <circle className="nexus-packet nm-packet-2" r="3">
-          <animateMotion dur="3.5s" repeatCount="indefinite" begin="3.4s"
-            path="M424 298C388 292 326 289 278 292" />
+        <circle className="nexus-packet nm-packet-amber" r="2.5" filter="url(#nmPacketGlow)">
+          <animateMotion dur="3.2s" repeatCount="indefinite" begin="3.1s"
+            path="M424,298 C385,295 330,300 272,305" />
         </circle>
-        <circle className="nexus-packet nm-packet-3" r="3">
-          <animateMotion dur="2.8s" repeatCount="indefinite" begin="2.6s"
-            path="M424 298C441 332 446 348 454 366" />
+        <circle className="nexus-packet nm-packet-cyan" r="2.5" filter="url(#nmPacketGlow)">
+          <animateMotion dur="2.4s" repeatCount="indefinite" begin="2.5s"
+            path="M424,298 C436,320 444,338 452,355" />
         </circle>
-        <circle className="nexus-packet nm-packet-4" r="3">
-          <animateMotion dur="5s" repeatCount="indefinite" begin="3.8s"
-            path="M424 298C410 396 390 470 372 522" />
+        <circle className="nexus-packet nm-packet-amber" r="2.5" filter="url(#nmPacketGlow)">
+          <animateMotion dur="4.8s" repeatCount="indefinite" begin="3.6s"
+            path="M424,298 C410,390 394,465 378,535" />
+        </circle>
+        <circle className="nexus-packet nm-packet-cyan" r="2.5" filter="url(#nmPacketGlow)">
+          <animateMotion dur="4.2s" repeatCount="indefinite" begin="3.9s"
+            path="M424,298 C355,278 285,262 215,248" />
         </circle>
 
-        {/* ── Hub pulse rings (Addis Ababa) ── */}
+        {/* ── Addis Ababa hub pulse rings ── */}
         <circle className="nexus-hub-ring nm-ring-0" cx="424" cy="298" r="14" />
-        <circle className="nexus-hub-ring nm-ring-1" cx="424" cy="298" r="28" />
-        <circle className="nexus-hub-ring nm-ring-2" cx="424" cy="298" r="46" />
+        <circle className="nexus-hub-ring nm-ring-1" cx="424" cy="298" r="30" />
+        <circle className="nexus-hub-ring nm-ring-2" cx="424" cy="298" r="50" />
 
         {/* ── City hub dots ── */}
-        <circle className="nexus-hub-dot nexus-hub-main" cx="424" cy="298" r="7"
-          filter="url(#nmHubGlow)" />
-        <circle className="nexus-hub-dot nm-hub-d0" cx="538" cy="254" r="4" />
-        <circle className="nexus-hub-dot nm-hub-d1" cx="468" cy="178" r="4" />
-        <circle className="nexus-hub-dot nm-hub-d2" cx="278" cy="292" r="4" />
-        <circle className="nexus-hub-dot nm-hub-d3" cx="454" cy="366" r="4" />
-        <circle className="nexus-hub-dot nm-hub-d4" cx="372" cy="522" r="4" />
+        {/* Addis Ababa — main hub */}
+        <circle cx="424" cy="298" r="10" fill="url(#nmHubMainGlow)" opacity="0.6" className="nexus-eth-halo" />
+        <circle className="nexus-hub-dot nexus-hub-main" cx="424" cy="298" r="6" filter="url(#nmHubGlow)" />
+
+        {/* Secondary hubs */}
+        <circle className="nexus-hub-dot nm-hub-d0" cx="545" cy="255" r="4" />  {/* Djibouti */}
+        <circle className="nexus-hub-dot nm-hub-d1" cx="492" cy="118" r="4" />  {/* Cairo */}
+        <circle className="nexus-hub-dot nm-hub-d2" cx="272" cy="305" r="4" />  {/* Lagos */}
+        <circle className="nexus-hub-dot nm-hub-d3" cx="452" cy="355" r="4" />  {/* Nairobi */}
+        <circle className="nexus-hub-dot nm-hub-d4" cx="378" cy="535" r="4" />  {/* Johannesburg */}
+        <circle className="nexus-hub-dot nm-hub-d5" cx="215" cy="248" r="3.5" /> {/* Dakar */}
 
         {/* ── City labels ── */}
-        <text className="nexus-city-label nexus-city-main" x="436" y="293">Addis Ababa</text>
-        <text className="nexus-city-label nm-label-d0" x="548" y="252">Djibouti</text>
-        <text className="nexus-city-label nm-label-d1" x="474" y="173">Cairo</text>
-        <text className="nexus-city-label nm-label-d2" x="244" y="290">Lagos</text>
-        <text className="nexus-city-label nm-label-d3" x="462" y="370">Nairobi</text>
-        <text className="nexus-city-label nm-label-d4" x="378" y="538">Johannesburg</text>
+        <text className="nexus-city-label nexus-city-main" x="434" y="294">Addis Ababa</text>
+        <text className="nexus-city-label nm-label-d0" x="552" y="253">Djibouti</text>
+        <text className="nexus-city-label nm-label-d1" x="498" y="113">Cairo</text>
+        <text className="nexus-city-label nm-label-d2" x="236" y="303">Lagos</text>
+        <text className="nexus-city-label nm-label-d3" x="460" y="353">Nairobi</text>
+        <text className="nexus-city-label nm-label-d4" x="386" y="533">Johannesburg</text>
+        <text className="nexus-city-label nm-label-d5" x="182" y="246">Dakar</text>
 
         {/* ── Horizontal scan line ── */}
-        <rect
-          className="nexus-scan-line-rect"
-          x="190" y="0" width="360" height="1.5"
-          fill="url(#nmScanGrad)"
-        />
-
-        {/* ── Lat/lon grid hints ── */}
-        <line className="nexus-grid-line" x1="190" y1="178" x2="560" y2="178" />
-        <line className="nexus-grid-line" x1="190" y1="298" x2="560" y2="298" />
-        <line className="nexus-grid-line" x1="190" y1="420" x2="560" y2="420" />
-        <line className="nexus-grid-line" x1="310" y1="50" x2="310" y2="570" />
-        <line className="nexus-grid-line" x1="424" y1="50" x2="424" y2="570" />
-        <line className="nexus-grid-line" x1="540" y1="50" x2="540" y2="570" />
+        <rect className="nexus-scan-line-rect" x="185" y="0" width="390" height="1.5" fill="url(#nmScanGrad)" />
       </svg>
 
-      {/* ── Status badges overlaid on the map ── */}
+      {/* ── Status badges ── */}
       <div className="nexus-map-badge nexus-map-badge-system">
         <i className="nexus-map-live-dot" />
         <span>All Systems Live</span>
       </div>
 
       <div className="nexus-map-badge nexus-map-badge-nodes">
-        <span className="nexus-map-badge-val">1,248</span>
+        <span className="nexus-map-badge-val">12</span>
         <span className="nexus-map-badge-lbl">Active Nodes</span>
       </div>
 
       <div className="nexus-map-badge nexus-map-badge-latency">
-        <span className="nexus-map-badge-val">12ms</span>
+        <span className="nexus-map-badge-val">&lt;45ms</span>
         <span className="nexus-map-badge-lbl">Avg Latency</span>
       </div>
 

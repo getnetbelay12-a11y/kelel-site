@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import { RevealSection } from "@/components/reveal-section";
+import { NexusAfricaMap } from "@/components/nexus-africa-map";
 import { site } from "@/lib/site-content";
 
 const ContactForm = dynamic(
@@ -424,16 +425,28 @@ export default function Home() {
         </div>
       </div>
 
-      <RevealSection as="section" className="enterprise-section enterprise-company-summary">
-        <div className="enterprise-section-heading">
-          <span className="enterprise-kicker">Our Company</span>
-          <h2>Built in Addis Ababa.<br />Deployed across Africa.</h2>
-          <p>Kelel IT Solution delivers production-grade systems for banks, insurers, and enterprise operations teams.</p>
-        </div>
-        <div className="enterprise-company-summary-card">
-          {companySummary.map((item) => (
-            <p key={item}>{item}</p>
-          ))}
+      <RevealSection as="section" className="enterprise-section enterprise-africa-section">
+        <div className="enterprise-africa-wrap">
+          <div className="enterprise-section-heading">
+            <span className="enterprise-kicker">Our Reach</span>
+            <h2>Built in Ethiopia.<br />Connected across Africa.</h2>
+            <p>Kelel operates from Addis Ababa with infrastructure reaching financial and enterprise teams across the continent.</p>
+            <div className="enterprise-africa-stats">
+              <div>
+                <strong>12</strong>
+                <span>Active nodes</span>
+              </div>
+              <div>
+                <strong>5+</strong>
+                <span>Markets served</span>
+              </div>
+              <div>
+                <strong>99.9%</strong>
+                <span>Network uptime</span>
+              </div>
+            </div>
+          </div>
+          <NexusAfricaMap />
         </div>
       </RevealSection>
 
