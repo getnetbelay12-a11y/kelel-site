@@ -20953,3 +20953,70 @@ body::before {
     padding: 20px;
   }
 }
+
+/* ── Industry detail page ─────────────────────────────────── */
+.ind-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.ind-detail-card {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+
+.ind-detail-num {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--cyan);
+  flex-shrink: 0;
+  padding-top: 2px;
+}
+
+.ind-detail-card--solution {
+  border-color: rgba(75,227,214,0.15);
+}
+
+.ind-detail-check {
+  color: var(--cyan);
+  font-size: 14px;
+  flex-shrink: 0;
+  padding-top: 2px;
+}
+
+.ind-outcomes-split {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 48px;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .ind-outcomes-split { grid-template-columns: 1fr; }
+}
+
+.ind-outcomes-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ind-outcome {
+  padding: 20px 24px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+
+.ind-outcome-title {
+  font-family: var(--font-serif);
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--ink-4);
+  margin: 0 0 8px;
+}
