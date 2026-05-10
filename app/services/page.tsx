@@ -18,16 +18,16 @@ const serviceIcons = [
 
 const iconColors = ["--green", "--blue", "--purple", "--amber"] as const;
 const colorMap: Record<string, string> = {
-  "--green":  "rgba(16,185,129,",
+  "--green":  "rgba(75,227,214,",
   "--blue":   "rgba(59,130,246,",
   "--purple": "rgba(139,92,246,",
-  "--amber":  "rgba(245,158,11,",
+  "--amber":  "rgba(240,168,104,",
 };
 const strokeMap: Record<string, string> = {
-  "--green":  "#10b981",
+  "--green":  "#4be3d6",
   "--blue":   "#3b82f6",
   "--purple": "#8b5cf6",
-  "--amber":  "#f59e0b",
+  "--amber":  "#f0a868",
 };
 
 export default function ServicesPage() {

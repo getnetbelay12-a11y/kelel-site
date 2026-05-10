@@ -378,7 +378,7 @@ export default function PlatformPage() {
       {/* ── Architecture Schema ───────────────────────────────────────── */}
       <RevealSection className="stitch-section stitch-arch-schema">
         <div className="stitch-container">
-          <h2 style={{ textAlign: "center", marginBottom: "56px" }}>
+          <h2 className="stitch-h2" style={{ textAlign: "center", marginBottom: "56px" }}>
             System Architecture Schema
           </h2>
 

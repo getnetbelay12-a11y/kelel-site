@@ -19307,13 +19307,19 @@ body::before {
 /* ── Kicker text: gradient shimmer sweep ────────────────────────── */
 
 .stitch-kicker {
-  background: linear-gradient(90deg, var(--ink-3) 30%, var(--cyan) 50%, var(--ink-3) 70%) !important;
-  background-size: 200% auto !important;
-  -webkit-background-clip: text !important;
-  background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
-  color: transparent !important;
-  animation: shimmer-sweep 5s linear infinite;
+  color: var(--ink-3);
+}
+
+@supports (-webkit-background-clip: text) or (background-clip: text) {
+  .stitch-kicker {
+    background: linear-gradient(90deg, var(--ink-3) 30%, var(--cyan) 50%, var(--ink-3) 70%) !important;
+    background-size: 200% auto !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    color: transparent !important;
+    animation: shimmer-sweep 5s linear infinite;
+  }
 }
 
 /* ── Platform screen: scan line ─────────────────────────────────── */

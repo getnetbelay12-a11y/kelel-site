@@ -316,7 +316,7 @@ function HeroDashboard() {
           <div className="hdash-ring-wrap">
             <svg viewBox="0 0 120 120" className="hdash-ring-svg">
               <circle cx="60" cy="60" r="46" fill="none" stroke="rgba(255,255,255,0.07)" strokeWidth="9"/>
-              <circle cx="60" cy="60" r="46" fill="none" stroke="#10b981" strokeWidth="9"
+              <circle cx="60" cy="60" r="46" fill="none" className="npm-ring-fill--cyan" strokeWidth="9"
                 strokeDasharray="289.03" strokeDashoffset="0.29"
                 strokeLinecap="round" transform="rotate(-90 60 60)"/>
             </svg>
@@ -517,13 +517,17 @@ export default function Home() {
             </div>
             <div className="hp-topo-connector"/>
             <div className="hp-topo-node">
-              <div className="hp-topo-icon">📊</div>
+              <div className="hp-topo-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><path d="M3 3h18v18H3z"/><path d="M3 9h18M9 9v9M15 9v9"/></svg>
+              </div>
               <span>Reporting</span>
               <span className="hp-topo-status hp-topo-status--on">ON</span>
             </div>
             <div className="hp-topo-connector"/>
             <div className="hp-topo-node">
-              <div className="hp-topo-icon hp-topo-icon--blue">🤖</div>
+              <div className="hp-topo-icon hp-topo-icon--blue">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="12" cy="5" r="2"/><path d="M12 7v4M8 15h.01M12 15h.01M16 15h.01"/></svg>
+              </div>
               <span>AI Engine</span>
               <span className="hp-topo-status hp-topo-status--pulse">LIVE</span>
             </div>
