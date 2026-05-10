@@ -14,7 +14,8 @@ export function RevealSection<T extends ElementType = "section">({
   children,
   ...props
 }: RevealSectionProps<T>) {
-  const Component = (as || "section") as ElementType;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const Component = (as || "section") as any;
   const ref = useRef<HTMLElement | null>(null);
   const [isVisible, setIsVisible] = useState(false);
 

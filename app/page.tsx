@@ -3,6 +3,7 @@ import dynamic from "next/dynamic";
 import Link from "next/link";
 import { RevealSection } from "@/components/reveal-section";
 import { NexusAfricaMap } from "@/components/nexus-africa-map";
+import { HomepageHero } from "@/components/homepage-hero";
 import { site } from "@/lib/site-content";
 
 const ContactForm = dynamic(
@@ -382,39 +383,7 @@ function HeroDashboard() {
 export default function Home() {
   return (
     <main className="enterprise-homepage">
-      <RevealSection as="section" id="home" className="enterprise-hero">
-        {/* Ambient floating particle nodes */}
-        <div className="nexus-hero-particles" aria-hidden="true">
-          {Array.from({ length: 12 }, (_, i) => (
-            <span key={i} className={`nhp-node nhp-${i}`} />
-          ))}
-        </div>
-
-        <div className="enterprise-hero-wrap">
-          <div className="enterprise-hero-copy">
-            <div className="enterprise-hero-headingline">
-              <span className="enterprise-kicker"><i className="nexus-live-dot" />Enterprise · Addis Ababa</span>
-              <h1>Enterprise systems<br />built for <em>Africa.</em></h1>
-              <h2>Digital infrastructure and intelligent platforms for banking, insurance, and operations</h2>
-            </div>
-            <p>Secure, scalable platforms purpose-built for African financial operations and enterprise teams.</p>
-            <p className="enterprise-tech-line">Powered by data, automation, and AI-driven insights.</p>
-            <div className="enterprise-actions">
-              <Link href="/#contact" className="primary-link">
-                Start a Project
-              </Link>
-              <Link href={site.calendlyPlaceholder} className="secondary-link">
-                Book a Call
-              </Link>
-            </div>
-            <p className="enterprise-hero-note">Designed and built by teams operating across Africa.</p>
-          </div>
-
-          <div className="enterprise-hero-right">
-            <HeroDashboard />
-          </div>
-        </div>
-      </RevealSection>
+      <HomepageHero />
 
       {/* Capability trust strip */}
       <div className="nexus-trust-strip" aria-hidden="true">
