@@ -1,34 +1,25 @@
 import Link from 'next/link'
 import { site } from '@/lib/site-content'
-import { GlobeLoader } from '@/components/globe-loader'
+import { AiMotionStage } from '@/components/ai-motion-stage'
 
 export function HomepageHero() {
   return (
     <section className="site-hero" id="home">
+      <div className="site-hero-motion">
+        <AiMotionStage />
+      </div>
       <div className="site-hero-inner">
-        {/* Left column */}
-        <div className="site-hero-copy">
+        <div className="site-hero-copy site-hero-copy--center">
           <div className="site-eyebrow">
             <span className="site-eyebrow-dot" />
             Engineered in Addis · Built for Africa
           </div>
 
           <h1 className="site-hero-h1">
-            Infrastructure built for <em>African</em> operations.
+            <span>Infrastructure</span>
+            <span>built for <em>African</em></span>
+            <span>operations.</span>
           </h1>
-
-          <p className="site-hero-sub">
-            Secure, scalable platforms for banking, insurance, and enterprise teams — purpose-built for the realities of African operations.
-          </p>
-
-          <div className="site-hero-actions">
-            <Link href="/#contact" className="site-hero-btn-primary btn-magnetic">
-              Start a project →
-            </Link>
-            <Link href={site.calendlyPlaceholder} className="site-hero-btn-ghost">
-              Book a call
-            </Link>
-          </div>
 
           <div className="site-hero-meta">
             <div className="site-hero-meta-item">
@@ -50,10 +41,21 @@ export function HomepageHero() {
           </div>
         </div>
 
-        {/* Right column — 3D globe */}
-        <div className="site-hero-right">
-          <GlobeLoader />
-        </div>
+      </div>
+      <div className="site-hero-corner-copy">
+        <span className="site-hero-corner-kicker">Operational focus</span>
+        <p>
+          Secure, scalable platforms for banking, insurance, and enterprise teams —
+          purpose-built for the realities of African operations.
+        </p>
+      </div>
+      <div className="site-hero-corner-actions">
+        <Link href="/#contact" className="site-hero-btn-primary btn-magnetic">
+          Start a project →
+        </Link>
+        <Link href={site.calendlyPlaceholder} className="site-hero-btn-ghost">
+          Book a call
+        </Link>
       </div>
     </section>
   )

@@ -119,10 +119,10 @@ function TransactionsScreen() {
 
 function NodesScreen() {
   const nodes = [
-    { id: "AA-01", city: "Addis Ababa", health: 99.9, latency: 42,  tput: 847, color: "var(--cyan)",  offset: 0.29  },
-    { id: "NBI-02",city: "Nairobi",     health: 98.4, latency: 38,  tput: 612, color: "#3b82f6",      offset: 4.62  },
-    { id: "LGS-03",city: "Lagos",       health: 97.1, latency: 51,  tput: 523, color: "#8b5cf6",      offset: 8.38  },
-    { id: "DKR-04",city: "Dakar",       health: 95.8, latency: 67,  tput: 341, color: "var(--amber)", offset: 12.14 },
+    { id: "AA-01", city: "Addis Ababa", health: 99.9, latency: 42,  tput: 847, color: "var(--cyan)" },
+    { id: "NBI-02",city: "Nairobi",     health: 98.4, latency: 38,  tput: 612, color: "#3b82f6" },
+    { id: "LGS-03",city: "Lagos",       health: 97.1, latency: 51,  tput: 523, color: "#8b5cf6" },
+    { id: "DKR-04",city: "Dakar",       health: 95.8, latency: 67,  tput: 341, color: "var(--amber)" },
   ];
 
   return (
@@ -134,7 +134,7 @@ function NodesScreen() {
       <circle cx="52" cy="16" r="5" fill="rgba(255,255,255,0.12)" />
       <text x="340" y="21" textAnchor="middle" fontSize="10" fill="rgba(255,255,255,0.25)" fontFamily="monospace">KELEL — REGIONAL NODE MONITOR</text>
 
-      {nodes.map(({ id, city, health, latency, tput, color, offset }, i) => {
+      {nodes.map(({ id, city, health, latency, tput, color }, i) => {
         const x = 20 + i * 163;
         const cx2 = x + 72;
         const cy2 = 180;

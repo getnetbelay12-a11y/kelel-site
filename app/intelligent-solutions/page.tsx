@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { RevealSection } from "@/components/reveal-section";
 import { CtaBand } from "@/components/cta-band";
+import { PageVisualStage } from "@/components/page-visual-stage";
 
 export const metadata: Metadata = {
   title: "Intelligent Solutions | Kelel IT Solution",
@@ -54,7 +55,7 @@ export default function IntelligentSolutionsPage() {
           </div>
           <div className="page-hero-grid">
             <div>
-              <div className="site-eyebrow" style={{ marginBottom: "24px" }}>
+              <div className="site-eyebrow page-eyebrow-spaced">
                 <span className="site-eyebrow-dot" />
                 AI &amp; Intelligent Systems
               </div>
@@ -66,7 +67,7 @@ export default function IntelligentSolutionsPage() {
                 directly into the platforms African enterprises rely on — every decision faster,
                 smarter, and backed by data.
               </p>
-              <div style={{ display: "flex", gap: "12px", marginTop: "32px", flexWrap: "wrap" }}>
+              <div className="page-hero-actions">
                 <Link href="/contact" className="site-hero-btn-primary btn-magnetic">
                   Deploy intelligence →
                 </Link>
@@ -75,21 +76,29 @@ export default function IntelligentSolutionsPage() {
                 </Link>
               </div>
             </div>
-            <div className="page-meta">
-              <div className="page-meta-row"><span>AI layer</span><span>Embedded · Not bolted on</span></div>
-              <div className="page-meta-row"><span>Pipeline latency</span><span>&lt; 15ms</span></div>
-              <div className="page-meta-row"><span>Routing accuracy</span><span>99.97%</span></div>
-              <div className="page-meta-row"><span>Flows / day</span><span>2.4M (illustrative)</span></div>
-              <div className="page-meta-row"><span>Manual steps</span><span>Zero</span></div>
+            <div className="ai-hero-stack">
+              <PageVisualStage
+                className="page-visual-stage--ai"
+                badge="AI engine live"
+                cardKicker="Decision routing"
+                cardTitle="99.97% accuracy"
+              />
+              <div className="page-meta">
+                <div className="page-meta-row"><span>AI layer</span><span>Embedded · Not bolted on</span></div>
+                <div className="page-meta-row"><span>Pipeline latency</span><span>&lt; 15ms</span></div>
+                <div className="page-meta-row"><span>Routing accuracy</span><span>99.97%</span></div>
+                <div className="page-meta-row"><span>Flows / day</span><span>2.4M (illustrative)</span></div>
+                <div className="page-meta-row"><span>Manual steps</span><span>Zero</span></div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Bento viz strip */}
-      <RevealSection className="stitch-section" style={{ paddingTop: "60px" }}>
+      <RevealSection className="stitch-section section-tight-top">
         <div className="stitch-container">
-          <div className="stitch-bento-2x2" style={{ maxWidth: "640px" }}>
+          <div className="stitch-bento-2x2 stitch-bento-compact">
             <div className="stitch-glass stitch-bento-tall">
               <div className="stitch-bento-label">Realtime Flow</div>
               <div className="stitch-bar-chart">
@@ -107,7 +116,7 @@ export default function IntelligentSolutionsPage() {
               <div className="stitch-bento-label">Active Nodes</div>
               <div className="stitch-bento-stat">1,248</div>
               <div className="stitch-progress-track">
-                <div className="stitch-progress-fill" style={{ width: "82%" }} />
+                <div className="stitch-progress-fill stitch-progress-fill--strong" />
               </div>
               <div className="stitch-bento-sub">82% capacity</div>
             </div>
@@ -119,7 +128,7 @@ export default function IntelligentSolutionsPage() {
       <RevealSection className="stitch-section">
         <div className="stitch-container">
           <div className="hp-section-label">Core Capabilities</div>
-          <h2 className="hp-section-title" style={{ marginBottom: "40px" }}>
+          <h2 className="hp-section-title section-title-gap-lg">
             What intelligent systems do <em>for your operations.</em>
           </h2>
           <div className="stitch-caps-grid">
@@ -153,7 +162,7 @@ export default function IntelligentSolutionsPage() {
       <RevealSection className="stitch-section">
         <div className="stitch-container">
           <div className="hp-section-label">Workflow Engine</div>
-          <h2 className="hp-section-title" style={{ marginBottom: "16px" }}>
+          <h2 className="hp-section-title section-title-gap-sm">
             End-to-end <em>automation pipeline.</em>
           </h2>
           <p className="hp-section-intro">
@@ -281,7 +290,7 @@ export default function IntelligentSolutionsPage() {
       <RevealSection className="stitch-section">
         <div className="stitch-container">
           <div className="hp-section-label">Command Center</div>
-          <h2 className="hp-section-title" style={{ marginBottom: "16px" }}>
+          <h2 className="hp-section-title section-title-gap-sm">
             One console. <em>Full operational visibility.</em>
           </h2>
           <p className="hp-section-intro">

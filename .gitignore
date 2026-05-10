@@ -34,3 +34,9 @@ tmp/
 .claude/
 tsconfig.tsbuildinfo
 .vercel
+.playwright-mcp/
+.tmp-screens/
+hero-v2-full.png
+hero-v2-screenshot.png
+homepage-full-v2.png
+homepage-sections-visible.png

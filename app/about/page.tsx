@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { RevealSection } from "@/components/reveal-section";
 import { CtaBand } from "@/components/cta-band";
+import { PageVisualStage } from "@/components/page-visual-stage";
 import { strengths, readinessSignals, site } from "@/lib/site-content";
 
 export const metadata: Metadata = {
@@ -42,7 +43,7 @@ export default function AboutPage() {
           </div>
           <div className="page-hero-grid">
             <div>
-              <div className="site-eyebrow" style={{ marginBottom: "24px" }}>
+              <div className="site-eyebrow page-eyebrow-spaced">
                 <span className="site-eyebrow-dot" />
                 Addis Ababa · Ethiopian-built · African-scaled
               </div>
@@ -55,21 +56,30 @@ export default function AboutPage() {
                 built in Ethiopia with the operational realities of Africa in mind.
               </p>
             </div>
-            <div className="page-meta">
-              <div className="page-meta-row">
-                <span>Founded</span><span>Addis Ababa, Ethiopia</span>
-              </div>
-              <div className="page-meta-row">
-                <span>Focus</span><span>Financial &amp; Enterprise Systems</span>
-              </div>
-              <div className="page-meta-row">
-                <span>Reach</span><span>5+ African markets</span>
-              </div>
-              <div className="page-meta-row">
-                <span>Delivery model</span><span>4-phase · Accountable</span>
-              </div>
-              <div className="page-meta-row">
-                <span>Leadership contact</span><span>Public · Direct</span>
+            <div className="page-hero-stack">
+              <PageVisualStage
+                className="page-visual-stage--about"
+                badge="Ethiopian-built"
+                badgeWithPulse
+                cardKicker="Operating model"
+                cardTitle="Africa-rooted delivery"
+              />
+              <div className="page-meta">
+                <div className="page-meta-row">
+                  <span>Founded</span><span>Addis Ababa, Ethiopia</span>
+                </div>
+                <div className="page-meta-row">
+                  <span>Focus</span><span>Financial &amp; Enterprise Systems</span>
+                </div>
+                <div className="page-meta-row">
+                  <span>Reach</span><span>5+ African markets</span>
+                </div>
+                <div className="page-meta-row">
+                  <span>Delivery model</span><span>4-phase · Accountable</span>
+                </div>
+                <div className="page-meta-row">
+                  <span>Leadership contact</span><span>Public · Direct</span>
+                </div>
               </div>
             </div>
           </div>
@@ -80,7 +90,7 @@ export default function AboutPage() {
       <RevealSection className="stitch-section">
         <div className="stitch-container">
           <div className="hp-section-label">What We Stand For</div>
-          <h2 className="hp-section-title" style={{ marginBottom: "48px" }}>
+          <h2 className="hp-section-title section-title-gap-xl">
             A few things we <em>refuse to compromise on.</em>
           </h2>
           <div className="abt-principles">
@@ -89,7 +99,7 @@ export default function AboutPage() {
                 <div className="abt-principle-num">{p.num}</div>
                 <div>
                   <h3 className="abt-principle-title">{p.title}</h3>
-                  <p className="stitch-body" style={{ marginTop: "10px" }}>{p.body}</p>
+                  <p className="stitch-body abt-principle-body">{p.body}</p>
                 </div>
               </div>
             ))}
@@ -101,7 +111,7 @@ export default function AboutPage() {
       <RevealSection className="stitch-section">
         <div className="stitch-container">
           <div className="hp-section-label">Why Kelel</div>
-          <h2 className="hp-section-title" style={{ marginBottom: "40px" }}>
+          <h2 className="hp-section-title section-title-gap-lg">
             What sets us <em>apart.</em>
           </h2>
           <div className="stitch-caps-grid">
@@ -119,7 +129,7 @@ export default function AboutPage() {
       <RevealSection className="stitch-section">
         <div className="stitch-container">
           <div className="hp-section-label">Operational Readiness</div>
-          <h2 className="hp-section-title" style={{ marginBottom: "40px" }}>
+          <h2 className="hp-section-title section-title-gap-lg">
             Built to deliver, respond, <em>and grow.</em>
           </h2>
           <div className="stitch-caps-grid">
@@ -137,7 +147,7 @@ export default function AboutPage() {
       <RevealSection className="stitch-section">
         <div className="stitch-container">
           <div className="hp-section-label">Leadership</div>
-          <h2 className="hp-section-title" style={{ marginBottom: "40px" }}>
+          <h2 className="hp-section-title section-title-gap-lg">
             A named contact from <em>day one.</em>
           </h2>
           <div className="abt-leader-wrap">
@@ -149,7 +159,7 @@ export default function AboutPage() {
                   <div className="abt-leader-role">{site.contactRole}</div>
                 </div>
               </div>
-              <p className="stitch-body" style={{ marginTop: "20px", marginBottom: "20px" }}>
+              <p className="stitch-body abt-leader-copy">
                 Direct contact for partnerships, project discussions, and official business
                 communication. All project inquiries route through leadership from day one.
               </p>

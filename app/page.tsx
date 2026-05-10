@@ -37,20 +37,93 @@ const proofCards = [
     desc: "A premium concept for digital banking operations, dashboards, and control layers.",
     label: "Financial systems",
     href: "/work/multi-branch-operations-platform",
+    variant: "banking",
   },
   {
     title: "Insurance Workflow System",
     desc: "Claims, renewals, and internal operations managed through one cleaner workflow model.",
     label: "Insurance operations",
     href: "/work/it-infrastructure-improvement-track",
+    variant: "insurance",
   },
   {
     title: "Enterprise Portal Concept",
     desc: "A structured portal layer for business processes, approvals, and regional coordination.",
     label: "Enterprise platform",
     href: "/work",
+    variant: "enterprise",
   },
 ];
+
+function ProofCardVisual({ variant }: { variant: string }) {
+  if (variant === "banking") {
+    return (
+      <div className="hp-proof-card-surface hp-proof-card-surface--banking" aria-hidden="true">
+        <div className="hp-proof-mini-window">
+          <div className="hp-proof-mini-window-bar" />
+          <div className="hp-proof-mini-window-grid">
+            <span className="hp-proof-mini-stat">
+              <strong>ETB 4.2M</strong>
+              <small>Daily volume</small>
+            </span>
+            <span className="hp-proof-mini-stat">
+              <strong>38</strong>
+              <small>Branches</small>
+            </span>
+          </div>
+          <div className="hp-proof-mini-chart">
+            <i />
+            <i />
+            <i />
+            <i />
+            <i />
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (variant === "insurance") {
+    return (
+      <div className="hp-proof-card-surface hp-proof-card-surface--insurance" aria-hidden="true">
+        <div className="hp-proof-flow-card">
+          <div className="hp-proof-flow-head">Claims pipeline</div>
+          <div className="hp-proof-flow-steps">
+            <span>Intake</span>
+            <span>Review</span>
+            <span>Approval</span>
+          </div>
+          <div className="hp-proof-flow-lines">
+            <i />
+            <i />
+            <i />
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="hp-proof-card-surface hp-proof-card-surface--enterprise" aria-hidden="true">
+      <div className="hp-proof-portal-card">
+        <div className="hp-proof-portal-side">
+          <span />
+          <span />
+          <span />
+        </div>
+        <div className="hp-proof-portal-main">
+          <div className="hp-proof-portal-header" />
+          <div className="hp-proof-portal-panels">
+            <i />
+            <i />
+            <i />
+            <i />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export const metadata: Metadata = {
   title: "Kelel IT Solution | Digital Infrastructure for Financial Systems in Africa",
@@ -74,12 +147,12 @@ export default function Home() {
       </div>
 
       {/* 3 — Capabilities */}
-      <RevealSection as="div">
+      <RevealSection as="div" className="reveal-stagger">
         <CapabilitiesSection />
       </RevealSection>
 
       {/* 4 — Africa connectivity */}
-      <RevealSection as="section" className="hp-africa">
+      <RevealSection as="section" className="hp-africa reveal-stagger" delay={1}>
         <div className="hp-section-inner">
           <div className="hp-africa-wrap">
             <div>
@@ -87,7 +160,7 @@ export default function Home() {
               <h2 className="hp-section-title">
                 Built in Ethiopia. <em>Connected across Africa.</em>
               </h2>
-              <p className="hp-section-intro" style={{ marginBottom: "0" }}>
+              <p className="hp-section-intro hp-section-intro--flush">
                 Kelel operates from Addis Ababa with infrastructure reaching financial and enterprise teams across the continent.
               </p>
               <div className="hp-africa-stats">
@@ -111,17 +184,17 @@ export default function Home() {
       </RevealSection>
 
       {/* 5 — Industries */}
-      <RevealSection as="div">
+      <RevealSection as="div" className="reveal-stagger" delay={1}>
         <IndustryGrid />
       </RevealSection>
 
       {/* 6 — Process + stats */}
-      <RevealSection as="div">
+      <RevealSection as="div" className="reveal-stagger" delay={2}>
         <ProcessTrack />
       </RevealSection>
 
       {/* 7 — Proof / case studies */}
-      <RevealSection as="section" className="hp-proof">
+      <RevealSection as="section" className="hp-proof reveal-stagger" delay={1}>
         <div className="hp-section-inner">
           <div className="hp-section-label">Work</div>
           <h2 className="hp-section-title">
@@ -143,14 +216,76 @@ export default function Home() {
                 <span className="hp-proof-pill">Executive visibility</span>
               </div>
             </div>
-            <div className="hp-proof-visual" aria-hidden="true" />
+            <div className="hp-proof-visual" aria-hidden="true">
+              <div className="hp-proof-screen hp-proof-screen--main">
+                <div className="hp-proof-screen-ui">
+                  <div className="hp-proof-screen-topbar">
+                    <span className="hp-proof-screen-kicker">Regional command</span>
+                    <span className="hp-proof-screen-status">Live</span>
+                  </div>
+                  <div className="hp-proof-screen-grid">
+                    <div className="hp-proof-screen-tile">
+                      <small>Transactions</small>
+                      <strong>1.28M</strong>
+                    </div>
+                    <div className="hp-proof-screen-tile">
+                      <small>Latency</small>
+                      <strong>42ms</strong>
+                    </div>
+                    <div className="hp-proof-screen-tile">
+                      <small>Approvals</small>
+                      <strong>94%</strong>
+                    </div>
+                  </div>
+                  <div className="hp-proof-screen-chart">
+                    <i />
+                    <i />
+                    <i />
+                    <i />
+                    <i />
+                    <i />
+                    <i />
+                  </div>
+                  <div className="hp-proof-screen-table">
+                    <span />
+                    <span />
+                    <span />
+                    <span />
+                  </div>
+                </div>
+              </div>
+              <div className="hp-proof-screen hp-proof-screen--ghost">
+                <div className="hp-proof-ghost-ui">
+                  <div className="hp-proof-ghost-ring" />
+                  <div className="hp-proof-ghost-lines">
+                    <span />
+                    <span />
+                    <span />
+                  </div>
+                </div>
+              </div>
+              <div className="hp-proof-float-card">
+                <span className="hp-proof-float-kicker">Live surface</span>
+                <strong>Multi-node visibility</strong>
+                <div className="hp-proof-float-bars">
+                  <span />
+                  <span />
+                  <span />
+                  <span />
+                  <span />
+                </div>
+              </div>
+            </div>
           </Link>
           <div className="hp-proof-cards">
             {proofCards.map((card) => (
               <Link key={card.title} href={card.href} className="hp-proof-card">
+                <div className="hp-proof-card-visual">
+                  <ProofCardVisual variant={card.variant} />
+                </div>
                 <div className="hp-proof-label">{card.label}</div>
-                <h3 className="hp-proof-title" style={{ fontSize: "18px", marginTop: "8px" }}>{card.title}</h3>
-                <p className="hp-proof-desc" style={{ marginTop: "8px" }}>{card.desc}</p>
+                <h3 className="hp-proof-title hp-proof-title--card">{card.title}</h3>
+                <p className="hp-proof-desc hp-proof-desc--card">{card.desc}</p>
               </Link>
             ))}
           </div>
@@ -158,7 +293,7 @@ export default function Home() {
       </RevealSection>
 
       {/* 8 — CTA band */}
-      <RevealSection as="div">
+      <RevealSection as="div" delay={1}>
         <CtaBand
           kicker="Start a Project"
           heading={<>Ready to build? <em>Let&apos;s talk.</em></>}

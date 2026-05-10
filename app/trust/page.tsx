@@ -1,15 +1,16 @@
-import { CompanyProfileDownload } from "@/components/company-profile-download";
-import { EvidenceRegister } from "@/components/evidence-register";
-import { ExecutiveContactCard } from "@/components/executive-contact-card";
-import { ProofGallery } from "@/components/proof-gallery";
-import { SectionIntro } from "@/components/section-intro";
 import type { Metadata } from "next";
 import Link from "next/link";
+import { EvidenceRegister } from "@/components/evidence-register";
+import { ProofGallery } from "@/components/proof-gallery";
+import { RevealSection } from "@/components/reveal-section";
+import { CtaBand } from "@/components/cta-band";
+import { PageVisualStage } from "@/components/page-visual-stage";
 import {
   complianceReadiness,
   futureCredentials,
   trustCredentials,
   trustFAQs,
+  site,
 } from "@/lib/site-content";
 
 export const metadata: Metadata = {
@@ -20,124 +21,193 @@ export const metadata: Metadata = {
 
 export default function TrustPage() {
   return (
-    <main className="page-shell">
-      <section className="section-block page-hero">
-        <SectionIntro
-          eyebrow="Trust and assurance"
-          title="A stronger company website should make trust visible, not assumed."
-          description="This page brings together the business signals, formal documents, delivery readiness, and future credential space that help Kelel look more accountable and procurement-ready."
-        />
-      </section>
-
-      <section className="section-block">
-        <SectionIntro
-          eyebrow="Current trust signals"
-          title="What Kelel can already show today."
-          narrow
-        />
-        <div className="highlight-grid">
-          {trustCredentials.map((item) => (
-            <article key={item.title}>
-              <span className="status-pill status-contacted">{item.status}</span>
-              <h3>{item.title}</h3>
-              <p>{item.copy}</p>
-            </article>
-          ))}
+    <main className="stitch-page">
+      <section className="page-hero trust-hero">
+        <div className="page-hero-inner">
+          <div className="page-crumbs">
+            <Link href="/">Home</Link>
+            <span className="page-crumbs-sep">/</span>
+            <span>Trust</span>
+          </div>
+          <div className="page-hero-grid">
+            <div>
+              <div className="site-eyebrow page-eyebrow-spaced">
+                <span className="site-eyebrow-dot" />
+                Trust and Assurance · Procurement Readiness
+              </div>
+              <h1 className="page-title-plain">
+                Trust should be <em>visible, structured, and reviewable.</em>
+              </h1>
+              <p className="page-sub">
+                This page gathers the business signals, formal materials, readiness points,
+                and future credential space that make Kelel look more accountable in a first
+                procurement, partner, or internal review conversation.
+              </p>
+              <div className="page-hero-actions">
+                <Link href="/company-profile" className="site-hero-btn-primary btn-magnetic">
+                  Review company profile →
+                </Link>
+                <Link href="/resources" className="site-hero-btn-ghost">
+                  Open resource center
+                </Link>
+              </div>
+            </div>
+            <div className="trust-hero-stack">
+              <PageVisualStage
+                className="page-visual-stage--trust"
+                badge="Review materials live"
+                badgeWithPulse
+                cardKicker="Visible signals"
+                cardTitle={`${trustCredentials.length} trust layers`}
+              />
+              <div className="page-meta">
+                <div className="page-meta-row">
+                  <span>Current signals</span>
+                  <span>{trustCredentials.length} visible now</span>
+                </div>
+                <div className="page-meta-row">
+                  <span>Readiness points</span>
+                  <span>{complianceReadiness.length} operational checks</span>
+                </div>
+                <div className="page-meta-row">
+                  <span>Future credentials</span>
+                  <span>{futureCredentials.length} prepared slots</span>
+                </div>
+                <div className="page-meta-row">
+                  <span>Official contact</span>
+                  <span>{site.contactPerson}</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section className="section-block contrast-panel">
-        <SectionIntro
-          eyebrow="Readiness"
-          title="Operational and presentation readiness points that improve buyer confidence."
-          narrow
-        />
-        <div className="pillars-list">
-          {complianceReadiness.map((item) => (
-            <article key={item}>
-              <strong>{item}</strong>
-            </article>
-          ))}
+      <RevealSection className="stitch-section">
+        <div className="stitch-container">
+          <div className="hp-section-label">Current Trust Signals</div>
+          <h2 className="hp-section-title section-title-gap-lg">
+            What Kelel can already <em>show today.</em>
+          </h2>
+          <div className="trust-grid">
+            {trustCredentials.map((item) => (
+              <div key={item.title} className="trust-card stitch-glass">
+                <div className="trust-card-top">
+                  <span className="status-pill status-contacted">{item.status}</span>
+                </div>
+                <h3 className="trust-card-title">{item.title}</h3>
+                <p className="trust-card-copy">{item.copy}</p>
+              </div>
+            ))}
+          </div>
         </div>
-      </section>
+      </RevealSection>
 
-      <section className="section-block">
-        <SectionIntro
-          eyebrow="Evidence register"
-          title="The trust story is stronger when current and pending proof are separated clearly."
-          description="This register shows what Kelel can already share now and which third-party materials are simply waiting on external documents or approvals."
-        />
-        <EvidenceRegister />
-      </section>
-
-      <section className="section-block">
-        <SectionIntro
-          eyebrow="Formal assets"
-          title="The strongest trust materials are now visible directly inside the website too."
-          description="The company profile preview gives visitors something more substantial than marketing copy while Kelel continues adding external proof assets."
-        />
-        <ProofGallery />
-      </section>
-
-      <section className="sector-layout">
-        <CompanyProfileDownload copy="Use the company profile for introductions, procurement conversations, and business review before a meeting or proposal." />
-        <ExecutiveContactCard
-          compact
-          title="Official contact"
-          copy="For formal communication, project discussions, and partner conversations, Kelel provides a visible executive contact instead of anonymous inquiry routing."
-        />
-      </section>
-
-      <section className="section-block contrast-panel">
-        <SectionIntro
-          eyebrow="Prepared next"
-          title="The page is also ready to carry stronger third-party proof when available."
-          narrow
-        />
-        <div className="highlight-grid">
-          {futureCredentials.map((item) => (
-            <article key={item.title}>
-              <h3>{item.title}</h3>
-              <p>{item.copy}</p>
-            </article>
-          ))}
+      <RevealSection className="stitch-section">
+        <div className="stitch-container">
+          <div className="hp-section-label">Readiness</div>
+          <h2 className="hp-section-title section-title-gap-lg">
+            Operational and presentation points that improve <em>buyer confidence.</em>
+          </h2>
+          <div className="trust-readiness-grid">
+            {complianceReadiness.map((item, index) => (
+              <div key={item} className="trust-readiness-card stitch-glass">
+                <span className="trust-readiness-num">0{index + 1}</span>
+                <p>{item}</p>
+              </div>
+            ))}
+          </div>
         </div>
-      </section>
+      </RevealSection>
 
-      <section className="section-block">
-        <SectionIntro
-          eyebrow="Questions"
-          title="How this page supports buyer confidence."
-          narrow
-        />
-        <div className="faq-list">
-          {trustFAQs.map((item) => (
-            <article key={item.question}>
-              <h3>{item.question}</h3>
-              <p>{item.answer}</p>
-            </article>
-          ))}
+      <RevealSection className="stitch-section">
+        <div className="stitch-container">
+          <div className="hp-section-label">Evidence Register</div>
+          <h2 className="hp-section-title section-title-gap-lg">
+            Current proof separated cleanly from <em>what is still pending.</em>
+          </h2>
+          <EvidenceRegister />
         </div>
-      </section>
+      </RevealSection>
 
-      <section className="section-block contact-panel">
-        <SectionIntro
-          eyebrow="Need formal review material?"
-          title="Kelel can now support a more serious first conversation with visible trust signals already in place."
-          narrow
-        />
-        <div className="contact-panel-stack">
-          <Link href="/resources" className="secondary-link">
-            Open resource center
-          </Link>
-          <Link href="/company-profile" className="secondary-link">
-            View company profile
-          </Link>
-          <Link href="/contact" className="primary-link">
-            Contact Kelel
-          </Link>
+      <RevealSection className="stitch-section">
+        <div className="stitch-container">
+          <div className="hp-section-label">Formal Assets</div>
+          <h2 className="hp-section-title section-title-gap-lg">
+            The strongest trust materials are <em>visible inside the site.</em>
+          </h2>
+          <ProofGallery />
         </div>
-      </section>
+      </RevealSection>
+
+      <RevealSection className="stitch-section">
+        <div className="stitch-container">
+          <div className="trust-dual-grid">
+            <div className="trust-contact-card stitch-glass">
+              <div className="hp-section-label">Official Contact</div>
+              <h2 className="hp-section-title section-title-gap-md">
+                Formal communication with a <em>visible responsible person.</em>
+              </h2>
+              <p className="stitch-body leader-copy">
+                For project discussions, partner conversations, and review coordination,
+                Kelel exposes direct executive contact instead of routing serious inquiries
+                into an anonymous queue.
+              </p>
+              <div className="abt-leader-contacts">
+                <a href={`mailto:${site.email}`} className="abt-contact-link">
+                  {site.email}
+                </a>
+                <a href={`tel:${site.phone.replaceAll(" ", "")}`} className="abt-contact-link">
+                  {site.phone}
+                </a>
+              </div>
+            </div>
+            <div className="trust-future-card stitch-glass">
+              <div className="hp-section-label">Prepared Next</div>
+              <h2 className="hp-section-title section-title-gap-md">
+                The page is ready to carry stronger <em>third-party proof.</em>
+              </h2>
+              <div className="trust-future-list">
+                {futureCredentials.map((item) => (
+                  <div key={item.title} className="trust-future-item">
+                    <h3>{item.title}</h3>
+                    <p>{item.copy}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </RevealSection>
+
+      <RevealSection className="stitch-section">
+        <div className="stitch-container">
+          <div className="hp-section-label">Questions</div>
+          <h2 className="hp-section-title section-title-gap-lg">
+            How this page supports <em>buyer confidence.</em>
+          </h2>
+          <div className="trust-faq-list">
+            {trustFAQs.map((item) => (
+              <div key={item.question} className="trust-faq-item stitch-glass">
+                <h3>{item.question}</h3>
+                <p>{item.answer}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </RevealSection>
+
+      <RevealSection as="div">
+        <CtaBand
+          kicker="Formal review"
+          heading={<>Need more serious <em>review material?</em></>}
+          sub="Use the resource center, company profile, and contact route together when a buyer, partner, or internal stakeholder needs a stronger first review package."
+          primaryLabel="Open resource center →"
+          primaryHref="/resources"
+          ghostLabel="Contact Kelel"
+          ghostHref="/contact"
+        />
+      </RevealSection>
     </main>
   );
 }

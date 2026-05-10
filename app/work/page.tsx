@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { RevealSection } from "@/components/reveal-section";
 import { CtaBand } from "@/components/cta-band";
+import { PageVisualStage } from "@/components/page-visual-stage";
 import { projects } from "@/lib/site-content";
 
 export const metadata: Metadata = {
@@ -24,7 +25,7 @@ export default function WorkPage() {
           </div>
           <div className="page-hero-grid">
             <div>
-              <div className="site-eyebrow" style={{ marginBottom: "24px" }}>
+              <div className="site-eyebrow page-eyebrow-spaced">
                 <span className="site-eyebrow-dot" />
                 Case Studies · Platform thinking for African operations
               </div>
@@ -36,11 +37,20 @@ export default function WorkPage() {
                 capabilities across business systems, web modernization, and infrastructure.
               </p>
             </div>
-            <div className="page-meta">
-              <div className="page-meta-row"><span>Projects</span><span>3 case studies</span></div>
-              <div className="page-meta-row"><span>Sectors</span><span>Banking · Insurance · Enterprise</span></div>
-              <div className="page-meta-row"><span>Delivery type</span><span>Concept · Structured</span></div>
-              <div className="page-meta-row"><span>Status</span><span>Production-ready concepts</span></div>
+            <div className="page-hero-stack">
+              <PageVisualStage
+                className="page-visual-stage--work"
+                badge="Case-study surface"
+                badgeWithPulse
+                cardKicker="Project proof"
+                cardTitle={`${projects.length} structured concepts`}
+              />
+              <div className="page-meta">
+                <div className="page-meta-row"><span>Projects</span><span>3 case studies</span></div>
+                <div className="page-meta-row"><span>Sectors</span><span>Banking · Insurance · Enterprise</span></div>
+                <div className="page-meta-row"><span>Delivery type</span><span>Concept · Structured</span></div>
+                <div className="page-meta-row"><span>Status</span><span>Production-ready concepts</span></div>
+              </div>
             </div>
           </div>
         </div>

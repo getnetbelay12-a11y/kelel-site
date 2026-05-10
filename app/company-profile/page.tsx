@@ -1,7 +1,6 @@
-import { CompanyProfileDownload } from "@/components/company-profile-download";
-import { ExecutiveContactCard } from "@/components/executive-contact-card";
 import { ProofGallery } from "@/components/proof-gallery";
-import { SectionIntro } from "@/components/section-intro";
+import { RevealSection } from "@/components/reveal-section";
+import { CtaBand } from "@/components/cta-band";
 import type { Metadata } from "next";
 import Link from "next/link";
 import {
@@ -20,120 +19,175 @@ export const metadata: Metadata = {
 
 export default function CompanyProfilePage() {
   return (
-    <main className="page-shell">
-      <section className="section-block page-hero">
-        <SectionIntro
-          eyebrow="Company profile"
-          title="A formal Kelel profile that is easy to preview online and easy to share as a PDF."
-          description="This page turns the downloadable company profile into a visible part of the website, so partners and clients can review Kelel before a meeting or proposal discussion."
-        />
-        <div className="profile-page-actions">
-          <Link href="/resources" className="secondary-link">
-            Resource center
-          </Link>
-          <Link href="/contact" className="secondary-link">
-            Talk to Kelel
-          </Link>
-          <a
-            href="/downloads/kelel-company-profile.pdf"
-            className="primary-link"
-            download
-          >
-            Download PDF
-          </a>
-        </div>
-      </section>
+    <main className="stitch-page">
 
-      <section className="section-block profile-preview-layout">
-        <div className="profile-preview-card">
-          <div className="profile-preview-head">
-            <span className="eyebrow">Preview</span>
-            <p>
-              Official company profile for {site.name}, including leadership contact,
-              service areas, readiness signals, and case-study direction.
-            </p>
+      {/* ── Page Hero ── */}
+      <section className="page-hero">
+        <div className="page-hero-inner">
+          <div className="page-crumbs">
+            <Link href="/">Home</Link>
+            <span className="page-crumbs-sep">/</span>
+            <Link href="/resources">Resources</Link>
+            <span className="page-crumbs-sep">/</span>
+            <span>Company Profile</span>
           </div>
-          <iframe
-            src="/downloads/kelel-company-profile.pdf#view=FitH"
-            title="Kelel company profile PDF preview"
-            className="profile-preview-frame"
-          />
-        </div>
-
-        <div className="profile-page-side">
-          <CompanyProfileDownload />
-          <ExecutiveContactCard copy="Use the company profile for introductions, procurement conversations, partnership outreach, and early-stage project discussions." />
+          <div className="page-hero-grid">
+            <div>
+              <div className="site-eyebrow page-eyebrow-spaced">
+                <span className="site-eyebrow-dot" />
+                Company Profile · Formal Overview
+              </div>
+              <h1 className="page-title-plain">
+                A formal profile that is easy to preview <em>and easy to share.</em>
+              </h1>
+              <p className="page-sub">
+                Preview Kelel&apos;s company profile online and download as a PDF —
+                designed for procurement conversations, partnership outreach, and
+                early-stage project discussions.
+              </p>
+              <div className="page-hero-actions">
+                <a href="/downloads/kelel-company-profile.pdf" className="site-hero-btn-primary btn-magnetic" download>
+                  Download PDF →
+                </a>
+                <Link href="/contact" className="site-hero-btn-ghost">Talk to Kelel</Link>
+              </div>
+            </div>
+            <div className="page-meta">
+              <div className="page-meta-row"><span>Format</span><span>PDF · Online preview</span></div>
+              <div className="page-meta-row"><span>Contents</span><span>Services · Readiness · Leadership</span></div>
+              <div className="page-meta-row"><span>Best for</span><span>Procurement · Partnership</span></div>
+              <div className="page-meta-row"><span>Contact</span><span>{site.contactPerson}</span></div>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section className="section-block">
-        <SectionIntro
-          eyebrow="What is inside"
-          title="The profile now packages the same company story the website presents, but in a more formal handoff format."
-          narrow
+      {/* ── PDF Preview ── */}
+      <RevealSection className="stitch-section">
+        <div className="stitch-container">
+          <div className="hp-section-label">Profile Preview</div>
+          <h2 className="hp-section-title section-title-gap-md">
+            Review before <em>you download.</em>
+          </h2>
+          <div className="cp-preview-wrap stitch-glass">
+            <iframe
+              src="/downloads/kelel-company-profile.pdf#view=FitH"
+              title="Kelel company profile PDF preview"
+              className="cp-preview-frame"
+            />
+          </div>
+          <div className="page-inline-actions page-inline-actions--centered">
+            <a href="/downloads/kelel-company-profile.pdf" className="site-hero-btn-primary btn-magnetic" download>
+              Download PDF →
+            </a>
+            <a href="/downloads/kelel-company-profile.pdf" target="_blank" rel="noreferrer" className="site-hero-btn-ghost">
+              Open in browser
+            </a>
+          </div>
+        </div>
+      </RevealSection>
+
+      {/* ── Services inside profile ── */}
+      <RevealSection className="stitch-section">
+        <div className="stitch-container">
+          <div className="hp-section-label">What&apos;s Inside</div>
+          <h2 className="hp-section-title section-title-gap-lg">
+            The profile packages our full <em>service story.</em>
+          </h2>
+          <div className="stitch-caps-grid">
+            {services.map((service) => (
+              <div key={service.title} className="stitch-cap-card">
+                <h3 className="stitch-cap-title">{service.title}</h3>
+                <p className="stitch-cap-body">{service.summary}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </RevealSection>
+
+      {/* ── Proof gallery ── */}
+      <RevealSection className="stitch-section">
+        <div className="stitch-container">
+          <div className="hp-section-label">Preview Pages</div>
+          <h2 className="hp-section-title section-title-gap-lg">
+            The strongest pages, <em>visible in browser.</em>
+          </h2>
+          <ProofGallery />
+        </div>
+      </RevealSection>
+
+      {/* ── Readiness ── */}
+      <RevealSection className="stitch-section">
+        <div className="stitch-container">
+          <div className="hp-section-label">Readiness</div>
+          <h2 className="hp-section-title section-title-gap-lg">
+            Built to support <em>trust-building conversations.</em>
+          </h2>
+          <div className="stitch-caps-grid">
+            {readinessSignals.map((item) => (
+              <div key={item.title} className="stitch-cap-card">
+                <h3 className="stitch-cap-title">{item.title}</h3>
+                <p className="stitch-cap-body">{item.copy}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </RevealSection>
+
+      {/* ── Assurance + Case studies ── */}
+      <RevealSection className="stitch-section">
+        <div className="stitch-container">
+          <div className="hp-section-label">Delivery Assurance</div>
+          <h2 className="hp-section-title section-title-gap-lg">
+            How inquiries and delivery discussions <em>are handled.</em>
+          </h2>
+          <div className="cp-assurance-list">
+            {assurancePoints.map((item) => (
+              <div key={item} className="cp-assurance-item stitch-glass">
+                <span className="ind-detail-check">✓</span>
+                <span className="stitch-body">{item}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </RevealSection>
+
+      {/* ── Related case studies ── */}
+      <RevealSection className="stitch-section">
+        <div className="stitch-container">
+          <div className="hp-section-label">Case Studies</div>
+          <h2 className="hp-section-title section-title-gap-lg">
+            Detailed project pages for <em>capability discussions.</em>
+          </h2>
+          <div className="wrk-grid">
+            {projects.map((project) => (
+              <div key={project.name} className="wrk-card stitch-glass">
+                <div className="wrk-card-top">
+                  <span className="wrk-type">{project.type}</span>
+                </div>
+                <h3 className="wrk-title">{project.name}</h3>
+                <p className="wrk-blurb">{project.blurb}</p>
+                <Link href={`/work/${project.slug}`} className="wrk-link">
+                  Open case study →
+                </Link>
+              </div>
+            ))}
+          </div>
+        </div>
+      </RevealSection>
+
+      {/* ── CTA ── */}
+      <RevealSection as="div">
+        <CtaBand
+          kicker="Talk to us"
+          heading={<>Ready to discuss <em>your project?</em></>}
+          sub="Use this profile for introductions, procurement conversations, partnership outreach, and early-stage project discussions."
+          primaryLabel="Contact Kelel →"
+          primaryHref="/contact"
+          ghostLabel="Request proposal"
+          ghostHref="/request-proposal"
         />
-        <div className="highlight-grid">
-          {services.map((service) => (
-            <article key={service.title}>
-              <h3>{service.title}</h3>
-              <p>{service.summary}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="section-block contrast-panel">
-        <SectionIntro
-          eyebrow="Preview pages"
-          title="The strongest pages from the profile are now visible directly on the website too."
-          description="This makes the profile easier to trust before download and gives Kelel a more substantial proof layer in the browser."
-        />
-        <ProofGallery />
-      </section>
-
-      <section className="section-block contrast-panel">
-        <SectionIntro
-          eyebrow="Readiness"
-          title="The profile is designed to support trust-building conversations with clearer operating signals."
-          narrow
-        />
-        <div className="highlight-grid">
-          {readinessSignals.map((item) => (
-            <article key={item.title}>
-              <h3>{item.title}</h3>
-              <p>{item.copy}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="section-block">
-        <SectionIntro
-          eyebrow="Assurance"
-          title="The profile also reinforces how inquiries and delivery discussions are handled."
-          narrow
-        />
-        <div className="pillars-list">
-          {assurancePoints.map((item) => (
-            <article key={item}>
-              <strong>{item}</strong>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="project-grid">
-        {projects.map((project) => (
-          <article key={project.name} className="section-block project-card">
-            <span className="project-type">{project.type}</span>
-            <h3>{project.name}</h3>
-            <p>{project.blurb}</p>
-            <Link href={`/work/${project.slug}`} className="secondary-link">
-              Open case study
-            </Link>
-          </article>
-        ))}
-      </section>
+      </RevealSection>
     </main>
   );
 }

@@ -5,12 +5,14 @@ import { ElementType, ReactNode, useEffect, useRef, useState } from "react";
 type RevealSectionProps<T extends ElementType> = {
   as?: T;
   className?: string;
+  delay?: 0 | 1 | 2 | 3 | 4;
   children: ReactNode;
 } & Omit<React.ComponentPropsWithoutRef<T>, "as" | "children" | "className">;
 
 export function RevealSection<T extends ElementType = "section">({
   as,
   className = "",
+  delay = 0,
   children,
   ...props
 }: RevealSectionProps<T>) {
@@ -45,7 +47,7 @@ export function RevealSection<T extends ElementType = "section">({
   return (
     <Component
       ref={ref}
-      className={`reveal-section${isVisible ? " visible" : ""}${className ? ` ${className}` : ""}`}
+      className={`reveal-section reveal-delay-${delay}${isVisible ? " visible" : ""}${className ? ` ${className}` : ""}`}
       {...props}
     >
       {children}

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { RevealSection } from "@/components/reveal-section";
 import { CtaBand } from "@/components/cta-band";
+import { PageVisualStage } from "@/components/page-visual-stage";
 import { services, process, engagementModes, sectorPages } from "@/lib/site-content";
 
 export const metadata: Metadata = {
@@ -44,7 +45,7 @@ export default function ServicesPage() {
           </div>
           <div className="page-hero-grid">
             <div>
-              <div className="site-eyebrow" style={{ marginBottom: "24px" }}>
+              <div className="site-eyebrow page-eyebrow-spaced">
                 <span className="site-eyebrow-dot" />
                 Services · Infrastructure to Intelligent Systems
               </div>
@@ -56,17 +57,26 @@ export default function ServicesPage() {
                 and digital transformation — we build and run the systems that keep
                 African enterprises moving.
               </p>
-              <div style={{ display: "flex", gap: "12px", marginTop: "32px", flexWrap: "wrap" }}>
+              <div className="page-hero-actions">
                 <Link href="/contact" className="site-hero-btn-primary btn-magnetic">Get a quote →</Link>
                 <Link href="/request-proposal" className="site-hero-btn-ghost">Request proposal</Link>
               </div>
             </div>
-            <div className="page-meta">
-              <div className="page-meta-row"><span>Service lines</span><span>4 core tracks</span></div>
-              <div className="page-meta-row"><span>Engagement</span><span>Project · Retainer · Support</span></div>
-              <div className="page-meta-row"><span>Delivery model</span><span>4-phase structured</span></div>
-              <div className="page-meta-row"><span>Response SLA</span><span>24 hours</span></div>
-              <div className="page-meta-row"><span>Markets</span><span>Pan-African</span></div>
+            <div className="page-hero-stack">
+              <PageVisualStage
+                className="page-visual-stage--services"
+                badge="Service architecture"
+                badgeWithPulse
+                cardKicker="Delivery tracks"
+                cardTitle="4 core service lines"
+              />
+              <div className="page-meta">
+                <div className="page-meta-row"><span>Service lines</span><span>4 core tracks</span></div>
+                <div className="page-meta-row"><span>Engagement</span><span>Project · Retainer · Support</span></div>
+                <div className="page-meta-row"><span>Delivery model</span><span>4-phase structured</span></div>
+                <div className="page-meta-row"><span>Response SLA</span><span>24 hours</span></div>
+                <div className="page-meta-row"><span>Markets</span><span>Pan-African</span></div>
+              </div>
             </div>
           </div>
         </div>
@@ -116,7 +126,7 @@ export default function ServicesPage() {
       <RevealSection className="stitch-section">
         <div className="stitch-container">
           <div className="hp-section-label">How We Work</div>
-          <h2 className="hp-section-title" style={{ marginBottom: "40px" }}>
+          <h2 className="hp-section-title section-title-gap-lg">
             A delivery process built <em>for accountability.</em>
           </h2>
           <div className="srv-process">
@@ -134,7 +144,7 @@ export default function ServicesPage() {
       <RevealSection className="stitch-section">
         <div className="stitch-container">
           <div className="hp-section-label">Engagement Models</div>
-          <h2 className="hp-section-title" style={{ marginBottom: "40px" }}>
+          <h2 className="hp-section-title section-title-gap-lg">
             How you can <em>work with us.</em>
           </h2>
           <div className="stitch-caps-grid">
@@ -152,7 +162,7 @@ export default function ServicesPage() {
       <RevealSection className="stitch-section">
         <div className="stitch-container">
           <div className="hp-section-label">Sector Fit</div>
-          <h2 className="hp-section-title" style={{ marginBottom: "40px" }}>
+          <h2 className="hp-section-title section-title-gap-lg">
             Sectors we serve <em>across Africa.</em>
           </h2>
           <div className="srv-sectors">

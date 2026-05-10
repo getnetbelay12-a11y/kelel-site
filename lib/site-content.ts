@@ -16,7 +16,7 @@ export const site = {
 export const navLinks = [
   { href: "/", label: "Home" },
   { href: "/services", label: "Solutions" },
-  { href: "/platforms", label: "Platform" },
+  { href: "/platform", label: "Platform" },
   { href: "/about", label: "Company" },
   { href: "/contact", label: "Contact" },
 ];
@@ -602,15 +602,6 @@ export const trustFAQs = [
 
 export const businessResources = [
   {
-    title: "Platforms and dashboards",
-    type: "Web page",
-    href: "/platforms",
-    description:
-      "A dedicated page for dashboards, workflow systems, business portals, reporting visibility, and software platform direction.",
-    actionLabel: "Open platforms page",
-    external: false,
-  },
-  {
     title: "Official company profile",
     type: "PDF document",
     href: "/downloads/kelel-company-profile.pdf",
@@ -647,48 +638,12 @@ export const businessResources = [
     external: false,
   },
   {
-    title: "Print-friendly review pack",
-    type: "Web page",
-    href: "/review-pack",
-    description:
-      "A cleaner, print-ready summary page for meetings, procurement review, and save-as-PDF handoff.",
-    actionLabel: "Open review pack",
-    external: false,
-  },
-  {
-    title: "Capability matrix",
-    type: "Web page",
-    href: "/capability-matrix",
-    description:
-      "A comparison-style matrix showing how Kelel's core service lines map to sectors and business outcomes.",
-    actionLabel: "Open capability matrix",
-    external: false,
-  },
-  {
     title: "Proposal request page",
     type: "Web page",
     href: "/request-proposal",
     description:
       "A more formal proposal-request path for organizations ready to submit a structured project or support brief.",
     actionLabel: "Request proposal",
-    external: false,
-  },
-  {
-    title: "Asset guide",
-    type: "Web page",
-    href: "/asset-guide",
-    description:
-      "A practical checklist for the real Kelel photos, screenshots, certificates, and business visuals needed to complete the site authentically.",
-    actionLabel: "Open asset guide",
-    external: false,
-  },
-  {
-    title: "Asset status",
-    type: "Web page",
-    href: "/asset-status",
-    description:
-      "A live status view showing which incoming Kelel asset files have arrived and which temporary website visuals are still waiting for replacement.",
-    actionLabel: "Open asset status",
     external: false,
   },
 ];
