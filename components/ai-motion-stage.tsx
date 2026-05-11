@@ -18,6 +18,12 @@ export function AiMotionStage() {
         <span className="ai-motion-node ai-motion-node--two" />
         <span className="ai-motion-node ai-motion-node--three" />
         <span className="ai-motion-node ai-motion-node--four" />
+        <span className="ai-motion-packet ai-motion-packet--one" />
+        <span className="ai-motion-packet ai-motion-packet--two" />
+        <span className="ai-motion-packet ai-motion-packet--three" />
+        <span className="ai-motion-packet ai-motion-packet--four" />
+        <span className="ai-motion-sweep ai-motion-sweep--one" />
+        <span className="ai-motion-sweep ai-motion-sweep--two" />
         <span className="ai-motion-arc ai-motion-arc--one" />
         <span className="ai-motion-arc ai-motion-arc--two" />
         <span className="ai-motion-arc ai-motion-arc--three" />
