@@ -28,20 +28,43 @@ export function RevealSection<T extends ElementType = "section">({
       return;
     }
 
+    const reveal = () => setIsVisible(true);
+    const isElementInViewport = () => {
+      const rect = element.getBoundingClientRect();
+      const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+      return rect.top < viewportHeight * 0.92 && rect.bottom > viewportHeight * 0.08;
+    };
+
+    if (isElementInViewport()) {
+      reveal();
+      return;
+    }
+
+    const fallback = window.setTimeout(reveal, 1200);
+
+    if (!("IntersectionObserver" in window)) {
+      return () => window.clearTimeout(fallback);
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry?.isIntersecting) {
-          setIsVisible(true);
+          reveal();
           observer.disconnect();
+          window.clearTimeout(fallback);
         }
       },
       {
-        threshold: 0.12,
+        rootMargin: "0px 0px -8% 0px",
+        threshold: 0.01,
       },
     );
 
     observer.observe(element);
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      window.clearTimeout(fallback);
+    };
   }, []);
 
   return (

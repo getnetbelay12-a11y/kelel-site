@@ -15271,10 +15271,10 @@ body::before {
   display: block !important;
 }
 
-/* ── Responsive: hide map panel on mobile ── */
+/* ── Responsive: keep map panel visible on mobile ── */
 @media (max-width: 900px) {
   .nexus-africa-map-wrap {
-    display: none;
+    display: block;
   }
 }
 
@@ -24138,5 +24138,145 @@ body {
     left: 16px;
     right: 16px;
     min-width: 0;
+  }
+}
+
+/* ── Homepage Ethiopia reach: mobile visibility/stability ───────── */
+@media (max-width: 960px) {
+  .hp-africa-wrap {
+    gap: 34px;
+  }
+
+  .hp-africa-wrap > div:first-child {
+    order: 1;
+  }
+
+  .hp-africa-wrap > .nexus-africa-map-wrap {
+    order: 2;
+  }
+
+  .hp-africa .nexus-africa-map-wrap {
+    display: block !important;
+    width: min(100%, 680px);
+    max-height: none !important;
+    margin: 0 auto;
+    aspect-ratio: 720 / 640;
+  }
+}
+
+@media (max-width: 640px) {
+  .hp-africa {
+    padding: 72px 0;
+  }
+
+  .hp-africa-wrap {
+    gap: 28px;
+  }
+
+  .hp-africa-wrap > div:first-child {
+    display: contents;
+  }
+
+  .hp-africa .hp-section-label {
+    order: 1;
+  }
+
+  .hp-africa .hp-section-title {
+    order: 2;
+    font-size: clamp(34px, 11vw, 52px);
+  }
+
+  .hp-africa .hp-section-intro {
+    order: 3;
+  }
+
+  .hp-africa .nexus-africa-map-wrap {
+    order: 4;
+  }
+
+  .hp-africa-stats {
+    order: 5;
+    grid-template-columns: 1fr;
+    margin-top: 24px;
+  }
+
+  .hp-africa-stat {
+    padding: 16px 18px;
+  }
+
+  .hp-africa .nexus-africa-map-wrap {
+    width: calc(100vw - 28px);
+    margin-left: calc(50% - 50vw + 14px);
+    border-radius: 16px;
+    min-height: 330px;
+  }
+
+  .hp-africa .nexus-map-badge {
+    padding: 7px 9px;
+    font-size: 9px;
+    border-radius: 9px;
+  }
+
+  .hp-africa .nexus-map-badge-system {
+    top: 10px;
+    left: 10px;
+  }
+
+  .hp-africa .nexus-map-badge-nodes {
+    top: 10px;
+    right: 10px;
+  }
+
+  .hp-africa .nexus-map-badge-latency {
+    right: 10px;
+    bottom: 34px;
+  }
+
+  .hp-africa .nexus-map-badge-val {
+    font-size: 14px;
+  }
+
+  .hp-africa .nexus-map-footer {
+    padding: 7px 10px;
+    font-size: 7.5px;
+    letter-spacing: 0.1em;
+    gap: 5px;
+  }
+
+  .hp-africa .nexus-city-label {
+    font-size: 9px;
+  }
+
+  .enterprise-chat-float {
+    right: 12px !important;
+    bottom: 12px !important;
+    min-width: 58px !important;
+    width: 58px !important;
+    height: 58px !important;
+    min-height: 58px !important;
+    padding: 0 !important;
+    border-radius: 999px !important;
+    font-size: 0 !important;
+  }
+
+  .enterprise-chat-float::after {
+    content: "Chat";
+    font-size: 12px;
+    font-weight: 800;
+  }
+}
+
+@media (max-width: 420px) {
+  .hp-africa .nexus-africa-map-wrap {
+    min-height: 305px;
+  }
+
+  .hp-africa .nexus-map-footer span:nth-of-type(3),
+  .hp-africa .nexus-map-footer-sep {
+    display: none;
+  }
+
+  .hp-africa .nexus-map-badge-latency {
+    display: none;
   }
 }
