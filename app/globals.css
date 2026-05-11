@@ -24250,10 +24250,10 @@ body {
   .enterprise-chat-float {
     right: 12px !important;
     bottom: 12px !important;
-    min-width: 58px !important;
-    width: 58px !important;
-    height: 58px !important;
-    min-height: 58px !important;
+    min-width: 48px !important;
+    width: 48px !important;
+    height: 48px !important;
+    min-height: 48px !important;
     padding: 0 !important;
     border-radius: 999px !important;
     font-size: 0 !important;
@@ -24261,7 +24261,7 @@ body {
 
   .enterprise-chat-float::after {
     content: "Chat";
-    font-size: 12px;
+    font-size: 10px;
     font-weight: 800;
   }
 }
