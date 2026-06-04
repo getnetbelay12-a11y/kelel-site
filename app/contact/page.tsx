@@ -4,16 +4,27 @@ import { RevealSection } from "@/components/reveal-section";
 import { ContactForm } from "@/components/contact-form";
 import { CtaBand } from "@/components/cta-band";
 import { faqs, responseCommitments, site } from "@/lib/site-content";
+import { breadcrumbSchema, createSeoMetadata, jsonLd } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Contact | Kelel IT Solution",
+export const metadata: Metadata = createSeoMetadata({
+  title: "Contact Kelel IT Solutions in Addis Ababa",
   description:
-    "Contact Kelel IT Solution to discuss infrastructure, platform design, AI systems, or enterprise digital transformation.",
-};
+    "Contact Kelel IT Solutions in Addis Ababa, Ethiopia for software development, websites, mobile apps, banking software, school payment systems, MongoDB consulting, cloud, and cybersecurity.",
+  path: "/contact",
+});
 
 export default function ContactPage() {
   return (
     <main className="stitch-page">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={jsonLd(
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Contact", path: "/contact" },
+          ]),
+        )}
+      />
       {/* ── Hero ── */}
       <section className="page-hero">
         <div className="page-hero-inner">
@@ -51,7 +62,7 @@ export default function ContactPage() {
             <div className="ctc-hero-card stitch-glass">
               <div className="ctc-hero-card-top">
                 <div className="ctc-dot ctc-dot--pulse" />
-                <span className="ctc-card-co">Kelel IT Solution</span>
+                <span className="ctc-card-co">Kelel IT Solutions</span>
               </div>
               <div className="ctc-person-row">
                 <div className="ctc-avatar">G</div>

@@ -4,12 +4,15 @@ import { RevealSection } from "@/components/reveal-section";
 import { CtaBand } from "@/components/cta-band";
 import { PageVisualStage } from "@/components/page-visual-stage";
 import { services, process, engagementModes, sectorPages } from "@/lib/site-content";
+import { createSeoMetadata } from "@/lib/seo";
+import { servicePages, solutionPages } from "@/lib/seo-pages";
 
-export const metadata: Metadata = {
-  title: "Services | Kelel IT Solution",
+export const metadata: Metadata = createSeoMetadata({
+  title: "IT Services and Software Solutions in Ethiopia | Kelel IT Solutions",
   description:
-    "Production-grade IT services for African enterprises — managed support, infrastructure, software systems, AI platforms, and digital transformation.",
-};
+    "Explore Kelel IT Solutions services for software development, website development, mobile apps, MongoDB consulting, cloud, cybersecurity, ERP, banking, school payments, insurance, and fleet systems.",
+  path: "/services",
+});
 
 const serviceIcons = [
   <svg key="a" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>,
@@ -154,6 +157,29 @@ export default function ServicesPage() {
                 <p className="stitch-cap-body">{mode.copy}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </RevealSection>
+
+      <RevealSection className="stitch-section">
+        <div className="stitch-container">
+          <div className="hp-section-label">SEO Service Pages</div>
+          <h2 className="hp-section-title section-title-gap-lg">
+            Detailed pages for <em>specific business needs.</em>
+          </h2>
+          <div className="seo-related-columns">
+            <div>
+              <h3>Services</h3>
+              {servicePages.map((page) => (
+                <Link key={page.path} href={page.path}>{page.h1} →</Link>
+              ))}
+            </div>
+            <div>
+              <h3>Solutions</h3>
+              {solutionPages.map((page) => (
+                <Link key={page.path} href={page.path}>{page.h1} →</Link>
+              ))}
+            </div>
           </div>
         </div>
       </RevealSection>

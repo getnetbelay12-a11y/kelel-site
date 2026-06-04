@@ -1,6 +1,6 @@
-# Kelel IT Solution
+# Kelel IT Solutions
 
-Marketing website and internal lead inbox for Kelel IT Solution, built with Next.js.
+Marketing website and internal lead inbox for Kelel IT Solutions, built with Next.js.
 
 ## What is included
 
@@ -94,6 +94,17 @@ Allowed roles:
 
 ## Optional integrations
 
+### Google Search Console verification
+
+Set this optional public environment variable after Google Search Console gives you
+an HTML tag verification value:
+
+```bash
+NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION=google-site-verification-token
+```
+
+The app will add the verification meta tag through Next.js metadata.
+
 ### SMTP email
 
 Enable lead notifications and reminder digests with:
@@ -137,6 +148,46 @@ Recommended secret quality:
 - use long random values for `INBOX_SESSION_SECRET`
 - use a different strong random value for `REMINDER_DIGEST_SECRET`
 - replace all example user passwords before deployment
+
+## SEO and Google Search Console
+
+The site generates crawlable Next.js pages, per-page metadata, canonical URLs,
+Open Graph/Twitter metadata, JSON-LD schema, `robots.txt`, and `sitemap.xml`.
+
+After deployment:
+
+1. Open Google Search Console.
+2. Add the domain property for `kelelitsolution.com`.
+3. Verify ownership using DNS verification or the
+   `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` meta tag option.
+4. Submit the sitemap:
+
+```text
+https://www.kelelitsolution.com/sitemap.xml
+```
+
+5. Use URL Inspection for the homepage and major pages:
+
+```text
+/
+/services/it-solutions-addis-ababa
+/services/software-development-ethiopia
+/services/website-development-addis-ababa
+/services/mobile-app-development-ethiopia
+/solutions/digital-banking-software-ethiopia
+/solutions/school-fee-payment-system-ethiopia
+/solutions/insurance-management-software-ethiopia
+/solutions/fleet-management-system-ethiopia
+/services/mongodb-consulting-ethiopia
+/services/cloud-services-ethiopia
+/services/cybersecurity-company-ethiopia
+/services/erp-software-ethiopia
+```
+
+6. Request indexing for the main pages after deployment.
+7. Monitor impressions, clicks, CTR, average position, indexing status, and query
+   coverage every 2-4 weeks.
+8. Improve pages based on real Search Console data, not guesses or keyword stuffing.
 
 ## Health check
 

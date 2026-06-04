@@ -9,7 +9,7 @@ export function LogoMark({ compact = false }: LogoMarkProps) {
     <span className={`logo-mark${compact ? " compact" : ""}`}>
       <Image
         src="/brand/kelel-logo-en.jpg"
-        alt="Kelel IT Solution logo"
+        alt="Kelel IT Solutions logo"
         fill
         sizes={compact ? "120px" : "188px"}
         priority

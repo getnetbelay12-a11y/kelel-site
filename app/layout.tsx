@@ -4,6 +4,7 @@ import { SiteEffects } from "@/components/site-effects";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { site } from "@/lib/site-content";
+import { baseUrl, jsonLd } from "@/lib/seo";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 
@@ -21,30 +22,34 @@ const mono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://kelelitsolution.com"),
+  metadataBase: new URL(baseUrl),
   title: {
-    default: "Kelel IT Solution | Enterprise Technology and IT Services",
+    default: "IT Solutions Company in Addis Ababa | Kelel IT Solutions",
     template: `%s | ${site.name}`,
   },
   description:
-    "Kelel IT Solution helps organizations strengthen operations through enterprise technology, platforms, web systems, infrastructure, and IT support.",
+    "Kelel IT Solutions builds software, mobile apps, banking platforms, school fee payment systems, insurance platforms, fleet systems, and MongoDB solutions in Ethiopia.",
   applicationName: site.name,
   icons: {
     icon: "/icon.jpg",
     apple: "/apple-icon.jpg",
   },
   keywords: [
-    "digital infrastructure Africa",
-    "financial systems platform",
-    "banking systems Ethiopia",
-    "insurance platforms Africa",
-    "enterprise operations infrastructure",
-    "logistics systems platform",
+    "IT solutions company in Addis Ababa",
+    "software development company in Ethiopia",
+    "software company in Addis Ababa",
+    "website development company in Addis Ababa",
+    "mobile app development company in Ethiopia",
+    "digital banking software Ethiopia",
+    "school fee payment system Ethiopia",
+    "insurance management software Ethiopia",
+    "fleet management system Ethiopia",
+    "MongoDB consultant Ethiopia",
   ],
   openGraph: {
     title: site.name,
     description: site.intro,
-    url: "https://kelelitsolution.com",
+    url: baseUrl,
     siteName: site.name,
     locale: "en_US",
     type: "website",
@@ -64,8 +69,11 @@ export const metadata: Metadata = {
     images: ["/opengraph-image"],
   },
   alternates: {
-    canonical: "https://kelelitsolution.com",
+    canonical: baseUrl,
   },
+  verification: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+    ? { google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION }
+    : undefined,
 };
 
 export default function RootLayout({
@@ -77,7 +85,7 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "Organization",
     name: site.name,
-    url: "https://kelelitsolution.com",
+    url: baseUrl,
     email: site.email,
     telephone: site.phone,
     address: {
@@ -95,12 +103,64 @@ export default function RootLayout({
     },
   };
 
+  const localBusinessJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    name: site.name,
+    url: baseUrl,
+    email: site.email,
+    telephone: site.phone,
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Addis Ababa",
+      addressCountry: "ET",
+    },
+    areaServed: [
+      "Addis Ababa",
+      "Bole",
+      "Kazanchis",
+      "Piassa",
+      "Mexico",
+      "Sar Bet",
+      "Megenagna",
+      "CMC",
+      "Summit",
+      "Ayat",
+      "Lebu",
+      "Burayu",
+      "Sebeta",
+      "Sululta",
+      "Dukem",
+      "Bishoftu",
+      "Ethiopia",
+    ],
+  };
+
+  const websiteJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: site.name,
+    url: baseUrl,
+    publisher: {
+      "@type": "Organization",
+      name: site.name,
+    },
+  };
+
   return (
     <html lang="en" className={cn("font-sans", geist.variable)}>
       <body>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+          dangerouslySetInnerHTML={jsonLd(organizationJsonLd)}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={jsonLd(localBusinessJsonLd)}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={jsonLd(websiteJsonLd)}
         />
         <div className={`site-frame ${geist.variable} ${serif.variable} ${mono.variable}`}>
           <SiteEffects />

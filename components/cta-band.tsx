@@ -43,7 +43,7 @@ export function CtaBand({
             <span className="cta-contact-sep">·</span>
             <a href={`tel:${site.phone.replace(/\s/g, '')}`} className="cta-contact-link">{site.phone}</a>
             <span className="cta-contact-sep">·</span>
-            <span className="cta-contact-text">Bole Subcity, Addis Ababa</span>
+            <span className="cta-contact-text">{site.location}</span>
           </div>
         </div>
       </div>

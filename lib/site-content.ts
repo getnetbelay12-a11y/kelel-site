@@ -1,5 +1,5 @@
 export const site = {
-  name: "Kelel IT Solution",
+  name: "Kelel IT Solutions",
   email: "info@kelelitsolution.com",
   phone: "+251942137249",
   whatsapp: "https://wa.me/251942137249",
@@ -9,7 +9,7 @@ export const site = {
   contactPerson: "Getnet Amdu Belay",
   contactRole: "General Manager",
   intro:
-    "Kelel IT Solution helps organizations improve digital presence, operational systems, infrastructure, and technology delivery with a stronger business-first approach.",
+    "Kelel IT Solutions helps organizations improve digital presence, operational systems, infrastructure, and technology delivery with a stronger business-first approach.",
   tagline: "Enterprise technology, platforms, and IT services for growing organizations.",
 };
 

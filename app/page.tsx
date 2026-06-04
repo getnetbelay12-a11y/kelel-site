@@ -9,6 +9,8 @@ import { IndustryGrid } from "@/components/industry-grid";
 import { ProcessTrack } from "@/components/process-track";
 import { CtaBand } from "@/components/cta-band";
 import { site } from "@/lib/site-content";
+import { createSeoMetadata, faqSchema, jsonLd } from "@/lib/seo";
+import { seoPages, servicePages, solutionPages } from "@/lib/seo-pages";
 
 const ContactForm = dynamic(
   () => import("@/components/contact-form").then((mod) => mod.ContactForm),
@@ -63,12 +65,12 @@ function ProofCardVisual({ variant }: { variant: string }) {
           <div className="hp-proof-mini-window-bar" />
           <div className="hp-proof-mini-window-grid">
             <span className="hp-proof-mini-stat">
-              <strong>ETB 4.2M</strong>
-              <small>Daily volume</small>
+              <strong>Payments</strong>
+              <small>Workflow view</small>
             </span>
             <span className="hp-proof-mini-stat">
-              <strong>38</strong>
-              <small>Branches</small>
+              <strong>Branches</strong>
+              <small>Dashboard layer</small>
             </span>
           </div>
           <div className="hp-proof-mini-chart">
@@ -125,17 +127,73 @@ function ProofCardVisual({ variant }: { variant: string }) {
   );
 }
 
-export const metadata: Metadata = {
-  title: "Kelel IT Solution | Digital Infrastructure for Financial Systems in Africa",
+export const metadata: Metadata = createSeoMetadata({
+  title: "IT Solutions Company in Addis Ababa | Kelel IT Solutions",
   description:
-    "Kelel IT Solution builds secure, scalable platforms for banking, insurance, and enterprise operations across Africa.",
-};
+    "Kelel IT Solutions builds software, mobile apps, banking platforms, school fee payment systems, insurance platforms, fleet management systems, and MongoDB solutions for businesses in Ethiopia.",
+  path: "/",
+});
+
+const homeFaqs = [
+  {
+    question: "What does Kelel IT Solutions do?",
+    answer:
+      "Kelel IT Solutions builds websites, mobile apps, custom software, banking platforms, school fee payment systems, insurance platforms, fleet systems, cloud deployments, cybersecurity foundations, and MongoDB solutions.",
+  },
+  {
+    question: "Where is Kelel IT Solutions located?",
+    answer:
+      "Kelel IT Solutions is based in Addis Ababa, Ethiopia and supports businesses in Addis Ababa and nearby areas.",
+  },
+  {
+    question: "Can Kelel build financial technology systems?",
+    answer:
+      "Yes. Kelel designs digital banking, school payment, insurance, dashboard, audit trail, notification, and integration-ready software for financial workflows.",
+  },
+  {
+    question: "Does Kelel provide MongoDB consulting?",
+    answer:
+      "Yes. Kelel supports MongoDB schema design, indexing, performance tuning, replication, backup and recovery, security, migrations, and cloud readiness.",
+  },
+  {
+    question: "How can a business request a consultation?",
+    answer:
+      "Use the contact or request proposal page to share the business problem, users, required workflow, timeline, and integration needs.",
+  },
+];
 
 export default function Home() {
   return (
     <main>
+      <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(faqSchema(homeFaqs))} />
       {/* 1 — Hero */}
       <HomepageHero />
+
+      <section className="seo-home-intro" id="what-we-do">
+        <div className="stitch-container">
+          <div className="hp-section-label">What We Do</div>
+          <h2 className="hp-section-title">
+            Software, infrastructure, and digital systems for <em>Ethiopian businesses.</em>
+          </h2>
+          <p className="hp-section-intro">
+            Kelel IT Solutions is an IT solutions company in Addis Ababa helping
+            organizations build reliable digital infrastructure: custom software,
+            mobile applications, SEO-ready websites, banking software, school fee
+            payment systems, insurance platforms, fleet and logistics systems,
+            MongoDB databases, cloud deployments, cybersecurity controls, and ERP-style
+            enterprise integrations.
+          </p>
+          <div className="seo-link-grid">
+            {seoPages.map((page) => (
+              <Link key={page.path} href={page.path} className="seo-link-card stitch-glass">
+                <span>{page.group === "solutions" ? "Solution" : "Service"}</span>
+                <strong>{page.h1}</strong>
+                <small>{page.serviceType}</small>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* 2 — Marquee */}
       <div className="hp-marquee" aria-hidden="true">
@@ -161,20 +219,22 @@ export default function Home() {
                 Built in Ethiopia. <em>Connected across Africa.</em>
               </h2>
               <p className="hp-section-intro hp-section-intro--flush">
-                Kelel operates from Addis Ababa with infrastructure reaching financial and enterprise teams across the continent.
+                Kelel IT Solutions supports businesses in Addis Ababa and nearby areas
+                including Bole, Kazanchis, Megenagna, CMC, Summit, Ayat, Lebu, Sar Bet,
+                Burayu, Sebeta, Sululta, Dukem, and Bishoftu.
               </p>
               <div className="hp-africa-stats">
                 <div className="hp-africa-stat">
-                  <div className="hp-africa-stat-val">12</div>
-                  <div className="hp-africa-stat-lbl">Active nodes</div>
+                  <div className="hp-africa-stat-val">Addis</div>
+                  <div className="hp-africa-stat-lbl">Primary location</div>
                 </div>
                 <div className="hp-africa-stat">
-                  <div className="hp-africa-stat-val">5+</div>
-                  <div className="hp-africa-stat-lbl">Markets served</div>
+                  <div className="hp-africa-stat-val">ET</div>
+                  <div className="hp-africa-stat-lbl">Ethiopia focus</div>
                 </div>
                 <div className="hp-africa-stat">
-                  <div className="hp-africa-stat-val">99.9%</div>
-                  <div className="hp-africa-stat-lbl">Network uptime</div>
+                  <div className="hp-africa-stat-val">B2B</div>
+                  <div className="hp-africa-stat-lbl">Business systems</div>
                 </div>
               </div>
             </div>
@@ -186,6 +246,73 @@ export default function Home() {
       {/* 5 — Industries */}
       <RevealSection as="div" className="reveal-stagger" delay={1}>
         <IndustryGrid />
+      </RevealSection>
+
+      <RevealSection as="section" className="seo-home-band reveal-stagger" delay={1}>
+        <div className="stitch-container">
+          <div className="hp-section-label">Trust Signals</div>
+          <h2 className="hp-section-title">
+            Built for serious workflows, not decorative software.
+          </h2>
+          <div className="seo-trust-grid">
+            {[
+              "Banking dashboards, mobile banking workflows, audit trails, and integration-ready service layers",
+              "Insurance policy, renewal, claims, notification, verification, and reporting systems",
+              "Logistics and fleet workflows for vehicles, drivers, dispatch, trips, maintenance, and reporting",
+              "School systems for onboarding, parent/student payment, receipts, reconciliation, and branch visibility",
+              "Enterprise systems for operations, finance, HR, reporting, APIs, and workflow automation",
+            ].map((item) => (
+              <div key={item} className="seo-trust-card stitch-glass">
+                {item}
+              </div>
+            ))}
+          </div>
+        </div>
+      </RevealSection>
+
+      <RevealSection as="section" className="seo-home-band reveal-stagger" delay={1}>
+        <div className="stitch-container">
+          <div className="hp-section-label">Why Kelel IT Solutions</div>
+          <h2 className="hp-section-title">
+            Digital infrastructure for financial systems.
+          </h2>
+          <div className="seo-two-col">
+            <p>
+              Kelel focuses on practical architecture: clear workflows, secure access,
+              strong database design, maintainable code, dashboard visibility, and
+              deployment practices that can support real operations. The work is built
+              for African market realities and designed against global engineering
+              standards.
+            </p>
+            <p>
+              We serve organizations that need software tied to business outcomes:
+              better payment flows, cleaner reporting, stronger branch visibility,
+              safer databases, mobile access, and systems that leadership can actually
+              operate after launch.
+            </p>
+          </div>
+        </div>
+      </RevealSection>
+
+      <RevealSection as="section" className="seo-home-band reveal-stagger" delay={1}>
+        <div className="stitch-container">
+          <div className="hp-section-label">Service Paths</div>
+          <h2 className="hp-section-title">Find the right page for your project.</h2>
+          <div className="seo-related-columns">
+            <div>
+              <h3>Services</h3>
+              {servicePages.map((page) => (
+                <Link key={page.path} href={page.path}>{page.title} →</Link>
+              ))}
+            </div>
+            <div>
+              <h3>Solutions</h3>
+              {solutionPages.map((page) => (
+                <Link key={page.path} href={page.path}>{page.title} →</Link>
+              ))}
+            </div>
+          </div>
+        </div>
       </RevealSection>
 
       {/* 6 — Process + stats */}
@@ -226,15 +353,15 @@ export default function Home() {
                   <div className="hp-proof-screen-grid">
                     <div className="hp-proof-screen-tile">
                       <small>Transactions</small>
-                      <strong>1.28M</strong>
+                      <strong>Tracked</strong>
                     </div>
                     <div className="hp-proof-screen-tile">
-                      <small>Latency</small>
-                      <strong>42ms</strong>
+                      <small>Access</small>
+                      <strong>Secure</strong>
                     </div>
                     <div className="hp-proof-screen-tile">
                       <small>Approvals</small>
-                      <strong>94%</strong>
+                      <strong>Visible</strong>
                     </div>
                   </div>
                   <div className="hp-proof-screen-chart">
@@ -295,10 +422,10 @@ export default function Home() {
       {/* 8 — CTA band */}
       <RevealSection as="div" delay={1}>
         <CtaBand
-          kicker="Start a Project"
-          heading={<>Ready to build? <em>Let&apos;s talk.</em></>}
-          sub="Tell us what you need and we'll shape the right architecture for your operations."
-          primaryLabel="Start a project →"
+          kicker="Request a Consultation"
+          heading={<>Ready to build a serious <em>business system?</em></>}
+          sub="Tell us what you need and we will shape the right architecture for your software, website, mobile app, database, cloud, or financial platform."
+          primaryLabel="Request a Consultation →"
           primaryHref="/#contact"
           ghostLabel="Book a call"
           ghostHref={site.calendlyPlaceholder}
@@ -325,6 +452,23 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <RevealSection as="section" className="stitch-section">
+        <div className="stitch-container">
+          <div className="hp-section-label">FAQ</div>
+          <h2 className="hp-section-title section-title-gap-lg">
+            Common questions about <em>Kelel IT Solutions.</em>
+          </h2>
+          <div className="ctc-faq-list">
+            {homeFaqs.map((item) => (
+              <div key={item.question} className="ctc-faq-item stitch-glass">
+                <h3 className="ctc-faq-q">{item.question}</h3>
+                <p className="ctc-faq-a">{item.answer}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </RevealSection>
 
       <ChatWithKelel />
     </main>

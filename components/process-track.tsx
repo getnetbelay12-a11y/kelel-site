@@ -22,10 +22,10 @@ const steps = [
 ]
 
 const stats = [
-  { val: '99.9%', lbl: 'Uptime target' },
-  { val: '<45ms', lbl: 'API latency' },
+  { val: 'Secure', lbl: 'Access model' },
+  { val: 'API', lbl: 'Integration-ready' },
   { val: '4 phases', lbl: 'Delivery model' },
-  { val: '24/7', lbl: 'Operational support' },
+  { val: 'Handoff', lbl: 'Support planning' },
 ]
 
 export function ProcessTrack() {

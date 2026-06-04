@@ -1,9 +1,22 @@
 import type { MetadataRoute } from "next";
+import { seoPages } from "@/lib/seo-pages";
 
 const baseUrl = "https://kelelitsolution.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return ["", "/services", "/work", "/about", "/contact"].map((path) => ({
+  const staticPaths = [
+    "",
+    "/services",
+    "/work",
+    "/about",
+    "/contact",
+    "/request-proposal",
+    "/privacy",
+    "/terms",
+  ];
+  const paths = [...staticPaths, ...seoPages.map((page) => page.path)];
+
+  return paths.map((path) => ({
     url: `${baseUrl}${path}`,
     lastModified: new Date(),
     changeFrequency: path === "" ? "weekly" : "monthly",

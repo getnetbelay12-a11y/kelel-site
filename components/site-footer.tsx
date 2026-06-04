@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { site } from "@/lib/site-content";
+import { servicePages, solutionPages } from "@/lib/seo-pages";
 
 export function SiteFooter() {
   const year = new Date().getFullYear();
@@ -30,21 +31,19 @@ export function SiteFooter() {
           {/* Services column */}
           <div className="kf-col">
             <h4 className="kf-col-heading">Services</h4>
-            <Link href="/services?focus=platform-architecture">Platform Architecture</Link>
-            <Link href="/services?focus=system-optimization">Performance Optimization</Link>
-            <Link href="/services?focus=data-infrastructure">Data Infrastructure</Link>
-            <Link href="/intelligent-solutions">AI &amp; Intelligent Systems</Link>
-            <Link href="/platform">Platform Core</Link>
+            {servicePages.slice(0, 7).map((page) => (
+              <Link key={page.path} href={page.path}>{page.serviceType}</Link>
+            ))}
           </div>
 
           {/* Company column */}
           <div className="kf-col">
-            <h4 className="kf-col-heading">Company</h4>
-            <Link href="/#what-we-do">What We Do</Link>
-            <Link href="/#industries">Industries</Link>
-            <Link href="/work">Our Work</Link>
-            <Link href="/#company">About</Link>
-            <Link href="/request-proposal">Start a Project</Link>
+            <h4 className="kf-col-heading">Solutions</h4>
+            {solutionPages.map((page) => (
+              <Link key={page.path} href={page.path}>{page.serviceType}</Link>
+            ))}
+            <Link href="/services/erp-software-ethiopia">ERP &amp; Integration</Link>
+            <Link href="/services/cybersecurity-company-ethiopia">Cybersecurity</Link>
           </div>
 
           {/* Contact column */}
@@ -56,12 +55,14 @@ export function SiteFooter() {
             <Link href="/contact" className="kf-cta">
               Book a Call →
             </Link>
+            <Link href="/privacy">Privacy Policy</Link>
+            <Link href="/terms">Terms</Link>
           </div>
         </div>
 
         {/* Bottom bar */}
         <div className="kf-bottom">
-          <span>© {year} Kelel IT Solution. All rights reserved.</span>
+          <span>© {year} Kelel IT Solutions. All rights reserved.</span>
           <span className="kf-bottom-right">
             Built for Africa · Enterprise infrastructure
           </span>
