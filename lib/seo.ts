@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { site } from "@/lib/site-content";
 
-export const baseUrl = "https://kelelitsolution.com";
+export const baseUrl = "https://www.kelelitsolution.com";
 
 type SeoInput = {
   title: string;

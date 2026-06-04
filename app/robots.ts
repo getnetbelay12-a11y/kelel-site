@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://kelelitsolution.com/sitemap.xml",
+    sitemap: "https://www.kelelitsolution.com/sitemap.xml",
   };
 }

@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { seoPages } from "@/lib/seo-pages";
 
-const baseUrl = "https://kelelitsolution.com";
+const baseUrl = "https://www.kelelitsolution.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPaths = [

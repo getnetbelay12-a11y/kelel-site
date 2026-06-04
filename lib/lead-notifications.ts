@@ -3,7 +3,7 @@ import type { StoredSubmission } from "@/lib/contact-submissions";
 import type { InboxDirectoryUser } from "@/lib/inbox-auth";
 import { site } from "@/lib/site-content";
 
-const publicSiteUrl = "https://kelelitsolution.com";
+const publicSiteUrl = "https://www.kelelitsolution.com";
 const emailLogoUrl = `${publicSiteUrl}/brand/kelel-logo-en.jpg`;
 const emailAccent = "#c7a86a";
 const emailInk = "#13211d";
