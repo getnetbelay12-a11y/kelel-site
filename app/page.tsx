@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import type { CSSProperties } from "react";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import { RevealSection } from "@/components/reveal-section";
@@ -162,6 +163,57 @@ const homeFaqs = [
   },
 ];
 
+const seoCardDetails: Record<string, { summary: string; chips: string[] }> = {
+  "/services/it-solutions-addis-ababa": {
+    summary: "Consulting, systems, automation, integrations, websites, mobile apps, cloud, and database support for Addis Ababa businesses.",
+    chips: ["Consulting", "Automation", "Integrations"],
+  },
+  "/services/software-development-ethiopia": {
+    summary: "Custom platforms, admin consoles, dashboards, APIs, workflows, reporting, and payment-ready software for Ethiopian teams.",
+    chips: ["Dashboards", "APIs", "Workflows"],
+  },
+  "/services/website-development-addis-ababa": {
+    summary: "Fast, mobile-first, SEO-ready websites with clean metadata, contact flows, analytics readiness, and Google indexing support.",
+    chips: ["SEO-ready", "Mobile-first", "Leads"],
+  },
+  "/services/mobile-app-development-ethiopia": {
+    summary: "Flutter-ready Android and iOS apps with secure login, notifications, dashboards, and backend/API integration.",
+    chips: ["Flutter", "Secure login", "Notifications"],
+  },
+  "/solutions/digital-banking-software-ethiopia": {
+    summary: "Mobile banking, Fayda KYC readiness, loan workflow, school payments, branch dashboards, audit trails, and integrations.",
+    chips: ["Banking", "KYC", "Audit trail"],
+  },
+  "/solutions/school-fee-payment-system-ethiopia": {
+    summary: "Parent payments, school onboarding, bank dashboards, receipts, reconciliation, notifications, and reporting.",
+    chips: ["Receipts", "Reconciliation", "Reports"],
+  },
+  "/solutions/insurance-management-software-ethiopia": {
+    summary: "Policy management, vehicle insurance workflows, renewal reminders, claims tracking, QR verification, and dashboards.",
+    chips: ["Policies", "Claims", "Renewals"],
+  },
+  "/solutions/fleet-management-system-ethiopia": {
+    summary: "Vehicle, driver, dispatch, trip, maintenance, fuel, customer tracking, finance, HR, and logistics reporting workflows.",
+    chips: ["Dispatch", "Maintenance", "Tracking"],
+  },
+  "/services/mongodb-consulting-ethiopia": {
+    summary: "MongoDB DBA support, indexing, schema design, replication, backup, security, migrations, and cloud readiness.",
+    chips: ["Indexing", "Replication", "Security"],
+  },
+  "/services/cloud-services-ethiopia": {
+    summary: "Deployment, hosting, backup, monitoring, disaster recovery, migration, and secure AWS/Vercel-ready architecture.",
+    chips: ["Hosting", "Backups", "Monitoring"],
+  },
+  "/services/cybersecurity-company-ethiopia": {
+    summary: "TLS, secure authentication, access control, audit logs, backup planning, vulnerability prevention, and secure deployment.",
+    chips: ["TLS", "Access", "Logs"],
+  },
+  "/services/erp-software-ethiopia": {
+    summary: "ERP-style workflows, finance, operations, HR, reporting, APIs, dashboards, and phased enterprise integration.",
+    chips: ["ERP", "Finance", "Operations"],
+  },
+};
+
 export default function Home() {
   return (
     <main>
@@ -184,11 +236,33 @@ export default function Home() {
             enterprise integrations.
           </p>
           <div className="seo-link-grid">
-            {seoPages.map((page) => (
-              <Link key={page.path} href={page.path} className="seo-link-card stitch-glass">
-                <span>{page.group === "solutions" ? "Solution" : "Service"}</span>
+            {seoPages.map((page, index) => (
+              <Link
+                key={page.path}
+                href={page.path}
+                className={`seo-link-card seo-link-card--${page.group} stitch-glass`}
+                style={{ animationDelay: `${index * 45}ms` } as CSSProperties}
+              >
+                <span className="seo-card-orbit" aria-hidden="true">
+                  <i />
+                  <i />
+                  <i />
+                </span>
+                <span className="seo-card-topline">
+                  <span className="seo-card-kind">{page.group === "solutions" ? "Solution" : "Service"}</span>
+                  <span className="seo-card-index">{String(index + 1).padStart(2, "0")}</span>
+                </span>
                 <strong>{page.h1}</strong>
-                <small>{page.serviceType}</small>
+                <p>{seoCardDetails[page.path]?.summary}</p>
+                <span className="seo-card-chips">
+                  {seoCardDetails[page.path]?.chips.map((chip) => (
+                    <span key={chip}>{chip}</span>
+                  ))}
+                </span>
+                <small>
+                  {page.serviceType}
+                  <span>Explore →</span>
+                </small>
               </Link>
             ))}
           </div>
