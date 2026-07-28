@@ -1,16 +1,19 @@
 export const site = {
   name: "Kelel IT Solutions",
   email: "info@kelelitsolution.com",
-  phone: "+251942137249",
+  phone: "303-261-5025",
+  secondaryPhone: "+251942137249",
   whatsapp: "https://wa.me/251942137249",
   calendlyPlaceholder: "/contact?intent=book-call",
-  location: "Addis Ababa, Ethiopia",
+  location: "Remote-first international team with U.S. contact in Las Vegas, Nevada",
+  usAddress: "Las Vegas, Nevada, USA",
+  etAddress: "Kirkos Subcity, Kebele 02/03, Addis Ababa, Ethiopia",
   hours: "Mon - Sat, 8:30 AM - 6:00 PM",
   contactPerson: "Getnet Amdu Belay",
   contactRole: "General Manager",
   intro:
-    "Kelel IT Solutions helps organizations improve digital presence, operational systems, infrastructure, and technology delivery with a stronger business-first approach.",
-  tagline: "Enterprise technology, platforms, and IT services for growing organizations.",
+    "Kelel IT Solutions helps businesses internationally improve digital presence, operational systems, infrastructure, and technology delivery with a stronger business-first approach.",
+  tagline: "Websites, software platforms, and IT services for growing organizations worldwide.",
 };
 
 export const navLinks = [

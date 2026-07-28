@@ -23,14 +23,14 @@ const ChatWithKelel = dynamic(
 
 const marqueeItems = [
   "API-First Architecture",
-  "Banking Platforms",
-  "Insurance Systems",
+  "Business Websites",
+  "Custom Software",
   "Enterprise Dashboards",
   "Real-time Analytics",
   "Workflow Automation",
   "Data Infrastructure",
   "Secure Operations",
-  "African Markets",
+  "International Delivery",
   "Production-Ready",
 ];
 
@@ -129,9 +129,9 @@ function ProofCardVisual({ variant }: { variant: string }) {
 }
 
 export const metadata: Metadata = createSeoMetadata({
-  title: "IT Solutions Company in Addis Ababa | Kelel IT Solutions",
+  title: "International IT Solutions and Website Development | Kelel IT Solutions",
   description:
-    "Kelel IT Solutions builds software, mobile apps, banking platforms, school fee payment systems, insurance platforms, fleet management systems, and MongoDB solutions for businesses in Ethiopia.",
+    "Kelel IT Solutions builds websites, custom software, mobile apps, cloud systems, dashboards, MongoDB solutions, and digital infrastructure for businesses internationally.",
   path: "/",
 });
 
@@ -144,7 +144,7 @@ const homeFaqs = [
   {
     question: "Where is Kelel IT Solutions located?",
     answer:
-      "Kelel IT Solutions is based in Addis Ababa, Ethiopia and supports businesses in Addis Ababa and nearby areas.",
+      "Kelel IT Solutions is a remote-first international technology company based in Addis Ababa, Ethiopia, serving businesses in multiple markets.",
   },
   {
     question: "Can Kelel build financial technology systems?",
@@ -165,11 +165,11 @@ const homeFaqs = [
 
 const seoCardDetails: Record<string, { summary: string; chips: string[] }> = {
   "/services/it-solutions-addis-ababa": {
-    summary: "Consulting, systems, automation, integrations, websites, mobile apps, cloud, and database support for Addis Ababa businesses.",
+    summary: "Consulting, systems, automation, integrations, websites, mobile apps, cloud, and database support for growing businesses.",
     chips: ["Consulting", "Automation", "Integrations"],
   },
   "/services/software-development-ethiopia": {
-    summary: "Custom platforms, admin consoles, dashboards, APIs, workflows, reporting, and payment-ready software for Ethiopian teams.",
+    summary: "Custom platforms, admin consoles, dashboards, APIs, workflows, reporting, and payment-ready software for business teams.",
     chips: ["Dashboards", "APIs", "Workflows"],
   },
   "/services/website-development-addis-ababa": {
@@ -225,15 +225,14 @@ export default function Home() {
         <div className="stitch-container">
           <div className="hp-section-label">What We Do</div>
           <h2 className="hp-section-title">
-            Software, infrastructure, and digital systems for <em>Ethiopian businesses.</em>
+            Websites, software, and digital systems for <em>growing businesses.</em>
           </h2>
           <p className="hp-section-intro">
-            Kelel IT Solutions is an IT solutions company in Addis Ababa helping
-            organizations build reliable digital infrastructure: custom software,
-            mobile applications, SEO-ready websites, banking software, school fee
-            payment systems, insurance platforms, fleet and logistics systems,
-            MongoDB databases, cloud deployments, cybersecurity controls, and ERP-style
-            enterprise integrations.
+            Kelel IT Solutions is a remote-first technology company helping
+            organizations build reliable digital infrastructure: SEO-ready websites,
+            custom software, mobile applications, business dashboards, payment-ready
+            workflows, MongoDB databases, cloud deployments, cybersecurity controls,
+            and ERP-style enterprise integrations.
           </p>
           <div className="seo-link-grid">
             {seoPages.map((page, index) => (
@@ -283,28 +282,29 @@ export default function Home() {
         <CapabilitiesSection />
       </RevealSection>
 
-      {/* 4 — Africa connectivity */}
+      {/* 4 — International reach */}
       <RevealSection as="section" className="hp-africa reveal-stagger" delay={1}>
         <div className="hp-section-inner">
           <div className="hp-africa-wrap">
             <div>
               <div className="hp-section-label">Our Reach</div>
               <h2 className="hp-section-title">
-                Built in Ethiopia. <em>Connected across Africa.</em>
+                Based in Ethiopia. <em>Serving businesses internationally.</em>
               </h2>
               <p className="hp-section-intro hp-section-intro--flush">
-                Kelel IT Solutions supports businesses in Addis Ababa and nearby areas
-                including Bole, Kazanchis, Megenagna, CMC, Summit, Ayat, Lebu, Sar Bet,
-                Burayu, Sebeta, Sululta, Dukem, and Bishoftu.
+                Kelel IT Solutions supports small businesses, service providers,
+                startups, and operations-heavy organizations that need practical
+                websites, software systems, dashboards, cloud deployment, and
+                long-term technical support.
               </p>
               <div className="hp-africa-stats">
                 <div className="hp-africa-stat">
-                  <div className="hp-africa-stat-val">Addis</div>
-                  <div className="hp-africa-stat-lbl">Primary location</div>
+                  <div className="hp-africa-stat-val">Global</div>
+                  <div className="hp-africa-stat-lbl">Remote delivery</div>
                 </div>
                 <div className="hp-africa-stat">
-                  <div className="hp-africa-stat-val">ET</div>
-                  <div className="hp-africa-stat-lbl">Ethiopia focus</div>
+                  <div className="hp-africa-stat-val">US</div>
+                  <div className="hp-africa-stat-lbl">Small business outreach</div>
                 </div>
                 <div className="hp-africa-stat">
                   <div className="hp-africa-stat-val">B2B</div>
@@ -355,7 +355,7 @@ export default function Home() {
               Kelel focuses on practical architecture: clear workflows, secure access,
               strong database design, maintainable code, dashboard visibility, and
               deployment practices that can support real operations. The work is built
-              for African market realities and designed against global engineering
+              for real operating constraints and designed against global engineering
               standards.
             </p>
             <p>
@@ -399,7 +399,7 @@ export default function Home() {
         <div className="hp-section-inner">
           <div className="hp-section-label">Work</div>
           <h2 className="hp-section-title">
-            Real platform thinking for <em>African operations.</em>
+            Real platform thinking for <em>business operations.</em>
           </h2>
           <p className="hp-section-intro">
             Concept work, architecture examples, and system patterns for banking, insurance, and enterprise teams.

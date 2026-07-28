@@ -12,23 +12,23 @@ export function HomepageHero() {
         <div className="site-hero-copy site-hero-copy--center">
           <div className="site-eyebrow">
             <span className="site-eyebrow-dot" />
-            Engineered in Addis · Built for Africa
+            Remote-first delivery · Serving businesses internationally
           </div>
 
           <h1 className="site-hero-h1">
             <span>IT Solutions</span>
-            <span>Company in</span>
-            <span><em>Addis Ababa.</em></span>
+            <span>for Growing</span>
+            <span><em>Businesses.</em></span>
           </h1>
 
           <div className="site-hero-meta">
             <div className="site-hero-meta-item">
-              <span className="site-hero-meta-val">Banking</span>
-              <span className="site-hero-meta-lbl">Platforms</span>
+              <span className="site-hero-meta-val">Websites</span>
+              <span className="site-hero-meta-lbl">Leads</span>
             </div>
             <div className="site-hero-meta-item">
-              <span className="site-hero-meta-val">Schools</span>
-              <span className="site-hero-meta-lbl">Payments</span>
+              <span className="site-hero-meta-val">Software</span>
+              <span className="site-hero-meta-lbl">Systems</span>
             </div>
             <div className="site-hero-meta-item">
               <span className="site-hero-meta-val">MongoDB</span>
@@ -45,8 +45,8 @@ export function HomepageHero() {
       <div className="site-hero-corner-copy">
         <span className="site-hero-corner-kicker">Operational focus</span>
         <p>
-          Digital infrastructure for financial systems. Built for African markets.
-          Designed for global standards.
+          Websites, software, cloud systems, and digital infrastructure for small
+          businesses, service providers, and growing organizations.
         </p>
       </div>
       <div className="site-hero-corner-actions">

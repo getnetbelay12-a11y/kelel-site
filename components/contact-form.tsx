@@ -111,7 +111,7 @@ export function ContactForm({
         <>
           <label>
             <span>Phone number</span>
-            <input type="tel" name="phone" placeholder="+251 ..." required />
+            <input type="tel" name="phone" placeholder="Phone number" required />
           </label>
           <label className="full-width">
             <span>What do you need?</span>

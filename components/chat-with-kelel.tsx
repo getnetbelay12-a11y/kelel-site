@@ -140,7 +140,7 @@ export function ChatWithKelel() {
                         type="tel"
                         value={phone}
                         onChange={(event) => setPhone(event.target.value)}
-                        placeholder="+251..."
+                        placeholder="Phone number"
                       />
                     </label>
                     <label>

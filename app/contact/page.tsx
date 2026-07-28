@@ -7,9 +7,9 @@ import { faqs, responseCommitments, site } from "@/lib/site-content";
 import { breadcrumbSchema, createSeoMetadata, jsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = createSeoMetadata({
-  title: "Contact Kelel IT Solutions in Addis Ababa",
+  title: "Contact Kelel IT Solutions",
   description:
-    "Contact Kelel IT Solutions in Addis Ababa, Ethiopia for software development, websites, mobile apps, banking software, school payment systems, MongoDB consulting, cloud, and cybersecurity.",
+    "Contact Kelel IT Solutions for website development, custom software, mobile apps, business dashboards, MongoDB consulting, cloud, and cybersecurity services.",
   path: "/contact",
 });
 
@@ -52,9 +52,13 @@ export default function ContactPage() {
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
                   {site.email}
                 </a>
-                <a href={`tel:${site.phone.replaceAll(" ", "")}`} className="ctc-pill">
+                <a href={`tel:${site.phone.replaceAll("-", "")}`} className="ctc-pill">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.71 3.4 2 2 0 0 1 3.68 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                   {site.phone}
+                </a>
+                <a href={`tel:${site.secondaryPhone}`} className="ctc-pill">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.71 3.4 2 2 0 0 1 3.68 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                  {site.secondaryPhone}
                 </a>
               </div>
             </div>
@@ -110,7 +114,8 @@ export default function ContactPage() {
               </div>
               <div className="ctc-method-label">Phone</div>
               <div className="ctc-method-title">Call us directly</div>
-              <a href={`tel:${site.phone.replaceAll(" ", "")}`} className="ctc-method-val">{site.phone}</a>
+              <a href={`tel:${site.phone.replaceAll("-", "")}`} className="ctc-method-val">{site.phone}</a>
+              <a href={`tel:${site.secondaryPhone}`} className="ctc-method-val">{site.secondaryPhone}</a>
             </div>
 
             <div className="ctc-method stitch-glass">
@@ -127,7 +132,16 @@ export default function ContactPage() {
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
               </div>
               <div className="ctc-method-label">Office</div>
-              <div className="ctc-method-title">Visit us in Addis</div>
+              <div className="ctc-method-title">U.S. contact</div>
+              <span className="ctc-method-val">{site.usAddress}</span>
+            </div>
+
+            <div className="ctc-method stitch-glass">
+              <div className="ctc-method-icon ctc-method-icon--purple">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div className="ctc-method-label">Office</div>
+              <div className="ctc-method-title">Ethiopia office</div>
               <span className="ctc-method-val">Kirkos Subcity, Kebele 02/03<br />Addis Ababa, Ethiopia</span>
             </div>
           </div>
