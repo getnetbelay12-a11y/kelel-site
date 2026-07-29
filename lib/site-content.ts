@@ -7,7 +7,7 @@ export const site = {
   calendlyPlaceholder: "/contact?intent=book-call",
   location: "Remote-first international team with U.S. contact in Las Vegas, Nevada",
   usAddress: "Las Vegas, Nevada, USA",
-  etAddress: "Kirkos Subcity, Kebele 02/03, Addis Ababa, Ethiopia",
+  etAddress: "",
   hours: "Mon - Sat, 8:30 AM - 6:00 PM",
   contactPerson: "Getnet Amdu Belay",
   contactRole: "General Manager",

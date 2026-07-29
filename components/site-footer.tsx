@@ -53,7 +53,6 @@ export function SiteFooter() {
             <a href={`tel:${site.phone.replaceAll("-", "")}`}>{site.phone}</a>
             <a href={`tel:${site.secondaryPhone}`}>{site.secondaryPhone}</a>
             <span>{site.usAddress}</span>
-            <span>Kirkos Subcity, Kebele 02/03<br />Addis Ababa, Ethiopia</span>
             <Link href="/contact" className="kf-cta">
               Book a Call →
             </Link>

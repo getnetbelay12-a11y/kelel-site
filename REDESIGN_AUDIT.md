@@ -239,7 +239,7 @@ Full-featured internal CRM: authentication gate, per-lead management (status, ow
 | `components/hero-portrait-rotation.tsx` | Not found in current active pages — may be a scrapped hero concept. Read before touching. |
 | `app/request-proposal/page.tsx` form | The HTML `<form action="" method="POST">` has **no API integration** — it will just reload the page on submit. The actual proposal collection likely relies on the `/contact` route + `ContactForm`. This page may need wiring or is intentionally static for now. Do not wire it to a new endpoint without checking. |
 | `lib/site-content.ts` links | `businessResources` references `/platforms`, `/review-pack`, `/capability-matrix`, `/asset-guide`, `/asset-status` — **none of these routes exist** in `app/`. They are dead links in the resource center. |
-| Inbox location mismatch | `app/inbox/page.tsx` shows "Kirkos Subcity" address; `request-proposal` shows the same; `contact` page shows same — but `lib/site-content.ts` `site.location` says "Addis Ababa, Ethiopia" and `site-footer.tsx` shows "Kirkos Subcity, Kebele 02/03". The kelel-design skill says "Bole Subcity" is the locked address. **Clarify which address is correct before redesign.** |
+| Location mismatch | Older pages used inconsistent office-address wording. Current public contact surfaces should use the approved U.S. contact line or remote-first international positioning. **Keep address copy centralized before redesign.** |
 | `app/work/[slug]/page.tsx` | Not yet read — assumed to be a detail page rendering from `projects` in site-content. |
 
 ---
