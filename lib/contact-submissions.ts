@@ -110,16 +110,12 @@ export function validateContactPayload(payload: ContactPayload) {
   const service = normalize(payload.service);
   const details = normalize(payload.details);
 
-  if (!name || !email || !phone || !service || !details) {
+  if (!name || !service || !details || (!email && !phone)) {
     return { error: "Please fill in all required fields before sending your message." };
   }
 
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+  if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     return { error: "Please enter a valid email address." };
-  }
-
-  if (details.length < 20) {
-    return { error: "Please add a little more detail so we can understand the project well." };
   }
 
   return {

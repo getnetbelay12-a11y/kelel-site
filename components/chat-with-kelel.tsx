@@ -9,6 +9,7 @@ const helpOptions = [
   "I need an internal dashboard or reporting system",
   "I need a workflow system for operations",
   "I need a banking or insurance platform",
+  "I want to write my own request",
 ];
 
 function labelForNeed(need: string) {
@@ -17,6 +18,7 @@ function labelForNeed(need: string) {
   if (need.includes("performance")) return "Performance improvement";
   if (need.includes("dashboard")) return "Internal dashboard";
   if (need.includes("workflow")) return "Workflow system";
+  if (need.includes("own request")) return "Custom request";
   return "Banking or insurance platform";
 }
 
@@ -25,13 +27,14 @@ export function ChatWithKelel() {
   const [selectedNeed, setSelectedNeed] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
 
   const isReady = useMemo(
-    () => phone.trim().length > 5 && email.trim().includes("@"),
-    [phone, email],
+    () => (phone.trim().length > 0 || email.trim().length > 0) && message.trim().length > 0,
+    [email, message, phone],
   );
 
   function handleNeedSelect(option: string) {
@@ -62,7 +65,7 @@ export function ChatWithKelel() {
           email: email.trim(),
           phone: phone.trim(),
           service: labelForNeed(selectedNeed),
-          details: `Submitted via Chat with Kelel. Request type: ${selectedNeed}. Please follow up with this lead directly.`,
+          details: `Submitted via Chat with Kelel. Request type: ${selectedNeed}. Message: ${message.trim()}`,
         }),
       });
 
@@ -129,11 +132,21 @@ export function ChatWithKelel() {
               {!submitted ? (
                 <>
                   <div className="enterprise-chat-message enterprise-chat-message-assistant">
-                    <p>Thank you. Please share your phone number and email address.</p>
+                    <p>Write what you need and leave a phone number or email address.</p>
                     <p>Our team will review your request and get back to you shortly.</p>
                   </div>
 
                   <form className="enterprise-chat-contact-form" onSubmit={handleSubmit}>
+                    <label>
+                      <span>Message</span>
+                      <textarea
+                        value={message}
+                        onChange={(event) => setMessage(event.target.value)}
+                        placeholder="Write anything you need help with."
+                        rows={4}
+                        required
+                      />
+                    </label>
                     <label>
                       <span>Phone number</span>
                       <input

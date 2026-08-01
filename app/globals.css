@@ -13194,6 +13194,7 @@ body::before {
   right: 24px;
   width: 360px;
   max-width: calc(100vw - 48px);
+  max-height: min(620px, calc(100svh - 48px));
   z-index: 50;
   background: linear-gradient(180deg, var(--obsidian-2), var(--obsidian-3));
   border: 1px solid var(--line-2);
@@ -13202,7 +13203,9 @@ body::before {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  max-height: 520px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
 }
 
 .enterprise-chat-panel::before {
@@ -13334,7 +13337,8 @@ body::before {
   letter-spacing: 0.1em;
 }
 
-.enterprise-chat-contact-form input {
+.enterprise-chat-contact-form input,
+.enterprise-chat-contact-form textarea {
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid var(--line-2);
   border-radius: 8px;
@@ -13345,7 +13349,14 @@ body::before {
   transition: border-color 0.2s;
 }
 
-.enterprise-chat-contact-form input:focus {
+.enterprise-chat-contact-form textarea {
+  min-height: 110px;
+  resize: vertical;
+  line-height: 1.5;
+}
+
+.enterprise-chat-contact-form input:focus,
+.enterprise-chat-contact-form textarea:focus {
   outline: none;
   border-color: var(--cyan);
 }
@@ -24403,6 +24414,14 @@ body {
     content: "Chat";
     font-size: 10px;
     font-weight: 800;
+  }
+
+  .enterprise-chat-panel {
+    right: 12px !important;
+    bottom: 72px !important;
+    width: calc(100vw - 24px) !important;
+    max-width: calc(100vw - 24px) !important;
+    max-height: calc(100svh - 88px) !important;
   }
 }
 
